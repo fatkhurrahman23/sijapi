@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('kode_matakuliah', 20);
             $table->string('kode_kelas', 20);
             $table->string('nama', 20);
-            $table->int('sks', 20);
-            $table->int('semester', 20);
+            $table->integer('sks', 20);
+            $table->integer('semester', 20);
             $table->enum('jenis', ['gasal', 'genap']);
         });
     }
