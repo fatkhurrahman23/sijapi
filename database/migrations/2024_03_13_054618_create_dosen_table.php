@@ -13,8 +13,12 @@ return new class extends Migration
     {
         Schema::create('dosen', function (Blueprint $table) {
             $table->id();
-            $table->string('nip');
-            $table->string('nama');
+            $table->string('nip', 20);
+            $table->string('nama', 90);
+            $table->string('alamat');
+            $table->string('no_telp', 20);
+            $table->string('kode_prodi', 20);
+            $table->string('kode_dosen', 20);
         });
     }
 
