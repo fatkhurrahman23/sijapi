@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('jam', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('kode_jam', 20);
+            $table->timestamp('range_jam');
         });
     }
 
