@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('kelas_mahasiswa', function (Blueprint $table) {
             $table->id();
             $table->string('kode_kelas', 20)->unique();
-            $table->string('prodi', 20);
+            // $table->string('prodi', 20);
+            $table->enum('prodi', ['D3 - Teknik Informatika', 'D4 - Teknologi Rekayasa Komputer']);
         });
     }
 

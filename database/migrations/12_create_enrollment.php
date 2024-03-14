@@ -32,7 +32,7 @@ return new class extends Migration
                 ->on('tahun_akademik');
             
             $table->foreign('kode_mata_kuliah')
-                ->references('kode_matakuliah')
+                ->references('kode_mata_kuliah')
                 ->on('mata_kuliah');
         });
     }
