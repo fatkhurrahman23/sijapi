@@ -17,7 +17,12 @@ return new class extends Migration
             $table->string('nama', 90);
             $table->enum('jenis_kelamin', ['L', 'P']);
             $table->string('kode_kelas', 20);
-            // $table->timestamps();
+            
+            $table->foreign('kode_kelas')
+                ->references('kode_kelas')
+                ->on('kelas_mahasiswa')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
         });
     }
 

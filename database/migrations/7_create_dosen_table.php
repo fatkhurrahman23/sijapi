@@ -13,13 +13,18 @@ return new class extends Migration
     {
         Schema::create('dosen', function (Blueprint $table) {
             $table->id();
-            $table->string('kode', 20);
-            $table->string('nip', 20);
+            $table->string('kode_dosen', 20);
+            $table->string('nip', 20)->unique();
             $table->string('nama', 90);
             $table->string('alamat');
             $table->string('no_telp', 20);
             $table->string('kode_prodi', 20);
-            $table->string('kode_dosen', 20);
+
+            $table->foreign('kode_prodi')
+                ->references('kode_prodi')
+                ->on('prodi_dosen')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
         });
     }
 
