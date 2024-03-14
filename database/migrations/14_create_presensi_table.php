@@ -11,12 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('presensi', function (Blueprint $table) {
-            $table->id();
-            $table->string('kode_absensi', 20);
-            $table->string('kode_jadwal', 20);
-            $table->timestamp('jam_token');
-        });
+        if(!Schema::hasTable('presensi')){
+
+            Schema::create('presensi', function (Blueprint $table) {
+                $table->id();
+                $table->string('kode_presensi', 20)->unique();
+                $table->string('kode_jadwal_kuliah', 20);
+                $table->timestamp('jam_token');
+    
+                $table->foreign('kode_jadwal_kuliah')
+                    ->references('kode_jadwal_kuliah')
+                    ->on('jadwal_kuliah');
+                
+            });
+        }
     }
 
     /**

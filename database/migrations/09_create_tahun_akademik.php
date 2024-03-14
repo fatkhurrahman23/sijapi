@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('tahun_akademik', function (Blueprint $table) {
             $table->id();
-            $table->string('kode_tahun_akademik', 20);
+            $table->string('kode_tahun_akademik', 20)->unique();
             $table->string('tahun_akademik', 20);
             $table->enum('status', ['gasal', 'genap']);
         });

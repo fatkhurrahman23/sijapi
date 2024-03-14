@@ -17,8 +17,8 @@ return new class extends Migration
                 $table->id();
                 $table->string('kode_waktu_tidak_tersedia', 20);
                 $table->string('kode_dosen', 20);
-                $table->string('kode_hari', 20);
                 $table->string('kode_jam', 20);
+                $table->string('kode_hari', 20);
                 // $table->timestamps();
     
                 $table->foreign('kode_dosen')
@@ -26,17 +26,17 @@ return new class extends Migration
                     ->on('dosen')
                     ->onDelete('cascade');
     
-                $table->foreign('kode_hari')
-                    ->references('kode_hari')
-                    ->on('hari')
-                    ->onDelete('cascade');
-    
+                    
                 $table->foreign('kode_jam')
                     ->references('kode_jam')
                     ->on('jam')
                     ->onDelete('cascade')
                     ->onUpdate('cascade');
-
+                    
+                $table->foreign('kode_hari')
+                    ->references('kode_hari')
+                    ->on('hari');
+                    // ->onDelete('cascade');
             });
         }
     }

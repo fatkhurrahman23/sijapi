@@ -13,11 +13,27 @@ return new class extends Migration
     {
         Schema::create('enrollment', function (Blueprint $table) {
             $table->id();
-            $table->string('kode_enrollment', 20);
+            $table->string('kode_enrollment', 20)->unique();
             $table->string('kode_kelas', 20);
             $table->string('kode_dosen', 20);
             $table->string('kode_tahun_akademik', 20);
             $table->string('kode_mata_kuliah', 20);
+
+            $table->foreign('kode_kelas')
+                ->references('kode_kelas')
+                ->on('kelas_mahasiswa');
+            
+            $table->foreign('kode_dosen')
+                ->references('kode_dosen')
+                ->on('dosen');
+            
+            $table->foreign('kode_tahun_akademik')
+                ->references('kode_tahun_akademik')
+                ->on('tahun_akademik');
+            
+            $table->foreign('kode_mata_kuliah')
+                ->references('kode_matakuliah')
+                ->on('mata_kuliah');
         });
     }
 

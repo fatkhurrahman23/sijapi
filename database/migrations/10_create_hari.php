@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('hari', function (Blueprint $table) {
             $table->id();
-            $table->string('kode_hari', 20);
+            $table->string('kode_hari', 20)->unique();
             $table->enum('hari', ['senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu', 'minggu']);
         });
     }
