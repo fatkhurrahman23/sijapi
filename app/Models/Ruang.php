@@ -11,7 +11,7 @@ class DataRuang extends Model
 
     protected $table = 'data_ruang';
 
-    public function Jadwal_kuliah(){
+    public function jadwal_kuliah(){
         return $this->hasMany('C:\xampp\htdocs\sijapi\app\Models\Jadwal_kuliah.php', 'kode_ruang');
     }
 }
