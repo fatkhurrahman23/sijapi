@@ -17,6 +17,10 @@ return new class extends Migration
             $table->string('password');
             $table->enum('level', ['mahasiswa', 'dosen', 'admin']);
             // $table->timestamps();
+            $table->foreign('username') 
+                ->references('id')
+                ->onDelete('cascade')
+                ->onUpdate('cascade'); 
         });
     }
 
