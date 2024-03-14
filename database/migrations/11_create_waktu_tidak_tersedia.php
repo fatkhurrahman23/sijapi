@@ -34,7 +34,9 @@ return new class extends Migration
                 $table->foreign('kode_jam')
                     ->references('kode_jam')
                     ->on('jam')
-                    ->onDelete('cascade');
+                    ->onDelete('cascade')
+                    ->onUpdate('cascade');
+
             });
         }
     }

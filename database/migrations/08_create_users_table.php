@@ -11,25 +11,26 @@ return new class extends Migration
      */
     public function up(): void
     {
+        
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('username')->unique();
+            $table->string('username');
             $table->string('password');
             $table->enum('level', ['mahasiswa', 'dosen', 'admin']);
             // $table->timestamps();
 
-            $table->foreign('username') 
-                ->references('nim')
-                ->on('mahasiswa')
-                ->onDelete('cascade')
-                ->onUpdate('cascade'); 
+            // $table->foreign('username') 
+            //     ->references('nim')
+            //     ->on('mahasiswa')
+            //     ->onDelete('cascade')
+            //     ->onUpdate('cascade'); 
             
             
-            $table->foreign('username')
-                ->references('nip')
-                ->on('dosen')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
+            // $table->foreign('username')
+            //     ->references('nip')
+            //     ->on('dosen')
+            //     ->onDelete('cascade')
+            //     ->onUpdate('cascade');
         });
     }
 

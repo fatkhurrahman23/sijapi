@@ -16,5 +16,6 @@ class Dosen extends Model
     public function Users(){
 
         return $this->hasOne('app\Models\Users.php', 'username');
+        
     }
 }

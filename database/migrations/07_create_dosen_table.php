@@ -25,6 +25,12 @@ return new class extends Migration
                 ->on('prodi_dosen')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
+            
+            // $table->foreign('nip')
+            //     ->references('username')
+            //     ->on('users')
+            //     ->onDelete('cascade')
+            //     ->onUpdate('cascade');
         });
     }
 
