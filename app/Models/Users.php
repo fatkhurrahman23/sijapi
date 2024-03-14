@@ -13,7 +13,7 @@ class Users extends Model
     protected $primarykey = 'id';
     protected $fillable = ['id' ,'username', 'password', 'level'];
 
-    public function dosen(){
-        return $this->belongsto('app\Models\Dosen.php', 'id');
+    public function Dosen(){
+        return $this->belongsTo('app\Models\Dosen.php', 'id');
     }
 }
