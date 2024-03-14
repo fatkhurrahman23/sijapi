@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('data_presensi', function (Blueprint $table) {
             $table->id();
             $table->string('kode_data_presensi', 20)->unique();
-            $table->bigIncrements('kode_presensi');
+            $table->string('kode_presensi');
             $table->string('nim_mahasiswa', 20);
             $table->timestamp('waktu');
             $table->enum('status', ['hadir', 'tidak hadir', 'terlambat']);

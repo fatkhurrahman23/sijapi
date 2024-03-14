@@ -13,12 +13,14 @@ return new class extends Migration
     {
         Schema::create('mata_kuliah', function (Blueprint $table) {
             $table->id();
-            $table->string('kode_matakuliah', 20);
-            $table->string('kode_kelas', 20);
-            $table->string('nama', 20);
-            $table->integer('sks', 20);
-            $table->integer('semester', 20);
+            $table->string('kode_matakuliah')->length(20);
+            $table->string('kode_kelas')->length(20);
+            $table->string('nama')->length(20);
+            $table->integer('sks')->length(20);
+            $table->integer('semester')->length(20);
             $table->enum('jenis', ['gasal', 'genap']);
+
+            
         });
     }
 
