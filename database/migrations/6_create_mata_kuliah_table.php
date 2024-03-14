@@ -19,6 +19,12 @@ return new class extends Migration
             $table->integer('sks', 20);
             $table->integer('semester', 20);
             $table->enum('jenis', ['gasal', 'genap']);
+
+            $table->foreign('kode_kelas')
+                ->references('kode_kelas')
+                ->on('kelas_mahasiswa')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
         });
     }
 

@@ -11,13 +11,32 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('waktu_tidak_tersedia', function (Blueprint $table) {
-            $table->id();
-            $table->string('kode_dosen', 20);
-            $table->string('kode_hari', 20);
-            $table->string('kode_jam', 20);
-            // $table->timestamps();
-        });
+        if(!Schema::hasTable('waktu_tidak_tersedia')){
+
+            Schema::create('waktu_tidak_tersedia', function (Blueprint $table) {
+                $table->id();
+                $table->string('kode_waktu_tidak_tersedia', 20);
+                $table->string('kode_dosen', 20);
+                $table->string('kode_hari', 20);
+                $table->string('kode_jam', 20);
+                // $table->timestamps();
+    
+                $table->foreign('kode_dosen')
+                    ->references('kode_dosen')
+                    ->on('dosen')
+                    ->onDelete('cascade');
+    
+                $table->foreign('kode_hari')
+                    ->references('kode_hari')
+                    ->on('hari')
+                    ->onDelete('cascade');
+    
+                $table->foreign('kode_jam')
+                    ->references('kode_jam')
+                    ->on('jam')
+                    ->onDelete('cascade');
+            });
+        }
     }
 
     /**
