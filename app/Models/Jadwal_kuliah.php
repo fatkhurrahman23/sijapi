@@ -12,6 +12,6 @@ class Jadwal_kuliah extends Model
     protected $table = 'jadwal_kuliah';
 
     public function ruang(){
-        return $this->hasMany('C:\xampp\htdocs\sijapi\app\Models\Ruang.php' , 'kode_jadwal_kuliah') ;
+        return $this->belongsTo('C:\xampp\htdocs\sijapi\app\Models\Ruang.php' , 'kode_jadwal_kuliah') ;
     }
 }
