@@ -11,11 +11,17 @@ class Dosen extends Model
 
     protected $table = 'dosen';
     protected $primarykey = 'id';
-    protected $fillable = ['id', 'kode_dosen', 'nip', 'nama', 'alamat', 'telp', 'kode_prodi'];
+    protected $fillable = ['id', 'kode_dosen', 'nip', 'nama', 'alamat', 'no_telp', 'kode_prodi'];
 
-    public function Users(){
+    public function prodi_dosen(){
+        return $this->belongsTo('app\Models\Prodi_dosen.php', 'kode_prodi');
+    }
 
-        return $this->hasOne('app\Models\Users.php', 'username');
-        
+    public function enrollment(){
+        return $this->hasMany('app\Models\Enrollment.php', 'kode_dosen');
+    }
+
+    public function waktu_tidak_tersedia(){
+        return $this->hasMany('app\Models\Waktu_tidak_tersedia.php', 'kode_dosen');
     }
 }
