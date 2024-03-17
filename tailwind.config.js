@@ -63,6 +63,8 @@ module.exports = {
                 "linear-gradient(to left, var(--tw-gradient-stops))",
             "gradient-to-tl":
                 "linear-gradient(to top left, var(--tw-gradient-stops))",
+            "login-polines": "url('/image/image1.png')",
+            "logo-pilines": "url('/image/logo-polines.png')",
         },
         backgroundOpacity: ({ theme }) => theme("opacity"),
         backgroundPosition: {
@@ -315,6 +317,7 @@ module.exports = {
             "10/12": "83.333333%",
             "11/12": "91.666667%",
             full: "100%",
+            120: "120vh",
         }),
         flexGrow: {
             0: "0",
@@ -575,6 +578,7 @@ module.exports = {
             min: "min-content",
             max: "max-content",
             fit: "fit-content",
+            120: "120vh",
         }),
         hueRotate: {
             0: "0deg",
@@ -1074,6 +1078,7 @@ module.exports = {
             min: "min-content",
             max: "max-content",
             fit: "fit-content",
+            120: "120vh",
         }),
         willChange: {
             auto: "auto",
