@@ -63,8 +63,10 @@ module.exports = {
                 "linear-gradient(to left, var(--tw-gradient-stops))",
             "gradient-to-tl":
                 "linear-gradient(to top left, var(--tw-gradient-stops))",
-            "login-polines": "url('/image/image1.png')",
-            "logo-pilines": "url('/image/logo-polines.png')",
+            "login-polines": "url('/resources/Assets/image/image1.png')",
+            "logo-polines": "url('/resources/Assets/image/logo-polines.png')",
+            "background-login":
+                "url('/resources/Assets/image/background-login.png')",
         },
         backgroundOpacity: ({ theme }) => theme("opacity"),
         backgroundPosition: {
@@ -178,6 +180,7 @@ module.exports = {
                 birutua: "#083358",
                 kuning: "#FFD717",
                 birumuda: "#0D63A5",
+                putih: "#F4F4F4",
             },
         }),
         columns: {
