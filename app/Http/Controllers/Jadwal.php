@@ -8,8 +8,8 @@ use Illuminate\Support\Facades\DB; // Add this line
 class Jadwal extends Controller
 {
     public function tampilDataRuang(Request $request){
-        $data = DB::table('ruang')->get();
-        return view('admin/ruang', ['data' => $data]);
+        $dataRuang = DB::table('ruang')->get();
+        return view('admin/ruang', ['dataRuang' => $dataRuang]);
     }
 
     public function tambahDataRuang(Request $request){
@@ -19,4 +19,18 @@ class Jadwal extends Controller
         ]);
         return redirect('admin/ruang');
     }
+
+    public function editRuang($kode_ruang){
+        $ruangToEdit = DB::table('ruang')->where('id', $kode_ruang)->first();
+        return view('admin/edit_ruang', ['ruangToEdit' => $ruangToEdit]);
+    }
+
+    public function updateDataRuang(Request $request){
+        DB::table('ruang')->where('kode_ruang', $request->kode_ruang)->update([
+            'nama' => $request->nama
+        ]);
+        return redirect('admin/ruang');
+    }
+
+
 }

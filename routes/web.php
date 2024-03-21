@@ -13,4 +13,7 @@ Route::post('/login', [Login::class, 'login'])->name('login');
 Route::get('admin/ruang', [Jadwal::class, 'tampilDataRuang']);
 Route::post('admin/ruang', [Jadwal::class, 'tambahDataRuang']);
 
-// Route::get('');
+// Add route for editing room codes
+Route::get('admin/ruang/{kode_ruang}/edit', [Jadwal::class, 'editRuang'])->name('ruang.edit');
+Route::put('admin/ruang/{id}/update', [Jadwal::class, 'updateDataRuang'])->name('ruang.update');
+

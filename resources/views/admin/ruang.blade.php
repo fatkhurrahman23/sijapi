@@ -14,11 +14,14 @@
         <tr>
             <th>ID Ruang</th>
             <th>Nama Ruang</th>
+            <th>Action</th>
         </tr>
-        @foreach($data as $ruang)
+        @foreach($dataRuang as $ruang)
         <tr>
             <td>{{ $ruang->kode_ruang }}</td>
             <td>{{ $ruang->nama }}</td>
+            <td>
+                <a href="{{ route('ruang.edit', $ruang->id) }}" class="btn btn-warning">Edit</a>
         </tr>
         @endforeach
     </table>
@@ -39,6 +42,8 @@
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
+
+    
 
     <!-- Your table here -->
 </body>
