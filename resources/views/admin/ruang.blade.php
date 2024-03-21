@@ -23,21 +23,10 @@
         @endforeach
     </table>
 
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addRuangModal">
-    Add Ruang
-    </button>
-
-    <!-- Modal -->
-    <div class="modal fade" id="addRuangModal" tabindex="-1" aria-labelledby="addRuangModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="addRuangModalLabel">Add Ruang</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            <form action="/admin/ruang" method="POST">
+    <!-- Form -->
+    <div class="container mt-5">
+        <h2>Add Ruang</h2>
+        <form action="/admin/ruang" method="POST">
             @csrf
             <div class="mb-3">
                 <label for="kode_ruang" class="form-label">ID Ruang</label>
@@ -48,10 +37,9 @@
                 <input type="text" class="form-control" id="nama" name="nama">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-        </div>
-        </div>
+        </form>
     </div>
-    </div>
+
+    <!-- Your table here -->
 </body>
 </html>

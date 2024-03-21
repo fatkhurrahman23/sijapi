@@ -11,5 +11,6 @@ Route::get('/', [sijapi::class, 'index']);
 Route::post('/login', [Login::class, 'login'])->name('login');
 
 Route::get('admin/ruang', [Jadwal::class, 'tampilDataRuang']);
+Route::post('admin/ruang', [Jadwal::class, 'tambahDataRuang']);
 
 // Route::get('');

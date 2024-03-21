@@ -11,4 +11,12 @@ class Jadwal extends Controller
         $data = DB::table('ruang')->get();
         return view('admin/ruang', ['data' => $data]);
     }
+
+    public function tambahDataRuang(Request $request){
+        DB::table('ruang')->insert([
+            'kode_ruang' => $request->kode_ruang,
+            'nama' => $request->nama
+        ]);
+        return redirect('admin/ruang');
+    }
 }
