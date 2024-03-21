@@ -11,7 +11,7 @@
         <h2>Edit Ruang</h2>
         <form action="/admin/ruang/{{ $ruangToEdit->id }}/update" method="POST">
             @csrf
-            @method('PUT')
+            <!-- @method('PUT') -->
             <div class="mb-3">
                 <label for="kode_ruang" class="form-label">ID Ruang</label>
                 <input type="text" class="form-control" id="kode_ruang" name="kode_ruang" value="{{ $ruangToEdit->kode_ruang }}">
