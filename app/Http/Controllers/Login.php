@@ -9,8 +9,9 @@ class Login extends Controller
     public function login(Request $request)
     {
         $credentials = $request->only('username', 'password');
+        $remember = $request->has('remember');
 
-        if (Auth::attempt($credentials)) {
+        if (Auth::attempt($credentials, $remember)) {
             // Authentication passed...
             return redirect()->intended('dashboard');
         } else {
