@@ -134,16 +134,17 @@
 <body class="m-0 p-0">
 <div class="bg-background-login bg-no-repeat bg-cover h-120 flex justify-center items-center">
         <div class="rounded-lg border-custom-birutua bg-custom-putih w-11/12 h-5/6 grid grid-cols-2 shadow-2xl second">
-            <div class="rounded-lg bg-login-polines bg-cover bg-center bg-no-repeat second-left flex flex-col justify-end ">
-                <p class="font-poppins border-custom-kuning font-semibold text-custom-kuning pl-3 underline underline-offset-8 second-text-first"">SELAMAT DATANG</p>
-                <p class="font-poppins font-thin text-white pl-3 second-text-second">Sistem Penjadwalan dan Presensi</p> 
-                <p class="glow-text font-poppins font-bold text-white pl-3 pb-9 second-text-third">Politeknik Negeri Semarang</p> 
-            </div>
+        <div class="rounded-lg bg-login-polines flex-col bg-cover bg-center bg-no-repeat second-left flex justify-end ">
+            <p class="font-poppins border-custom-kuning font-semibold text-custom-kuning pl-3 underline underline-offset-8 second-text-first mb-6">SELAMAT DATANG</p>
+            <p class="font-poppins font-thin text-white pl-3 mt-2 second-text-second  mb-4">Sistem Penjadwalan dan Presensi</p> 
+            <p class="glow-text font-poppins font-bold text-white mt-2 pl-3 pb-9 second-text-third ">Politeknik Negeri Semarang</p> 
+        </div>
+
             <div class="rounded-lg flex-col bg-custom-putih flex justify-center items-center second-right">
                 <div class="w-36 h-36 mt-5 bg-logo-polines logo-cap bg-no-repeat"></div>
                 <p class="mt-2 logo-cap font-poppins text-sm">Welcome Back, Please login to your account</p>
                 <p class="font-poppins font-light text-xl  sign-in">SIGN-IN</p>
-                <form class="w-7/12  form" action="{{route('login')}}" method="POST">
+                <form class="w-7/12 mt-4 form" action="{{route('login')}}" method="POST">
                     <div class="mb-1">
                         <label for="email" class="block font-poppins mb-2 text-sm font-semibold text-gray-900 dark:text-white username">Username</label>
                         <input type="email" id="email" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-custom-birutua focus:border-custom-birutua block w-11/12 p-2.5 input" placeholder="name@gmail.com" required />
@@ -154,7 +155,7 @@
                     </div>
                     <div class="flex items-start mt-3 ">
                         <div class="flex items-center h-5 kotak">
-                            <input id="remember" type="checkbox" value="" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-custom-birutua dark:focus:ring-blue-600" required />
+                            <input id="remember" type="checkbox" value="" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-custom-birutua dark:focus:ring-blue-600" />
                         </div>
                         <label for="remember" class="remember-forget ms-1 text-xs font-poppins font-light text-gray-900">Remember me</label>
                         <a class="remember-forget ml-auto text-xs font-poppins font-light text-custom-birumuda hover:text-custom-birutua" href="">Forgot Password?</a>
