@@ -19,3 +19,22 @@ toggle.onclick = function () {
     navigation.classList.toggle("active");
     main.classList.toggle("active");
 };
+
+document.addEventListener("DOMContentLoaded", function () {
+    const navigationItems = document.querySelectorAll(".navigation ul li");
+
+    navigationItems.forEach((item) => {
+        item.addEventListener("click", function (event) {
+            // Hide all pages
+            document.querySelectorAll(".main .page").forEach((page) => {
+                page.style.display = "none";
+            });
+
+            // Get target id from clicked navigation item
+            const targetId = this.id.replace("-nav", "");
+
+            // Show the target page
+            document.getElementById(targetId).style.display = "block";
+        });
+    });
+});

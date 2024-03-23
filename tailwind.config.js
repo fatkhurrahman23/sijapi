@@ -70,7 +70,8 @@ module.exports = {
                 "url('/resources/Assets/image/background-login.png')",
             "logo-sijapi": "url('/resources/Assets/image/logo-sijapi.png')",
             "logo-profile": "url('/resources/Assets/image/logo-profile.png')",
-            customers: "url('resources/Assets/image/customer01.jpg')",
+            "logo-customer": "url('resources/Assets/image/customer01.jpg')",
+            "logo-admin": "url('resources/Assets/image/logo-admin.png')",
         },
         backgroundOpacity: ({ theme }) => theme("opacity"),
         backgroundPosition: {

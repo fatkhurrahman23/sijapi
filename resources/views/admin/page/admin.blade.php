@@ -13,20 +13,20 @@
 </head>
 
 <body>
-    <!-- =============== Navigation ================ -->
+<!-- =============================================== Navigation =============================================== -->
     <div class="container">
         <div class="navigation">
             <ul>
-                <li class="border border-solid">
+                <li class="mt-2">
                     <a href="#">
-                        <span class="icon">
-                            <!-- <ion-icon name="logo-apple"></ion-icon> -->
+                        <span class="icon bg-logo-polines bg-contain bg-no-repeat">
+                            
                         </span>
-                        <span class="title">SIJAPI</span>
+                        <span class="title bg-bg-sijapi bg-no-repeat bg-contain w-3/4 ml-2" ></span>
                     </a>
                 </li>
 
-                <li>
+                <li id="tambah-data-nav">
                     <a href="#">
                         <span class="icon">
                             <ion-icon name="grid-outline"></ion-icon>
@@ -35,7 +35,7 @@
                     </a>
                 </li>
 
-                <li>
+                <li id="mahasiswa-nav">
                     <a href="#">
                         <span class="icon">
                             <ion-icon name="accessibility-outline"></ion-icon>
@@ -44,30 +44,22 @@
                     </a>
                 </li>
 
-                <li>
+                <li id="dosen-nav">
                     <a href="#">
                         <span class="icon">
                             <ion-icon name="id-card-outline"></ion-icon>
                         </span>
                         <span class="title">Dosen</span>
+                        
                     </a>
                 </li>
 
-                <li>
+                <li id="mata-kuliah-nav">
                     <a href="#">
                         <span class="icon">
                             <ion-icon name="file-tray-full-outline"></ion-icon>
                         </span>
                         <span class="title">Mata Kuliah</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#">
-                        <span class="icon">
-                            <ion-icon name="file-tray-full-outline"></ion-icon>
-                        </span>
-                        <span class="title">Generate Jadwal</span>
                     </a>
                 </li>
 
@@ -91,7 +83,7 @@
             </ul>
         </div>
 
-        <!-- ========================= Main ==================== -->
+<!-- =============================================== Main =============================================== -->
         <div class="main">
             <div class="topbar">
                 <div class="toggle">
@@ -105,219 +97,132 @@
                     </label>
                 </div>
 
-                <div class="user">
-                    <img src="assets/imgs/customer01.jpg" alt="">
+                <div class="user bg-yellow-400">
+                    <p class="flex justify-center font-poppins text-3xl font-semibold text-custom-putih">A</p>
                 </div>
             </div>
 
-            <!-- ======================= Cards ================== -->
-            <!-- <div class="cardBox">
-                <div class="card">
-                    <div>
-                        <div class="numbers">1,504</div>
-                        <div class="cardName">Daily Views</div>
-                    </div>
+            <div class="tambah">
 
-                    <div class="iconBx">
-                        <ion-icon name="eye-outline"></ion-icon>
+<!-- ===============================================TAMBAH DATA=============================================== -->
+
+                <div id="tambah-data" class="page">
+                   
+                   <h1>tambah Content</h1>
+               </div>
+
+<!-- ===============================================MAHASISWA=============================================== -->
+
+                <div id="mahasiswa" class="page ml-12">
+                    <p class=" glow-text mt-10 font-poppins font-bold text-black text-2xl">TAMBAH DATA MAHASISWA</p>
+                    <form action="">
+                        <div class="mt-5 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                            <div class="sm:col-span-2 sm:col-start-1">
+                                <label for="no" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">No</label>
+                                <div class="mt-2">
+                                    <input type="text" name="no" id="no" autocomplete="no" class="block w-4/5 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                </div>
+                            </div>
+
+                            <div class="sm:col-span-2">
+                                <label for="nama-mahasiswa" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Nama Mahasiswa</label>
+                                <div class="mt-2">
+                                    <input type="text" name="nama-mahasiswa" id="nama-mahasiswa" autocomplete="nama-mahasiswa" class="block w-4/5 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                </div>
+                            </div>
+
+                            <div class="sm:col-span-2">
+                                <label for="nim" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">NIM</label>
+                                <div class="mt-2">
+                                    <input type="text" name="nim" id="nim" autocomplete="nim" class="block w-4/5 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                </div>
+                            </div>
+                            <div class="sm:col-span-2">
+                                <button type="submit" class="w-3/6 rounded-md bg-custom-birumuda px-3 py-2 text-sm font-poppins font-semibold text-white shadow-sm hover:bg-custom-birutua focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Tambah</button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="overflow-x-auto">
+                        <table class="table-auto mt-24 w-11/12 border-collapse">
+                            <thead>
+                                <tr>
+                                    <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">No</th>
+                                    <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Nama Mahasiswa</th>
+                                    <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">NIM</th>
+                                    <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Tambahkan baris-baris data di sini -->
+                
+                                <tr>
+                                    <td class="border px-4 py-2">1</td>
+                                    <td class="border px-4 py-2">Rais Hannan Rizanto</td>
+                                    <td class="border px-4 py-2">4.33.22.1.21</td>
+                                    <td class="border px-4 py-2">
+                                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-poppins font-normal py-1 px-2 rounded">Edit</button>
+                                        <button class="bg-red-500 hover:bg-red-700 text-white font-poppins font-normal  py-1 px-2 rounded">Hapus</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
 
-                <div class="card">
-                    <div>
-                        <div class="numbers">80</div>
-                        <div class="cardName">Sales</div>
-                    </div>
+<!-- ===============================================DOSEN=============================================== -->
 
-                    <div class="iconBx">
-                        <ion-icon name="cart-outline"></ion-icon>
+                <div id="dosen" class="page ml-12">
+                    <p class="glow-text mt-10 font-poppins font-bold text-black text-2xl">TAMBAH DAFTAR DOSEN</p>
+                        <form action="">
+                            <div class="mt-5 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                                <div class="sm:col-span-2">
+                                    <a href="#tambahdosen" class="flex w-3/6 rounded-md bg-custom-birumuda px-3 py-2 text-sm font-poppins font-semibold text-white shadow-sm hover:bg-custom-birutua focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 justify-center">Tambah <ion-icon name="add" size="small" class="ml-1"></ion-icon></a>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="overflow-x-auto">
+                            <table class="table-auto mt-24 w-11/12 border-collapse">
+                                <thead>
+                                    <tr>
+                                        <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">No</th>
+                                        <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Nama Dosen</th>
+                                        <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">NIP</th>
+                                        <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Tambahkan baris-baris data di sini -->
+                    
+                                    <tr>
+                                        <td class="border px-4 py-2">1</td>
+                                        <td class="border px-4 py-2">John Doe</td>
+                                        <td class="border px-4 py-2">002182725211</td>
+                                        <td class="border px-4 py-2">
+                                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-poppins font-normal py-1 px-2 rounded">Edit</button>
+                                            <button class="bg-red-500 hover:bg-red-700 text-white font-poppins font-normal  py-1 px-2 rounded">Hapus</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
+<!-- ===============================================TAMBAH DATA DOSEN=============================================== -->
+                <div id="tambahdosen" class="page ml-12">
+                    <p class="glow-text mt-10 font-poppins font-bold text-black text-2xl">TAMBAH DAFTAR DOSEN</p>
+                        <form action="">
+                            <div class="mt-5 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                                <div class="sm:col-span-2">
+                                    <button type="button" class= "flex w-3/6 rounded-md bg-custom-birumuda px-3 py-2 text-sm font-poppins font-semibold text-white shadow-sm hover:bg-custom-birutua focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 justify-center">Tambah <ion-icon name="add" size="small" class="ml-1"></ion-icon></button>
+                                </div>
+                            </div>
+                        </form>
                 </div>
-
-                <div class="card">
-                    <div>
-                        <div class="numbers">284</div>
-                        <div class="cardName">Comments</div>
-                    </div>
-
-                    <div class="iconBx">
-                        <ion-icon name="chatbubbles-outline"></ion-icon>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div>
-                        <div class="numbers">$7,842</div>
-                        <div class="cardName">Earning</div>
-                    </div>
-
-                    <div class="iconBx">
-                        <ion-icon name="cash-outline"></ion-icon>
-                    </div>
-                </div>
-            </div> -->
-
-            <!-- ================ Order Details List ================= -->
-            <!-- <div class="details">
-                <div class="recentOrders">
-                    <div class="cardHeader">
-                        <h2>Recent Orders</h2>
-                        <a href="#" class="btn">View All</a>
-                    </div>
-
-                    <table>
-                        <thead>
-                            <tr>
-                                <td>Name</td>
-                                <td>Price</td>
-                                <td>Payment</td>
-                                <td>Status</td>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <tr>
-                                <td>Star Refrigerator</td>
-                                <td>$1200</td>
-                                <td>Paid</td>
-                                <td><span class="status delivered">Delivered</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Dell Laptop</td>
-                                <td>$110</td>
-                                <td>Due</td>
-                                <td><span class="status pending">Pending</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Apple Watch</td>
-                                <td>$1200</td>
-                                <td>Paid</td>
-                                <td><span class="status return">Return</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Addidas Shoes</td>
-                                <td>$620</td>
-                                <td>Due</td>
-                                <td><span class="status inProgress">In Progress</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Star Refrigerator</td>
-                                <td>$1200</td>
-                                <td>Paid</td>
-                                <td><span class="status delivered">Delivered</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Dell Laptop</td>
-                                <td>$110</td>
-                                <td>Due</td>
-                                <td><span class="status pending">Pending</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Apple Watch</td>
-                                <td>$1200</td>
-                                <td>Paid</td>
-                                <td><span class="status return">Return</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Addidas Shoes</td>
-                                <td>$620</td>
-                                <td>Due</td>
-                                <td><span class="status inProgress">In Progress</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div> -->
-
-                <!-- ================= New Customers ================ -->
-                <!-- <div class="recentCustomers">
-                    <div class="cardHeader">
-                        <h2>Recent Customers</h2>
-                    </div>
-
-                    <table>
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="resources/Assets/image/customer01.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>David <br> <span>Italy</span></h4>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="resources/Assets/image/customer01.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>Amit <br> <span>India</span></h4>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="resources/Assets/image/customer01.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>David <br> <span>Italy</span></h4>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="resources/Assets/image/customer01.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>Amit <br> <span>India</span></h4>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="resources/Assets/image/customer01.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>David <br> <span>Italy</span></h4>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="resources/Assets/image/customer01.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>Amit <br> <span>India</span></h4>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="resources/Assets/image/customer01.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>David <br> <span>Italy</span></h4>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="resources/Assets/image/customer01.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>Amit <br> <span>India</span></h4>
-                            </td>
-                        </tr>
-                    </table>
+<!-- ===============================================MATA KULIAH=============================================== -->
+                <div id="mata-kuliah" class="page">
+                   
+                    <h1>matakuliah Content</h1>
                 </div>
             </div>
-        </div>
-    </div> -->
 
     <!-- =========== Scripts =========  -->
     <script src="resources/js/main.js"></script>
@@ -325,6 +230,15 @@
     <!-- ====== ionicons ======= -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script>
+    document.getElementById("tambahdosen-link").addEventListener("click", function(event) {
+        event.preventDefault(); // Menghentikan tindakan default dari tautan (mengarahkan ke URL yang ditentukan)
+        var targetElement = document.getElementById("tambahdosen"); // Mengambil elemen target
+        if (targetElement) {
+            targetElement.scrollIntoView({ behavior: "smooth" }); // Menggulir halaman ke elemen target dengan efek smooth
+        }
+    });
+</script>
 </body>
 
 </html>
