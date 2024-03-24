@@ -144,14 +144,20 @@
                 <div class="w-36 h-36 mt-5 bg-logo-polines logo-cap bg-no-repeat"></div>
                 <p class="mt-2 logo-cap font-poppins text-sm">Welcome Back, Please login to your account</p>
                 <p class="font-poppins font-light text-xl  sign-in">SIGN-IN</p>
+                @if (session('error'))
+                    <div class="alert alert-danger">
+                        {{ session('error') }}
+                    </div>
+                @endif
                 <form class="w-7/12 mt-4 form" action="{{route('login')}}" method="POST">
+                    @csrf
                     <div class="mb-1">
-                        <label for="email" class="block font-poppins mb-2 text-sm font-semibold text-gray-900 dark:text-white username">Username</label>
-                        <input type="email" id="email" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-custom-birutua focus:border-custom-birutua block w-11/12 p-2.5 input" placeholder="name@gmail.com" required />
+                        <label for="username" class="block font-poppins mb-2 text-sm font-semibold text-gray-900 username">Username</label>
+                        <input type="username" id="username" name="username" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-custom-birutua focus:border-custom-birutua block w-11/12 p-2.5 input"  required />
                     </div>
                     <div class="mt-3 ">
                         <label for="password" class="block font-poppins mb-2 text-sm font-semibold text-gray-900 password">Password</label>
-                        <input type="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-custom-birutua focus:border-custom-birutua block w-11/12 p-2.5 input" required />
+                        <input type="password" id="password" name="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-custom-birutua focus:border-custom-birutua block w-11/12 p-2.5 input" required />
                     </div>
                     <div class="flex items-start mt-3 ">
                         <div class="flex items-center h-5 kotak">
@@ -167,5 +173,6 @@
             </div>
         </div>
     </div>
+
 </body>
 </html>
