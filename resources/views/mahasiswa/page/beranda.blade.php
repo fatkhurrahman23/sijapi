@@ -6,29 +6,72 @@
     <title>Welcome to Our Website</title>
     @vite('resources\css\app.css')
 </head>
-<body>
-    <nav class="bg-custom-birutua">
-        <div class="mc-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-            <div class="relative flex h-16 items-center justify-between">
+
+<body class="flex flex-col min-h-screen bg-cover bg-center ">
+    <!-- background -->
+    <div class = "bg-background-beranda bg-no-repeat  bg-cover h-120">
+        
+        <!-- NAVIGASI -->
+        <nav class="bg-custom-birutua">
+            <div class="mx-auto px-2 sm:px-6 lg:px-8 flex justify-between items-center h-20">
+                <!-- LOGO -->
                 <div>
-                    <div class="bg-logo-sijapi w-28 h-12 bg-no-repeat bg-contain flex justify-center items-start"></div>
+                    <div class="bg-logo-sijapi w-28 h-12 bg-no-repeat bg-contain"></div>
                 </div>
-                <div class="border border-solid">
-                    <ul class="flex justify-start items-end ">
-                        <div class="border border-solid border-yellow-200"><li class="mx-3 py-4 px-2"><a href="">Beranda</a></li></div>
-                        <div class="border border-solid border-yellow-200"><li class="mx-3 py-4 px-2"><a href="">Jadwal</a></li></div>
-                        <div class="border border-solid border-yellow-200"><li class="mx-3 py-4 px-2"><a href="">Presensi</a></li></div>
+                <!-- NAVIGASI -->
+                <div class="flex justify-center items-center space-x-4 text-white">
+                    <ul class="flex space-x-4">
+                        <li><a href="" class="py-4 px-2 border-b-2 border-transparent hover:border-yellow-200">Beranda</a></li>
+                        <li><a href="" class="py-4 px-2 border-b-2 border-transparent hover:border-yellow-200">Jadwal</a></li>
+                        <li><a href="" class="py-4 px-2 border-b-2 border-transparent hover:border-yellow-200">Presensi</a></li>
                     </ul>
                 </div>
-                <div class="flex justify-center items-center">
-                    <button class="mx-auto font-poppins text-custom-putih text-sm border border-solid border-custom-putih px-7 py-1 rounded-md mr-2 bg-custom-birumuda">LOGOUT</button>
+                <!-- PROFILE LOGIN -->
+                <div id="profileLogout" class="hidden sm:flex space-x-4">
+                    <button class="font-poppins text-custom-putih text-sm border border-solid border-custom-putih px-7 py-1 rounded-md bg-custom-birumuda">LOGOUT</button>
                     <button class="font-poppins text-sm text-custom-putih border-custom-putih px-3 py-1 rounded-md flex border border-solid bg-custom-birumuda">
                         <div class="flex justify-center items-center">PROFILE</div>
-                        <div class="ml-2 bg-logo-profile w-5 h-5 bg-contain bg-no-repeat flex"></div>
+                        <div class="ml-2 bg-logo-profile w-5 h-5 bg-contain bg-no-repeat"></div>
+                    </button>
+                </div>
+                <!-- Hamburger Menu -->
+                <div class="sm:hidden">
+                    <button id="menuButton" class="text-white focus:outline-none">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
                     </button>
                 </div>
             </div>
+            
+        </nav>
+        <div class = "bg-people-beranda bg-no-repeat  bg-cover h-120"></div>
+   
+        
+
         </div>
-    </nav>
+
+
+
+
+
+
+
+
+
+    <!-- footer -->
+    <footer class="bg-custom-birutua text-white mt-auto">
+        <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 py-4">
+            <p class="text-center">-POLITEKNIK NEGERI SEMARANG-</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('menuButton').addEventListener('click', function() {
+            document.getElementById('profileLogout').classList.toggle('hidden');
+        });
+    </script>
+
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
