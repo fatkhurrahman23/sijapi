@@ -37,4 +37,12 @@ Route::post('admin/ruang/{id}/update', [Jadwal::class, 'updateDataRuang'])->name
 Route::get('admin/mahasiswa', [Mahasiswa::class, 'tampilDataMahasiswa']);
 Route::post('admin/mahasiswa', [Mahasiswa::class, 'tambahDataMahasiswa']);
 
+// dosen
+Route::get('admin/dosen', [Dosen::class, 'tampilDataDosen']);
+Route::post('admin/dosen', [Dosen::class, 'tambahDataDosen']);
+
+// mata kuliah
+Route::get('admin/matakuliah', [MataKuliah::class, 'tampilDataMatkul']);
+Route::post('admin/matakuliah', [MataKuliah::class, 'tambahDataMatkul']);
+
 
