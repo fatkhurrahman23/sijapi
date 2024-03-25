@@ -7,10 +7,9 @@
     @vite('resources\css\app.css')
 </head>
 
-<body class="flex flex-col min-h-screen bg-cover bg-center ">
+<body class="flex flex-col h-creen bg-cover bg-center ">
     <!-- background -->
-    <div class = "bg-background-beranda bg-no-repeat  bg-cover h-120">
-        
+
         <!-- NAVIGASI -->
         <nav class="bg-custom-birutua">
             <div class="mx-auto px-2 sm:px-6 lg:px-8 flex justify-between items-center h-20">
@@ -45,11 +44,12 @@
             </div>
             
         </nav>
-        <div class = "bg-people-beranda bg-no-repeat  bg-cover h-120"></div>
+        <div class = "bg-background-beranda bg-no-repeat  bg-cover h-120  border border-solid border-yellow-300 flex justify-between">
+            <div class = "bg-people-beranda border border-solid border-red-500 w-5/6 h-full bg-no-repeat  bg-cover w-full h-full border border-solid border-blue-300"></div>
+            <div class ="border border-solid border-green-500 w-5/6 h-full"></div>
+        </div>
    
         
-
-        </div>
 
 
 
