@@ -47,24 +47,35 @@ module.exports = {
         backgroundColor: ({ theme }) => theme("colors"),
         backgroundImage: {
             none: "none",
-            "gradient-to-t": "linear-gradient(to top, var(--tw-gradient-stops))",
-            "gradient-to-tr": "linear-gradient(to top right, var(--tw-gradient-stops))",
-            "gradient-to-r": "linear-gradient(to right, var(--tw-gradient-stops))",
-            "gradient-to-br": "linear-gradient(to bottom right, var(--tw-gradient-stops))",
-            "gradient-to-b": "linear-gradient(to bottom, var(--tw-gradient-stops))",
-            "gradient-to-bl": "linear-gradient(to bottom left, var(--tw-gradient-stops))",
-            "gradient-to-l": "linear-gradient(to left, var(--tw-gradient-stops))",
-            "gradient-to-tl": "linear-gradient(to top left, var(--tw-gradient-stops))",
+            "gradient-to-t":
+                "linear-gradient(to top, var(--tw-gradient-stops))",
+            "gradient-to-tr":
+                "linear-gradient(to top right, var(--tw-gradient-stops))",
+            "gradient-to-r":
+                "linear-gradient(to right, var(--tw-gradient-stops))",
+            "gradient-to-br":
+                "linear-gradient(to bottom right, var(--tw-gradient-stops))",
+            "gradient-to-b":
+                "linear-gradient(to bottom, var(--tw-gradient-stops))",
+            "gradient-to-bl":
+                "linear-gradient(to bottom left, var(--tw-gradient-stops))",
+            "gradient-to-l":
+                "linear-gradient(to left, var(--tw-gradient-stops))",
+            "gradient-to-tl":
+                "linear-gradient(to top left, var(--tw-gradient-stops))",
             "login-polines": "url('/resources/Assets/image/image1.png')",
             "logo-polines": "url('/resources/Assets/image/logo-polines.png')",
             "bg-sijapi": "url('/resources/Assets/image/Sijapi.png')",
-            "background-login": "url('/resources/Assets/image/background-login.png')",
-            "background-beranda": "url('/resources/Assets/image/background-gkt.png')",
+            "background-login":
+                "url('/resources/Assets/image/background-login.png')",
+            "background-beranda":
+                "url('/resources/Assets/image/background-gkt.png')",
             "logo-sijapi": "url('/resources/Assets/image/logo-sijapi.png')",
             "logo-profile": "url('/resources/Assets/image/logo-profile.png')",
             "logo-customer": "url('resources/Assets/image/customer01.jpg')",
             "logo-admin": "url('resources/Assets/image/logo-admin.png')",
             "people-beranda": "url('/resources/Assets/image/People.png')",
+            "tambah-sijapi": "url('resources/Assets/image/tambah-sijapi.png')",
         },
         backgroundOpacity: ({ theme }) => theme("opacity"),
         backgroundPosition: {
@@ -122,7 +133,8 @@ module.exports = {
         },
         boxShadow: {
             sm: "0 1px 2px 0 rgb(0 0 0 / 0.05)",
-            DEFAULT: "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
+            DEFAULT:
+                "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
             md: "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
             lg: "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
             xl: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
@@ -984,7 +996,8 @@ module.exports = {
         transitionProperty: {
             none: "none",
             all: "all",
-            DEFAULT: "color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter",
+            DEFAULT:
+                "color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter",
             colors: "color, background-color, border-color, text-decoration-color, fill, stroke",
             opacity: "opacity",
             shadow: "box-shadow",
