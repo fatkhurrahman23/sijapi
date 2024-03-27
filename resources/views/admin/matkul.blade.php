@@ -69,9 +69,9 @@
                         <table class="table-auto mt-24 w-11/12 border-collapse">
                             <thead>
                                 <tr>
-                                    <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">No</th>
-                                    <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Nama Mahasiswa</th>
-                                    <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">NIM</th>
+                                    <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Kode</th>
+                                    <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Matkul</th>
+                                    <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">SKS</th>
                                     <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Aksi</th>
                                 </tr>
                             </thead>
@@ -79,9 +79,9 @@
                                 
                 
                                 <tr>
-                                    <td class="border px-4 py-2">1</td>
-                                    <td class="border px-4 py-2">Rais Hannan Rizanto</td>
-                                    <td class="border px-4 py-2">4.33.22.1.21</td>
+                                    <td class="border px-4 py-2">AI81</td>
+                                    <td class="border px-4 py-2">Machine Learning</td>
+                                    <td class="border px-4 py-2">3</td>
                                     <td class="border px-4 py-2">
                                         <button class="bg-blue-500 hover:bg-blue-700 text-white font-poppins font-normal py-1 px-2 rounded">Edit</button>
                                         <button class="bg-red-500 hover:bg-red-700 text-white font-poppins font-normal  py-1 px-2 rounded">Hapus</button>

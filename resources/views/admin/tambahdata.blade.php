@@ -16,7 +16,7 @@
                         <div class="font-poppins text-lg font-extralight">
                             <p>Sistem Penjadwalan dan Presensi</p>
                         </div>
-                        <div class="font-poppins text-2xl font-bold">
+                        <div class="font-poppins text-3xl font-bold ">
                             <p>Politeknik Negeri Semarang</p>
                         </div>
                     </div>

@@ -19,9 +19,7 @@
             <ul>
                 <li class="mt-2">
                     <a href="#">
-                        <span class="icon bg-logo-polines bg-contain bg-no-repeat">
-                            
-                        </span>
+                        <span class="icon bg-logo-polines bg-contain bg-no-repeat"></span>
                         <span class="title bg-bg-sijapi bg-no-repeat bg-contain w-3/4 ml-2" ></span>
                     </a>
                 </li>
@@ -31,7 +29,7 @@
                         <span class="icon">
                             <svg class="ml-3" xmlns="http://www.w3.org/2000/svg" class="ionicon"  width="30" height="54" viewBox="0 0 512 512"><rect x="48" y="48" width="176" height="176" rx="20" ry="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><rect x="288" y="48" width="176" height="176" rx="20" ry="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><rect x="48" y="288" width="176" height="176" rx="20" ry="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><rect x="288" y="288" width="176" height="176" rx="20" ry="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/></svg>
                         </span>
-                        <span class="title">Tambah Data</span>
+                        <span class="title">Dashboard</span>
                     </a>
                 </li>
 
@@ -47,8 +45,7 @@
                 <li id="dosen-nav">
                     <a href="#">
                         <span class="icon">
-                            <svg class="ml-3" xmlns="http://www.w3.org/2000/svg" class="ionicon" width="30" height="54" viewBox="0 0 512 512"><rect x="96" y="32" width="320" height="448" rx="48" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M208 80h96"/><path d="M333.48 284.51A39.65 39.65 0 00304 272c-11.6 0-22.09 4.41-29.54 12.43s-11.2 19.12-10.34 31C265.83 338.91 283.72 358 304 358s38.14-19.09 39.87-42.55c.88-11.78-2.82-22.77-10.39-30.94zM371.69 448H236.31a12.05 12.05 0 01-9.31-4.17 13 13 0 01-2.76-10.92c3.25-17.56 13.38-32.31 29.3-42.66C267.68 381.06 285.6 376 304 376s36.32 5.06 50.46 14.25c15.92 10.35 26.05 25.1 29.3 42.66a13 13 0 01-2.76 10.92 12.05 12.05 0 01-9.31 4.17z"/></svg>                        
-                        </span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" class="ionicon" width="30" height="54" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M32 192L256 64l224 128-224 128L32 192z"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M112 240v128l144 80 144-80V240M480 368V192M256 320v128"/></svg>                        </span>
                         <span class="title">Dosen</span>
                     </a>
                 </li>
@@ -85,10 +82,10 @@
 <!-- =============================================== Main =============================================== -->
         <div class="main">
             <div class="topbar">
+                
                 <div class="toggle">
-                <svg class="ml-2" xmlns="http://www.w3.org/2000/svg" class="ionicon" width="40" height="74" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M80 160h352M80 256h352M80 352h352"/></svg>
+                    <svg class="" xmlns="http://www.w3.org/2000/svg" class="ionicon" width="40" height="74" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M80 160h352M80 256h352M80 352h352"/></svg>
                 </div>
-
                 <div class="search">
                     <label>
                         <input type="text" placeholder="Search here">

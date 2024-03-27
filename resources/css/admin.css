@@ -33,7 +33,7 @@ body {
 /* =============== Navigation ================ */
 .navigation {
     position: fixed;
-    width: 300px;
+    width: 270px;
     height: 100%;
     background: var(--blue);
     border-left: 10px solid var(--blue);
@@ -247,6 +247,10 @@ body {
 }
 
 @media (max-width: 480px) {
+    .main {
+        width: 100%;
+        left: 0;
+    }
     .cardBox {
         grid-template-columns: repeat(1, 1fr);
     }
@@ -262,11 +266,11 @@ body {
         z-index: 1000;
     }
     .navigation.active {
-        width: 100%;
+        width: 40%;
         left: 0;
     }
     .toggle {
-        z-index: 10001;
+        z-index: 10006;
     }
     .main.active .toggle {
         color: #fff;

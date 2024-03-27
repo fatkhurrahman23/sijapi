@@ -75,7 +75,6 @@ module.exports = {
             "logo-customer": "url('resources/Assets/image/customer01.jpg')",
             "logo-admin": "url('resources/Assets/image/logo-admin.png')",
             "people-beranda": "url('/resources/Assets/image/People.png')",
-            "tambah-sijapi": "url('resources/Assets/image/tambah-sijapi.png')",
         },
         backgroundOpacity: ({ theme }) => theme("opacity"),
         backgroundPosition: {
