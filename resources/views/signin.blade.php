@@ -135,12 +135,12 @@
 <div class="bg-background-login bg-no-repeat bg-cover h-120 flex justify-center items-center">
         <div class="rounded-lg border-custom-birutua bg-custom-putih w-11/12 h-5/6 grid grid-cols-2 shadow-2xl second">
         <div class="rounded-lg bg-login-polines flex-col bg-cover bg-center bg-no-repeat second-left flex justify-end ">
-            <p class="font-poppins border-custom-kuning font-semibold text-custom-kuning pl-3 underline underline-offset-8 second-text-first mb-6">SELAMAT DATANG</p>
+            <p class="font-poppins border-custom-kuning font-semibold text-custom-kuning pl-3 underline underline-offset-8 second-text-first mb-7">SELAMAT DATANG</p>
             <p class="font-poppins font-thin text-white pl-3 mt-2 second-text-second  mb-4">Sistem Penjadwalan dan Presensi</p> 
             <p class="glow-text font-poppins font-bold text-white mt-2 pl-3 pb-9 second-text-third ">Politeknik Negeri Semarang</p> 
         </div>
 
-            <div class="rounded-lg flex-col bg-custom-putih flex justify-center items-center second-right">
+            <div class="rounded-lg flex-col bg-custom-putih flex justify-center items-center second-right border border-solid border-blue-500">
                 <div class="w-36 h-36 mt-5 bg-logo-polines logo-cap bg-no-repeat"></div>
                 <p class="mt-2 logo-cap font-poppins text-sm">Welcome Back, Please login to your account</p>
                 <p class="font-poppins font-light text-xl  sign-in">SIGN-IN</p>
@@ -149,7 +149,7 @@
                         {{ session('error') }}
                     </div>
                 @endif
-                <form class="w-7/12 mt-4 form" action="{{route('login')}}" method="POST">
+                <form class="w-7/12 mt-16 form" action="{{route('login')}}" method="POST">
                     @csrf
                     <div class="mb-1">
                         <label for="username" class="block font-poppins mb-2 text-sm font-semibold text-gray-900 username">Username</label>
@@ -166,7 +166,7 @@
                         <label for="remember" class="remember-forget ms-1 text-xs font-poppins font-light text-gray-900">Remember me</label>
                         <a class="remember-forget ml-auto text-xs font-poppins font-light text-custom-birumuda hover:text-custom-birutua" href="">Forgot Password?</a>
                     </div>
-                    <div class="text-center mt-3">
+                    <div class="text-center mt-5">
                         <button type="submit" class="border-none text-white bg-blue-700 hover:bg-custom-birutua focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-1/2 p-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Login</button>
                     </div>
                 </form>
