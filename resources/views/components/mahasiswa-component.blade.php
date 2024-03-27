@@ -39,8 +39,8 @@
                                 <label for="jenis-kelamin" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Jenis Kelamin</label>
                                 <div class="mt-2">
                                     <select id="jenis_kelamin" name="jenis_kelamin" autocomplete="jenis-kelamin-name" class="block w-3/4 rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                                        <option>Laki-laki</option>
-                                        <option>Perempuan</option>
+                                        <option value="L">Laki-laki</option>
+                                        <option value="P">Perempuan</option>
                                     </select>          
                                 </div>
                             </div>

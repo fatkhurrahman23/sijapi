@@ -33,15 +33,19 @@
                                 </tr>
                             </thead>
                             <tbody>                    
-                                <tr>
-                                    <td class="border px-4 py-2">1</td>
-                                    <td class="border px-4 py-2">John Doe</td>
-                                    <td class="border px-4 py-2">002182725211</td>
-                                    <td class="border px-4 py-2">
-                                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-poppins font-normal py-1 px-2 rounded">Edit</button>
-                                        <button class="bg-red-500 hover:bg-red-700 text-white font-poppins font-normal  py-1 px-2 rounded">Hapus</button>
-                                    </td>
-                                </tr>
+                                @foreach ($dataDosen as $dosen)
+                                    <tr>
+                                        <td class="border px-4 py-2 text-center">{{ $loop->iteration }}</td>
+                                        <td class="border px-4 py-2">{{ $dosen->nama }}</td>
+                                        <td class="border px-4 py-2">{{ $dosen->nip }}</td>
+                                        <td class="border px-4 py-2">
+                                            
+                                            <a href="#" class="modal bg-custom-birumuda px-3 py-2 text-sm font-poppins font-semibold text-white shadow-sm hover:bg-custom-birutua focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 justify-center">
+                                                Edit
+                                            </a>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

@@ -21,6 +21,6 @@ class Mahasiswa extends Controller
             'jenis_kelamin' => $request->jenis_kelamin,
             'kode_kelas' => $request->kode_kelas
         ]);
-        return redirect('admin/mahasiswa');
+        return redirect('admin');
     }
 }

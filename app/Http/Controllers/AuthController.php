@@ -41,7 +41,10 @@ class AuthController extends Controller
             // redirect user jika bukan admin
             if ($user->level === 'admin') {
                 return redirect('admin/ruang');
+            } elseif ($user->level === 'dosen') {
+                return redirect('dashboard');
             } else {
+                // redirect ke dashbaord
                 return redirect('dashboard');
             }
         } else {
