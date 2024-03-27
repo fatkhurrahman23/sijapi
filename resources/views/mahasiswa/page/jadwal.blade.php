@@ -7,7 +7,7 @@
     @vite('resources\css\app.css')
 </head>
 <body>
-    <div>
+    <div id="jadwal" class="mt-64">
         dnddj
     </div>
 </body>

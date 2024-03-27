@@ -10,7 +10,7 @@
 <body>
     <div class="container">
         <div>
-            <div id="tambahdata" class="page ml-12">
+            <div id="dasbboard" class="page ml-12">
                     <div class="flex justify-center flex-col items-center ">
                         <div class=" bg-bg-sijapi bg-no-repeat bg-contain h-44 w-64"></div>
                         <div class="font-poppins text-lg font-extralight">
