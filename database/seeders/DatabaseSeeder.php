@@ -19,10 +19,22 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-
-        $this->call(users::class);
-        $this->call(kelasMahasiswa::class);
-        $this->call(mahasiswa::class);
+        
+        // $this->call(RuangTable::class);
+        // $this->call(kelasMahasiswa::class);
+        // $this->call(jam::class);
+        // $this->call(mahasiswa::class);
+        $this->call(prodiDosen::class);
+        // $this->call(mataKuliah::class);
+        $this->call(dosen::class);
+        // $this->call(users::class);
+        $this->call(tahunAkademik::class);
+        $this->call(hari::class);
+        // $this->call(waktuTidakTersedia::class);
+        // $this->call(enrollment::class);
+        // $this->call(jadwalKuliah::class);
+        // $this->call(presensi::class);
+        // $this->call(dataPresensi::class);
         
     }
 }

@@ -3,10 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
-
-=======
->>>>>>> 1956514fcb802ec211421fb0b292d04e02058764
     <title>Document</title>
     @vite('resources\css\admin.css')
     @vite('resources/js/admin.js')
@@ -19,9 +15,10 @@
                     <form action="">
                         <div class="mt-5 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                             <div class="sm:col-span-2">
-                                <button href="tambahdosen" class="modal flex w-4/6 rounded-md bg-custom-birumuda px-3 py-2 text-sm font-poppins font-semibold text-white shadow-sm hover:bg-custom-birutua focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 justify-center">
+                                <!-- <a href="#tambahdosen" class="flex w-3/6 rounded-md bg-custom-birumuda px-3 py-2 text-sm font-poppins font-semibold text-white shadow-sm hover:bg-custom-birutua focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 justify-center">Tambah <ion-icon name="add" size="small" class="ml-1"></ion-icon></a> -->
+                                <a href="tambahdosen" class="modal flex w-3/6 rounded-md bg-custom-birumuda px-3 py-2 text-sm font-poppins font-semibold text-white shadow-sm hover:bg-custom-birutua focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 justify-center">
                                     Tambah Data
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </form>
@@ -36,15 +33,19 @@
                                 </tr>
                             </thead>
                             <tbody>                    
-                                <tr>
-                                    <td class="border px-4 py-2">1</td>
-                                    <td class="border px-4 py-2">John Doe</td>
-                                    <td class="border px-4 py-2">002182725211</td>
-                                    <td class="border px-4 py-2">
-                                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-poppins font-normal py-1 px-2 rounded">Edit</button>
-                                        <button class="bg-red-500 hover:bg-red-700 text-white font-poppins font-normal  py-1 px-2 rounded">Hapus</button>
-                                    </td>
-                                </tr>
+                                @foreach ($dataDosen as $dosen)
+                                    <tr>
+                                        <td class="border px-4 py-2 text-center">{{ $loop->iteration }}</td>
+                                        <td class="border px-4 py-2">{{ $dosen->nama }}</td>
+                                        <td class="border px-4 py-2">{{ $dosen->nip }}</td>
+                                        <td class="border px-4 py-2">
+                                            
+                                            <a href="#" class="modal bg-custom-birumuda px-3 py-2 text-sm font-poppins font-semibold text-white shadow-sm hover:bg-custom-birutua focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 justify-center">
+                                                Edit
+                                            </a>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -71,9 +72,5 @@
             });
         });
     </script>
-<<<<<<< HEAD
-
-</head>
-=======
->>>>>>> 1956514fcb802ec211421fb0b292d04e02058764
 </body>
+</html>

@@ -5,6 +5,8 @@ use App\Http\Controllers\sijapi;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Jadwal;
 use App\Http\Controllers\Mahasiswa;
+use App\Http\Controllers\Dosen;
+use App\Http\Controllers\MataKuliah;
 
 Route::get('/', [sijapi::class, 'index']);
 
@@ -25,6 +27,16 @@ Route::post('/register', [AuthController::class, 'register'])->name('register');
 
 
 // ======================================== DASHBOARD ADMIN ========================================
+// page admin hanya route ke halaman admin
+
+Route::get('admin', function () {
+    return view('admin/admin');
+})->middleware('admin');
+
+
+
+
+
 // ruang
 Route::get('admin/ruang', [Jadwal::class, 'tampilDataRuang']);
 Route::post('admin/ruang', [Jadwal::class, 'tambahDataRuang']);

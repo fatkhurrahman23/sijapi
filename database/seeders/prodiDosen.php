@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+
 
 class prodiDosen extends Seeder
 {
@@ -12,24 +14,28 @@ class prodiDosen extends Seeder
      */
     public function run(): void
     {
-        //KOLOM kode_prodi, nama
-        DB::table('prodi_dosen')->insert(
+        $prodiDosens = [
             [
                 'kode_prodi' => 'TI',
-                'nama' => 'DOSEN 1'
-            ],
-            [
-                'kode_prodi' => 'TI',
-                'nama' => 'DOSEN 2'
+                'nama' => 'DOSEN TI'
             ],
             [
                 'kode_prodi' => 'IK',
-                'nama' => 'DOSEN 3'
-            ],
-            [
-                'kode_prodi' => 'IK',
-                'nama' => 'DOSEN 4'
+                'nama' => 'DOSEN IK'
             ]
-        );
+        ];
+    
+        foreach ($prodiDosens as $prodiDosen) {
+            // Cek apakah data sudah ada
+            $exist = DB::table('prodi_dosen')
+                ->where('kode_prodi', $prodiDosen['kode_prodi'])
+                ->where('nama', $prodiDosen['nama'])
+                ->first();
+    
+            // Jika data belum ada, tambahkan ke database
+            if (!$exist) {
+                DB::table('prodi_dosen')->insert($prodiDosen);
+            }
+        }
     }
 }
