@@ -26,11 +26,6 @@ return new class extends Migration
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
             
-            // $table->foreign('nip')
-            //     ->references('username')
-            //     ->on('users')
-            //     ->onDelete('cascade')
-            //     ->onUpdate('cascade');
         });
     }
 
