@@ -25,4 +25,28 @@ class Dosen extends Controller
         ]);
         return redirect('admin/dosen');
     }
+
+    // edit data dosen
+    public function editDosen($nip){
+        $dosenToEdit = DB::table('dosen')->where('nip', $nip)->first();
+        return view('admin/edit_dosen', ['dosenToEdit' => $dosenToEdit]);
+    }
+
+    // update data dosen
+    public function updateDataDosen(Request $request){
+        DB::table('dosen')->where('kode_dosen', $request->kode_dosen)->update([
+            'nip' => $request->nip,
+            'nama' => $request->nama,
+            'alamat' => $request->alamat,
+            'no_telp' => $request->no_telp,
+            'kode_prodi' => $request->kode_prodi
+        ]);
+        return redirect('admin/dosen');
+    }
+
+    // hapus data dosen
+    public function hapusDataDosen($kode_dosen){
+        DB::table('dosen')->where('kode_dosen', $kode_dosen)->delete();
+        return redirect('admin/dosen');
+    }
 }

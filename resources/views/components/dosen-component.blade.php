@@ -39,10 +39,8 @@
                                         <td class="border px-4 py-2">{{ $dosen->nama }}</td>
                                         <td class="border px-4 py-2">{{ $dosen->nip }}</td>
                                         <td class="border px-4 py-2">
-                                            
-                                            <a href="#" class="modal bg-custom-birumuda px-3 py-2 text-sm font-poppins font-semibold text-white shadow-sm hover:bg-custom-birutua focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 justify-center">
-                                                Edit
-                                            </a>
+                                            <a href="{{ route('dosen.edit', $dosen->nip) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-poppins font-normal py-1 px-2 rounded">Edit</a>
+                                            <a href="{{ route('dosen.delete', $dosen->nip) }}" class="bg-red-500 hover:bg-red-700 text-white font-poppins font-normal py-1 px-2 rounded">Hapus</a>
                                         </td>
                                     </tr>
                                 @endforeach

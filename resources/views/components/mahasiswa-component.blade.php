@@ -72,8 +72,8 @@
                                     <td class="border px-4 py-2">{{ $mahasiswa->nama }}</td>
                                     <td class="border px-4 py-2">{{ $mahasiswa->nim }}</td>
                                     <td class="border px-4 py-2">
-                                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-poppins font-normal py-1 px-2 rounded">Edit</button>
-                                        <button class="bg-red-500 hover:bg-red-700 text-white font-poppins font-normal py-1 px-2 rounded">Hapus</button>
+                                        <a href="{{ route('mahasiswa.edit', $mahasiswa->nim) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-poppins font-normal py-1 px-2 rounded">Edit</a>
+                                        <a href="{{ route('mahasiswa.delete', $mahasiswa->nim) }}" class="bg-red-500 hover:bg-red-700 text-white font-poppins font-normal py-1 px-2 rounded">Hapus</a>
                                     </td>
                                 </tr>
                             @endforeach

@@ -32,5 +32,10 @@ class Jadwal extends Controller
         return redirect('admin/ruang');
     }
 
+    public function hapusDataRuang($kode_ruang){
+        DB::table('ruang')->where('kode_ruang', $kode_ruang)->delete();
+        return redirect('admin/ruang');
+    }
+
 
 }

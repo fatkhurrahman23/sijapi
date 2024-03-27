@@ -23,4 +23,26 @@ class Mahasiswa extends Controller
         ]);
         return redirect('admin');
     }
+    
+    // edit data mahasiswa
+    public function editMahasiswa($nim){
+        $mahasiswaToEdit = DB::table('mahasiswa')->where('nim', $nim)->first();
+        return view('admin/edit_mahasiswa', ['mahasiswaToEdit' => $mahasiswaToEdit]);
+    }
+
+    // update data mahasiswa
+    public function updateDataMahasiswa(Request $request){
+        DB::table('mahasiswa')->where('nim', $request->nim)->update([
+            'nama' => $request->nama,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'kode_kelas' => $request->kode_kelas
+        ]);
+        return redirect('admin');
+    }
+
+    // hapus data mahasiswa
+    public function hapusDataMahasiswa($nim){
+        DB::table('mahasiswa')->where('nim', $nim)->delete();
+        return redirect('admin/mahasiswa');
+    }
 }

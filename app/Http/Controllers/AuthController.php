@@ -40,7 +40,7 @@ class AuthController extends Controller
 
             // redirect user jika bukan admin
             if ($user->level === 'admin') {
-                return redirect('admin/ruang');
+                return redirect('admin');
             } elseif ($user->level === 'dosen') {
                 return redirect('dashboard');
             } else {
@@ -73,5 +73,12 @@ class AuthController extends Controller
         $user->save();
 
         return redirect()->route('login.index')->with('success', 'Registration successful. You can now login.');
+    }
+    
+    // ======================================== LOGOUT ========================================
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('login.index');
     }
 }

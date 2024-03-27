@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Admin Dashboard | Korsat X Parmaga</title>
+    <title>ADMIN PAGE</title>
     <!-- ======= Styles ====== -->
     @vite('resources\css\admin.css')
     @vite('resources/js/admin.js')
@@ -96,6 +96,14 @@
                 <div class="user bg-yellow-400">
                     <p class="flex justify-center font-poppins text-3xl font-semibold text-custom-putih">A</p>
                 </div>
+                <!-- TAMBAHKAN USERNAME YANG DIDAPAT DARI SESSION -->
+                <p class="username">
+                    <span class="font-poppins font-semibold text-custom-birumuda">{{ isset($username) ? $username : 'Guest' }}</span>
+                </p>
+                <!-- button logout -->
+                <a href="{{ route('logout') }}" class="logout">
+                    <ion-icon name="log-out-outline">LOGOUT</ion-icon>
+                </a>
             </div>
 
             
