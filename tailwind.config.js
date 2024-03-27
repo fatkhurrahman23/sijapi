@@ -64,7 +64,8 @@ module.exports = {
             "logo-profile": "url('/resources/Assets/image/logo-profile.png')",
             "logo-customer": "url('resources/Assets/image/customer01.jpg')",
             "logo-admin": "url('resources/Assets/image/logo-admin.png')",
-            "people-beranda": "url('/resources/Assets/image/People.png')",
+            "people-beranda": "url('/resources/Assets/image/orang.png')",
+            "batu-beranda": "url('/resources/Assets/image/background-batu.jpg')",
         },
         backgroundOpacity: ({ theme }) => theme("opacity"),
         backgroundPosition: {
