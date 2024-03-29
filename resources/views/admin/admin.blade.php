@@ -166,7 +166,7 @@
             <div class="tambah">
                 @include('admin\dashboard')
                 <x-mahasiswa-component />
-                <x-dosen-component />
+                @include('admin\dosen')
                 @include('admin\kelas_mahasiswa')
                 @include('admin\ruang')
                 @include('admin\prodi_dosen')
@@ -175,7 +175,6 @@
                 @include('admin\jam')
                 @include('admin\waktu_tidak_tersedia')
                 @include('admin\matkul')
-                <!-- @include('admin\dosen') -->
                 <div id="editmatkul"></div>
 
                 
