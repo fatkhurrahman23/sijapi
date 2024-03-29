@@ -17,9 +17,9 @@
                         <div class="mt-5 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                             
                             <div class="sm:col-span-2">
-                                <label for="nama-mahasiswa" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Nama Mahasiswa</label>
+                                <label for="nama" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Nama Mahasiswa</label>
                                 <div class="mt-2">
-                                    <input type="text" name="nama" id="nama" autocomplete="nama-mahasiswa" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    <input type="text" name="nama" id="nama" autocomplete="nama" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                 </div>
                             </div>
 
@@ -30,15 +30,15 @@
                                 </div>
                             </div>
                             <div class="sm:col-span-2 sm:col-start-1">
-                                <label for="kode-kelas" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Kelas</label>
+                                <label for="kode_kelas" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Kelas</label>
                                 <div class="mt-2">
                                     <input type="text" name="kode_kelas" id="kode_kelas" autocomplete="kode_kelas" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                 </div>
                             </div>
                             <div class="sm:col-span-2">
-                                <label for="jenis-kelamin" class="block text-sm font-poppins font-semibold leading-6 text-gray-90">Jenis Kelamin</label>
+                                <label for="jenis_kelamin" class="block text-sm font-poppins font-semibold leading-6 text-gray-90">Jenis Kelamin</label>
                                 <div class="mt-2">
-                                    <select id="jenis_kelamin" name="jenis_kelamin" autocomplete="jenis-kelamin-name" class="block w-3/4 rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    <select id="jenis_kelamin" name="jenis_kelamin" autocomplete="jenis_kelamin" class="block w-3/4 rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                         <option>Laki-laki</option>
                                         <option>Perempuan</option>
                                     </select>          
@@ -66,7 +66,7 @@
                             </thead>
                             <tbody>
                                 
-                            @foreach($dataMahasiswa as $mahasiswa)
+                            @foreach($dataMahasiswa as )
                                 <tr>
                                     <td class="border px-4 py-2">{{ $loop->iteration }}</td>
                                     <td class="border px-4 py-2">{{ $mahasiswa->nama }}</td>

@@ -16,9 +16,9 @@
                         <div class="mt-5 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                             
                             <div class="sm:col-span-2">
-                                <label for="nama_mahasiswa" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode MatKul</label>
+                                <label for="kode_matkul" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode MatKul</label>
                                 <div class="mt-2">
-                                    <input type="text" name="nama_mahasiswa" id="nama_mahasiswa" autocomplete="nama_mahasiswa" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    <input type="text" name="kode_matkul" id="kode_matkul" autocomplete="kode_matkul" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                 </div>
                             </div>
 
@@ -41,9 +41,9 @@
                                 </div>
                             </div>
                             <div class="sm:col-span-2">
-                                <label for="jenis_kelamin" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Jenis</label>
+                                <label for="jenis" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Jenis</label>
                                 <div class="mt-2">
-                                    <select id="jenis_kelamin" name="jenis_kelamin" autocomplete="jenis_kelamin" class="block w-3/4 rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    <select id="jenis" name="jenis" autocomplete="jenis" class="block w-3/4 rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                         <option>Ganjil</option>
                                         <option>Gasal</option>
                                     </select>          

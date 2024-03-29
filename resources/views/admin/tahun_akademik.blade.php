@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="container">
-        <div id=_tahun_akademik" class="page ml-12">
+        <div id="tahunakademik" class="page ml-12">
             <p class="glow-text mt-10 font-poppins font-bold text-black text-2xl">TAMBAH TAHUN AKADEMIK</p>
             <form action="">
                 <div class="mt-5 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
@@ -22,7 +22,7 @@
                     <div class="sm:col-span-2">
                         <label for="nama_tahun_akademik" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Tahun Akademik</label>
                         <div class="mt-2">
-                            <input type="text" name="nama_tahun_akademik" id="nama_tahun_akademik" autocomplete="nama_tahun_akademik" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <input type="text" name="nama_tahun_akademik" id="nama_tahun_akademik" autocomplete="nama-tahun_akademik" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                         </div>
                     </div>
                     <div class="sm:col-span-2">
