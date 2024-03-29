@@ -74,3 +74,6 @@ Route::get('admin/matakuliah', [MataKuliah::class, 'tampilDataMatkul']);
 Route::post('admin/matakuliah', [MataKuliah::class, 'tambahDataMatkul']);
 
 
+Route::get('/edit_matkul', function () {
+    return view('edit_matkul');
+});

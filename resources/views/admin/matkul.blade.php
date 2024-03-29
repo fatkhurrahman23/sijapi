@@ -10,8 +10,8 @@
 <body>
     <div class="container">
         <div>
-            <div id="matkul" class="page ml-12">
-                    <p class=" glow-text mt-10 font-poppins font-bold text-black text-2xl">TAMBAH MATAKULIAH</p>
+            <div id="waktutidaktersedia" class="page ml-12">
+                    <p class=" glow-text mt-10 font-poppins font-bold text-black text-2xl">TAMBAH WAKTU TIDAK TERSEDIA</p>
                     <form action="">
                         <div class="mt-5 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                             
@@ -80,7 +80,7 @@
                                     <td class="border px-4 py-2">Machine Learning</td>
                                     <td class="border px-4 py-2">3</td>
                                     <td class="border px-4 py-2">
-                                        <button onclick="loadHariPage()" class="bg-blue-500 hover:bg-blue-700 text-white font-poppins font-normal py-1 px-2 rounded">Edit</button>
+                                        <button onclick="loadEditMatkul()" class="bg-blue-500 hover:bg-blue-700 text-white font-poppins font-normal py-1 px-2 rounded">Edit</button>
                                         <button class="bg-red-500 hover:bg-red-700 text-white font-poppins font-normal  py-1 px-2 rounded">Hapus</button>
                                     </td>
                                 </tr>
@@ -91,6 +91,7 @@
             </div>     
         </div>
     </div>
+
     
 </body>
 </html>
