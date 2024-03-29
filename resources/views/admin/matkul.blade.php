@@ -80,7 +80,7 @@
                                     <td class="border px-4 py-2">Machine Learning</td>
                                     <td class="border px-4 py-2">3</td>
                                     <td class="border px-4 py-2">
-                                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-poppins font-normal py-1 px-2 rounded">Edit</button>
+                                        <button onclick="loadHariPage()" class="bg-blue-500 hover:bg-blue-700 text-white font-poppins font-normal py-1 px-2 rounded">Edit</button>
                                         <button class="bg-red-500 hover:bg-red-700 text-white font-poppins font-normal  py-1 px-2 rounded">Hapus</button>
                                     </td>
                                 </tr>
@@ -91,6 +91,15 @@
             </div>     
         </div>
     </div>
-
+    
+    <script>
+function loadHariPage() {
+    fetch('resources/views/admin/hari.blade.php')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('hari').innerHTML = data;
+        });
+}
+</script>
 </body>
 </html>
