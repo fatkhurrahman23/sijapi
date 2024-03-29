@@ -81,6 +81,22 @@
                         <span class="title ml-2">Prodi Dosen</span>
                     </a>
                 </li>
+                <li id="hari-nav">
+                    <a href="#">
+                        <span class="icon">
+                            <svg class="ml-3" xmlns="http://www.w3.org/2000/svg" class="ionicon" width="30" height="54" viewBox="0 0 512 512"><rect fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32" x="48" y="80" width="416" height="384" rx="48"/><path fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32" stroke-linecap="round" d="M128 48v32M384 48v32"/><rect fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32" stroke-linecap="round" x="112" y="224" width="96" height="96" rx="13"/><path fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32" stroke-linecap="round" d="M464 160H48"/></svg>
+                        </span>
+                        <span class="title ml-2">Hari</span>
+                    </a>
+                </li>
+                <li id="tahunakademik-nav">
+                    <a href="#">
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" class="ionicon" width="30" height="54" viewBox="0 0 512 512"><rect x="48" y="80" width="416" height="384" rx="48" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M128 48v32M384 48v32M464 160H48M304 260l43.42-32H352v168M191.87 306.63c9.11 0 25.79-4.28 36.72-15.47a37.9 37.9 0 0011.13-27.26c0-26.12-22.59-39.9-47.89-39.9-21.4 0-33.52 11.61-37.85 18.93M149 374.16c4.88 8.27 19.71 25.84 43.88 25.84 28.59 0 52.12-15.94 52.12-43.82 0-12.62-3.66-24-11.58-32.07-12.36-12.64-31.25-17.48-41.55-17.48"/></svg>
+                        </span>
+                        <span class="title ml-2">Tahun Akademik</span>
+                    </a>
+                </li>
 
                 <li>
                     <a href="#">
@@ -132,22 +148,24 @@
             
 <!-- ===============================================TAMBAH DATA=============================================== -->
             <div class="tambah">
-                @include('admin\tambahdata')
+                @include('admin\dashboard')
+                <x-mahasiswa-component />
+                <x-dosen-component />
                 @include('admin\kelas_mahasiswa')
                 @include('admin\ruang')
-                @include('admin\dosen')
+                @include('admin\prodi_dosen')
+                @include('admin\hari')
+                @include('admin\tahun_akademik')
+                @include('admin\matkul')
+                <!-- @include('admin\dosen') -->
                 
                 <!-- ===============================================MAHASISWA=============================================== -->
-                <x-mahasiswa-component />
                 
                 
                 <!-- ===============================================DOSEN=============================================== -->
-                <x-dosen-component />
                 
                 <!-- ===============================================MATA KULIAH=============================================== -->
-                @include('admin\matkul')
                 <!-- ===============================================RUANG=============================================== -->
-                <!-- @include('admin\prodi_dosen') -->
             </div>
         </div>
     </div>

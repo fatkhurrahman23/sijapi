@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    @vite('resources\css\admin.css')
-    @vite('resources/js/admin.js')
+    @vite('resources\css\app.css')
+    @vite('resources/js/app.js')
 </head>
 <body>
     <div class="container">
         <div>
-        <div id="matkul" class="page ml-12">
+            <div id="matkul" class="page ml-12">
                     <p class=" glow-text mt-10 font-poppins font-bold text-black text-2xl">TAMBAH MATAKULIAH</p>
                     <form action="">
                         <div class="mt-5 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
@@ -61,7 +61,6 @@
                                     <img class="flex justify-end align-bottom items-end" width="17" height="17" src="https://img.icons8.com/sf-black-filled/64/plus-math.png" alt="plus-math" style="filter: invert(100%);"/>
                                     <p class="ml-2">Tambah</p>
                                 </button>
-
                             </div>
                         </div>
                     </form>
@@ -76,8 +75,6 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                
-                
                                 <tr>
                                     <td class="border px-4 py-2">AI81</td>
                                     <td class="border px-4 py-2">Machine Learning</td>
@@ -91,7 +88,6 @@
                         </table>
                     </div>
                 </div>
-
             </div>     
         </div>
     </div>
