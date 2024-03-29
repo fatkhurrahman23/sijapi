@@ -38,10 +38,10 @@ body {
     background: var(--blue);
     border-left: 10px solid var(--blue);
     transition: 0.5s;
-    overflow: hidden;
+    overflow-y: hidden;
 }
 .navigation.active {
-    width: 80px;
+    width: 93px;
 }
 
 .navigation ul {

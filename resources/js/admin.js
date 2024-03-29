@@ -1,4 +1,5 @@
 // add hovered class to selected list item
+
 let list = document.querySelectorAll(".navigation li");
 
 function activeLink() {
@@ -38,3 +39,11 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+function showScroll() {
+    document.getElementById("myNav").style.overflowY = "scroll"; // Menampilkan scroll bar
+}
+
+function hideScroll() {
+    document.getElementById("myNav").style.overflowY = "hidden"; // Menyembunyikan scroll bar kembali
+}

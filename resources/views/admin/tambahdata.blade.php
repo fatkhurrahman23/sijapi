@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     @vite('resources\css\admin.css')
-    @vite('resources/js/admin.js')
+    @vite('resources\js\admin.js')
 </head>
 <body>
     <div class="container">
         <div>
-            <div id="dasbboard" class="page ml-12">
+            <div id="dashboard" class="page ml-12">
                     <div class="flex justify-center flex-col items-center ">
                         <div class=" bg-bg-sijapi bg-no-repeat bg-contain h-44 w-64"></div>
                         <div class="font-poppins text-lg font-extralight">

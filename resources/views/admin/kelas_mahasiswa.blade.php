@@ -9,8 +9,8 @@
 </head>
 <body>
     <div class="container">
-        <div id="ruang" class="page ml-12">
-            <p class="glow-text mt-10 font-poppins font-bold text-black text-2xl">TAMBAH DATA RUANG</p>
+        <div id="kelasmahasiswa" class="page ml-12">
+            <p class="glow-text mt-10 font-poppins font-bold text-black text-2xl">TAMBAH KELAS MAHASISWA</p>
             <form action="">
                 <div class="mt-5 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                     <!-- <div class="sm:col-span-2">
@@ -20,15 +20,15 @@
                         </div>
                     </div> -->
                     <div class="sm:col-span-2">
-                        <label for="kode-ruang" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Ruang</label>
+                        <label for="kode-kelas-mahasiswa" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Kelas Mahasiswa</label>
                         <div class="mt-2">
-                            <input type="text" name="kode-ruang" id="kode-ruang" autocomplete="kode-ruang" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <input type="text" name="kode-kelas-mahasiswa" id="kode-kelas-mahasiswa" autocomplete="kode-kelas-mahasiswa" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                         </div>
                     </div>
                     <div class="sm:col-span-2">
-                        <label for="nama-ruang" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Nama Ruang</label>
+                        <label for="nama-prodi" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Nama Prodi</label>
                         <div class="mt-2">
-                            <input type="text" name="nama-ruang" id="nama-ruang" autocomplete="nama-ruang" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <input type="text" name="nama-prodi" id="nama-prodi" autocomplete="nama-prodi" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                         </div>
                     </div>
                     <div class="sm:col-span-2 flex justify-between items-end">
@@ -44,16 +44,16 @@
                     <thead>
                         <tr>
                             <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">No</th>
-                            <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Kode Ruang</th>
-                            <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Nama Ruang</th>
+                            <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Kode Kelas Mahasiswa</th>
+                            <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Nama Prodi</th>
                             <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td class="border px-4 py-2">1</td>
-                            <td class="border px-4 py-2">J261</td>
-                            <td class="border px-4 py-2">MST III/04</td>
+                            <td class="border px-4 py-2">TI-2B</td>
+                            <td class="border px-4 py-2">TI</td>
                             <td class="border px-4 py-2">
                                 <button class="bg-blue-500 hover:bg-blue-700 text-white font-poppins font-normal py-1 px-2 rounded">Edit</button>
                                 <button class="bg-red-500 hover:bg-red-700 text-white font-poppins font-normal py-1 px-2 rounded">Hapus</button>
