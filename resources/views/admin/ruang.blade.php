@@ -13,22 +13,16 @@
             <p class="glow-text mt-10 font-poppins font-bold text-black text-2xl">TAMBAH DATA RUANG</p>
             <form action="">
                 <div class="mt-5 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                    <!-- <div class="sm:col-span-2">
-                        <label for="id" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Id</label>
-                        <div class="mt-2">
-                            <input type="text" name="id" id="id" autocomplete="id" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                        </div>
-                    </div> -->
                     <div class="sm:col-span-2">
-                        <label for="kode-ruang" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Ruang</label>
+                        <label for="kode_ruang" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Ruang</label>
                         <div class="mt-2">
-                            <input type="text" name="kode-ruang" id="kode-ruang" autocomplete="kode-ruang" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <input type="text" name="kode_ruang" id="kode_ruang" autocomplete="kode_ruang" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                         </div>
                     </div>
                     <div class="sm:col-span-2">
-                        <label for="nama-ruang" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Nama Ruang</label>
+                        <label for="nama_ruang" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Nama Ruang</label>
                         <div class="mt-2">
-                            <input type="text" name="nama-ruang" id="nama-ruang" autocomplete="nama-ruang" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <input type="text" name="nama_ruang" id="nama_ruang" autocomplete="nama_ruang" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                         </div>
                     </div>
                     <div class="sm:col-span-2 flex justify-between items-end">

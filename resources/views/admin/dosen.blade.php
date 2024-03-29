@@ -15,9 +15,9 @@
                     <form action="">
                         <div class="mt-5 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                             <div class="sm:col-span-2">
-                                <label for="kodedosen" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Dosen</label>
+                                <label for="kode_dosen" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Dosen</label>
                                 <div class="mt-2">
-                                    <input type="text" name="kodedosen" id="kodedosen" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    <input type="text" name="kode_dosen" id="kode_dosen" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                 </div>
                             </div>
                             <div class="sm:col-span-2">
@@ -39,15 +39,15 @@
                                 </div>
                             </div>
                             <div class="sm:col-span-2">
-                                <label for="telepon" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">No Telp</label>
+                                <label for="no_telp" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">No Telp</label>
                                 <div class="mt-2">
-                                    <input type="text" name="telepon" id="telepon" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    <input type="text" name="no_telp" id="no_telp" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                 </div>
                             </div>
                             <div class="sm:col-span-2">
-                                <label for="kodeprodi" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Prodi</label>
+                                <label for="kode_prodi" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Prodi</label>
                                 <div class="mt-2">
-                                    <select id="kodeprodi" name="kodeprodi" class="block w-3/4 rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    <select id="kode_prodi" name="kode_prodi" class="block w-3/4 rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                         <option>TI</option>
                                         <option>TRK</option>
                                     </select>          

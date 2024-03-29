@@ -14,15 +14,15 @@
             <form action="">
                 <div class="mt-5 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                     <div class="sm:col-span-2">
-                        <label for="kodeprodi" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Prodi</label>
+                        <label for="kode_prodi" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Prodi</label>
                         <div class="mt-2">
-                            <input type="text" name="kodeprodi" id="kodeprodi" autocomplete="kodeprodi" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <input type="text" name="kode_prodi" id="kode_prodi" autocomplete="kode_prodi" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                         </div>
                     </div>
                     <div class="sm:col-span-2">
-                        <label for="namaprodi" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Nama Prodi</label>
+                        <label for="nama_prodi" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Nama Prodi</label>
                         <div class="mt-2">
-                            <input type="text" name="namaprodi" id="namaprodi" autocomplete="namaprodi" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <input type="text" name="nama_prodi" id="nama_prodi" autocomplete="nama_prodi" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                         </div>
                     </div>
                             

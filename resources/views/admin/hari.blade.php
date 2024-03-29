@@ -14,15 +14,15 @@
             <form action="">
                 <div class="mt-5 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                     <div class="sm:col-span-2">
-                        <label for="kode-hari" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Hari</label>
+                        <label for="kode_hari" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Hari</label>
                         <div class="mt-2">
-                            <input type="text" name="kode-hari" id="kode-hari" autocomplete="kode-hari" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <input type="text" name="kode_hari" id="kode_hari" autocomplete="kode_hari" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                         </div>
                     </div>
                     <div class="sm:col-span-2">
-                        <label for="nama-hari" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Nama Hari</label>
+                        <label for="nama_hari" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Nama Hari</label>
                         <div class="mt-2">
-                            <input type="text" name="nama-hari" id="nama-hari" autocomplete="nama-hari" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <input type="text" name="nama_hari" id="nama_hari" autocomplete="nama_hari" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                         </div>
                     </div>
                     <div class="sm:col-span-2 flex justify-between items-end">
