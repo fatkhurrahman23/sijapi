@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB; 
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash; // Import the Hash facade
 
 class users extends Seeder
 {
@@ -19,19 +20,19 @@ class users extends Seeder
             [
                 'uuid' => (string) Str::uuid(),
                 'username' => 'admin',
-                'password' => 'admin',
+                'password' => Hash::make('admin'), // Hash the password
                 'level' => 'admin'
             ],
             [
                 'uuid' => (string) Str::uuid(),
                 'username' => 'dosen',
-                'password' => 'dosen',
+                'password' => Hash::make('dosen'), // Hash the password
                 'level' => 'dosen'
             ],
             [
                 'uuid' => (string) Str::uuid(),
                 'username' => 'mahasiswa',
-                'password' => 'mahasiswa',
+                'password' => Hash::make('mahasiswa'), // Hash the password
                 'level' => 'mahasiswa'
             ]
         );

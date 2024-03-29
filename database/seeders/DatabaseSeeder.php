@@ -21,13 +21,13 @@ class DatabaseSeeder extends Seeder
         // ]);
         
         // $this->call(RuangTable::class);
-        // $this->call(kelasMahasiswa::class);
+        $this->call(kelasMahasiswa::class);
         // $this->call(jam::class);
-        // $this->call(mahasiswa::class);
+        $this->call(mahasiswa::class);
         $this->call(prodiDosen::class);
         // $this->call(mataKuliah::class);
         $this->call(dosen::class);
-        // $this->call(users::class);
+        $this->call(users::class);
         $this->call(tahunAkademik::class);
         $this->call(hari::class);
         // $this->call(waktuTidakTersedia::class);

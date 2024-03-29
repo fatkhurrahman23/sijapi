@@ -14,15 +14,16 @@ class kelasMahasiswa extends Seeder
     public function run(): void
     {
         //isi database kelas mahasiswa
-        DB::table('kelas_mahasiswa')->insert(
-            // [
-            //     'kode_kelas' => 'TI-2A',
-            //     'prodi' => 'D4 - Teknologi Rekayasa Komputer'
-            // ],
+        DB::table('kelas_mahasiswa')->insert([
+            [
+                'kode_kelas' => 'TI-2A',
+                'prodi' => 'D4 - Teknologi Rekayasa Komputer'
+            ],
             [
                 'kode_kelas' => 'TI-2B',
                 'prodi' => 'D4 - Teknologi Rekayasa Komputer'
             ]
+        ]
         );
     }
 }

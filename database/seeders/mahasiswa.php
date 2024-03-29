@@ -40,11 +40,7 @@ class mahasiswa extends Seeder
             ]
         ];
 
-        foreach ($data as $item) {
-            \App\Models\Mahasiswa::updateOrCreate(
-                ['nim' => $item['nim']], 
-                $item
-            );
-        }
+        // insert data mahasiswa
+        DB::table('mahasiswa')->insert($data);
     }
 }
