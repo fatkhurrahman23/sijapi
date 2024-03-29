@@ -43,6 +43,37 @@ class Mahasiswa extends Controller
     // hapus data mahasiswa
     public function hapusDataMahasiswa($nim){
         DB::table('mahasiswa')->where('nim', $nim)->delete();
-        return redirect('admin/mahasiswa');
+        return redirect('admin');
+    }
+
+    //  ============================= KELAS MAHASISWA =============================
+    //ambil data di database
+    public function tampilDataKelasMahasiswa(Request $request){
+        $dataKelasMahasiswa = DB::table('kelas_mahasiswa')->get();
+        return view('admin/kelas_mahasiswa', ['dataKelasMahasiswa' => $dataKelasMahasiswa]);
+    }
+
+    //tambah data ke database
+    public function tambahDataKelasMahasiswa(Request $request){
+        DB::table('kelas_mahasiswa')->insert([
+            'nim' => $request->nim,
+            'kode_kelas' => $request->kode_kelas
+        ]);
+        return redirect('admin');
+    }
+
+    // edit data kelas mahasiswa
+    public function editKelasMahasiswa($id){
+        $kelasMahasiswaToEdit = DB::table('kelas_mahasiswa')->where('id', $id)->first();
+        return view('admin/edit_kelas_mahasiswa', ['kelasMahasiswaToEdit' => $kelasMahasiswaToEdit]);
+    }
+
+    // update data kelas mahasiswa
+    public function updateDataKelasMahasiswa(Request $request){
+        DB::table('kelas_mahasiswa')->where('id', $request->id)->update([
+            'nim' => $request->nim,
+            'kode_kelas' => $request->kode_kelas
+        ]);
+        return redirect('admin');
     }
 }

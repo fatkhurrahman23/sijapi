@@ -41,7 +41,7 @@ Route::get('admin', function () {
 
 
 
-// ruang
+// ======================================== RUANG ========================================
 Route::get('admin/ruang', [Jadwal::class, 'tampilDataRuang']);
 Route::post('admin/ruang', [Jadwal::class, 'tambahDataRuang']);
 // ruang edit
@@ -50,7 +50,7 @@ Route::post('admin/ruang/{id}/update', [Jadwal::class, 'updateDataRuang'])->name
 // ruang delete
 Route::get('admin/ruang/{kode_ruang}/delete', [Jadwal::class, 'hapusDataRuang'])->name('ruang.delete');
 
-// mahasiswa
+// ======================================== MAHASISWA ========================================
 Route::get('admin/mahasiswa', [Mahasiswa::class, 'tampilDataMahasiswa']);
 Route::post('admin/mahasiswa', [Mahasiswa::class, 'tambahDataMahasiswa']);
 // mahasiswa edit
@@ -60,7 +60,7 @@ Route::post('admin/mahasiswa/{nim}/update', [Mahasiswa::class, 'updateDataMahasi
 Route::get('admin/mahasiswa/{nim}/delete', [Mahasiswa::class, 'hapusDataMahasiswa'])->name('mahasiswa.delete');
 
 
-// dosen
+// ======================================== DOSEN ========================================
 Route::get('admin/dosen', [Dosen::class, 'tampilDataDosen']);
 Route::post('admin/dosen', [Dosen::class, 'tambahDataDosen']);
 // dosen edit
@@ -69,9 +69,20 @@ Route::post('admin/dosen/{nip}/update', [Dosen::class, 'updateDataDosen'])->name
 // dosen delete
 Route::get('admin/dosen/{nip}/delete', [Dosen::class, 'hapusDataDosen'])->name('dosen.delete');
 
-// mata kuliah
+
+
+// ======================================== MATA KULIAH ========================================
 Route::get('admin/matakuliah', [MataKuliah::class, 'tampilDataMatkul']);
 Route::post('admin/matakuliah', [MataKuliah::class, 'tambahDataMatkul']);
+
+
+
+
+
+
+
+
+
 
 
 Route::get('/edit_matkul', function () {
