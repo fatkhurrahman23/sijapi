@@ -59,34 +59,12 @@
                             <div class="sm:col-span-2 flex justify-between items-end">
                                 <button type="submit" class=" flex justify-center w-3/6 rounded-md bg-custom-birumuda px-3 py-2 text-sm font-poppins font-semibold text-white shadow-sm hover:bg-custom-birutua focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" >
                                     <img class="flex justify-end align-bottom items-end" width="17" height="17" src="https://img.icons8.com/sf-black-filled/64/plus-math.png" alt="plus-math" style="filter: invert(100%);"/>
-                                    <p class="ml-2">Tambah</p>
+                                    <p class="ml-2">Simpan</p>
                                 </button>
                             </div>
                         </div>
                     </form>
-                    <div class="overflow-x-auto">
-                        <table class="table-auto mt-24 w-11/12 border-collapse">
-                            <thead>
-                                <tr>
-                                    <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Kode</th>
-                                    <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Matkul</th>
-                                    <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">SKS</th>
-                                    <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="border px-4 py-2">AI81</td>
-                                    <td class="border px-4 py-2">Machine Learning</td>
-                                    <td class="border px-4 py-2">3</td>
-                                    <td class="border px-4 py-2">
-                                        <button onclick="loadHariPage()" class="bg-blue-500 hover:bg-blue-700 text-white font-poppins font-normal py-1 px-2 rounded">Edit</button>
-                                        <button class="bg-red-500 hover:bg-red-700 text-white font-poppins font-normal  py-1 px-2 rounded">Hapus</button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    
                 </div>
             </div>     
         </div>
