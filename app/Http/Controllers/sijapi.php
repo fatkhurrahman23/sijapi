@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class sijapi extends Controller
 {
     public function index(){
-        return view('/admin/edit_kelas_mahasiswa');
+        return view('/admin/admin');
     }
 }

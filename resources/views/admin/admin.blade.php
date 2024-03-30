@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ADMIN PAGE</title>
     <!-- ======= Styles ====== -->
-    @vite('resources\js\admin.js')
+    @vite('resources\js\admin2.js')
     @vite('resources\css\admin.css')
 
 </head>
@@ -20,12 +20,12 @@
                 <li class="mt-2">
                     <a href="#">
                         <span class="icon bg-logo-polines bg-contain bg-no-repeat"></span>
-                        <span class="title bg-bg-sijapi bg-no-repeat bg-contain w-3/4 ml-2" ></span>
+                        <span class="title bg-bg-sijapi ml-2 font-poppins  w-24 h-12 bg-cover bg-no-repeat font-semibold"></span>
                     </a>
                 </li>
 
                 <li id="dashboard-nav">
-                    <a href="#">
+                    <a href="#" onclick="activePage = 'dashboard'; showActivePage();">
                         <span class="icon">
                             <svg class="ml-3" xmlns="http://www.w3.org/2000/svg" class="ionicon"  width="30" height="54" viewBox="0 0 512 512"><rect x="48" y="48" width="176" height="176" rx="20" ry="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><rect x="288" y="48" width="176" height="176" rx="20" ry="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><rect x="48" y="288" width="176" height="176" rx="20" ry="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><rect x="288" y="288" width="176" height="176" rx="20" ry="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/></svg>
                         </span>
@@ -34,7 +34,7 @@
                 </li>
 
                 <li id="mahasiswa-nav">
-                    <a href="#">
+                    <a href="#" onclick="activePage = 'mahasiswa'; showActivePage();">
                         <span class="icon">
                             <svg class="ml-3" xmlns="http://www.w3.org/2000/svg" class="ionicon" width="30" height="54" viewBox="0 0 512 512"><circle fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32" cx="256" cy="56" r="40"/><path fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32" d="M204.23 274.44c2.9-18.06 4.2-35.52-.5-47.59-4-10.38-12.7-16.19-23.2-20.15L88 176.76c-12-4-23.21-10.7-24-23.94-1-17 14-28 29-24 0 0 88 31.14 163 31.14s162-31 162-31c18-5 30 9 30 23.79 0 14.21-11 19.21-24 23.94l-88 31.91c-8 3-21 9-26 18.18-6 10.75-5 29.53-2.1 47.59l5.9 29.63 37.41 163.9c2.8 13.15-6.3 25.44-19.4 27.74S308 489 304.12 476.28l-37.56-115.93q-2.71-8.34-4.8-16.87L256 320l-5.3 21.65q-2.52 10.35-5.8 20.48L208 476.18c-4 12.85-14.5 21.75-27.6 19.46s-22.4-15.59-19.46-27.74l37.39-163.83z"/></svg>                        
                         </span>
@@ -113,6 +113,22 @@
                         <span class="title ml-2">Waktu Tidak Tersedia</span>
                     </a>
                 </li>
+                <li id="enrollment-nav">
+                    <a href="#">
+                        <span class="icon">
+                            <svg class="ml-3" xmlns="http://www.w3.org/2000/svg" class="ionicon" width="30" height="54" viewBox="0 0 512 512"><circle cx="256" cy="184" r="120" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32"/><circle cx="344" cy="328" r="120" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32"/><circle cx="168" cy="328" r="120" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32"/></svg>
+                        </span>
+                        <span class="title ml-2">Enrollment</span>
+                    </a>
+                </li>
+                <li id="jadwalkuliah-nav">
+                    <a href="#">
+                        <span class="icon">
+                            <svg class="ml-3" xmlns="http://www.w3.org/2000/svg" class="ionicon" width="30" height="54" viewBox="0 0 512 512"><rect x="32" y="96" width="64" height="368" rx="16" ry="16" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M112 224h128M112 400h128"/><rect x="112" y="160" width="128" height="304" rx="16" ry="16" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32"/><rect x="256" y="48" width="96" height="416" rx="16" ry="16" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32"/><path d="M422.46 96.11l-40.4 4.25c-11.12 1.17-19.18 11.57-17.93 23.1l34.92 321.59c1.26 11.53 11.37 20 22.49 18.84l40.4-4.25c11.12-1.17 19.18-11.57 17.93-23.1L445 115c-1.31-11.58-11.42-20.06-22.54-18.89z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32"/></svg>
+                        </span>
+                        <span class="title ml-2">Jadwal Kuliah</span>
+                    </a>
+                </li>
 
                 <li>
                     <a href="#">
@@ -122,13 +138,13 @@
                         <span class="title ml-2">Password</span>
                     </a>
                 </li>
-
-                <li>
-                    <a href="#">
+                <hr class="mt-3 mb-5">
+                <li id="dashboard-nav">
+                    <a href="{{ route('logout') }}" id="signOutButton" class="logout">
                         <span class="icon">
                             <svg class="ml-3" xmlns="http://www.w3.org/2000/svg" class="ionicon" width="30" height="54" viewBox="0 0 512 512"><path d="M304 336v40a40 40 0 01-40 40H104a40 40 0 01-40-40V136a40 40 0 0140-40h152c22.09 0 48 17.91 48 40v40M368 336l80-80-80-80M176 256h256" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/></svg>
                         </span>
-                        <span class="title ml-2">Sign Out</span>
+                        <span class="title ml-2 font-medium">Sign Out</span>
                     </a>
                 </li>
             </ul>
@@ -148,26 +164,22 @@
                     </label>
                 </div>
 
-                <div class="user bg-yellow-400">
-                    <p class="flex justify-center font-poppins text-3xl font-semibold text-custom-putih">A</p>
+                <div class="mt-3 flex flex-col items-center justify-center"> 
+                    <div class="user bg-yellow-400 items-center align-middle">
+                        <p class="flex justify-center font-poppins text-3xl font-semibold text-custom-putih">A</p>
+                    </div>
+                    <p class="username">
+                        <span class="font-poppins font-medium text-custom-birumuda">{{ isset($username) ? $username : 'Guest' }}</span>
+                    </p>
                 </div>
-                <!-- TAMBAHKAN USERNAME YANG DIDAPAT DARI SESSION -->
-                <p class="username">
-                    <span class="font-poppins font-semibold text-custom-birumuda">{{ isset($username) ? $username : 'Guest' }}</span>
-                </p>
-                <!-- button logout -->
-                <a href="{{ route('logout') }}" class="logout">
-                    <ion-icon name="log-out-outline">LOGOUT</ion-icon>
-                </a>
             </div>
 
             
 <!-- ===============================================TAMBAH DATA=============================================== -->
             <div class="tambah">
-                @include('admin\dashboard')
-                <x-mahasiswa-component />
-                <x-dosen-component />
-                <!-- @include('admin\dosen') -->
+                @include('admin\dashboard', ['id' => 'dashboard'])
+                <x-mahasiswa-component id="mahasiswa"/>
+                <x-dosen-component id="dosen"/>
                 @include('admin\kelas_mahasiswa')
                 @include('admin\ruang')
                 @include('admin\prodi_dosen')
@@ -175,29 +187,23 @@
                 @include('admin\tahun_akademik')
                 @include('admin\jam')
                 @include('admin\waktu_tidak_tersedia')
+                @include('admin\enrollment')
+                @include('admin\jadwal_kuliah')
                 @include('admin\matkul')
                 
                 <div id="editmatkul"></div>
 
-                
-                <!-- ===============================================MAHASISWA=============================================== -->
-                
-                
-                <!-- ===============================================DOSEN=============================================== -->
-                
-                <!-- ===============================================MATA KULIAH=============================================== -->
-                <!-- ===============================================RUANG=============================================== -->
             </div>
         </div>
     </div>
     <script>
-    function showScroll() {
-        document.getElementById("myNav").style.overflowY = "scroll"; 
-    }
+        function showScroll() {
+            document.getElementById("myNav").style.overflowY = "scroll";
+        }
 
-    function hideScroll() {
-        document.getElementById("myNav").style.overflowY = "hidden";    
-    }
+        function hideScroll() {
+            document.getElementById("myNav").style.overflowY = "hidden";
+        }
     </script>
 </body>
 

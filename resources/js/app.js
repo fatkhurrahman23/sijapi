@@ -1,5 +1,3 @@
-import "./bootstrap";
-
 function loadEditMatkul() {
     fetch("/admin/edit_matkul")
         .then((response) => response.text())

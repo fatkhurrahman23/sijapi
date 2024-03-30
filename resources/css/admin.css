@@ -213,6 +213,10 @@ body {
     object-fit: cover;
 }
 
+input:not(:focus) {
+    padding-left: 5px; /* Menambahkan ruang di sebelah kiri teks input */
+    padding-right: 5px; /* Menambahkan ruang di sebelah kanan teks input */
+}
 /* ====================== Responsive Design ========================== */
 @media (max-width: 991px) {
     .navigation {
@@ -246,7 +250,7 @@ body {
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 350px) {
     .main {
         width: 100%;
         left: 0;
