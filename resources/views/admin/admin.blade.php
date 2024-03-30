@@ -166,7 +166,8 @@
             <div class="tambah">
                 @include('admin\dashboard')
                 <x-mahasiswa-component />
-                @include('admin\dosen')
+                <x-dosen-component />
+                <!-- @include('admin\dosen') -->
                 @include('admin\kelas_mahasiswa')
                 @include('admin\ruang')
                 @include('admin\prodi_dosen')
