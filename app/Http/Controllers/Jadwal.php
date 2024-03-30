@@ -21,7 +21,7 @@ class Jadwal extends Controller
     }
 
     public function editRuang($kode_ruang){
-        $ruangToEdit = DB::table('ruang')->where('id', $kode_ruang)->first();
+        $ruangToEdit = DB::table('ruang')->where('kode_ruang', $kode_ruang)->first();
         return view('admin/edit_ruang', ['ruangToEdit' => $ruangToEdit]);
     }
 
@@ -29,7 +29,7 @@ class Jadwal extends Controller
         DB::table('ruang')->where('kode_ruang', $request->kode_ruang)->update([
             'nama' => $request->nama
         ]);
-        return redirect('admin/ruang');
+        return redirect('admin');
     }
 
     public function hapusDataRuang($kode_ruang){

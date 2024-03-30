@@ -168,9 +168,10 @@
                 <x-mahasiswa-component />
                 <x-dosen-component />
                 <x-kelas-mahasiswa />
+                <x-ruang-component />
+                <x-prodi-dosen />
 
-                @include('admin\ruang')
-                @include('admin\prodi_dosen')
+
                 @include('admin\hari')
                 @include('admin\tahun_akademik')
                 @include('admin\jam')

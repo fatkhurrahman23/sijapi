@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit ruang</title>
+    @vite('resources\css\app.css')
+    @vite('resources/js/app.js')
 </head>
 <body>
 <div class="container">
         <div id="editruang" class="page ml-12">
             <p class="glow-text mt-10 font-poppins font-bold text-black text-2xl">EDIT DATA RUANG</p>
-            <form action="/admin/ruang/{{ $ruangToEdit->id }}/update" method="POST">
+            <form action="/admin/ruang/{{ $ruangToEdit->kode_ruang }}/update" method="POST">
             @csrf
                 <div class="mt-5 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                     <div class="sm:col-span-2">

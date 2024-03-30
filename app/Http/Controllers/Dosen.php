@@ -49,4 +49,35 @@ class Dosen extends Controller
         DB::table('dosen')->where('kode_dosen', $kode_dosen)->delete();
         return redirect('admin/dosen');
     }
+
+
+    // ======================= PRODI DOSEN =======================
+    //ambil data di database
+    public function tampilDataProdiDosen(Request $request){
+        $dataProdiDosen = DB::table('prodi_dosen')->get();
+        return view('admin/prodi_dosen', ['dataProdiDosen' => $dataProdiDosen]);
+    }
+
+    //tambah data ke database
+    public function tambahDataProdiDosen(Request $request){
+        DB::table('prodi_dosen')->insert([
+            'kode_prodi' => $request->kode_prodi,
+            'nip' => $request->nama
+        ]);
+        return redirect('admin/prodi_dosen');
+    }
+
+    // edit data prodi dosen
+    public function editProdiDosen($kode_prodi){
+        $prodiDosenToEdit = DB::table('prodi_dosen')->where('kode_prodi', $kode_prodi)->first();
+        return view('admin/edit_prodi_dosen', ['prodiDosenToEdit' => $prodiDosenToEdit]);
+    }
+
+    // update data prodi dosen
+    public function updateDataProdiDosen(Request $request){
+        DB::table('prodi_dosen')->where('kode_prodi', $request->kode_prodi)->update([
+            'nama' => $request->nama
+        ]);
+        return redirect('admin/prodi_dosen');
+    }
 }
