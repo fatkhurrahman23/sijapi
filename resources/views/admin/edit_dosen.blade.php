@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit ruang</title>
+    @vite('resources\css\app.css')
+    @vite('resources/js/app.js')
 </head>
 <body>
+
 <div class="container">
         <div>
-            <div id="editdosen" class="page ml-12">
+            <div id="dosen" class="page ml-12">
                 <p class="glow-text mt-10 font-poppins font-bold text-black text-2xl">EDIT DATA DOSEN</p>
                     <form action="/admin/dosen/{{ $dosenToEdit->nip }}/update" method="POST">
                         <div class="mt-5 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
@@ -48,7 +51,7 @@
                                     <select id="kode_prodi" name="kode_prodi" class="block w-3/4 rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                         <option value="IK" {{ $dosenToEdit->kode_prodi == 'L' ? 'selected' : '' }}>D3-Teknik Informatika</option>
                                         <option value="TI" {{ $dosenToEdit->kode_prodi == 'P' ? 'selected' : '' }}>D4-Teknologi Rekayasa Komputer</option>
-                                    </select>          
+                                    </select>            
                                 </div>
                             </div>
                             <div class="sm:col-span-2 flex justify-between items-end">
@@ -62,5 +65,6 @@
             </div>     
         </div>
     </div>
+
 </body>
 </html>

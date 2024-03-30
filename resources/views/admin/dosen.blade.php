@@ -88,26 +88,5 @@
         </div>
     </div>
 
-    <script>
-        // Script JavaScript untuk toggle modal
-        // Pastikan modul modal sudah didefinisikan
-        const modalToggleButtons = document.querySelectorAll('[data-modal-toggle]');
-        modalToggleButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const modalTarget = button.dataset.modalToggle;
-                const modal = document.getElementById(modalTarget);
-                modal.classList.toggle('hidden');
-            });
-        });
-
-        const modalCloseButtons = document.querySelectorAll('[data-modal-hide]');
-        modalCloseButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const modalTarget = button.dataset.modalHide;
-                const modal = document.getElementById(modalTarget);
-                modal.classList.add('hidden');
-            });
-        });
-    </script>
 </body>
 </html>
