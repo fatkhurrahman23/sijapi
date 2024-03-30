@@ -77,6 +77,20 @@ Route::post('admin/matakuliah', [MataKuliah::class, 'tambahDataMatkul']);
 
 
 
+// ======================================== KELAS MAHASISWA ========================================
+Route::get('admin/kelas_mahasiswa', [Mahasiswa::class, 'tampilDataKelasMahasiswa']);
+Route::post('admin/kelas_mahasiswa', [Mahasiswa::class, 'tambahDataKelasMahasiswa']);
+
+// kelas mahasiswa edit
+Route::get('admin/kelas_mahasiswa/{id}/edit', [Mahasiswa::class, 'editKelasMahasiswa'])->name('kelas_mahasiswa.edit');
+Route::post('admin/kelas_mahasiswa/{id}/update', [Mahasiswa::class, 'updateDataKelasMahasiswa'])->name('kelas_mahasiswa.update');
+
+// kelas mahasiswa delete
+Route::get('admin/kelas_mahasiswa/{id}/delete', [Mahasiswa::class, 'hapusDataKelasMahasiswa'])->name('kelas_mahasiswa.delete');
+
+
+
+
 
 
 

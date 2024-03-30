@@ -63,8 +63,8 @@ class Mahasiswa extends Controller
     }
 
     // edit data kelas mahasiswa
-    public function editKelasMahasiswa($id){
-        $kelasMahasiswaToEdit = DB::table('kelas_mahasiswa')->where('id', $id)->first();
+    public function editKelasMahasiswa($kode_kelas){
+        $kelasMahasiswaToEdit = DB::table('kelas_mahasiswa')->where('kode_kelas', $kode_kelas)->first();
         return view('admin/edit_kelas_mahasiswa', ['kelasMahasiswaToEdit' => $kelasMahasiswaToEdit]);
     }
 
