@@ -5,19 +5,19 @@ namespace App\View\Components;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
-use App\Models\Kelas_mahasiswa;
+use App\Models\Prodi_dosen;
 
-class kelasMahasiswa extends Component
+class ProdiDosen extends Component
 {
-    public $dataKelasMahasiswa;
+    public $dataProdiDosen;
 
     public function __construct()
     {
-        $this->dataKelasMahasiswa = Kelas_mahasiswa::all();
+        $this->dataProdiDosen = Prodi_dosen::all();
     }
 
     public function render(): View|Closure|string
     {
-        return view('components.kelas-mahasiswa');
+        return view('components.prodi-dosen');
     }
 }

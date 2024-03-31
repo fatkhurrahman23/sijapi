@@ -52,7 +52,6 @@ Route::post('admin/ruang/{id}/update', [Jadwal::class, 'updateDataRuang'])->name
 // ruang delete
 Route::get('admin/ruang/{kode_ruang}/delete', [Jadwal::class, 'hapusDataRuang'])->name('ruang.delete');
 
-
 // ======================================== MAHASISWA ========================================
 Route::get('admin/mahasiswa', [Mahasiswa::class, 'tampilDataMahasiswa']);
 Route::post('admin/mahasiswa', [Mahasiswa::class, 'tambahDataMahasiswa']);
@@ -73,9 +72,36 @@ Route::post('admin/dosen/{nip}/update', [Dosen::class, 'updateDataDosen'])->name
 Route::get('admin/dosen/{nip}/delete', [Dosen::class, 'hapusDataDosen'])->name('dosen.delete');
 
 
+// ======================================== PRODI DOSEN ========================================
+Route::get('admin/prodi_dosen', [Dosen::class, 'tampilDataProdiDosen']);
+Route::post('admin/prodi_dosen', [Dosen::class, 'tambahDataProdiDosen']);
+
+// prodi dosen edit
+Route::get('admin/prodi_dosen/{kode_prodi}/edit', [Dosen::class, 'editProdiDosen'])->name('prodi_dosen.edit');
+Route::post('admin/prodi_dosen/{kode_prodi}/update', [Dosen::class, 'updateDataProdiDosen'])->name('prodi_dosen.update');
+
+// prodi dosen delete
+Route::get('admin/prodi_dosen/{kode_prodi}/delete', [Dosen::class, 'hapusDataProdiDosen'])->name('prodi_dosen.delete');
+
+
+
 // ======================================== MATA KULIAH ========================================
 Route::get('admin/matakuliah', [MataKuliah::class, 'tampilDataMatkul']);
 Route::post('admin/matakuliah', [MataKuliah::class, 'tambahDataMatkul']);
+
+
+
+// ======================================== KELAS MAHASISWA ========================================
+Route::get('admin/kelas_mahasiswa', [Mahasiswa::class, 'tampilDataKelasMahasiswa']);
+Route::post('admin/kelas_mahasiswa', [Mahasiswa::class, 'tambahDataKelasMahasiswa']);
+
+// kelas mahasiswa edit
+Route::get('admin/kelas_mahasiswa/{id}/edit', [Mahasiswa::class, 'editKelasMahasiswa'])->name('kelas_mahasiswa.edit');
+Route::post('admin/kelas_mahasiswa/{id}/update', [Mahasiswa::class, 'updateDataKelasMahasiswa'])->name('kelas_mahasiswa.update');
+
+// kelas mahasiswa delete
+Route::get('admin/kelas_mahasiswa/{id}/delete', [Mahasiswa::class, 'hapusDataKelasMahasiswa'])->name('kelas_mahasiswa.delete');
+
 
 
 

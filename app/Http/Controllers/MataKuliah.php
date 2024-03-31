@@ -8,13 +8,13 @@ use Illuminate\Support\Facades\DB;
 class MataKuliah extends Controller
 {
     //ambil data di database
-    public function tampilDataMahasiswa(Request $request){
+    public function tampilMataKuliah(Request $request){
         $dataMahasiswa = DB::table('mahasiswa')->get();
         return view('admin/mahasiswa', ['dataMahasiswa' => $dataMahasiswa]);
     }
 
     //tambah data ke database
-    public function tambahDataMahasiswa(Request $request){
+    public function tambahMataKuliah(Request $request){
         DB::table('mahasiswa')->insert([
             'kode_mata_kuliah' => $request->kode_mata_kuliah,
             'kode_kelas' => $request->kode_kelas,
