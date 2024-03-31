@@ -186,13 +186,12 @@
                 <x-prodi-dosen />
                 <x-hari-component />
 
-
+                @include('admin\matkul')
                 @include('admin\tahun_akademik')
                 @include('admin\jam')
                 @include('admin\waktu_tidak_tersedia')
                 @include('admin\enrollment')
                 @include('admin\jadwal_kuliah')
-                @include('admin\matkul')
                 <div id="editmatkul"></div>
 
                 

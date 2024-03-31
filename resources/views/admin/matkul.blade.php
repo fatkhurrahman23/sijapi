@@ -112,42 +112,42 @@
                                                     <div class="p-4 md:p-5">
                                                         <form class="space-y-4" action="#">
                                                             <div class="sm:col-span-2">
-                                                                <label for="kode_matkul" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode MatKul</label>
+                                                                <label for="edit_kode_matkul" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode MatKul</label>
                                                                 <div class="mt-2">
-                                                                    <input type="text" name="kode_matkul" id="kode_matkul" autocomplete="kode_matkul" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                                                    <input type="text" name="edit_kode_matkul" id="edit_kode_matkul" autocomplete="edit_kode_matkul" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                                                 </div>
                                                             </div>
                                                             <div class="sm:col-span-2">
-                                                                <label for="nama_matkul" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Nama MatKul</label>
+                                                                <label for="edit_nama_matkul" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Nama MatKul</label>
                                                                 <div class="mt-2">
-                                                                    <input type="text" name="nama_matkul" id="nama_matkul" autocomplete="nama_matkul" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                                                    <input type="text" name="edit_nama_matkul" id="edit_nama_matkul" autocomplete="edit_nama_matkul" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                                                 </div>
                                                             </div>
                                                             <div class="sm:col-span-2">
-                                                                <label for="semester" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Semester</label>
+                                                                <label for="edit_semester" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Semester</label>
                                                                 <div class="mt-2">
-                                                                    <input type="text" name="semester" id="semester" autocomplete="semester" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                                                    <input type="text" name="edit_semester" id="edit_semester" autocomplete="edit_semester" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                                                 </div>
                                                             </div>
                                                             <div class="sm:col-span-2 sm:col-start-1">
-                                                                <label for="sks" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">SKS</label>
+                                                                <label for="edit_sks" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">SKS</label>
                                                                 <div class="mt-2">
-                                                                    <input type="text" name="sks" id="sks" autocomplete="sks" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                                                    <input type="text" name="edit_sks" id="edit_sks" autocomplete="edit_sks" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                                                 </div>
                                                             </div>
                                                             <div class="sm:col-span-2">
-                                                                <label for="jenis" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Jenis</label>
+                                                                <label for="edit_jenis" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Jenis</label>
                                                                 <div class="mt-2">
-                                                                    <select id="jenis" name="jenis" autocomplete="jenis" class="block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                                                    <select id="edit_jenis" name="edit_jenis" autocomplete="edit_jenis" class="block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                                                         <option>Ganjil</option>
                                                                         <option>Gasal</option>
                                                                     </select>          
                                                                 </div>
                                                             </div>
                                                             <div class="sm:col-span-2">
-                                                                <label for="kode_kelas" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Kelas</label>
+                                                                <label for="edit_kode_kelas" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Kelas</label>
                                                                 <div class="mt-2">
-                                                                    <input type="text" name="kode_kelas" id="kode_kelas" autocomplete="kode_kelas" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                                                    <input type="text" name="edit_kode_kelas" id="edit_kode_kelas" autocomplete="edit_kode_kelas" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                                                 </div>
                                                             </div>
                                                             <div class="sm:col-span-2 flex justify-center items-center">
@@ -171,30 +171,6 @@
 
         </div>
     </div>
-
-    <script>
-        const modalToggle = document.querySelector("[data-modal-toggle]");
-const modal = document.getElementById("edit_matkul_modal");
-const overlay = document.createElement("div");
-overlay.classList.add("overlay");
-
-modalToggle.addEventListener("click", () => {
-    modal.classList.toggle("hidden");
-    modal.classList.toggle("flex");
-    document.body.appendChild(overlay);
-    overlay.style.display = "block";
-});
-
-const modalClose = document.querySelector("[data-modal-hide]");
-
-modalClose.addEventListener("click", () => {
-    modal.classList.toggle("hidden");
-    modal.classList.toggle("flex");
-    overlay.style.display = "none";
-    document.body.removeChild(overlay);
-});
-    </script>
-
 </body>
 
 </html>
