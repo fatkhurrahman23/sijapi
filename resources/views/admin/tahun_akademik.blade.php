@@ -26,9 +26,9 @@
                         </div>
                     </div>
                     <div class="sm:col-span-2">
-                                <label for="status" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Status</label>
+                                <label for="edit_status" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Status</label>
                                 <div class="mt-2">
-                                    <select id="status" name="status" autocomplete="status" class="block w-3/4 rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    <select id="edit_status" name="edit_status" autocomplete="edit_status" class="block w-3/4 rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                         <option>Gasal</option>
                                         <option>Genap</option>
                                     </select>          
@@ -85,21 +85,21 @@
                                                     <div class="p-4 md:p-5">
                                                         <form class="space-y-4" action="#">
                                                             <div class="sm:col-span-2">
-                                                                <label for="kode_tahun_akademik" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Tahun Akademik</label>
+                                                                <label for="edit_kode_tahun_akademik" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Tahun Akademik</label>
                                                                 <div class="mt-2">
-                                                                    <input type="text" name="kode_tahun_akademik" id="kode_tahun_akademik" autocomplete="kode_tahun_akademik" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                                                    <input type="text" name="edit_kode_tahun_akademik" id="edit_kode_tahun_akademik" autocomplete="edit_kode_tahun_akademik" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                                                 </div>
                                                             </div>
                                                             <div class="sm:col-span-2">
-                                                                <label for="nama" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Tahun Akademik</label>
+                                                                <label for="edit_nama" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Tahun Akademik</label>
                                                                 <div class="mt-2">
-                                                                    <input type="text" name="nama" id="nama" autocomplete="nama" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                                                    <input type="text" name="edit_nama" id="edit_nama" autocomplete="edit_nama" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                                                 </div>
                                                             </div>
                                                             <div class="sm:col-span-2">
-                                                                        <label for="status" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Status</label>
+                                                                        <label for="edit_status" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Status</label>
                                                                         <div class="mt-2">
-                                                                            <select id="status" name="status" autocomplete="status" class="block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                                                            <select id="edit_status" name="edit_status" autocomplete="edit_status" class="block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                                                                 <option>Gasal</option>
                                                                                 <option>Genap</option>
                                                                             </select>          
