@@ -11,7 +11,8 @@
     <div class="container">
         <div class="page ml-12" id="prodidosen">
             <p class="glow-text mt-10 font-poppins font-bold text-black text-2xl">TAMBAH PRODI DOSEN</p>
-            <form action="">
+            <form action="admin/prodi_dosen" method="POST">
+                @csrf
                 <div class="mt-5 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                     <div class="sm:col-span-2">
                         <label for="kode_prodi" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Prodi</label>

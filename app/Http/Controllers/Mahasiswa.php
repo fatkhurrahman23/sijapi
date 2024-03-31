@@ -56,8 +56,8 @@ class Mahasiswa extends Controller
     //tambah data ke database
     public function tambahDataKelasMahasiswa(Request $request){
         DB::table('kelas_mahasiswa')->insert([
-            'nim' => $request->nim,
-            'kode_kelas' => $request->kode_kelas
+            'kode_kelas' => $request->kode_kelas,
+            'prodi' => $request->prodi
         ]);
         return redirect('components/kelas-mahasiswa');
     }
@@ -65,7 +65,8 @@ class Mahasiswa extends Controller
     // edit data kelas mahasiswa
     public function editKelasMahasiswa($kode_kelas){
         $kelasMahasiswaToEdit = DB::table('kelas_mahasiswa')->where('kode_kelas', $kode_kelas)->first();
-        return view('admin/edit_kelas_mahasiswa', ['kelasMahasiswaToEdit' => $kelasMahasiswaToEdit]);
+        $pilihanProdi = DB::table('kelas_mahasiswa')->pluck('prodi');
+        return view('admin/edit_kelas_mahasiswa', ['kelasMahasiswaToEdit' => $kelasMahasiswaToEdit, 'pilihanProdi' => $pilihanProdi],);
     }
 
     // update data kelas mahasiswa
