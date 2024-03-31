@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ADMIN PAGE</title>
     <!-- ======= Styles ====== -->
-    @vite('resources\js\admin.js')
+    @vite('resources\js\admin2.js')
     @vite('resources\css\admin.css')
 
 </head>
@@ -113,6 +113,22 @@
                         <span class="title ml-2">Waktu Tidak Tersedia</span>
                     </a>
                 </li>
+                <li id="enrollment-nav">
+                    <a href="#">
+                        <span class="icon">
+                            <svg class="ml-3" xmlns="http://www.w3.org/2000/svg" class="ionicon" width="30" height="54" viewBox="0 0 512 512"><circle cx="256" cy="184" r="120" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32"/><circle cx="344" cy="328" r="120" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32"/><circle cx="168" cy="328" r="120" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32"/></svg>
+                        </span>
+                        <span class="title ml-2">Enrollment</span>
+                    </a>
+                </li>
+                <li id="jadwalkuliah-nav">
+                    <a href="#">
+                        <span class="icon">
+                            <svg class="ml-3" xmlns="http://www.w3.org/2000/svg" class="ionicon" width="30" height="54" viewBox="0 0 512 512"><rect x="32" y="96" width="64" height="368" rx="16" ry="16" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M112 224h128M112 400h128"/><rect x="112" y="160" width="128" height="304" rx="16" ry="16" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32"/><rect x="256" y="48" width="96" height="416" rx="16" ry="16" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32"/><path d="M422.46 96.11l-40.4 4.25c-11.12 1.17-19.18 11.57-17.93 23.1l34.92 321.59c1.26 11.53 11.37 20 22.49 18.84l40.4-4.25c11.12-1.17 19.18-11.57 17.93-23.1L445 115c-1.31-11.58-11.42-20.06-22.54-18.89z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32"/></svg>
+                        </span>
+                        <span class="title ml-2">Jadwal Kuliah</span>
+                    </a>
+                </li>
 
                 <li>
                     <a href="#">
@@ -123,8 +139,8 @@
                     </a>
                 </li>
 
-                <li>
-                    <a href="#">
+                <li id="dashboard-nav">
+                    <a href="{{ route('logout') }}" class="logout">
                         <span class="icon">
                             <svg class="ml-3" xmlns="http://www.w3.org/2000/svg" class="ionicon" width="30" height="54" viewBox="0 0 512 512"><path d="M304 336v40a40 40 0 01-40 40H104a40 40 0 01-40-40V136a40 40 0 0140-40h152c22.09 0 48 17.91 48 40v40M368 336l80-80-80-80M176 256h256" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/></svg>
                         </span>
@@ -148,17 +164,16 @@
                     </label>
                 </div>
 
-                <div class="user bg-yellow-400">
-                    <p class="flex justify-center font-poppins text-3xl font-semibold text-custom-putih">A</p>
+                <div class="mt-4 flex flex-col justify-center items-center align-middle">
+                    <div class="user bg-yellow-400">
+                        <p class="flex justify-center font-poppins text-3xl font-semibold text-custom-putih">A</p>
+                    </div>
+                    <!-- TAMBAHKAN USERNAME YANG DIDAPAT DARI SESSION -->
+                    <p class="username">
+                        <span class="font-poppins font-semibold text-custom-birumuda">{{ isset($username) ? $username : 'Guest' }}</span>
+                    </p>
                 </div>
-                <!-- TAMBAHKAN USERNAME YANG DIDAPAT DARI SESSION -->
-                <p class="username">
-                    <span class="font-poppins font-semibold text-custom-birumuda">{{ isset($username) ? $username : 'Guest' }}</span>
-                </p>
-                <!-- button logout -->
-                <a href="{{ route('logout') }}" class="logout">
-                    <ion-icon name="log-out-outline">LOGOUT</ion-icon>
-                </a>
+
             </div>
 
             
@@ -176,6 +191,8 @@
                 @include('admin\tahun_akademik')
                 @include('admin\jam')
                 @include('admin\waktu_tidak_tersedia')
+                @include('admin\enrollment')
+                @include('admin\jadwal_kuliah')
                 @include('admin\matkul')
                 <div id="editmatkul"></div>
 
