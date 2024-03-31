@@ -17,13 +17,20 @@
                     <div class="sm:col-span-2">
                         <label for="kode_kelas" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Kelas Mahasiswa</label>
                         <div class="mt-2">
-                            <input type="text" name="kode_kelas" id="kode_kelas" autocomplete="kode_kelas" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <input type="text" name="kode_kelas" id="kode_kelas" autocomplete="kode_kelas" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $kelasMahasiswaToEdit->kode_kelas }}">
                         </div>
                     </div>
                     <div class="sm:col-span-2">
                         <label for="prodi" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Nama Prodi</label>
                         <div class="mt-2">
-                            <input type="text" name="prodi" id="prodi" autocomplete="prodi" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <select name="prodi" id="prodi" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                @php
+                                    $pilihanProdi = ["D3 - Teknik Informatika", "D4 - Teknologi Rekayasa Komputer"];
+                                @endphp
+                                @foreach($pilihanProdi as $prodi)
+                                    <option value="{{ $prodi }}" {{ $prodi == $kelasMahasiswaToEdit->prodi ? 'selected' : '' }}>{{ $prodi }}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                     <div class="sm:col-span-2 flex justify-between items-end">

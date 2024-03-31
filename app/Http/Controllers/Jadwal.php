@@ -54,8 +54,7 @@ class Jadwal extends Controller
 
     public function editHari($kode_hari){
         $hariToEdit = DB::table('hari')->where('kode_hari', $kode_hari)->first();
-        $nama_hari = DB::table('hari')->pluck('nama_hari');
-        return view('admin/edit_hari', ['hariToEdit' => $hariToEdit, 'nama_hari' => $nama_hari]);
+        return view('admin/edit_hari', ['hariToEdit' => $hariToEdit]);
     }
 
     public function updateDataHari(Request $request){
