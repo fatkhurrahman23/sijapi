@@ -66,7 +66,7 @@
                             </thead>
                             <tbody>
                                 
-                            @foreach($dataMahasiswa as)
+                            @foreach($dataMahasiswa as )
                                 <tr>
                                     <td class="border px-4 py-2">{{ $loop->iteration }}</td>
                                     <td class="border px-4 py-2">{{ $mahasiswa->nama }}</td>
@@ -80,7 +80,6 @@
                         </table>
                     </div>
                 </div>
-
             </div>     
         </div>
     </div>

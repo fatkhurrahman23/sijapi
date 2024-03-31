@@ -44,11 +44,14 @@ Route::get('admin', function () {
 // ======================================== RUANG ========================================
 Route::get('admin/ruang', [Jadwal::class, 'tampilDataRuang']);
 Route::post('admin/ruang', [Jadwal::class, 'tambahDataRuang']);
+
 // ruang edit
 Route::get('admin/ruang/{kode_ruang}/edit', [Jadwal::class, 'editRuang'])->name('ruang.edit');
 Route::post('admin/ruang/{id}/update', [Jadwal::class, 'updateDataRuang'])->name('ruang.update');
+
 // ruang delete
 Route::get('admin/ruang/{kode_ruang}/delete', [Jadwal::class, 'hapusDataRuang'])->name('ruang.delete');
+
 
 // ======================================== MAHASISWA ========================================
 Route::get('admin/mahasiswa', [Mahasiswa::class, 'tampilDataMahasiswa']);
@@ -68,7 +71,6 @@ Route::get('admin/dosen/{nip}/edit', [Dosen::class, 'editDosen'])->name('dosen.e
 Route::post('admin/dosen/{nip}/update', [Dosen::class, 'updateDataDosen'])->name('dosen.update');
 // dosen delete
 Route::get('admin/dosen/{nip}/delete', [Dosen::class, 'hapusDataDosen'])->name('dosen.delete');
-
 
 
 // ======================================== MATA KULIAH ========================================
