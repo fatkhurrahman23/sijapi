@@ -10,7 +10,7 @@ class Dosen extends Controller
     //ambil data di database
     public function tampilDataDosen(Request $request){
         $dataDosen = DB::table('dosen')->get();
-        return view('admin/dosen', ['dataDosen' => $dataDosen]);
+        return view('components/dosen-component', ['dataDosen' => $dataDosen]);
     }
 
     //tambah data ke database
@@ -23,7 +23,7 @@ class Dosen extends Controller
             'no_telp' => $request->no_telp,
             'kode_prodi' => $request->kode_prodi         
         ]);
-        return redirect('admin/dosen');
+        return redirect('components/dosen-component');
     }
 
     // edit data dosen
@@ -41,13 +41,13 @@ class Dosen extends Controller
             'no_telp' => $request->no_telp,
             'kode_prodi' => $request->kode_prodi
         ]);
-        return redirect('admin/dosen');
+        return redirect('components/dosen-component');
     }
 
     // hapus data dosen
     public function hapusDataDosen($kode_dosen){
         DB::table('dosen')->where('kode_dosen', $kode_dosen)->delete();
-        return redirect('admin/dosen');
+        return redirect('components/dosen-component');
     }
 
 
@@ -55,7 +55,7 @@ class Dosen extends Controller
     //ambil data di database
     public function tampilDataProdiDosen(Request $request){
         $dataProdiDosen = DB::table('prodi_dosen')->get();
-        return view('admin/prodi_dosen', ['dataProdiDosen' => $dataProdiDosen]);
+        return view('components/prodi-dosen', ['dataProdiDosen' => $dataProdiDosen]);
     }
 
     //tambah data ke database
@@ -64,7 +64,7 @@ class Dosen extends Controller
             'kode_prodi' => $request->kode_prodi,
             'nip' => $request->nama
         ]);
-        return redirect('admin/prodi_dosen');
+        return redirect('components/prodi-dosen');
     }
 
     // edit data prodi dosen
@@ -78,6 +78,6 @@ class Dosen extends Controller
         DB::table('prodi_dosen')->where('kode_prodi', $request->kode_prodi)->update([
             'nama' => $request->nama
         ]);
-        return redirect('admin/prodi_dosen');
+        return redirect('components/prodi-dosen');
     }
 }

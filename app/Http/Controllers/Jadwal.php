@@ -9,15 +9,15 @@ class Jadwal extends Controller
 {
     public function tampilDataRuang(Request $request){
         $dataRuang = DB::table('ruang')->get();
-        return view('admin/ruang', ['dataRuang' => $dataRuang]);
+        return view('components/ruang-component', ['dataRuang' => $dataRuang]);
     }
 
     public function tambahDataRuang(Request $request){
         DB::table('ruang')->insert([
-            'kode_ruang' => $request->kode_ruang,
+            'kode_ruang' => $requset->kode_ruang,
             'nama' => $request->nama
         ]);
-        return redirect('admin/ruang');
+        return redirect('components/ruang-component');
     }
 
     public function editRuang($kode_ruang){
@@ -29,12 +29,12 @@ class Jadwal extends Controller
         DB::table('ruang')->where('kode_ruang', $request->kode_ruang)->update([
             'nama' => $request->nama
         ]);
-        return redirect('admin');
+        return redirect('components/ruang-component');
     }
 
     public function hapusDataRuang($kode_ruang){
         DB::table('ruang')->where('kode_ruang', $kode_ruang)->delete();
-        return redirect('admin/ruang');
+        return redirect('components/ruang-component');
     }
 
 
