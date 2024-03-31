@@ -11,7 +11,7 @@ class Hari extends Model
 
     protected $table = 'hari';
     protected $primarykey = 'id';
-    protected $fillable = ['id', 'kode_hari', 'hari'];
+    protected $fillable = ['id', 'kode_hari', 'nama_hari'];
 
     public function waktu_tidak_tersedia(){
         return $this->hasMany('app\Models\Waktu_tidak_tersedia.php', 'kode_hari');

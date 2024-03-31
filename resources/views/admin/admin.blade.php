@@ -170,9 +170,9 @@
                 <x-kelas-mahasiswa />
                 <x-ruang-component />
                 <x-prodi-dosen />
+                <x-hari-component />
 
 
-                @include('admin\hari')
                 @include('admin\tahun_akademik')
                 @include('admin\jam')
                 @include('admin\waktu_tidak_tersedia')
