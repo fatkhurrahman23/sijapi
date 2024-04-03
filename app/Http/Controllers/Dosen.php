@@ -23,7 +23,7 @@ class Dosen extends Controller
             'no_telp' => $request->no_telp,
             'kode_prodi' => $request->kode_prodi         
         ]);
-        return redirect('components/dosen-component');
+        return redirect('admin/dosen');
     }
 
     // edit data dosen
@@ -41,13 +41,13 @@ class Dosen extends Controller
             'no_telp' => $request->no_telp,
             'kode_prodi' => $request->kode_prodi
         ]);
-        return redirect('components/dosen-component');
+        return redirect('admin/dosen');
     }
 
     // hapus data dosen
     public function hapusDataDosen($kode_dosen){
         DB::table('dosen')->where('kode_dosen', $kode_dosen)->delete();
-        return redirect('components/dosen-component');
+        return redirect('admin/dosen');
     }
 
 
@@ -64,7 +64,7 @@ class Dosen extends Controller
             'kode_prodi' => $request->kode_prodi,
             'nip' => $request->nama
         ]);
-        return redirect('components/prodi-dosen');
+        return redirect('admin/prodi_dosen');
     }
 
     // edit data prodi dosen
@@ -78,6 +78,12 @@ class Dosen extends Controller
         DB::table('prodi_dosen')->where('kode_prodi', $request->kode_prodi)->update([
             'nama' => $request->nama
         ]);
-        return redirect('components/prodi-dosen');
+        return redirect('admin/prodi_dosen');
+    }
+
+    // hapus data prodi dosen
+    public function hapusDataProdiDosen($kode_prodi){
+        DB::table('prodi_dosen')->where('kode_prodi', $kode_prodi)->delete();
+        return redirect('admin/prodi_dosen');
     }
 }

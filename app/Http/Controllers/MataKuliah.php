@@ -25,4 +25,29 @@ class MataKuliah extends Controller
         ]);
         return redirect('admin/mahasiswa');
     }
+
+    //edit data
+    public function editMataKuliah($kode_mata_kuliah){
+        $dataMahasiswa = DB::table('mahasiswa')->where('kode_mata_kuliah', $kode_mata_kuliah)->first();
+        return view('admin/mahasiswa-edit', ['dataMahasiswa' => $dataMahasiswa]);
+    }
+
+    //update data
+    public function updateDataMataKuliah(Request $request, $kode_mata_kuliah){
+        DB::table('mahasiswa')->where('kode_mata_kuliah', $kode_mata_kuliah)->update([
+            'kode_kelas' => $request->kode_kelas,
+            'nama' => $request->nama,
+            'sks' => $request->sks,
+            'semester' => $request->semester,
+            'jenis' => $request->jenis
+        ]);
+        return redirect('admin/mahasiswa');
+    }
+
+    //hapus data
+    public function hapusDataMataKuliah($kode_mata_kuliah){
+        DB::table('mahasiswa')->where('kode_mata_kuliah', $kode_mata_kuliah)->delete();
+        return redirect('admin/mahasiswa');
+    }
+    
 }

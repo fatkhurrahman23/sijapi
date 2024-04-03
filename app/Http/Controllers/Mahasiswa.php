@@ -21,7 +21,7 @@ class Mahasiswa extends Controller
             'jenis_kelamin' => $request->jenis_kelamin,
             'kode_kelas' => $request->kode_kelas
         ]);
-        return redirect('admin');
+        return redirect('admin/mahasiswa');
     }
     
     // edit data mahasiswa
@@ -37,7 +37,7 @@ class Mahasiswa extends Controller
             'jenis_kelamin' => $request->jenis_kelamin,
             'kode_kelas' => $request->kode_kelas
         ]);
-        return redirect('components/mahasiswa-component');
+        return view('components/mahasiswa-component');
     }
 
     // hapus data mahasiswa
@@ -59,7 +59,7 @@ class Mahasiswa extends Controller
             'kode_kelas' => $request->kode_kelas,
             'prodi' => $request->prodi
         ]);
-        return redirect('components/kelas-mahasiswa');
+        return redirect('admin/kelas_mahasiswa');
     }
 
     // edit data kelas mahasiswa
@@ -75,6 +75,6 @@ class Mahasiswa extends Controller
             'nim' => $request->nim,
             'kode_kelas' => $request->kode_kelas
         ]);
-        return redirect('components/kelas-mahasiswa');
+        return redirect('admin/kelas_mahasiswa');
     }
 }

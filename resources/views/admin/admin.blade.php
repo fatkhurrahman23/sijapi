@@ -185,9 +185,9 @@
                 <x-ruang-component />
                 <x-prodi-dosen />
                 <x-hari-component />
+                <x-tahun-akademik />
 
                 @include('admin\matkul')
-                @include('admin\tahun_akademik')
                 @include('admin\jam')
                 @include('admin\waktu_tidak_tersedia')
                 @include('admin\enrollment')

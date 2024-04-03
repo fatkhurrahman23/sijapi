@@ -44,7 +44,7 @@ Route::get('admin', function () {
 // ======================================== RUANG ========================================
 Route::get('admin/ruang', [Jadwal::class, 'tampilDataRuang']);
 Route::post('admin/ruang', [Jadwal::class, 'tambahDataRuang']);
-// ruang edit
+// ruang editS
 Route::get('admin/ruang/{kode_ruang}/edit', [Jadwal::class, 'editRuang'])->name('ruang.edit');
 Route::post('admin/ruang/{id}/update', [Jadwal::class, 'updateDataRuang'])->name('ruang.update');
 // ruang delete
@@ -61,6 +61,8 @@ Route::get('admin/mahasiswa/{nim}/edit', [Mahasiswa::class, 'editMahasiswa'])->n
 Route::post('admin/mahasiswa/{nim}/update', [Mahasiswa::class, 'updateDataMahasiswa'])->name('mahasiswa.update');
 // mahasiswa delete
 Route::get('admin/mahasiswa/{nim}/delete', [Mahasiswa::class, 'hapusDataMahasiswa'])->name('mahasiswa.delete');
+
+
 
 
 // ======================================== DOSEN ========================================
@@ -92,6 +94,13 @@ Route::get('admin/prodi_dosen/{kode_prodi}/delete', [Dosen::class, 'hapusDataPro
 Route::get('admin/matakuliah', [MataKuliah::class, 'tampilDataMatkul']);
 Route::post('admin/matakuliah', [MataKuliah::class, 'tambahDataMatkul']);
 
+// mata kuliah edit
+Route::get('admin/matakuliah/{kode_matkul}/edit', [MataKuliah::class, 'editMatkul'])->name('matakuliah.edit');
+Route::post('admin/matakuliah/{kode_matkul}/update', [MataKuliah::class, 'updateDataMatkul'])->name('matakuliah.update');
+
+// mata kuliah delete
+Route::get('admin/matakuliah/{kode_matkul}/delete', [MataKuliah::class, 'hapusDataMatkul'])->name('matakuliah.delete');
+
 
 
 // ======================================== KELAS MAHASISWA ========================================
@@ -117,6 +126,21 @@ Route::post('admin/hari/{id}/update', [Jadwal::class, 'updateDataHari'])->name('
 
 // hari delete
 Route::get('admin/hari/{kode_hari}/delete', [Jadwal::class, 'hapusDataHari'])->name('hari.delete');
+
+
+
+
+
+// ======================================== TAHUN AKADEMIK ========================================
+Route::get('admin/tahun_akademik', [Jadwal::class, 'tampilDataTahunAkademik']);
+Route::post('admin/tahun_akademik', [Jadwal::class, 'tambahDataTahunAkademik']);
+
+// tahun akademik edit
+Route::get('admin/tahun_akademik/{kode_tahun_akademik}/edit', [Jadwal::class, 'editTahunAkademik'])->name('tahun_akademik.edit');
+Route::post('admin/tahun_akademik/{id}/update', [Jadwal::class, 'updateDataTahunAkademik'])->name('tahun_akademik.update');
+
+// tahun akademik delete
+Route::get('admin/tahun_akademik/{kode_tahun_akademik}/delete', [Jadwal::class, 'hapusDataTahunAkademik'])->name('tahun_akademik.delete');
 
 
 

@@ -12,7 +12,7 @@
         <div>
             <div id="dosen" class="page ml-12">
                 <p class="glow-text mt-10 font-poppins font-bold text-black text-2xl">TAMBAH DAFTAR DOSEN</p>
-                    <form action="admin/dosen" method="POST">
+                    <form action="/admin/dosen" method="POST">
                         @csrf
                         <div class="mt-5 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                             <div class="sm:col-span-2">
@@ -49,8 +49,8 @@
                                 <label for="kode_prodi" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Prodi</label>
                                 <div class="mt-2">
                                     <select id="kode_prodi" name="kode_prodi" class="block w-3/4 rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                                        <option>TI</option>
-                                        <option>TRK</option>
+                                        <option value="IK">IK</option>
+                                        <option value="TI">TI</option>
                                     </select>          
                                 </div>
                             </div>
@@ -69,6 +69,7 @@
                                     <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">No</th>
                                     <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Nama Dosen</th>
                                     <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">NIP</th>
+                                    <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">PRODI</th>
                                     <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Aksi</th>
                                 </tr>
                             </thead>
@@ -78,6 +79,7 @@
                                         <td class="border px-4 py-2 text-center">{{ $loop->iteration }}</td>
                                         <td class="border px-4 py-2">{{ $dosen->nama }}</td>
                                         <td class="border px-4 py-2">{{ $dosen->nip }}</td>
+                                        <td class="border px-4 py-2">{{ $dosen->kode_prodi }}</td>
                                         <td class="border px-4 py-2">
                                             <a href="{{ route('dosen.edit', $dosen->nip) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-poppins font-normal py-1 px-2 rounded">Edit</a>
                                             <a href="{{ route('dosen.delete', $dosen->nip) }}" class="bg-red-500 hover:bg-red-700 text-white font-poppins font-normal py-1 px-2 rounded">Hapus</a>

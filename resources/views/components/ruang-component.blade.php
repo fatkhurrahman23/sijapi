@@ -11,7 +11,7 @@
     <div class="container">
         <div id="ruang" class="page ml-12">
             <p class="glow-text mt-10 font-poppins font-bold text-black text-2xl">TAMBAH DATA RUANG</p>
-            <form action="admin/ruang" method="POST">
+            <form action="/admin/ruang" method="POST">
                 @csrf
                 <div class="mt-5 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                     <div class="sm:col-span-2">
@@ -23,7 +23,7 @@
                     <div class="sm:col-span-2">
                         <label for="nama_ruang" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Nama Ruang</label>
                         <div class="mt-2">
-                            <input type="text" name="nama_ruang" id="nama_ruang" autocomplete="nama_ruang" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <input type="text" name="nama" id="nama_ruang" autocomplete="nama_ruang" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                         </div>
                     </div>
                     <div class="sm:col-span-2 flex justify-between items-end">
@@ -46,8 +46,8 @@
                     </thead>
                     <tbody>
                         
+                        @foreach ($dataRuang as $ruang)
                         <tr>
-                            @foreach ($dataRuang as $ruang)
                             <td class="border px-4 py-2">{{ $loop->iteration }}</td>
                             <td class="border px-4 py-2">{{ $ruang->kode_ruang }}</td>
                             <td class="border px-4 py-2">{{ $ruang->nama }}</td>
@@ -56,6 +56,8 @@
                                 <a href="{{ route('ruang.delete', $ruang->kode_ruang) }}" class="bg-red-500 hover:bg-red-700 text-white font-poppins font-normal py-1 px-2 rounded">Hapus</a>
                             @endforeach
                         </tr>
+                            
+
                     </tbody>
                 </table>
             </div>

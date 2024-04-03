@@ -14,10 +14,11 @@ class Jadwal extends Controller
 
     public function tambahDataRuang(Request $request){
         DB::table('ruang')->insert([
-            'kode_ruang' => $requset->kode_ruang,
+            'kode_ruang' => $request->kode_ruang,
             'nama' => $request->nama
         ]);
-        return redirect('components/ruang-component');
+        $dataRuang = DB::table('ruang')->get();
+        return view('components/ruang-component', ['dataRuang' => $dataRuang]);
     }
 
     public function editRuang($kode_ruang){
@@ -29,12 +30,12 @@ class Jadwal extends Controller
         DB::table('ruang')->where('kode_ruang', $request->kode_ruang)->update([
             'nama' => $request->nama
         ]);
-        return redirect('components/ruang-component');
+        return redirect('admin/ruang');
     }
 
     public function hapusDataRuang($kode_ruang){
         DB::table('ruang')->where('kode_ruang', $kode_ruang)->delete();
-        return redirect('components/ruang-component');
+        return redirect('admin/ruang');
     }
 
 
@@ -68,6 +69,41 @@ class Jadwal extends Controller
         DB::table('hari')->where('kode_hari', $kode_hari)->delete();
         return redirect('admin/hari');
     }
+
+
+    // ============================= TAHUN AKADEMIK =============================
+    public function tampilDataTahunAkademik(Request $request){
+        $dataTahunAkademik = DB::table('tahun_akademik')->get();
+        return view('components/tahun-akademik', ['dataTahunAkademik' => $dataTahunAkademik]);
+    }
+
+    public function tambahDataTahunAkademik(Request $request){
+        DB::table('tahun_akademik')->insert([
+            'kode_tahun_akademik' => $requset->kode_tahun_akademik,
+            'tahun_akademik' => $request->tahun_akademik,
+            'status' => $request->status,
+        ]);
+        return redirect('admin/tahun_akademik');
+    }
+
+    public function editTahunAkademik($kode_tahun_akademik){
+        $tahunAkademikToEdit = DB::table('tahun_akademik')->where('kode_tahun_akademik', $kode_tahun_akademik)->first();
+        return view('admin/edit_tahun_akademik', ['tahunAkademikToEdit' => $tahunAkademikToEdit]);
+    }
+
+    public function updateDataTahunAkademik(Request $request){
+        DB::table('tahun_akademik')->where('kode_tahun_akademik', $request->kode_tahun_akademik)->update([
+            'tahun_akademik' => $request->tahun_akademik
+        ]);
+        return redirect('admin/tahun_akademik');
+    }
+
+    public function hapusDataTahunAkademik($kode_tahun_akademik){
+        DB::table('tahun_akademik')->where('kode_tahun_akademik', $kode_tahun_akademik)->delete();
+        return redirect('admin/tahun_akademik');
+    }
+
+
 
 
 }
