@@ -16,7 +16,7 @@ class MataKuliah extends Controller
     //tambah data ke database
     public function tambahMataKuliah(Request $request){
         DB::table('mahasiswa')->insert([
-            'kode_mata_kuliah' => $request->kode_mata_kuliah,
+            // 'kode_mata_kuliah' => $request->kode_mata_kuliah,
             'kode_kelas' => $request->kode_kelas,
             'nama' => $request->nama,
             'sks' => $request->sks,

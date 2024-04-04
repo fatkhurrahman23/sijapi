@@ -5,22 +5,24 @@ namespace App\View\Components;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
+use App\Models\Enrollment;
 
-class Enrollment extends Component
+class EnrollmentComponent extends Component
 {
-    /**
-     * Create a new component instance.
-     */
+    public $dataEnrollment;
+
     public function __construct()
     {
-        //
+        $this->dataEnrollment = Enrollment::all();
     }
+
+
 
     /**
      * Get the view / contents that represent the component.
      */
     public function render(): View|Closure|string
     {
-        return view('components.enrollment');
+        return view('components.enrollment-component');
     }
 }

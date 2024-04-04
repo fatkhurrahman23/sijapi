@@ -190,7 +190,7 @@
                 @include('admin\matkul')
                 @include('admin\jam')
                 @include('admin\waktu_tidak_tersedia')
-                @include('admin\enrollment')
+                <x-enrollment-component />
                 @include('admin\jadwal_kuliah')
                 <div id="editmatkul"></div>
 

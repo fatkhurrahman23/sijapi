@@ -129,8 +129,6 @@ Route::get('admin/hari/{kode_hari}/delete', [Jadwal::class, 'hapusDataHari'])->n
 
 
 
-
-
 // ======================================== TAHUN AKADEMIK ========================================
 Route::get('admin/tahun_akademik', [Jadwal::class, 'tampilDataTahunAkademik']);
 Route::post('admin/tahun_akademik', [Jadwal::class, 'tambahDataTahunAkademik']);
@@ -142,6 +140,18 @@ Route::post('admin/tahun_akademik/{id}/update', [Jadwal::class, 'updateDataTahun
 // tahun akademik delete
 Route::get('admin/tahun_akademik/{kode_tahun_akademik}/delete', [Jadwal::class, 'hapusDataTahunAkademik'])->name('tahun_akademik.delete');
 
+
+
+// ======================================== ENROLLMENT ========================================
+Route::get('admin/enrollment', [Jadwal::class, 'tampilDataEnrollment']);
+Route::post('admin/enrollment', [Jadwal::class, 'tambahDataEnrollment']);
+
+// enrollment edit
+Route::get('admin/enrollment/{kode_enrollment}/edit', [Jadwal::class, 'editEnrollment'])->name('enrollment.edit');
+Route::post('admin/enrollment/{id}/update', [Jadwal::class, 'updateDataEnrollment'])->name('enrollment.update');
+
+// enrollment delete
+Route::get('admin/enrollment/{kode_enrollment}/delete', [Jadwal::class, 'hapusDataEnrollment'])->name('enrollment.delete');
 
 
 
