@@ -5,15 +5,15 @@ namespace App\View\Components;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
+use App\Models\Jam;
 
-class Jam extends Component
+class JamComponent extends Component
 {
-    /**
-     * Create a new component instance.
-     */
+    public $dataJamKuliah;
+
     public function __construct()
     {
-        //
+        $this->dataJamKuliah = Jam::all();
     }
 
     /**
@@ -21,6 +21,6 @@ class Jam extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.jam');
+        return view('components.jam-component');
     }
 }

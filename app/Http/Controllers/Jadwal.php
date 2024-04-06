@@ -109,4 +109,38 @@ class Jadwal extends Controller
     }
 
 
+
+    // ============================= JAM KULIAH =============================
+    public function tampilDataJamKuliah(Request $request){
+        $dataJamKuliah = DB::table('jam')->get();
+        return view('components/jam-component', ['dataJamKuliah' => $dataJamKuliah]);
+    }
+
+    public function tambahDataJamKuliah(Request $request){
+        DB::table('jam')->insert([
+            'kode_jam' => $request->kode_jam,
+            'range_jam' => $request->range_jam
+        ]);
+        return redirect('admin/jam');
+    }
+
+    public function editJamKuliah($kode_jam){
+        $jamKuliahToEdit = DB::table('jam')->where('kode_jam', $kode_jam)->first();
+        return view('admin/edit_jam', ['jamKuliahToEdit' => $jamKuliahToEdit]);
+    }
+
+    public function updateDataJamKuliah(Request $request){
+        DB::table('jam')->where('kode_jam', $request->kode_jam)->update([
+            'range_jam' => $request->range_jam
+        ]);
+        return redirect('admin/jam');
+    }
+
+    public function hapusDataJamKuliah($kode_jam){
+        DB::table('jam')->where('kode_jam', $kode_jam)->delete();
+        return redirect('admin/jam');
+    }
+
+
+
 }

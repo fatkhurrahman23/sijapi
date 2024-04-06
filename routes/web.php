@@ -91,15 +91,15 @@ Route::get('admin/prodi_dosen/{kode_prodi}/delete', [Dosen::class, 'hapusDataPro
 
 
 // ======================================== MATA KULIAH ========================================
-Route::get('admin/matakuliah', [MataKuliah::class, 'tampilDataMatkul']);
-Route::post('admin/matakuliah', [MataKuliah::class, 'tambahDataMatkul']);
+Route::get('admin/matakuliah', [MataKuliah::class, 'tampilMataKuliah']);
+Route::post('admin/matakuliah', [MataKuliah::class, 'tambahMataKuliah']);
 
 // mata kuliah edit
-Route::get('admin/matakuliah/{kode_matkul}/edit', [MataKuliah::class, 'editMatkul'])->name('matakuliah.edit');
-Route::post('admin/matakuliah/{kode_matkul}/update', [MataKuliah::class, 'updateDataMatkul'])->name('matakuliah.update');
+Route::get('admin/matakuliah/{kode_matkul}/edit', [MataKuliah::class, 'editMataKuliah'])->name('matakuliah.edit');
+Route::post('admin/matakuliah/{id}/update', [MataKuliah::class, 'updateDataMataKuliah'])->name('matakuliah.update');
 
 // mata kuliah delete
-Route::get('admin/matakuliah/{kode_matkul}/delete', [MataKuliah::class, 'hapusDataMatkul'])->name('matakuliah.delete');
+Route::get('admin/matakuliah/{kode_matkul}/delete', [MataKuliah::class, 'hapusDataMataKuliah'])->name('matakuliah.delete');
 
 
 
@@ -153,6 +153,18 @@ Route::post('admin/enrollment/{id}/update', [Jadwal::class, 'updateDataEnrollmen
 // enrollment delete
 Route::get('admin/enrollment/{kode_enrollment}/delete', [Jadwal::class, 'hapusDataEnrollment'])->name('enrollment.delete');
 
+
+
+// ======================================== JAM ========================================
+Route::get('admin/jam', [Jadwal::class, 'tampilDataJamKuliah']);
+Route::post('admin/jam', [Jadwal::class, 'tambahDataJamKuliah']);
+
+// jam edit
+Route::get('admin/jam/{kode_jam}/edit', [Jadwal::class, 'editJamKuliah'])->name('jam.edit');
+Route::post('admin/jam/{id}/update', [Jadwal::class, 'updateDataJamKuliah'])->name('jam.update');
+
+// jam delete
+Route::get('admin/jam/{kode_jam}/delete', [Jadwal::class, 'hapusDataJamKuliah'])->name('jam.delete');
 
 
 

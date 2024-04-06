@@ -9,13 +9,13 @@ class MataKuliah extends Controller
 {
     //ambil data di database
     public function tampilMataKuliah(Request $request){
-        $dataMahasiswa = DB::table('mahasiswa')->get();
-        return view('admin/mahasiswa', ['dataMahasiswa' => $dataMahasiswa]);
+        $dataMataKuliah = DB::table('mata_kuliah')->get();
+        return view('components/mata-kuliah-component', ['dataMataKuliah' => $dataMataKuliah]);
     }
 
     //tambah data ke database
     public function tambahMataKuliah(Request $request){
-        DB::table('mahasiswa')->insert([
+        DB::table('mata_kuliah')->insert([
             // 'kode_mata_kuliah' => $request->kode_mata_kuliah,
             'kode_kelas' => $request->kode_kelas,
             'nama' => $request->nama,
@@ -23,31 +23,31 @@ class MataKuliah extends Controller
             'semester' => $request->semester,
             'jenis' => $request->jenis
         ]);
-        return redirect('admin/mahasiswa');
+        return redirect('admin/matakuliah');
     }
 
     //edit data
     public function editMataKuliah($kode_mata_kuliah){
-        $dataMahasiswa = DB::table('mahasiswa')->where('kode_mata_kuliah', $kode_mata_kuliah)->first();
-        return view('admin/mahasiswa-edit', ['dataMahasiswa' => $dataMahasiswa]);
+        $mataKuliahToEdit = DB::table('mata_kuliah')->where('kode_mata_kuliah', $kode_mata_kuliah)->first();
+        return view('admin/edit_matakuliah', ['mataKuliahToEdit' => $mataKuliahToEdit]);
     }
 
     //update data
     public function updateDataMataKuliah(Request $request, $kode_mata_kuliah){
-        DB::table('mahasiswa')->where('kode_mata_kuliah', $kode_mata_kuliah)->update([
-            'kode_kelas' => $request->kode_kelas,
+        DB::table('mata_kuliah')->where('kode_mata_kuliah', $kode_mata_kuliah)->update([
+            // 'kode_kelas' => $request->kode_kelas,
             'nama' => $request->nama,
             'sks' => $request->sks,
             'semester' => $request->semester,
             'jenis' => $request->jenis
         ]);
-        return redirect('admin/mahasiswa');
+        return redirect('admin/matakuliah');
     }
 
     //hapus data
     public function hapusDataMataKuliah($kode_mata_kuliah){
-        DB::table('mahasiswa')->where('kode_mata_kuliah', $kode_mata_kuliah)->delete();
-        return redirect('admin/mahasiswa');
+        DB::table('mata_kuliah')->where('kode_mata_kuliah', $kode_mata_kuliah)->delete();
+        return redirect('admin/matakuliah');
     }
     
 }
