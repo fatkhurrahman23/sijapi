@@ -1,19 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ruang</title>
-    @vite('resources/css/app.css')
-    @vite('resources/js/app.js')
-</head>
-<body>
-    <div class="container">
+@extends('admin.admin')
+@section('content')
+@vite('resources/css/jam.css')
+@vite('resources/js/jam.js')
+
+<div class="container">
         <div id="jam" class="page ml-12">
             <p class="glow-text mt-10 font-poppins font-bold text-black text-2xl">TAMBAH JAM</p>
-            <form action="">
+            <form action="{{ url('admin/jam') }}" method="POST">
+            @csrf
                 <div class="mt-5 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-
                     <div class="sm:col-span-2">
                         <label for="kode_jam" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Jam</label>
                         <div class="mt-2">
@@ -45,20 +40,67 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach($data as $no => $value)
                         <tr>
-                            <td class="border px-4 py-2">1</td>
-                            <td class="border px-4 py-2">J9112</td>
-                            <td class="border px-4 py-2">07:00 - 09:00</td>
+                            <td class="border px-4 py-2">{{ $no+1 }}</td>
+                            <td class="border px-4 py-2">{{ $value->kode_jam }}</td>
+                            <td class="border px-4 py-2">{{ $value->range_jam }}</td>
                             <td class="border px-4 py-2">
-                                <button class="bg-blue-500 hover:bg-blue-700 text-white font-poppins font-normal py-1 px-2 rounded">Edit</button>
-                                <button class="bg-red-500 hover:bg-red-700 text-white font-poppins font-normal py-1 px-2 rounded">Hapus</button>
+                                <button type="button" data-modal-target="edit_jam_modal{{ $value->kode_jam }}" data-modal-toggle="edit_jam_modal" class="bg-blue-500 hover:bg-blue-700 text-white font-poppins font-normal py-1 px-2 rounded">Edit</button>
+                                <a href="{{ url('admin/jam/delete/'.$value->kode_jam) }}">                                    
+                                    <button class="bg-red-500 hover:bg-red-700 text-white font-poppins font-normal py-1 px-2 rounded">Hapus</button>
+                                </a>
                             </td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-</body>
-</html>
 
+<!-- ===============================MODAL EDIT=============================== -->
+    @foreach($data as $no => $value)
+        <div id="edit_jam_modal{{ $value->kode_jam }}" tabindex="-1" aria-hidden="true" class="hidden h-screen modal flex overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center">
+            <div class="backdrop absolute inset-0 bg-black opacity-30"></div>
+            <div class="relative p-4 w-full max-w-md max-h-full">
+                <!-- Modal content -->
+                <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                    <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">EDIT DATA JAM</h3>
+                        <button type="button" class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="edit_jam_modal">
+                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                            </svg>
+                            <span class="sr-only">Close modal</span>
+                        </button>
+                    </div>
+                    <div class="p-4 md:p-5">
+                        <form class="space-y-4" action="{{ url('admin/jam/update/'.$value->kode_jam) }}" method="POST">
+                            @csrf
+                            <div class="sm:col-span-2">
+                                <label for="kode_jam" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Jam</label>
+                                <div class="mt-2">
+                                    <input type="text" name="kode_jam" id="kode_jam" autocomplete="kode_jam" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->kode_jam }}" required autofocus>
+                                </div>
+                            </div>
+                            <div class="sm:col-span-2">
+                                <label for="range_jam" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Range Jam</label>
+                                <div class="mt-2">
+                                    <input type="text" name="range_jam" id="range_jam" autocomplete="range_jam" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->range_jam }}">
+                                </div>
+                            </div>
+                            <div class="sm:col-span-2 flex justify-center items-center">
+                                <button type="submit" class="flex justify-center align-middle items-center w-3/6 rounded-md bg-custom-birumuda px-3 py-2 text-sm font-poppins font-semibold text-white shadow-sm hover:bg-custom-birutua focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                                    <img class="flex justify-center align-bottom items-center" width="17" height="17" src="https://img.icons8.com/sf-black-filled/64/plus-math.png" alt="plus-math" style="filter: invert(100%);"/>
+                                    <p class="ml-2">Simpan</p>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endforeach
+
+@endsection

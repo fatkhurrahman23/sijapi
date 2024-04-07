@@ -7,9 +7,10 @@ use App\Http\Controllers\Jadwal;
 use App\Http\Controllers\Mahasiswa;
 use App\Http\Controllers\Dosen;
 use App\Http\Controllers\MataKuliah;
+use App\Http\Controllers\jamController;
+use App\Http\Controllers\tahunakademikController;
 
 Route::get('/', [sijapi::class, 'index']);
-
 
 // ======================================== AUTH ========================================
 // LOGIN
@@ -69,9 +70,8 @@ Route::post('admin/dosen', [Dosen::class, 'tambahDataDosen']);
 // dosen edit
 Route::get('admin/dosen/{nip}/edit', [Dosen::class, 'editDosen'])->name('dosen.edit');
 Route::post('admin/dosen/{nip}/update', [Dosen::class, 'updateDataDosen'])->name('dosen.update');
-// dosen delete
+// dosen deletes
 Route::get('admin/dosen/{nip}/delete', [Dosen::class, 'hapusDataDosen'])->name('dosen.delete');
-
 
 
 // ======================================== PRODI DOSEN ========================================
@@ -91,8 +91,6 @@ Route::get('admin/prodi_dosen/{kode_prodi}/delete', [Dosen::class, 'hapusDataPro
 // ======================================== MATA KULIAH ========================================
 Route::get('admin/matakuliah', [MataKuliah::class, 'tampilDataMatkul']);
 Route::post('admin/matakuliah', [MataKuliah::class, 'tambahDataMatkul']);
-
-
 
 // ======================================== KELAS MAHASISWA ========================================
 Route::get('admin/kelas_mahasiswa', [Mahasiswa::class, 'tampilDataKelasMahasiswa']);
@@ -118,11 +116,15 @@ Route::post('admin/hari/{id}/update', [Jadwal::class, 'updateDataHari'])->name('
 // hari delete
 Route::get('admin/hari/{kode_hari}/delete', [Jadwal::class, 'hapusDataHari'])->name('hari.delete');
 
+// ======================================== Tahun akademik ========================================
+Route::get('admin/tahun_akademik', [tahunakademikController::class, 'index']);
 
-
-
-
-
+// ======================================== JAM ========================================
+Route::get('admin/jam', [jamController::class, 'index']);
+Route::post('admin/jam', [jamController::class, 'store']);
+Route::get('admin/jam/edit/{id}', [jamController::class, 'edit']);
+Route::post('admin/jam/update/{id}', [jamController::class, 'update']);
+Route::get('admin/jam/delete/{id}', [jamController::class, 'destroy']);
 
 
 Route::get('/edit_matkul', function () {

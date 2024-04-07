@@ -14,13 +14,16 @@
 
 <body>
 <!-- =============================================== Navigation =============================================== -->
-    <div class="container">
+    <div class="container p-0">
         <div class="navigation" id="myNav" onmouseenter="showScroll()" onmouseleave="hideScroll()">
             <ul>
                 <li class="mt-2">
                     <a href="#">
                         <span class="icon bg-logo-polines bg-contain bg-no-repeat"></span>
-                        <span class="title bg-bg-sijapi bg-no-repeat bg-contain w-3/4 ml-2" ></span>
+                        <div class="ml-2 w-3/4 h-full ">
+                            <div class="bg-sijapi-new bg-no-repeat bg-contain h-7 w-1/2"></div>
+                            <div class="bg-sijapi-text bg-no-repeat bg-contain h-9 w-5/6"></div>
+                        </div>
                     </a>
                 </li>
 
@@ -90,7 +93,7 @@
                     </a>
                 </li>
                 <li id="tahunakademik-nav">
-                    <a href="#">
+                    <a href="{{ url('admin/tahun_akademik') }}">
                         <span class="icon">
                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" class="ionicon" width="30" height="54" viewBox="0 0 512 512"><rect x="48" y="80" width="416" height="384" rx="48" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M128 48v32M384 48v32M464 160H48M304 260l43.42-32H352v168M191.87 306.63c9.11 0 25.79-4.28 36.72-15.47a37.9 37.9 0 0011.13-27.26c0-26.12-22.59-39.9-47.89-39.9-21.4 0-33.52 11.61-37.85 18.93M149 374.16c4.88 8.27 19.71 25.84 43.88 25.84 28.59 0 52.12-15.94 52.12-43.82 0-12.62-3.66-24-11.58-32.07-12.36-12.64-31.25-17.48-41.55-17.48"/></svg>
                         </span>
@@ -98,7 +101,7 @@
                     </a>
                 </li>
                 <li id="jam-nav">
-                    <a href="#">
+                    <a href="{{ url('admin/jam') }}">
                         <span class="icon">
                             <svg class="ml-3" xmlns="http://www.w3.org/2000/svg" class="ionicon" width="30" height="54" viewBox="0 0 512 512"><path d="M416.07 272a160 160 0 10-160 160 160 160 0 00160-160zM142.12 91.21A46.67 46.67 0 00112 80l-2.79.08C83.66 81.62 64 104 64.07 131c0 13.21 4.66 19.37 10.88 27.23a4.55 4.55 0 003.24 1.77h.88a3.23 3.23 0 002.54-1.31L142.38 99a5.38 5.38 0 001.55-4 5.26 5.26 0 00-1.81-3.79zM369.88 91.21A46.67 46.67 0 01400 80l2.79.08C428.34 81.62 448 104 447.93 131c0 13.21-4.66 19.37-10.88 27.23a4.55 4.55 0 01-3.24 1.76h-.88a3.23 3.23 0 01-2.54-1.31L369.62 99a5.38 5.38 0 01-1.55-4 5.26 5.26 0 011.81-3.79z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M256.07 160v112h-80M416.07 432l-40-40M96.07 432l40-40"/></svg>
                         </span>
@@ -178,30 +181,7 @@
             
 <!-- ===============================================TAMBAH DATA=============================================== -->
             <div class="tambah">
-                @include('admin\dashboard')
-                <x-mahasiswa-component />
-                <x-dosen-component />
-                <x-kelas-mahasiswa />
-                <x-ruang-component />
-                <x-prodi-dosen />
-                <x-hari-component />
-
-                @include('admin\matkul')
-                @include('admin\tahun_akademik')
-                @include('admin\jam')
-                @include('admin\waktu_tidak_tersedia')
-                @include('admin\enrollment')
-                @include('admin\jadwal_kuliah')
-                <div id="editmatkul"></div>
-
-                
-                <!-- ===============================================MAHASISWA=============================================== -->
-                
-                
-                <!-- ===============================================DOSEN=============================================== -->
-                
-                <!-- ===============================================MATA KULIAH=============================================== -->
-                <!-- ===============================================RUANG=============================================== -->
+                @yield('content')
             </div>
         </div>
     </div>

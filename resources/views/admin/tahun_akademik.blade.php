@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ruang</title>
+@extends('admin.admin')
+@section('content')
     @vite('resources/css/tahun_akademik.css')
     @vite('resources/js/tahun_akademik.js')
-</head>
-<body>
     <div class="container">
         <div id="tahunakademik" class="page ml-12">
             <p class="glow-text mt-10 font-poppins font-bold text-black text-2xl">TAMBAH TAHUN AKADEMIK</p>
@@ -26,9 +20,9 @@
                         </div>
                     </div>
                     <div class="sm:col-span-2">
-                                <label for="edit_status" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Status</label>
+                            <label for="status" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Status</label>
                                 <div class="mt-2">
-                                    <select id="edit_status" name="edit_status" autocomplete="edit_status" class="block w-3/4 rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    <select id="status" name="status" autocomplete="status" class="block w-3/4 rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                         <option>Gasal</option>
                                         <option>Genap</option>
                                     </select>          
@@ -124,6 +118,5 @@
             </div>
         </div>
     </div>
-</body>
-</html>
+@endsection
 

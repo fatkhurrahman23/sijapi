@@ -75,6 +75,9 @@ module.exports = {
             "logo-customer": "url('resources/Assets/image/customer01.jpg')",
             "logo-admin": "url('resources/Assets/image/logo-admin.png')",
             "people-beranda": "url('/resources/Assets/image/People.png')",
+            "sijapi-update": "url('/resources/Assets/image/sijapi_update.png')",
+            "sijapi-new": "url('/resources/Assets/image/sijapinew.png')",
+            "sijapi-text": "url('/resources/Assets/image/textsijapi.png')",
         },
         backgroundOpacity: ({ theme }) => theme("opacity"),
         backgroundPosition: {

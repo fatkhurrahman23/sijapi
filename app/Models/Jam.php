@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Jam extends Model
 {
     use HasFactory;
-
+    public $timestamps = false;
     protected $table = 'jam';
     protected $primarykey = 'id';
     protected $fillable = ['id', 'kode_jam', 'range_jam'];

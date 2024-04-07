@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     @vite('resources\css\app.css')
-    @vite('resources/js/app.js')
+    @vite('resources/js/mahasiswa.js')
 </head>
 <body>
     <div class="container">
         <div>
         <div id="mahasiswa" class="page ml-12">
                     <p class=" glow-text mt-10 font-poppins font-bold text-black text-2xl">TAMBAH DATA MAHASISWA</p>
-                    <form action="admin/mahasiswa" method="POST">
+                    <form id="tambahMahasiswaForm" action="admin/mahasiswa" method="POST">
                         @csrf
                         <div class="mt-5 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                             
@@ -46,7 +46,7 @@
                             </div>
                             
                             <div class="sm:col-span-2 flex justify-between items-end">
-                                <button type="submit" class=" flex justify-center w-3/6 rounded-md bg-custom-birumuda px-3 py-2 text-sm font-poppins font-semibold text-white shadow-sm hover:bg-custom-birutua focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" >
+                                <button  type="submit" id="btn_tambah_mahasiswa" class=" flex justify-center w-3/6 rounded-md bg-custom-birumuda px-3 py-2 text-sm font-poppins font-semibold text-white shadow-sm hover:bg-custom-birutua focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" >
                                     <img class="flex justify-end align-bottom items-end" width="17" height="17" src="https://img.icons8.com/sf-black-filled/64/plus-math.png" alt="plus-math" style="filter: invert(100%);"/>
                                     <p class="ml-2">Tambah</p>
                                 </button>
@@ -83,6 +83,5 @@
             </div>     
         </div>
     </div>
-
 </body>
 </html>

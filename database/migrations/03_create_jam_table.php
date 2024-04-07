@@ -12,15 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('jam', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('kode_jam', 20)->unique();
-            $table->timestamp('range_jam');
+            $table->time('range_jam');
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('jam');

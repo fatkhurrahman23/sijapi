@@ -38,61 +38,11 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-let activePage = "dashboard";
-
-function showActivePage() {
-    document.querySelectorAll(".page").forEach((page) => {
-        if (page.id !== activePage) {
-            page.style.display = "none";
-        }
-    });
-
-    document.getElementById(activePage).style.display = "block";
-}
-
-showActivePage();
-
-document.addEventListener("DOMContentLoaded", function () {
-    const navigationItems = document.querySelectorAll(".navigation ul li");
-    let activeNavItem = null;
-
-    navigationItems.forEach((item) => {
-        item.addEventListener("click", function () {
-            // Menghapus kelas 'hovered' dari semua elemen navigasi
-            navigationItems.forEach((navItem) => {
-                navItem.classList.remove("hovered");
-            });
-
-            // Menambahkan kelas 'hovered' hanya pada elemen yang diklik
-            this.classList.add("hovered");
-            activeNavItem = this;
-        });
-
-        item.addEventListener("mouseenter", function () {
-            // Hanya menambahkan kelas 'hovered' jika item tidak memiliki kelas 'hovered'
-            if (!this.classList.contains("hovered")) {
-                this.classList.add("hovered");
-            }
-        });
-
-        item.addEventListener("mouseleave", function () {
-            // Menghapus kelas 'hovered' saat kursor meninggalkan item
-            if (this !== activeNavItem) {
-                this.classList.remove("hovered");
-            }
-        });
-    });
-});
-document.addEventListener("DOMContentLoaded", function () {
-    const signOutButton = document.getElementById("signOutButton");
-
-    signOutButton.addEventListener("click", function (event) {
-        event.preventDefault(); // Prevent the default behavior (in this case, following the link)
-
-        // Tampilkan konfirmasi
+document
+    .getElementById("signOutButton")
+    .addEventListener("click", function (event) {
+        event.preventDefault();
         if (confirm("Are you sure you want to sign out?")) {
-            window.location.href = signOutButton.getAttribute("href");
-            // Misalnya, redirect ke halaman sign out atau lakukan proses sign out lainnya
+            window.location.href = '{{ route("login") }}';
         }
     });
-});
