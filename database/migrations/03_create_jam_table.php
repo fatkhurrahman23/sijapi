@@ -14,11 +14,7 @@ return new class extends Migration
         Schema::create('jam', function (Blueprint $table) {
             $table->increments('id');
             $table->string('kode_jam', 20)->unique();
-<<<<<<< HEAD
-            $table->time('range_jam');
-=======
             $table->string('range_jam', 20);
->>>>>>> 20f81164e171f5fcc8bf5668a79d47c817c6147d
         });
     }
 

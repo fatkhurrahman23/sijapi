@@ -119,12 +119,41 @@ Route::get('admin/hari/{kode_hari}/delete', [Jadwal::class, 'hapusDataHari'])->n
 // ======================================== Tahun akademik ========================================
 Route::get('admin/tahun_akademik', [tahunakademikController::class, 'index']);
 
+
+// ======================================== TAHUN AKADEMIK ========================================
+Route::get('admin/tahun_akademik', [Jadwal::class, 'tampilDataTahunAkademik']);
+Route::post('admin/tahun_akademik', [Jadwal::class, 'tambahDataTahunAkademik']);
+
+// tahun akademik edit
+Route::get('admin/tahun_akademik/{kode_tahun_akademik}/edit', [Jadwal::class, 'editTahunAkademik'])->name('tahun_akademik.edit');
+Route::post('admin/tahun_akademik/{id}/update', [Jadwal::class, 'updateDataTahunAkademik'])->name('tahun_akademik.update');
+
+// tahun akademik delete
+Route::get('admin/tahun_akademik/{kode_tahun_akademik}/delete', [Jadwal::class, 'hapusDataTahunAkademik'])->name('tahun_akademik.delete');
+
+
+
+// ======================================== ENROLLMENT ========================================
+Route::get('admin/enrollment', [Jadwal::class, 'tampilDataEnrollment']);
+Route::post('admin/enrollment', [Jadwal::class, 'tambahDataEnrollment']);
+
+// enrollment edit
+Route::get('admin/enrollment/{kode_enrollment}/edit', [Jadwal::class, 'editEnrollment'])->name('enrollment.edit');
+Route::post('admin/enrollment/{id}/update', [Jadwal::class, 'updateDataEnrollment'])->name('enrollment.update');
+
+// enrollment delete
+Route::get('admin/enrollment/{kode_enrollment}/delete', [Jadwal::class, 'hapusDataEnrollment'])->name('enrollment.delete');
+
+
+
 // ======================================== JAM ========================================
 Route::get('admin/jam', [jamController::class, 'index']);
 Route::post('admin/jam', [jamController::class, 'store']);
 Route::get('admin/jam/edit/{id}', [jamController::class, 'edit']);
 Route::post('admin/jam/update/{id}', [jamController::class, 'update']);
 Route::get('admin/jam/delete/{id}', [jamController::class, 'destroy']);
+
+
 
 
 Route::get('/edit_matkul', function () {
