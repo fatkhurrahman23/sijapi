@@ -12,10 +12,9 @@
         <div>
         <div id="mahasiswa" class="page ml-12">
                     <p class=" glow-text mt-10 font-poppins font-bold text-black text-2xl">TAMBAH DATA MAHASISWA</p>
-                    <form action="admin/mahasiswa" method="POST">
+                    <form action="/admin/mahasiswa" method="POST">
                         @csrf
                         <div class="mt-5 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                            
                             <div class="sm:col-span-2">
                                 <label for="nama-mahasiswa" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Nama Mahasiswa</label>
                                 <div class="mt-2">
@@ -32,7 +31,14 @@
                             <div class="sm:col-span-2 sm:col-start-1">
                                 <label for="kode-kelas" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Kelas</label>
                                 <div class="mt-2">
-                                    <input type="text" name="kode_kelas" id="kode-_kelas" autocomplete="kode_kelas" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    <select name="kode_kelas" id="kode_kelas" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                        @php
+                                            $pilihanKelas = ["TI-2A", "TI-2B"];
+                                        @endphp
+                                        @foreach($pilihanKelas as $kelas)
+                                            <option value="{{ $kelas }}">{{ $kelas }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                             <div class="sm:col-span-2">
@@ -61,6 +67,7 @@
                                     <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">No</th>
                                     <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Nama Mahasiswa</th>
                                     <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">NIM</th>
+                                    <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Kelas</th>
                                     <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Aksi</th>
                                 </tr>
                             </thead>
@@ -71,6 +78,7 @@
                                     <td class="border px-4 py-2">{{ $loop->iteration }}</td>
                                     <td class="border px-4 py-2">{{ $mahasiswa->nama }}</td>
                                     <td class="border px-4 py-2">{{ $mahasiswa->nim }}</td>
+                                    <td class="border px-4 py-2">{{ $mahasiswa->kode_kelas }}</td>
                                     <td class="border px-4 py-2">
                                         <a href="{{ route('mahasiswa.edit', $mahasiswa->nim) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-poppins font-normal py-1 px-2 rounded">Edit</a>
                                         <a href="{{ route('mahasiswa.delete', $mahasiswa->nim) }}" class="bg-red-500 hover:bg-red-700 text-white font-poppins font-normal py-1 px-2 rounded">Hapus</a>

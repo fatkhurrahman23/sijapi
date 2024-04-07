@@ -181,7 +181,34 @@
             
 <!-- ===============================================TAMBAH DATA=============================================== -->
             <div class="tambah">
+<<<<<<< HEAD
                 @yield('content')
+=======
+                @include('admin\dashboard')
+                <x-mahasiswa-component />
+                <x-dosen-component />
+                <x-kelas-mahasiswa />
+                <x-ruang-component />
+                <x-prodi-dosen />
+                <x-hari-component />
+                <x-tahun-akademik />
+                <x-mata-kuliah-component />
+                <x-jam-component />
+
+                @include('admin\waktu_tidak_tersedia')
+                <x-enrollment-component />
+                @include('admin\jadwal_kuliah')
+                <div id="editmatkul"></div>
+
+                
+                <!-- ===============================================MAHASISWA=============================================== -->
+                
+                
+                <!-- ===============================================DOSEN=============================================== -->
+                
+                <!-- ===============================================MATA KULIAH=============================================== -->
+                <!-- ===============================================RUANG=============================================== -->
+>>>>>>> 20f81164e171f5fcc8bf5668a79d47c817c6147d
             </div>
         </div>
     </div>

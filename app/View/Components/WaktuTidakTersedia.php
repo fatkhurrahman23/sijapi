@@ -5,15 +5,15 @@ namespace App\View\Components;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
-use App\Models\Mata_kuliah;
 
-class MataKuliahComponent extends Component
+class WaktuTidakTersedia extends Component
 {
-    public $dataMataKuliah;
-
+    /**
+     * Create a new component instance.
+     */
     public function __construct()
     {
-        $this->dataMataKuliah = Mata_kuliah::all();
+        //
     }
 
     /**
@@ -21,6 +21,6 @@ class MataKuliahComponent extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.mata-kuliah-component');
+        return view('components.waktu-tidak-tersedia');
     }
 }

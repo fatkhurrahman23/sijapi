@@ -69,21 +69,9 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td class="border px-4 py-2">1</td>
-                            <td class="border px-4 py-2">M9120</td>
-                            <td class="border px-4 py-2">Ti-2B</td>
-                            <td class="border px-4 py-2">Dr. Kurnianingsih</td>
-                            <td class="border px-4 py-2">2023/2024</td>
-                            <td class="border px-4 py-2">Machine Learning</td>
-                            <td class="border px-4 py-2">
-                                <button class="bg-blue-500 hover:bg-blue-700 text-white font-poppins font-normal py-1 px-2 rounded">Edit</button>
-                                <button class="bg-red-500 hover:bg-red-700 text-white font-poppins font-normal py-1 px-2 rounded">Hapus</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            @foreach($dataEnrollment as $enrollment)
-                                <td class="border px-4 py-2">{{ $enrollment->id }}</td>
+                        @foreach($dataEnrollment as $enrollment)
+                            <tr>
+                                <td class="border px-4 py-2 text-center">{{ $loop->iteration }}</td>
                                 <td class="border px-4 py-2">{{ $enrollment->kode_enrollment }}</td>
                                 <td class="border px-4 py-2">{{ $enrollment->kode_kelas }}</td>
                                 <td class="border px-4 py-2">{{ $enrollment->kode_dosen }}</td>
@@ -93,8 +81,8 @@
                                     <a href="/admin/enrollment/{{ $enrollment->kode_enrollment }}/edit" class="bg-blue-500 hover:bg-blue-700 text-white font-poppins font-normal py-1 px-2 rounded">Edit</a>
                                     <a href="/admin/enrollment/{{ $enrollment->kode_enrollment }}/delete" class="bg-red-500 hover:bg-red-700 text-white font-poppins font-normal py-1 px-2 rounded">Hapus</a>
                                 </td>
+                            </tr>
                             @endforeach
-                        </tr>
                     </tbody>
                 </table>
             </div>

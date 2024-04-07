@@ -5,15 +5,15 @@ namespace App\View\Components;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
-use App\Models\Mata_kuliah;
+use App\Models\Tahun_akademik;
 
-class MataKuliahComponent extends Component
+class TahunAkademik extends Component
 {
-    public $dataMataKuliah;
+    public $dataTahunAkademik;
 
     public function __construct()
     {
-        $this->dataMataKuliah = Mata_kuliah::all();
+        $this->dataTahunAkademik = Tahun_akademik::all();
     }
 
     /**
@@ -21,6 +21,6 @@ class MataKuliahComponent extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.mata-kuliah-component');
+        return view('components.tahun-akademik');
     }
 }

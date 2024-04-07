@@ -5,15 +5,15 @@ namespace App\View\Components;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
-use App\Models\Mata_kuliah;
+use App\Models\Jam;
 
-class MataKuliahComponent extends Component
+class JamComponent extends Component
 {
-    public $dataMataKuliah;
+    public $dataJamKuliah;
 
     public function __construct()
     {
-        $this->dataMataKuliah = Mata_kuliah::all();
+        $this->dataJamKuliah = Jam::all();
     }
 
     /**
@@ -21,6 +21,6 @@ class MataKuliahComponent extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.mata-kuliah-component');
+        return view('components.jam-component');
     }
 }
