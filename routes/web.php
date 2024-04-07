@@ -145,6 +145,20 @@ Route::post('admin/enrollment/{id}/update', [Jadwal::class, 'updateDataEnrollmen
 Route::get('admin/enrollment/{kode_enrollment}/delete', [Jadwal::class, 'hapusDataEnrollment'])->name('enrollment.delete');
 
 
+// // ======================================== JAM ========================================
+// Route::get('admin/jam', [Jadwal::class, 'tampilDataJamKuliah']);
+// Route::post('admin/jam', [Jadwal::class, 'tambahDataJamKuliah']);
+
+// // jam edit
+// Route::get('admin/jam/{kode_jam}/edit', [Jadwal::class, 'editJamKuliah'])->name('jam.edit');
+// Route::post('admin/jam/{id}/update', [Jadwal::class, 'updateDataJamKuliah'])->name('jam.update');
+
+// // jam delete
+// Route::get('admin/jam/{kode_jam}/delete', [Jadwal::class, 'hapusDataJamKuliah'])->name('jam.delete');
+
+
+
+
 
 // ======================================== JAM ========================================
 Route::get('admin/jam', [jamController::class, 'index']);
