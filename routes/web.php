@@ -116,8 +116,6 @@ Route::post('admin/hari/{id}/update', [Jadwal::class, 'updateDataHari'])->name('
 // hari delete
 Route::get('admin/hari/{kode_hari}/delete', [Jadwal::class, 'hapusDataHari'])->name('hari.delete');
 
-// ======================================== Tahun akademik ========================================
-Route::get('admin/tahun_akademik', [tahunakademikController::class, 'index']);
 
 
 // ======================================== TAHUN AKADEMIK ========================================

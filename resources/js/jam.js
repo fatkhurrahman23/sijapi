@@ -1,4 +1,3 @@
-import Toastify from "toastify-js";
 document.querySelector("table").addEventListener("click", (event) => {
     if (event.target.matches('[data-modal-toggle="edit_jam_modal"]')) {
         const modalId = event.target.getAttribute("data-modal-target");
