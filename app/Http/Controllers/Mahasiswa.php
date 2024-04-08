@@ -10,7 +10,7 @@ class Mahasiswa extends Controller
     //ambil data di database
     public function tampilDataMahasiswa(Request $request){
         $dataMahasiswa = DB::table('mahasiswa')->get();
-        return view('components/mahasiswa-component', ['dataMahasiswa' => $dataMahasiswa]);
+        return view('admin/mahasiswa', ['dataMahasiswa' => $dataMahasiswa]);
     }
 
     //tambah data ke database
@@ -21,7 +21,7 @@ class Mahasiswa extends Controller
             'jenis_kelamin' => $request->jenis_kelamin,
             'kode_kelas' => $request->kode_kelas
         ]);
-        return redirect('admin/mahasiswa');
+        return redirect('/admin/mahasiswa');
     }
     
     // edit data mahasiswa

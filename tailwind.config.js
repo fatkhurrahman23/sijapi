@@ -593,7 +593,9 @@ module.exports = {
             min: "min-content",
             max: "max-content",
             fit: "fit-content",
+            100: "100vh",
             120: "120vh",
+            130: "130vh",
         }),
         hueRotate: {
             0: "0deg",
@@ -1093,7 +1095,7 @@ module.exports = {
             min: "min-content",
             max: "max-content",
             fit: "fit-content",
-            120: "120vh",
+            120: "170vh",
         }),
         willChange: {
             auto: "auto",

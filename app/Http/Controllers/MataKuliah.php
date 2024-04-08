@@ -1,30 +1,31 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Mata_kuliah;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class MataKuliah extends Controller
 {
     //ambil data di database
-    public function tampilMataKuliah(Request $request){
-        $dataMataKuliah = DB::table('mata_kuliah')->get();
-        return view('components/mata-kuliah-component', ['dataMataKuliah' => $dataMataKuliah]);
+    public function tampilMataKuliah(){
+        $data = Mata_kuliah::all();
+        return view('\admin\matkul', compact('data'));
     }
 
     //tambah data ke database
     public function tambahMataKuliah(Request $request){
-        DB::table('mata_kuliah')->insert([
-            // 'kode_mata_kuliah' => $request->kode_mata_kuliah,
-            'kode_kelas' => $request->kode_kelas,
-            'nama' => $request->nama,
-            'sks' => $request->sks,
-            'semester' => $request->semester,
-            'jenis' => $request->jenis
-        ]);
-        return redirect('admin/matakuliah');
+        $data = new Mata_kuliah();
+        $data->kode_mata_kuliah = $request->kode_mata_kuliah;
+        $data->kode_kelas = $request->kode_kelas;
+        $data->nama = $request->nama;
+        $data->sks = $request->sks;
+        $data->semester = $request->semester;
+        $data->jenis = $request->jenis;
+        $data->save();
+        return redirect('/admin/matkul');
     }
+
 
     //edit data
     public function editMataKuliah($kode_mata_kuliah){

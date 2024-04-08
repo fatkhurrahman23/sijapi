@@ -1,67 +1,71 @@
 @extends('admin.admin')
-@section('content')
-@vite('resources/css/jam.css')
-@vite('resources/js/jam.js')
-
-<div class="container">
-        <div id="jam" class="page ml-12">
-            <p class="glow-text mt-10 font-poppins font-bold text-black text-2xl">TAMBAH JAM</p>
-            <form action="{{ url('admin/jam') }}" method="POST">
-            @csrf
+@section('content')    
+    @vite('resources/css/app.css')
+    @vite('resources/js/app.js')
+    <div class="container">
+        <div id="editkelasmahasiswa" class="page ml-12">
+            <p class="glow-text mt-10 font-poppins font-bold text-black text-2xl">KELAS MAHASISWA</p>
+            <form action="/admin/mahasiswa/{{ $kelasMahasiswaToEdit->kode_kelas }}/update" method="POST">
                 <div class="mt-5 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                    @csrf
                     <div class="sm:col-span-2">
-                        <label for="kode_jam" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Jam</label>
+                        <label for="kode_kelas" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Kelas Mahasiswa</label>
                         <div class="mt-2">
-                            <input type="text" name="kode_jam" id="kode_jam" autocomplete="kode_jam" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <input type="text" name="kode_kelas" id="kode_kelas" autocomplete="kode_kelas" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $kelasMahasiswaToEdit->kode_kelas }}">
                         </div>
                     </div>
                     <div class="sm:col-span-2">
-                        <label for="range_jam" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Range Jam</label>
+                        <label for="prodi" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Nama Prodi</label>
                         <div class="mt-2">
-                            <input type="text" name="range_jam" id="range_jam" autocomplete="range_jam" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <select name="prodi" id="prodi" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                @php
+                                    $pilihanProdi = ["D3 - Teknik Informatika", "D4 - Teknologi Rekayasa Komputer"];
+                                @endphp
+                                @foreach($pilihanProdi as $prodi)
+                                    <option value="{{ $prodi }}" {{ $prodi == $kelasMahasiswaToEdit->prodi ? 'selected' : '' }}>{{ $prodi }}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                     <div class="sm:col-span-2 flex justify-between items-end">
                         <button type="submit" class="flex justify-center w-3/6 rounded-md bg-custom-birumuda px-3 py-2 text-sm font-poppins font-semibold text-white shadow-sm hover:bg-custom-birutua focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                             <img class="flex justify-end align-bottom items-end" width="17" height="17" src="https://img.icons8.com/sf-black-filled/64/plus-math.png" alt="plus-math" style="filter: invert(100%);"/>
-                            <p class="ml-2">Tambah</p>
+                            <p class="ml-2">Simpan</p>
                         </button>
                     </div>
                 </div>
             </form>
-            <div class="overflow-x-auto pb-2">
+            <div class="overflow-x-auto">
                 <table class="table-auto mt-24 w-11/12 border-collapse">
                     <thead>
                         <tr>
                             <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">No</th>
-                            <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Kode Jam</th>
-                            <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Range Jam</th>
+                            <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Kode kelas</th>
+                            <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Nama Prodi</th>
                             <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($data as $no => $value)
                         <tr>
-                            <td class="border px-4 py-2">{{ $no+1 }}</td>
-                            <td class="border px-4 py-2">{{ $value->kode_jam }}</td>
-                            <td class="border px-4 py-2">{{ $value->range_jam }}</td>
+                            <td class="border px-4 py-2"></td>
+                            <td class="border px-4 py-2"></td>
+                            <td class="border px-4 py-2"></td>
                             <td class="border px-4 py-2">
-                                <button type="button" data-modal-target="edit_jam_modal{{ $value->kode_jam }}" data-modal-toggle="edit_jam_modal" class="bg-blue-500 hover:bg-blue-700 text-white font-poppins font-normal py-1 px-2 rounded">Edit</button>
-                                <a href="{{ url('admin/jam/delete/'.$value->kode_jam) }}">                                    
+                                <button type="button" data-modal-target="edit_jam_modal" data-modal-toggle="edit_jam_modal" class="bg-blue-500 hover:bg-blue-700 text-white font-poppins font-normal py-1 px-2 rounded">Edit</button>
+                                <a href="">                                    
                                     <button class="bg-red-500 hover:bg-red-700 text-white font-poppins font-normal py-1 px-2 rounded">Hapus</button>
                                 </a>
                             </td>
                         </tr>
-                        @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
 
-<!-- ===============================MODAL EDIT=============================== -->
-    @foreach($data as $no => $value)
-        <div id="edit_jam_modal{{ $value->kode_jam }}" tabindex="-1" aria-hidden="true" class="hidden h-screen modal flex overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center">
+
+<!-- ==========================================modal========================================== -->
+    <div id="edit_jam_modal" tabindex="-1" aria-hidden="true" class="hidden h-screen modal flex overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center">
             <div class="backdrop absolute inset-0 bg-black opacity-30"></div>
             <div class="relative p-4 w-full max-w-md max-h-full">
                 <!-- Modal content -->
@@ -79,15 +83,15 @@
                         <form class="space-y-4" action="{{ url('admin/jam/update/'.$value->kode_jam) }}" method="POST">
                             @csrf
                             <div class="sm:col-span-2">
-                                <label for="kode_jam" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Jam</label>
+                                <label for="kode_kelas" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Jam</label>
                                 <div class="mt-2">
-                                    <input type="text" name="kode_jam" id="kode_jam" autocomplete="kode_jam" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->kode_jam }}" required autofocus>
+                                    <input type="text" name="kode_kelas" id="kode_kelas" autocomplete="kode_kelas" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->kode_kelas }}" required autofocus>
                                 </div>
                             </div>
                             <div class="sm:col-span-2">
-                                <label for="range_jam" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Range Jam</label>
+                                <label for="prodi" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Range Jam</label>
                                 <div class="mt-2">
-                                    <input type="text" name="range_jam" id="range_jam" autocomplete="range_jam" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->range_jam }}">
+                                    <input type="text" name="prodi" id="prodi" autocomplete="prodi" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->prodi }}">
                                 </div>
                             </div>
                             <div class="sm:col-span-2 flex justify-center items-center">
@@ -101,6 +105,4 @@
                 </div>
             </div>
         </div>
-    @endforeach
-
 @endsection

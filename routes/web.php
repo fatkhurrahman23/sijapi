@@ -5,7 +5,7 @@ use App\Http\Controllers\sijapi;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Jadwal;
 use App\Http\Controllers\Mahasiswa;
-use App\Http\Controllers\Dosen;
+use App\Http\Controllers\DosenController;
 use App\Http\Controllers\MataKuliah;
 use App\Http\Controllers\jamController;
 use App\Http\Controllers\tahunakademikController;
@@ -65,32 +65,32 @@ Route::get('admin/mahasiswa/{nim}/delete', [Mahasiswa::class, 'hapusDataMahasisw
 
 
 // ======================================== DOSEN ========================================
-Route::get('admin/dosen', [Dosen::class, 'tampilDataDosen']);
-Route::post('admin/dosen', [Dosen::class, 'tambahDataDosen']);
+Route::get('admin/dosen', [DosenController::class, 'tampilDataDosen']);
+Route::post('admin/dosen', [DosenController::class, 'tambahDataDosen']);
 // dosen edit
-Route::get('admin/dosen/{nip}/edit', [Dosen::class, 'editDosen'])->name('dosen.edit');
-Route::post('admin/dosen/{nip}/update', [Dosen::class, 'updateDataDosen'])->name('dosen.update');
+Route::get('admin/dosen/edit/{nip}', [DosenController::class, 'editDosen']);
+Route::post('admin/dosen/update/{nip}', [DosenController::class, 'updateDataDosen']);
 // dosen deletes
-Route::get('admin/dosen/{nip}/delete', [Dosen::class, 'hapusDataDosen'])->name('dosen.delete');
+Route::get('admin/dosen/delete/{nip}', [DosenController::class, 'hapusDataDosen']);
 
 
 // ======================================== PRODI DOSEN ========================================
-Route::get('admin/prodi_dosen', [Dosen::class, 'tampilDataProdiDosen']);
-Route::post('admin/prodi_dosen', [Dosen::class, 'tambahDataProdiDosen']);
+Route::get('admin/prodi_dosen', [DosenController::class, 'tampilDataProdiDosen']);
+Route::post('admin/prodi_dosen', [DosenController::class, 'tambahDataProdiDosen']);
 
 // prodi dosen edit
-Route::get('admin/prodi_dosen/{kode_prodi}/edit', [Dosen::class, 'editProdiDosen'])->name('prodi_dosen.edit');
-Route::post('admin/prodi_dosen/{kode_prodi}/update', [Dosen::class, 'updateDataProdiDosen'])->name('prodi_dosen.update');
+Route::get('admin/prodi_dosen/edit/{kode_prodi}', [DosenController::class, 'editProdiDosen']);
+Route::post('admin/prodi_dosen/update/{kode_prodi}', [DosenController::class, 'updateDataProdiDosen']);
 
 // prodi dosen delete
-Route::get('admin/prodi_dosen/{kode_prodi}/delete', [Dosen::class, 'hapusDataProdiDosen'])->name('prodi_dosen.delete');
+Route::get('admin/prodi_dosen/delete/{kode_prodi}', [DosenController::class, 'hapusDataProdiDosen']);
 
 
 
 
 // ======================================== MATA KULIAH ========================================
-Route::get('admin/matakuliah', [MataKuliah::class, 'tampilDataMatkul']);
-Route::post('admin/matakuliah', [MataKuliah::class, 'tambahDataMatkul']);
+Route::get('admin/matkul', [MataKuliah::class, 'tampilMataKuliah']);
+Route::post('admin/matkul', [MataKuliah::class, 'tambahMataKuliah']);
 
 // ======================================== KELAS MAHASISWA ========================================
 Route::get('admin/kelas_mahasiswa', [Mahasiswa::class, 'tampilDataKelasMahasiswa']);
@@ -119,6 +119,7 @@ Route::get('admin/hari/{kode_hari}/delete', [Jadwal::class, 'hapusDataHari'])->n
 
 
 // ======================================== TAHUN AKADEMIK ========================================
+// Tahun akademik for jadwal
 Route::get('admin/tahun_akademik', [Jadwal::class, 'tampilDataTahunAkademik']);
 Route::post('admin/tahun_akademik', [Jadwal::class, 'tambahDataTahunAkademik']);
 
@@ -153,9 +154,6 @@ Route::get('admin/enrollment/{kode_enrollment}/delete', [Jadwal::class, 'hapusDa
 
 // // jam delete
 // Route::get('admin/jam/{kode_jam}/delete', [Jadwal::class, 'hapusDataJamKuliah'])->name('jam.delete');
-
-
-
 
 
 // ======================================== JAM ========================================

@@ -9,7 +9,7 @@ class tahunakademikController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function tampilDataTahunAkademik()
     {
         $data = Tahun_akademik::all();
         return view('\admin\tahun_akademik', compact('data'));
@@ -26,9 +26,14 @@ class tahunakademikController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function tambahDataTahunAkademik(Request $request)
     {
-        //
+        $data = new Tahun_akademik();
+        $data->kode_tahun_akademik = $request->kode_tahun_akademik;
+        $data->tahun_akademik = $request->tahun_akademik;
+        $data->status = $request->status;
+        $data->save();
+        return Redirect('/admin/tahun_akademik');
     }
 
     /**

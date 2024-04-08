@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+@extends('admin.admin')
+@section('content')
     @vite('resources\css\app.css')
     @vite('resources/js/mahasiswa.js')
-</head>
-<body>
     <div class="container">
         <div>
         <div id="mahasiswa" class="page ml-12">
@@ -46,7 +40,7 @@
                             </div>
                             
                             <div class="sm:col-span-2 flex justify-between items-end">
-                                <button  type="submit" id="btn_tambah_mahasiswa" class=" flex justify-center w-3/6 rounded-md bg-custom-birumuda px-3 py-2 text-sm font-poppins font-semibold text-white shadow-sm hover:bg-custom-birutua focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" >
+                                <button type="submit" id="btn_tambah_mahasiswa" class=" flex justify-center w-3/6 rounded-md bg-custom-birumuda px-3 py-2 text-sm font-poppins font-semibold text-white shadow-sm hover:bg-custom-birutua focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" >
                                     <img class="flex justify-end align-bottom items-end" width="17" height="17" src="https://img.icons8.com/sf-black-filled/64/plus-math.png" alt="plus-math" style="filter: invert(100%);"/>
                                     <p class="ml-2">Tambah</p>
                                 </button>
@@ -66,9 +60,9 @@
                             </thead>
                             <tbody>
                                 
-                            @foreach($dataMahasiswa as )
+                            @foreach($dataMahasiswa as $no)
                                 <tr>
-                                    <td class="border px-4 py-2">{{ $loop->iteration }}</td>
+                                    <td class="border px-4 py-2">{{ $no+1 }}</td>
                                     <td class="border px-4 py-2">{{ $mahasiswa->nama }}</td>
                                     <td class="border px-4 py-2">{{ $mahasiswa->nim }}</td>
                                     <td class="border px-4 py-2">
@@ -83,5 +77,4 @@
             </div>     
         </div>
     </div>
-</body>
-</html>
+@endsection
