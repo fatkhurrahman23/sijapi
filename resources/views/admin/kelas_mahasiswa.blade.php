@@ -1,30 +1,27 @@
 @extends('admin.admin')
 @section('content')    
-    @vite('resources/css/app.css')
-    @vite('resources/js/app.js')
+    @vite('resources/css/kelas_mahasiswa.css')
+    @vite('resources/js/kelas_mahasiswa.js')
     <div class="container">
-        <div id="editkelasmahasiswa" class="page ml-12">
+        <div id="kelasmahasiswa" class="page ml-12">
             <p class="glow-text mt-10 font-poppins font-bold text-black text-2xl">KELAS MAHASISWA</p>
-            <form action="/admin/mahasiswa/{{ $kelasMahasiswaToEdit->kode_kelas }}/update" method="POST">
+            <form action="{{ url('admin\kelas_mahasiswa') }}" method="POST">
                 <div class="mt-5 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                     @csrf
                     <div class="sm:col-span-2">
                         <label for="kode_kelas" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Kelas Mahasiswa</label>
                         <div class="mt-2">
-                            <input type="text" name="kode_kelas" id="kode_kelas" autocomplete="kode_kelas" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $kelasMahasiswaToEdit->kode_kelas }}">
+                            <input type="text" name="kode_kelas" id="kode_kelas" autocomplete="kode_kelas" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" >
                         </div>
                     </div>
                     <div class="sm:col-span-2">
-                        <label for="prodi" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Nama Prodi</label>
+                        <label for="kode_prodi" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Prodi</label>
                         <div class="mt-2">
-                            <select name="prodi" id="prodi" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                                @php
-                                    $pilihanProdi = ["D3 - Teknik Informatika", "D4 - Teknologi Rekayasa Komputer"];
-                                @endphp
-                                @foreach($pilihanProdi as $prodi)
-                                    <option value="{{ $prodi }}" {{ $prodi == $kelasMahasiswaToEdit->prodi ? 'selected' : '' }}>{{ $prodi }}</option>
-                                @endforeach
-                            </select>
+                            <select id="kode_prodi" name="kode_prodi" class="block w-3/4 rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            @foreach($dataProdi as $prodi)
+                                <option value="{{ $prodi->kode_prodi }}">{{ $prodi->nama }}</option>
+                            @endforeach
+                            </select>          
                         </div>
                     </div>
                     <div class="sm:col-span-2 flex justify-between items-end">
@@ -35,7 +32,7 @@
                     </div>
                 </div>
             </form>
-            <div class="overflow-x-auto">
+            <div class="overflow-x-auto pb-2">
                 <table class="table-auto mt-24 w-11/12 border-collapse">
                     <thead>
                         <tr>
@@ -46,17 +43,19 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach( $dataKelasMahasiswa as $no => $value )
                         <tr>
-                            <td class="border px-4 py-2"></td>
-                            <td class="border px-4 py-2"></td>
-                            <td class="border px-4 py-2"></td>
+                            <td class="border px-4 py-2">{{ $no+1 }}</td>
+                            <td class="border px-4 py-2">{{ $value->kode_kelas }}</td>
+                            <td class="border px-4 py-2">{{ $value->kode_prodi }}</td>
                             <td class="border px-4 py-2">
-                                <button type="button" data-modal-target="edit_jam_modal" data-modal-toggle="edit_jam_modal" class="bg-blue-500 hover:bg-blue-700 text-white font-poppins font-normal py-1 px-2 rounded">Edit</button>
-                                <a href="">                                    
+                                <button type="button" data-modal-target="edit_kelasmahasiswa_modal{{ $value->kode_kelas }}" data-modal-toggle="edit_kelasmahasiswa_modal" class="bg-blue-500 hover:bg-blue-700 text-white font-poppins font-normal py-1 px-2 rounded">Edit</button>
+                                <a href="{{ url('admin/kelas_mahasiswa/delete/'.$value->kode_kelas)  }}">                                    
                                     <button class="bg-red-500 hover:bg-red-700 text-white font-poppins font-normal py-1 px-2 rounded">Hapus</button>
                                 </a>
                             </td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -65,14 +64,15 @@
 
 
 <!-- ==========================================modal========================================== -->
-    <div id="edit_jam_modal" tabindex="-1" aria-hidden="true" class="hidden h-screen modal flex overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center">
+@foreach( $dataKelasMahasiswa as $no => $value )
+    <div id="edit_kelasmahasiswa_modal{{ $value->kode_kelas }}" tabindex="-1" aria-hidden="true" class="hidden h-screen modal flex overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center">
             <div class="backdrop absolute inset-0 bg-black opacity-30"></div>
             <div class="relative p-4 w-full max-w-md max-h-full">
                 <!-- Modal content -->
                 <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                     <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
                         <h3 class="text-xl font-semibold text-gray-900 dark:text-white">EDIT DATA JAM</h3>
-                        <button type="button" class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="edit_jam_modal">
+                        <button type="button" class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="edit_kelasmahasiswa_modal">
                             <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
                             </svg>
@@ -83,15 +83,19 @@
                         <form class="space-y-4" action="{{ url('admin/jam/update/'.$value->kode_jam) }}" method="POST">
                             @csrf
                             <div class="sm:col-span-2">
-                                <label for="kode_kelas" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Jam</label>
+                                <label for="kode_kelas" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Kelas</label>
                                 <div class="mt-2">
-                                    <input type="text" name="kode_kelas" id="kode_kelas" autocomplete="kode_kelas" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->kode_kelas }}" required autofocus>
+                                    <input type="text" name="kode_kelas" id="kode_kelas" autocomplete="kode_kelas" class="bg-gray-300 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->kode_kelas }}" required autofocus readonly>
                                 </div>
                             </div>
                             <div class="sm:col-span-2">
-                                <label for="prodi" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Range Jam</label>
+                                <label for="kode_prodi" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Prodi</label>
                                 <div class="mt-2">
-                                    <input type="text" name="prodi" id="prodi" autocomplete="prodi" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->prodi }}">
+                                    <select id="kode_prodi" name="kode_prodi" class="block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    @foreach($dataProdi as $prodi)
+                                        <option value="{{ $prodi->kode_prodi }}">{{ $prodi->nama }}</option>
+                                    @endforeach
+                                    </select>          
                                 </div>
                             </div>
                             <div class="sm:col-span-2 flex justify-center items-center">
@@ -105,4 +109,5 @@
                 </div>
             </div>
         </div>
+    @endforeach
 @endsection

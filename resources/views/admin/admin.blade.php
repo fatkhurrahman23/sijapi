@@ -70,18 +70,18 @@
                     </a>
                 </li>
                 <li id="kelasmahasiswa-nav">
-                    <a href="#">
+                    <a href="{{ url('admin/kelas_mahasiswa') }}">
                         <span class="icon">
                             <svg class="ml-3" xmlns="http://www.w3.org/2000/svg" class="ionicon" width="30" height="54" viewBox="0 0 512 512"><rect x="32" y="128" width="448" height="320" rx="48" ry="48" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32"/><path d="M144 128V96a32 32 0 0132-32h160a32 32 0 0132 32v32M480 240H32M320 240v24a8 8 0 01-8 8H200a8 8 0 01-8-8v-24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/></svg>                        </span>
                         <span class="title ml-2">kelas Mahasiswa</span>
                     </a>
                 </li>
-                <li id="prodidosen-nav">
-                    <a href="{{ url('admin/prodi_dosen') }}">
+                <li id="dataprodi-nav">
+                    <a href="{{ url('admin/data_prodi') }}">
                         <span class="icon">
                             <svg class="ml-3"  xmlns="http://www.w3.org/2000/svg" class="ionicon"  width="30" height="54" viewBox="0 0 512 512"><path d="M440 432H72a40 40 0 01-40-40V120a40 40 0 0140-40h75.89a40 40 0 0122.19 6.72l27.84 18.56a40 40 0 0022.19 6.72H440a40 40 0 0140 40v240a40 40 0 01-40 40zM32 192h448" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/></svg>
                         </span>
-                        <span class="title ml-2">Prodi Dosen</span>
+                        <span class="title ml-2">Prodi</span>
                     </a>
                 </li>
                 <li id="hari-nav">

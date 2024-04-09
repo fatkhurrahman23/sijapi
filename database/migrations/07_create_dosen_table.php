@@ -22,7 +22,7 @@ return new class extends Migration
 
             $table->foreign('kode_prodi')
                 ->references('kode_prodi')
-                ->on('prodi_dosen')
+                ->on('data_prodi')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
             

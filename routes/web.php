@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\sijapi;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Jadwal;
-use App\Http\Controllers\Mahasiswa;
+use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\DosenController;
 use App\Http\Controllers\MataKuliah;
 use App\Http\Controllers\jamController;
@@ -55,13 +55,13 @@ Route::get('admin/ruang/{kode_ruang}/delete', [Jadwal::class, 'hapusDataRuang'])
 
 
 // ======================================== MAHASISWA ========================================
-Route::get('admin/mahasiswa', [Mahasiswa::class, 'tampilDataMahasiswa']);
-Route::post('admin/mahasiswa', [Mahasiswa::class, 'tambahDataMahasiswa']);
+Route::get('admin/mahasiswa', [MahasiswaController::class, 'tampilDataMahasiswa']);
+Route::post('admin/mahasiswa', [MahasiswaController::class, 'tambahDataMahasiswa']);
 // mahasiswa edit
-Route::get('admin/mahasiswa/{nim}/edit', [Mahasiswa::class, 'editMahasiswa'])->name('mahasiswa.edit');
-Route::post('admin/mahasiswa/{nim}/update', [Mahasiswa::class, 'updateDataMahasiswa'])->name('mahasiswa.update');
+Route::get('admin/mahasiswa/edit/{nim}', [MahasiswaController::class, 'editMahasiswa']);
+Route::post('admin/mahasiswa/update/{nim}', [MahasiswaController::class, 'updateDataMahasiswa']);
 // mahasiswa delete
-Route::get('admin/mahasiswa/{nim}/delete', [Mahasiswa::class, 'hapusDataMahasiswa'])->name('mahasiswa.delete');
+Route::get('admin/mahasiswa/delete/{nim}', [MahasiswaController::class, 'hapusDataMahasiswa']);
 
 
 // ======================================== DOSEN ========================================
@@ -74,16 +74,16 @@ Route::post('admin/dosen/update/{nip}', [DosenController::class, 'updateDataDose
 Route::get('admin/dosen/delete/{nip}', [DosenController::class, 'hapusDataDosen']);
 
 
-// ======================================== PRODI DOSEN ========================================
-Route::get('admin/prodi_dosen', [DosenController::class, 'tampilDataProdiDosen']);
-Route::post('admin/prodi_dosen', [DosenController::class, 'tambahDataProdiDosen']);
+// ======================================== PRODI ========================================
+Route::get('admin/data_prodi', [DosenController::class, 'tampilDataProdi']);
+Route::post('admin/data_prodi', [DosenController::class, 'tambahDataProdi']);
 
 // prodi dosen edit
-Route::get('admin/prodi_dosen/edit/{kode_prodi}', [DosenController::class, 'editProdiDosen']);
-Route::post('admin/prodi_dosen/update/{kode_prodi}', [DosenController::class, 'updateDataProdiDosen']);
+Route::get('admin/data_prodi/edit/{kode_prodi}', [DosenController::class, 'editProdi']);
+Route::post('admin/data_prodi/update/{kode_prodi}', [DosenController::class, 'updateDataProdi']);
 
 // prodi dosen delete
-Route::get('admin/prodi_dosen/delete/{kode_prodi}', [DosenController::class, 'hapusDataProdiDosen']);
+Route::get('admin/data_prodi/delete/{kode_prodi}', [DosenController::class, 'hapusDataProdi']);
 
 
 
@@ -92,16 +92,22 @@ Route::get('admin/prodi_dosen/delete/{kode_prodi}', [DosenController::class, 'ha
 Route::get('admin/matkul', [MataKuliah::class, 'tampilMataKuliah']);
 Route::post('admin/matkul', [MataKuliah::class, 'tambahMataKuliah']);
 
+// matkul edit
+Route::get('admin/matkul/edit/{kode_matkul}', [MataKuliah::class, 'editMataKuliah']);
+Route::post('admin/matkul/update/{kode_matkul}', [MataKuliah::class, 'updateDataMataKuliah']);
+// matkul deletes
+Route::get('admin/matkul/delete/{kode_matkul}', [MataKuliah::class, 'hapusDataMataKuliah']);
+
 // ======================================== KELAS MAHASISWA ========================================
-Route::get('admin/kelas_mahasiswa', [Mahasiswa::class, 'tampilDataKelasMahasiswa']);
-Route::post('admin/kelas_mahasiswa', [Mahasiswa::class, 'tambahDataKelasMahasiswa']);
+Route::get('admin/kelas_mahasiswa', [MahasiswaController::class, 'tampilDataKelasMahasiswa']);
+Route::post('admin/kelas_mahasiswa', [MahasiswaController::class, 'tambahDataKelasMahasiswa']);
 
 // kelas mahasiswa edit
-Route::get('admin/kelas_mahasiswa/{kode_hari}/edit', [Mahasiswa::class, 'editKelasMahasiswa'])->name('kelas_mahasiswa.edit');
-Route::post('admin/kelas_mahasiswa/{id}/update', [Mahasiswa::class, 'updateDataKelasMahasiswa'])->name('kelas_mahasiswa.update');
+Route::get('admin/kelas_mahasiswa/edit/{kode_hari}', [MahasiswaController::class, 'editKelasMahasiswa']);
+Route::post('admin/kelas_mahasiswa/update/{kode_hari}', [MahasiswaController::class, 'updateDataKelasMahasiswa']);
 
 // kelas mahasiswa delete
-Route::get('admin/kelas_mahasiswa/{id}/delete', [Mahasiswa::class, 'hapusDataKelasMahasiswa'])->name('kelas_mahasiswa.delete');
+Route::get('admin/kelas_mahasiswa/delete/{kode_hari}', [MahasiswaController::class, 'hapusDataKelasMahasiswa']);
 
 
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Mata_kuliah;
+use App\Models\Kelas_mahasiswa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -29,8 +30,8 @@ class MataKuliah extends Controller
 
     //edit data
     public function editMataKuliah($kode_mata_kuliah){
-        $mataKuliahToEdit = DB::table('mata_kuliah')->where('kode_mata_kuliah', $kode_mata_kuliah)->first();
-        return view('admin/edit_matakuliah', ['mataKuliahToEdit' => $mataKuliahToEdit]);
+        $data = DB::table('mata_kuliah')->where('kode_mata_kuliah', $kode_mata_kuliah)->first();
+        return view('admin/matkul', compact('data'));
     }
 
     //update data
@@ -42,13 +43,13 @@ class MataKuliah extends Controller
             'semester' => $request->semester,
             'jenis' => $request->jenis
         ]);
-        return redirect('admin/matakuliah');
+        return redirect('admin/matkul');
     }
 
     //hapus data
     public function hapusDataMataKuliah($kode_mata_kuliah){
         DB::table('mata_kuliah')->where('kode_mata_kuliah', $kode_mata_kuliah)->delete();
-        return redirect('admin/matakuliah');
+        return redirect('admin/matkul');
     }
     
 }

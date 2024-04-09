@@ -1,5 +1,5 @@
 document.querySelector("table").addEventListener("click", (event) => {
-    if (event.target.matches('[data-modal-toggle="edit_mahasiswa_modal"]')) {
+    if (event.target.matches('[data-modal-toggle="edit_dataprodi_modal"]')) {
         const modalId = event.target.getAttribute("data-modal-target");
         const modal = document.getElementById(modalId);
         modal.classList.remove("hidden");
@@ -9,7 +9,7 @@ document.querySelector("table").addEventListener("click", (event) => {
 });
 
 document
-    .querySelectorAll('[data-modal-hide="edit_mahasiswa_modal"]')
+    .querySelectorAll('[data-modal-hide="edit_dataprodi_modal"]')
     .forEach((modalClose) => {
         modalClose.addEventListener("click", () => {
             const modal = modalClose.closest(".modal");

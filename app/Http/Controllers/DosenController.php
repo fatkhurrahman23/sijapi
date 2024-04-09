@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Prodi_dosen;
+use App\Models\Data_prodi;
 use App\Models\Dosen;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -11,14 +11,14 @@ class DosenController extends Controller
     //ambil data di database
     public function tampilDataDosen(Request $request){
         $dataDosen = DB::table('dosen')->get();
-        $dataProdiDosen = Prodi_dosen::all();
-        return view('admin/dosen', compact('dataDosen', 'dataProdiDosen'));
+        $dataProdi = Data_prodi::all();
+        return view('admin/dosen', compact('dataDosen', 'dataProdi'));
     }
 
     //tambah data ke database
     public function tambahDataDosen(Request $request){
         $dataDosen = new Dosen();
-        $dataProdiDosen = Prodi_dosen::all();
+        $dataProdi = Data_prodi::all();
         $dataDosen->kode_dosen = $request->kode_dosen;
         $dataDosen->nip = $request->nip;
         $dataDosen->nama = $request->nama;
@@ -34,15 +34,14 @@ class DosenController extends Controller
     // edit data dosen
     public function editDosen($nip){
         $dataDosen = DB::table('dosen')->where('kode_dosen', $kode_dosen)->first();
-        $dataProdiDosen = Prodi_dosen::all();
-        return view('admin/dosen', compact('dataDosen', 'dataProdiDosen'));
+        $dataProdi = Data_prodi::all();
+        return view('admin/dosen', compact('dataDosen', 'dataProdi'));
     }
 
     // update data dosen
     public function updateDataDosen(Request $request){
-        $dataProdiDosen = Prodi_dosen::all();
+        $dataProdi = Data_prodi::all();
         DB::table('dosen')->where('kode_dosen', $request->kode_dosen)->update([
-            
             'nip' => $request->nip,
             'nama' => $request->nama,
             'alamat' => $request->alamat,
@@ -62,38 +61,38 @@ class DosenController extends Controller
 
     // ======================= PRODI DOSEN =======================
     //ambil data di database
-    public function tampilDataProdiDosen(){
-        $dataProdiDosen = Prodi_dosen::all();
-        return view('\admin\prodi_dosen', compact('dataProdiDosen'));
+    public function tampilDataProdi(){
+        $dataProdi = Data_prodi::all();
+        return view('\admin\data_prodi', compact('dataProdi'));
     }
-
+    
     //tambah data ke database
-    public function tambahDataProdiDosen(Request $request){
-        DB::table('prodi_dosen')->insert([
+    public function tambahDataProdi(Request $request){
+        DB::table('data_prodi')->insert([
             'kode_prodi' => $request->kode_prodi,
             'nama' => $request->nama
         ]);
-        return redirect('/admin/prodi_dosen');
+        return redirect('/admin/data_prodi');
     }
 
     // edit data prodi dosen
-    public function editProdiDosen($kode_prodi){
-        $dataProdiDosen = DB::table('prodi_dosen')->where('kode_prodi', $kode_prodi)->first();
-        return view('admin/prodi_dosen', compact('dataProdiDosen'));
+    public function editProdi($kode_prodi){
+        $dataProdi = DB::table('data_prodi')->where('kode_prodi', $kode_prodi)->first();
+        return view('admin/data_prodi', compact('dataProdi'));
     }
 
     // update data prodi dosen
-    public function updateDataProdiDosen(Request $request, $id){
-        $data = Prodi_dosen::where('kode_prodi', $id)->first();
+    public function updateDataProdi(Request $request, $id){
+        $data = Data_prodi::where('kode_prodi', $id)->first();
         $data->kode_prodi = $request->kode_prodi;
         $data->nama = $request->nama;
         $data->save();
-        return redirect('admin/prodi_dosen');
+        return redirect('admin/data_prodi');
     }
 
     // hapus data prodi dosen
-    public function hapusDataProdiDosen($kode_prodi){
-        DB::table('prodi_dosen')->where('kode_prodi', $kode_prodi)->delete();
-        return redirect('admin/prodi_dosen');
+    public function hapusDataProdi($kode_prodi){
+        DB::table('data_prodi')->where('kode_prodi', $kode_prodi)->delete();
+        return redirect('admin/data_prodi');
     }
 }

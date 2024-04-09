@@ -13,8 +13,8 @@ class Dosen extends Model
     protected $primarykey = 'id';
     protected $fillable = ['id', 'kode_dosen', 'nip', 'nama', 'alamat', 'no_telp', 'kode_prodi'];
 
-    public function prodi_dosen(){
-        return $this->belongsTo('app\Models\Prodi_dosen.php', 'kode_prodi');
+    public function data_prodi(){
+        return $this->belongsTo('app\Models\Data_prodi.php', 'kode_prodi');
     }
 
     public function enrollment(){
