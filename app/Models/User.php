@@ -15,6 +15,10 @@ class User extends Authenticatable
     protected $primarykey = 'uuid';
     protected $fillable = ['uuid' ,'username', 'password', 'level'];
 
-    
+    public function isAdmin()
+    {
+        // This is just an example. Your actual condition may vary.
+        return $this->level === 'admin';
+    }
 
 }

@@ -145,8 +145,13 @@
                 <p class="mt-2 logo-cap font-poppins text-sm">Welcome Back, Please login to your account</p>
                 <p class="font-poppins font-light text-xl  sign-in">SIGN-IN</p>
                 @if (session('error'))
-                    <div class="alert alert-danger">
+                    <div class="alert alert-danger" style="color: red;">
                         {{ session('error') }}
+                    </div>
+                @endif
+                @if (session('success'))
+                    <div class="alert alert-success" style="color: green;">
+                        {{ session('success') }}
                     </div>
                 @endif
                 <form class="w-7/12 mt-16 form" action="{{route('login')}}" method="POST">
