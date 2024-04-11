@@ -18,7 +18,6 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        // $credentials = $request->only('username', 'password');
         $request->validate([
             'username' => 'required',
             'password' => 'required',
@@ -38,7 +37,7 @@ class AuthController extends Controller
             // ngasih level user ke session
             $request->session()->put('level', $user->level);
 
-            // redirect user jika bukan admin
+            // redirect user berdasarkan level
             if ($user->level === 'admin') {
                 return redirect('admin');
             } elseif ($user->level === 'dosen') {

@@ -39,6 +39,8 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            // \App\Http\Middleware\RedirectIfNotAdmin::class,
+            
         ],
 
         'api' => [
@@ -68,7 +70,7 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
 
 
-        'admin' => \App\Http\Middleware\RedirectIfNotAdmin::class,
+        'ifNotAdmin' => \App\Http\Middleware\RedirectIfNotAdmin::class,
         'admin.guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'share.username' => \App\Http\Middleware\ShareUsername::class,
 

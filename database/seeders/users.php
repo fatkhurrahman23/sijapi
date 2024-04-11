@@ -17,7 +17,7 @@ class users extends Seeder
     {
         //tabel uuid, username, password, level
         DB::table('users')->insert(
-            [
+            [[
                 'uuid' => (string) Str::uuid(),
                 'username' => 'admin',
                 'password' => Hash::make('admin'), // Hash the password
@@ -34,7 +34,7 @@ class users extends Seeder
                 'username' => 'mahasiswa',
                 'password' => Hash::make('mahasiswa'), // Hash the password
                 'level' => 'mahasiswa'
-            ]
+            ]]
         );
     }
 }
