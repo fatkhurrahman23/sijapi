@@ -31,6 +31,7 @@ body {
 }
 
 /* =============== Navigation ================ */
+
 .navigation {
     position: fixed;
     width: 270px;
@@ -130,6 +131,14 @@ body {
     border-radius: 50%;
     box-shadow: 35px -35px 0 10px var(--white);
     pointer-events: none;
+}
+
+.navigation ul li.hovered {
+    background-color: var(--white);
+}
+
+.navigation ul li a.hovered {
+    color: var(--blue);
 }
 
 /* ===================== Main ===================== */

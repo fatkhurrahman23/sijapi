@@ -46,10 +46,10 @@ Route::get('admin', function () {
 Route::get('admin/ruang', [Jadwal::class, 'tampilDataRuang']);
 Route::post('admin/ruang', [Jadwal::class, 'tambahDataRuang']);
 // ruang edit
-Route::get('admin/ruang/{kode_ruang}/edit', [Jadwal::class, 'editRuang'])->name('ruang.edit');
-Route::post('admin/ruang/{id}/update', [Jadwal::class, 'updateDataRuang'])->name('ruang.update');
+Route::get('admin/ruang/edit/{kode_ruang}', [Jadwal::class, 'editRuang']);
+Route::post('admin/ruang/update/{kode_ruang}', [Jadwal::class, 'updateDataRuang']);
 // ruang delete
-Route::get('admin/ruang/{kode_ruang}/delete', [Jadwal::class, 'hapusDataRuang'])->name('ruang.delete');
+Route::get('admin/ruang/delete/{kode_ruang}', [Jadwal::class, 'hapusDataRuang']);
 
 
 

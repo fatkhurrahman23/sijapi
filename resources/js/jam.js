@@ -1,3 +1,5 @@
+// src = "https://cdn.jsdelivr.net/npm/flatpickr";
+
 document.querySelector("table").addEventListener("click", (event) => {
     if (event.target.matches('[data-modal-toggle="edit_jam_modal"]')) {
         const modalId = event.target.getAttribute("data-modal-target");
@@ -18,3 +20,11 @@ document
             document.body.classList.remove("overflow-hidden");
         });
     });
+
+flatpickr(".aturjam", {
+    enableTime: true,
+    noCalendar: true,
+    dateFormat: "H:i",
+    time_24hr: true,
+    theme: "light",
+});

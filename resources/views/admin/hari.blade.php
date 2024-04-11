@@ -1,17 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ruang</title>
-    @vite('resources/css/app.css')
-    @vite('resources/js/app.js')
-</head>
-<body>
+@extends('admin.admin')
+@section('content')
+    @vite('resources/css/hari.css')
+    @vite('resources/js/hari.js')
     <div class="container">
         <div id="hari" class="page ml-12">
             <p class="glow-text mt-10 font-poppins font-bold text-black text-2xl">TAMBAH DATA HARI</p>
-            <form action="">
+            <form action="{{ url('admin/hari') }}" method="POST">
+                @csrf
                 <div class="mt-5 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                     <div class="sm:col-span-2">
                         <label for="kode_hari" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Hari</label>
@@ -33,7 +28,7 @@
                     </div>
                 </div>
             </form>
-            <div class="overflow-x-auto">
+            <div class="overflow-x-auto pb-2">
                 <table class="table-auto mt-24 w-11/12 border-collapse">
                     <thead>
                         <tr>
@@ -44,20 +39,22 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach( $dataHari as $no => $value )
                         <tr>
-                            <td class="border px-4 py-2">1</td>
-                            <td class="border px-4 py-2">A1</td>
-                            <td class="border px-4 py-2">Senin</td>
+                            <td class="border px-4 py-2">{{ $no+1 }}</td>
+                            <td class="border px-4 py-2">{{ $value->kode_hari }}</td>
+                            <td class="border px-4 py-2">{{ $value->nama_hari }}</td>
                             <td class="border px-4 py-2">
                                 <button class="bg-blue-500 hover:bg-blue-700 text-white font-poppins font-normal py-1 px-2 rounded">Edit</button>
                                 <button class="bg-red-500 hover:bg-red-700 text-white font-poppins font-normal py-1 px-2 rounded">Hapus</button>
                             </td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-</body>
-</html>
+@endsection
+
 

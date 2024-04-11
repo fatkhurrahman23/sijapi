@@ -32,7 +32,8 @@ class jamController extends Controller
     {
         $data = new Jam();
         $data->kode_jam = $request->kode_jam;
-        $data->range_jam = $request->range_jam;
+        $data->jam_awal = $request->jam_awal;
+        $data->jam_akhir = $request->jam_akhir;
         $data->save();
         Session::flash('success','Data berhasil ditambah');
         return Redirect('/admin/jam');
@@ -59,7 +60,8 @@ class jamController extends Controller
     {
         $data = Jam::where('kode_jam', $id)->first();
         $data->kode_jam = $request->kode_jam;
-        $data->range_jam = $request->range_jam;
+        $data->jam_awal = $request->jam_awal;
+        $data->jam_akhir = $request->jam_akhir;
         $data->save();
         Session::flash('success','Data berhasil diupdate');
         return Redirect('/admin/jam');

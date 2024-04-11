@@ -80,7 +80,7 @@
                         </button>
                     </div>
                     <div class="p-4 md:p-5">
-                        <form class="space-y-4" action="{{ url('admin/jam/update/'.$value->kode_jam) }}" method="POST">
+                        <form class="space-y-4" action="{{ url('admin/kelas_mahasiswa/update/'.$value->kode_kelas) }}" method="POST">
                             @csrf
                             <div class="sm:col-span-2">
                                 <label for="kode_kelas" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Kelas</label>

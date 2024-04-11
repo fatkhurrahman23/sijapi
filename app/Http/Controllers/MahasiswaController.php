@@ -78,19 +78,19 @@ class MahasiswaController extends Controller
     }
 
     // update data kelas mahasiswa
-    public function updateDataKelasMahasiswa(Request $request){
+    public function updateDataKelasMahasiswa(Request $request, $id){
         $dataProdi = Data_prodi::all();
-        DB::table('kelas_mahasiswa')->where('id', $request->id)->update([
-            'kode_kelas' => $request->kode_kelas,
-            'kode_prodi' => $request->kode_prodi
-        ]);
+        $dataKelasMahasiswa = Kelas_mahasiswa::where('kode_kelas', $id)->first();
+        $dataKelasMahasiswa->kode_kelas = $request->kode_kelas;
+        $dataKelasMahasiswa->kode_prodi = $request->kode_prodi;
+        $dataKelasMahasiswa->save();
         return redirect('admin/kelas_mahasiswa');
     }
 
     public function hapusDataKelasMahasiswa(Request $request, $id)
     {
-        $data = Kelas_mahasiswa::where('kode_kelas',$id)->first();        
-        $data->delete();
+        $dataKelasMahasiswa = Kelas_mahasiswa::where('kode_kelas',$id)->first();        
+        $dataKelasMahasiswa->delete();
         return Redirect('admin/kelas_mahasiswa');
     }
 }

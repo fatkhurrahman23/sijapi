@@ -4,32 +4,34 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use App\Models\Ruang;
 class Jadwal extends Controller
 {
+
+    // ===================================RUANG===================================
     public function tampilDataRuang(Request $request){
         $dataRuang = DB::table('ruang')->get();
-        return view('components/ruang-component', ['dataRuang' => $dataRuang]);
+        return view('admin/ruang', compact('dataRuang'));
     }
 
     public function tambahDataRuang(Request $request){
-        DB::table('ruang')->insert([
-            'kode_ruang' => $request->kode_ruang,
-            'nama' => $request->nama
-        ]);
-        $dataRuang = DB::table('ruang')->get();
-        return view('components/ruang-component', ['dataRuang' => $dataRuang]);
+        $dataRuang = new Ruang();
+        $dataRuang->kode_ruang = $request->kode_ruang;
+        $dataRuang->nama = $request->nama;
+        $dataRuang->save();
+        return redirect('admin/ruang');
     }
 
     public function editRuang($kode_ruang){
-        $ruangToEdit = DB::table('ruang')->where('kode_ruang', $kode_ruang)->first();
-        return view('admin/edit_ruang', ['ruangToEdit' => $ruangToEdit]);
+        $dataRuang = DB::table('ruang')->where('kode_ruang', $kode_ruang)->first();
+        return view('admin/ruang', compact('dataRuang'));
     }
 
-    public function updateDataRuang(Request $request){
-        DB::table('ruang')->where('kode_ruang', $request->kode_ruang)->update([
-            'nama' => $request->nama
-        ]);
+    public function updateDataRuang(Request $request,  $id){
+        $dataRuang = Ruang::where('kode_ruang', $id)->first();
+        $dataRuang->kode_ruang = $request->kode_ruang;
+        $dataRuang->nama = $request->nama;
+        $dataRuang->save();
         return redirect('admin/ruang');
     }
 
@@ -38,11 +40,10 @@ class Jadwal extends Controller
         return redirect('admin/ruang');
     }
 
-
     // ============================= HARI =============================
     public function tampilDataHari(Request $request){
         $dataHari = DB::table('hari')->get();
-        return view('components/hari-component', ['dataHari' => $dataHari]);
+        return view('admin/hari', compact('dataHari'));
     }
 
     public function tambahDataHari(Request $request){
@@ -54,8 +55,8 @@ class Jadwal extends Controller
     }
 
     public function editHari($kode_hari){
-        $hariToEdit = DB::table('hari')->where('kode_hari', $kode_hari)->first();
-        return view('admin/edit_hari', ['hariToEdit' => $hariToEdit]);
+        $dataHari = DB::table('hari')->where('kode_hari', $kode_hari)->first();
+        return view('admin/hari', compact('dataHari'));
     }
 
     public function updateDataHari(Request $request){

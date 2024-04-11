@@ -11,7 +11,7 @@ class Jam extends Model
     public $timestamps = false;
     protected $table = 'jam';
     protected $primarykey = 'id';
-    protected $fillable = ['id', 'kode_jam', 'range_jam'];
+    protected $fillable = ['id', 'kode_jam', 'jam_awal', 'jam_akhir'];
 
     public function jadwal_kuliah(){
         return $this->hasMany('app\Models\Jadwal_kuliah.php', 'kode_jam');
