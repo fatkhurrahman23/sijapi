@@ -1,5 +1,5 @@
 document.querySelector("table").addEventListener("click", (event) => {
-    if (event.target.matches('[data-modal-toggle="edit_jam_modal"]')) {
+    if (event.target.matches('[data-modal-toggle="edit_hari_modal"]')) {
         const modalId = event.target.getAttribute("data-modal-target");
         const modal = document.getElementById(modalId);
         modal.classList.remove("hidden");
@@ -9,7 +9,7 @@ document.querySelector("table").addEventListener("click", (event) => {
 });
 
 document
-    .querySelectorAll('[data-modal-hide="edit_jam_modal"]')
+    .querySelectorAll('[data-modal-hide="edit_hari_modal"]')
     .forEach((modalClose) => {
         modalClose.addEventListener("click", () => {
             const modal = modalClose.closest(".modal");
@@ -18,10 +18,3 @@ document
             document.body.classList.remove("overflow-hidden");
         });
     });
-
-flatpickr(".aturjam", {
-    enableTime: true,
-    noCalendar: true,
-    dateFormat: "H:i",
-    time_24hr: true,
-});

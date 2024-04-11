@@ -2,6 +2,10 @@
 @section('content')
     @vite('resources/css/data_prodi.css')
     @vite('resources/js/data_prodi.js')
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <div class="container">
         <div class="page ml-12" id="dataprodi">
             <p class="glow-text mt-10 font-poppins font-bold text-black text-2xl">TAMBAH PRODI DOSEN</p>
@@ -80,9 +84,9 @@
                         <form class="space-y-4" action="{{ url('admin/data_prodi/update/' .$value->kode_prodi) }}" method="POST">
                             @csrf
                             <div class="sm:col-span-2">
-                                <label for="kode_prodi" class="block bg-gray-300 text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Prodi</label>
+                                <label for="kode_prodi" class="block  text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Prodi</label>
                                 <div class="mt-2">
-                                    <input type="text" name="kode_prodi" id="kode_prodi" autocomplete="kode_prodi" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->kode_prodi }}" required autofocus>
+                                    <input type="text" name="kode_prodi" id="kode_prodi" autocomplete="kode_prodi" class="block bg-gray-300 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->kode_prodi }}" required autofocus>
                                 </div>
                             </div>
                             <div class="sm:col-span-2">
@@ -103,4 +107,41 @@
             </div>
         </div>
     @endforeach
+    @if (Session::has('add'))
+        <!-- Initialize Toastr -->
+        <script>
+            toastr.options = {
+                "positionClass": "toast-top-right",
+                "preventDuplicates": true,
+                "progressBar": true,
+                "timeOut": "5000",
+                "closeButton": true,
+            };
+            toastr.success("{{ Session::get('add') }}");
+        </script>
+    @elseif (Session::has('update'))
+        <!-- Initialize Toastr for error message -->
+        <script>
+            toastr.options = {
+                "positionClass": "toast-top-right",
+                "preventDuplicates": true,
+                "progressBar": true,
+                "timeOut": "5000",
+                "closeButton": true,
+            };
+            toastr.info("{{ Session::get('update') }}");
+        </script>
+    @elseif (Session::has('delete'))
+        <!-- Initialize Toastr for info message -->
+        <script>
+            toastr.options = {
+                "positionClass": "toast-top-right",
+                "preventDuplicates": true,
+                "progressBar": true,
+                "timeOut": "5000",
+                "closeButton": true,
+            };
+            toastr.success("{{ Session::get('delete') }}");
+        </script>
+    @endif
 @endsection

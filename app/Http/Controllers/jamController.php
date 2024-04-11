@@ -14,7 +14,7 @@ class jamController extends Controller
     public function index()
     {
         $data = Jam::all();
-        return view('\admin\jam', compact('data'));
+        return view('\admin\jam', compact('data'))->with('message', 'Jam Telah Ditambahkan');
     }
 
     /**
@@ -35,8 +35,7 @@ class jamController extends Controller
         $data->jam_awal = $request->jam_awal;
         $data->jam_akhir = $request->jam_akhir;
         $data->save();
-        Session::flash('success','Data berhasil ditambah');
-        return Redirect('/admin/jam');
+        return Redirect('/admin/jam')->with('add', 'Jam telah ditambahkan');
     }
 
     /**
@@ -63,8 +62,7 @@ class jamController extends Controller
         $data->jam_awal = $request->jam_awal;
         $data->jam_akhir = $request->jam_akhir;
         $data->save();
-        Session::flash('success','Data berhasil diupdate');
-        return Redirect('/admin/jam');
+        return Redirect('/admin/jam')->with('update', 'Jam telah diupdate');
     }
 
     /**
@@ -75,6 +73,6 @@ class jamController extends Controller
         $data = Jam::where('kode_jam',$id)->first();        
         $data->delete();
         Session::flash('success','Data berhasil dihapus');
-        return Redirect('/admin/jam');
+        return Redirect('/admin/jam')->with('delete', 'Jam telah dihapus');;
     }
 }

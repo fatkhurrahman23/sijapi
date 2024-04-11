@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Ruang;
+use App\Models\Tahun_akademik;
+use App\Models\Hari;
 class Jadwal extends Controller
 {
 
@@ -19,7 +21,7 @@ class Jadwal extends Controller
         $dataRuang->kode_ruang = $request->kode_ruang;
         $dataRuang->nama = $request->nama;
         $dataRuang->save();
-        return redirect('admin/ruang');
+        return redirect('admin/ruang')->with('add', 'Ruang telah ditambahkan');
     }
 
     public function editRuang($kode_ruang){
@@ -32,12 +34,12 @@ class Jadwal extends Controller
         $dataRuang->kode_ruang = $request->kode_ruang;
         $dataRuang->nama = $request->nama;
         $dataRuang->save();
-        return redirect('admin/ruang');
+        return redirect('admin/ruang')->with('update', 'Ruang telah diupdate');
     }
 
     public function hapusDataRuang($kode_ruang){
         DB::table('ruang')->where('kode_ruang', $kode_ruang)->delete();
-        return redirect('admin/ruang');
+        return redirect('admin/ruang')->with('delete', 'Ruang telah dihapus');
     }
 
     // ============================= HARI =============================
@@ -47,12 +49,13 @@ class Jadwal extends Controller
     }
 
     public function tambahDataHari(Request $request){
-        DB::table('hari')->insert([
-            'kode_hari' => $requset->kode_hari,
-            'nama_hari' => $request->nama_hari
-        ]);
-        return redirect('admin/hari');
+        $dataHari = new Hari();
+        $dataHari->kode_hari = $request->kode_hari;
+        $dataHari->nama_hari = $request->nama_hari;
+        $dataHari->save();
+        return redirect('admin/hari')->with('add', 'Hari telah ditambahkan');
     }
+
 
     public function editHari($kode_hari){
         $dataHari = DB::table('hari')->where('kode_hari', $kode_hari)->first();
@@ -63,12 +66,54 @@ class Jadwal extends Controller
         DB::table('hari')->where('kode_hari', $request->kode_hari)->update([
             'nama_hari' => $request->nama_hari
         ]);
-        return redirect('admin/hari');
+        return redirect('admin/hari')->with('update', 'Hari telah diupdate');
     }
 
     public function hapusDataHari($kode_hari){
         DB::table('hari')->where('kode_hari', $kode_hari)->delete();
-        return redirect('admin/hari');
+        return redirect('admin/hari')->with('delete', 'Hari telah dihapus');
+    }
+
+
+    // ============================= TAHUN AKADEMIK =============================
+    public function tampilDataTahunAkademik()
+    {
+        $data = Tahun_akademik::all();
+        return view('\admin\tahun_akademik', compact('data'));
+    }
+
+    public function tambahDataTahunAkademik(Request $request)
+    {
+        $data = new Tahun_akademik();
+        $data->kode_tahun_akademik = $request->kode_tahun_akademik;
+        $data->tahun_akademik = $request->tahun_akademik;
+        $data->status = $request->status;
+        $data->save();
+        return Redirect('/admin/tahun_akademik')->with('add', 'Tahun telah ditambahkan');
+    }
+
+    public function editTahunAkademik(Request $request, $id)
+    {
+        $data = Tahun_akademik::where('kode_tahun_akademik', $id)->first();
+        return view('/admin/tahun_akademik', compact('data'));
+    }
+
+    public function updateDataTahunAkademik(Request $request, $id)
+    {
+        $data = Tahun_akademik::where('kode_tahun_akademik', $id)->first();
+        $data->kode_tahun_akademik = $request->kode_tahun_akademik;
+        $data->tahun_akademik = $request->tahun_akademik;
+        $data->status = $request->status;
+        $data->save();
+        return Redirect('/admin/tahun_akademik')->with('update', 'Tahun telah diupdate');
+    }
+
+
+    public function hapusDataTahunAkademik(Request $request, $id)
+    {
+        $data = Tahun_akademik::where('kode_tahun_akademik',$id)->first();        
+        $data->delete();
+        return Redirect('/admin/tahun_akademik')->with('delete', 'Jam telah dihapus');;
     }
 
 
@@ -108,40 +153,4 @@ class Jadwal extends Controller
         DB::table('enrollment')->where('kode_enrollment', $kode_enrollment)->delete();
         return redirect('admin/enrollment');
     }
-
-
-
-    // ============================= JAM KULIAH =============================
-    public function tampilDataJamKuliah(Request $request){
-        $dataJamKuliah = DB::table('jam')->get();
-        return view('components/jam-component', ['dataJamKuliah' => $dataJamKuliah]);
-    }
-
-    public function tambahDataJamKuliah(Request $request){
-        DB::table('jam')->insert([
-            'kode_jam' => $request->kode_jam,
-            'range_jam' => $request->range_jam
-        ]);
-        return redirect('admin/jam');
-    }
-
-    public function editJamKuliah($kode_jam){
-        $jamKuliahToEdit = DB::table('jam')->where('kode_jam', $kode_jam)->first();
-        return view('admin/edit_jam', ['jamKuliahToEdit' => $jamKuliahToEdit]);
-    }
-
-    public function updateDataJamKuliah(Request $request){
-        DB::table('jam')->where('kode_jam', $request->kode_jam)->update([
-            'range_jam' => $request->range_jam
-        ]);
-        return redirect('admin/jam');
-    }
-
-    public function hapusDataJamKuliah($kode_jam){
-        DB::table('jam')->where('kode_jam', $kode_jam)->delete();
-        return redirect('admin/jam');
-    }
-
-
-
 }

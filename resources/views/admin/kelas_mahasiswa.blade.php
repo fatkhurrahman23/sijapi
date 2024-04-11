@@ -2,6 +2,11 @@
 @section('content')    
     @vite('resources/css/kelas_mahasiswa.css')
     @vite('resources/js/kelas_mahasiswa.js')
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <div class="container">
         <div id="kelasmahasiswa" class="page ml-12">
             <p class="glow-text mt-10 font-poppins font-bold text-black text-2xl">KELAS MAHASISWA</p>
@@ -110,4 +115,41 @@
             </div>
         </div>
     @endforeach
+    @if (Session::has('add'))
+        <!-- Initialize Toastr -->
+        <script>
+            toastr.options = {
+                "positionClass": "toast-top-right",
+                "preventDuplicates": true,
+                "progressBar": true,
+                "timeOut": "5000",
+                "closeButton": true,
+            };
+            toastr.success("{{ Session::get('add') }}");
+        </script>
+    @elseif (Session::has('update'))
+        <!-- Initialize Toastr for error message -->
+        <script>
+            toastr.options = {
+                "positionClass": "toast-top-right",
+                "preventDuplicates": true,
+                "progressBar": true,
+                "timeOut": "5000",
+                "closeButton": true,
+            };
+            toastr.info("{{ Session::get('update') }}");
+        </script>
+    @elseif (Session::has('delete'))
+        <!-- Initialize Toastr for info message -->
+        <script>
+            toastr.options = {
+                "positionClass": "toast-top-right",
+                "preventDuplicates": true,
+                "progressBar": true,
+                "timeOut": "5000",
+                "closeButton": true,
+            };
+            toastr.success("{{ Session::get('delete') }}");
+        </script>
+    @endif
 @endsection

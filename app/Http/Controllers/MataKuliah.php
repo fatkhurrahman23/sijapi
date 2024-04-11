@@ -26,7 +26,7 @@ class MataKuliah extends Controller
         $data->semester = $request->semester;
         $data->jenis = $request->jenis;
         $data->save();
-        return redirect('admin/matkul');
+        return redirect('admin/matkul')->with('add', 'Matkul telah ditambahkan');
     }
 
 
@@ -47,14 +47,14 @@ class MataKuliah extends Controller
             'semester' => $request->semester,
             'jenis' => $request->jenis
         ]);
-        return redirect('admin/matkul');
+        return redirect('admin/matkul')->with('update', 'Matkul telah diupdate');
     }
 
     //hapus data
     public function hapusDataMataKuliah($kode_mata_kuliah){
         $dataKelasMahasiswa = Kelas_mahasiswa::all();
         DB::table('mata_kuliah')->where('kode_mata_kuliah', $kode_mata_kuliah)->delete();
-        return redirect('admin/matkul');
+        return redirect('admin/matkul')->with('delete', 'Matkul telah dihapus');
     }
     
 }

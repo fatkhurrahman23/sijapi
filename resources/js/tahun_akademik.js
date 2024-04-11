@@ -1,20 +1,22 @@
-const modalToggle = document.querySelector("[data-modal-toggle]");
-const modal = document.getElementById("edit_tahun_akademik_modal");
-const overlay = document.createElement("div");
-overlay.classList.add("overlay");
-
-modalToggle.addEventListener("click", () => {
-    modal.classList.toggle("hidden");
-    modal.classList.toggle("flex");
-    document.body.appendChild(overlay);
-    overlay.style.display = "block";
+document.querySelector("table").addEventListener("click", (event) => {
+    if (
+        event.target.matches('[data-modal-toggle="edit_tahun_akademik_modal"]')
+    ) {
+        const modalId = event.target.getAttribute("data-modal-target");
+        const modal = document.getElementById(modalId);
+        modal.classList.remove("hidden");
+        modal.classList.add("animate-slide-in");
+        document.body.classList.add("overflow-hidden");
+    }
 });
 
-const modalClose = document.querySelector("[data-modal-hide]");
-
-modalClose.addEventListener("click", () => {
-    modal.classList.toggle("hidden");
-    modal.classList.toggle("flex");
-    overlay.style.display = "none";
-    document.body.removeChild(overlay);
-});
+document
+    .querySelectorAll('[data-modal-hide="edit_tahun_akademik_modal"]')
+    .forEach((modalClose) => {
+        modalClose.addEventListener("click", () => {
+            const modal = modalClose.closest(".modal");
+            modal.classList.add("hidden");
+            modal.classList.remove("animate-slide-in");
+            document.body.classList.remove("overflow-hidden");
+        });
+    });

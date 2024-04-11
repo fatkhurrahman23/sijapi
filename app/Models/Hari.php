@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Hari extends Model
 {
     use HasFactory;
-
+    public $timestamps = false;
     protected $table = 'hari';
     protected $primarykey = 'id';
     protected $fillable = ['id', 'kode_hari', 'nama_hari'];

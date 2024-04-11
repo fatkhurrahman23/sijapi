@@ -27,7 +27,7 @@ class DosenController extends Controller
         $dataDosen->kode_prodi = $request->kode_prodi; 
     
         $dataDosen->save();
-        return redirect('/admin/dosen');
+        return redirect('/admin/dosen')->with('add', 'Dosen telah ditambahkan');
     }
 
 
@@ -48,18 +48,18 @@ class DosenController extends Controller
             'no_telp' => $request->no_telp,
             'kode_prodi' => $request->kode_prodi
         ]);
-        return redirect('admin/dosen');
+        return redirect('admin/dosen')->with('update', 'Dosen telah diupdate');
     }
 
 
     // hapus data dosen
     public function hapusDataDosen($kode_dosen){
         DB::table('dosen')->where('kode_dosen', $kode_dosen)->delete();
-        return redirect('admin/dosen');
+        return redirect('admin/dosen')->with('delete', 'Dosen telah dihapus');
     }
 
 
-    // ======================= PRODI DOSEN =======================
+    // ======================= PRODI =======================
     //ambil data di database
     public function tampilDataProdi(){
         $dataProdi = Data_prodi::all();
@@ -72,7 +72,7 @@ class DosenController extends Controller
             'kode_prodi' => $request->kode_prodi,
             'nama' => $request->nama
         ]);
-        return redirect('/admin/data_prodi');
+        return redirect('/admin/data_prodi')->with('add', 'Prodi telah ditambahkan');
     }
 
     // edit data prodi dosen
@@ -87,12 +87,12 @@ class DosenController extends Controller
         $data->kode_prodi = $request->kode_prodi;
         $data->nama = $request->nama;
         $data->save();
-        return redirect('admin/data_prodi');
+        return redirect('admin/data_prodi')->with('update', 'Prodi telah diupdate');
     }
 
     // hapus data prodi dosen
     public function hapusDataProdi($kode_prodi){
         DB::table('data_prodi')->where('kode_prodi', $kode_prodi)->delete();
-        return redirect('admin/data_prodi');
+        return redirect('admin/data_prodi')->with('delete', 'Prodi telah dihapus');
     }
 }

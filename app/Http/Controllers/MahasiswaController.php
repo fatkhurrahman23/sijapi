@@ -25,7 +25,7 @@ class MahasiswaController extends Controller
             'jenis_kelamin' => $request->jenis_kelamin,
             'kode_kelas' => $request->kode_kelas
         ]);
-        return redirect('/admin/mahasiswa');
+        return redirect('/admin/mahasiswa')->with('add', 'Mahasiswa telah ditambahkan');
     }
     
     // edit data mahasiswa
@@ -43,13 +43,13 @@ class MahasiswaController extends Controller
             'jenis_kelamin' => $request->jenis_kelamin,
             'kode_kelas' => $request->kode_kelas
         ]);
-        return redirect('admin/mahasiswa');
+        return redirect('admin/mahasiswa')->with('update', 'Mahasiswa telah diupdate');
     }
 
     // hapus data mahasiswa
     public function hapusDataMahasiswa($nim){
         DB::table('mahasiswa')->where('nim', $nim)->delete();
-        return redirect('admin/mahasiswa');
+        return redirect('admin/mahasiswa')->with('delete', 'Mahasiswa telah dihapus');
     }
 
     //  ============================= KELAS MAHASISWA =============================
@@ -67,7 +67,7 @@ class MahasiswaController extends Controller
             'kode_kelas' => $request->kode_kelas,
             'kode_prodi' => $request->kode_prodi
         ]);
-        return redirect('/admin/kelas_mahasiswa');
+        return redirect('/admin/kelas_mahasiswa')->with('add', 'Kelas telah ditambahkan');
     }
 
     // edit data kelas mahasiswa
@@ -84,13 +84,13 @@ class MahasiswaController extends Controller
         $dataKelasMahasiswa->kode_kelas = $request->kode_kelas;
         $dataKelasMahasiswa->kode_prodi = $request->kode_prodi;
         $dataKelasMahasiswa->save();
-        return redirect('admin/kelas_mahasiswa');
+        return redirect('admin/kelas_mahasiswa')->with('update', 'Kelas Telah diupdate');
     }
 
     public function hapusDataKelasMahasiswa(Request $request, $id)
     {
         $dataKelasMahasiswa = Kelas_mahasiswa::where('kode_kelas',$id)->first();        
         $dataKelasMahasiswa->delete();
-        return Redirect('admin/kelas_mahasiswa');
+        return Redirect('admin/kelas_mahasiswa')->with('delete', 'Kelas Telah dihapus');
     }
 }

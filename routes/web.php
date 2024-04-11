@@ -129,11 +129,11 @@ Route::get('admin/ruang/delete/{kode_ruang}', [Jadwal::class, 'hapusDataRuang'])
     Route::post('admin/hari', [Jadwal::class, 'tambahDataHari']);
 
     // hari edit
-    Route::get('admin/hari/{kode_hari}/edit', [Jadwal::class, 'editHari'])->name('hari.edit');
-    Route::post('admin/hari/{id}/update', [Jadwal::class, 'updateDataHari'])->name('hari.update');
+    Route::get('admin/hari/edit/{kode_hari}', [Jadwal::class, 'editHari'])->name('hari.edit');
+    Route::post('admin/hari/update/{id}', [Jadwal::class, 'updateDataHari'])->name('hari.update');
 
     // hari delete
-    Route::get('admin/hari/{kode_hari}/delete', [Jadwal::class, 'hapusDataHari'])->name('hari.delete');
+    Route::get('admin/hari/delete/{kode_hari}', [Jadwal::class, 'hapusDataHari'])->name('hari.delete');
 
 
 
@@ -143,11 +143,11 @@ Route::get('admin/ruang/delete/{kode_ruang}', [Jadwal::class, 'hapusDataRuang'])
     Route::post('admin/tahun_akademik', [Jadwal::class, 'tambahDataTahunAkademik']);
 
     // tahun akademik edit
-    Route::get('admin/tahun_akademik/{kode_tahun_akademik}/edit', [Jadwal::class, 'editTahunAkademik'])->name('tahun_akademik.edit');
-    Route::post('admin/tahun_akademik/{id}/update', [Jadwal::class, 'updateDataTahunAkademik'])->name('tahun_akademik.update');
+    Route::get('admin/tahun_akademik/edit/{id}', [Jadwal::class, 'editTahunAkademik'])->name('tahun_akademik.edit');
+    Route::post('admin/tahun_akademik/update/{id}', [Jadwal::class, 'updateDataTahunAkademik'])->name('tahun_akademik.update');
 
     // tahun akademik delete
-    Route::get('admin/tahun_akademik/{kode_tahun_akademik}/delete', [Jadwal::class, 'hapusDataTahunAkademik'])->name('tahun_akademik.delete');
+    Route::get('admin/tahun_akademik/delete/{id}', [Jadwal::class, 'hapusDataTahunAkademik'])->name('tahun_akademik.delete');
 
 
 
