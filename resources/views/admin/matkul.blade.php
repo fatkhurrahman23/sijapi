@@ -151,8 +151,8 @@
                                 <label for="jenis" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Jenis</label>
                                 <div class="mt-2">
                                     <select id="jenis" name="jenis" autocomplete="jenis" class="block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->jenis }}">
-                                        <option>Ganjil</option>
-                                        <option>Gasal</option>
+                                        <option value="gasal">gasal</option>
+                                        <option value="genap">Genap</option>
                                     </select>
                                 </div>
                             </div>
