@@ -122,7 +122,7 @@ class Jadwal extends Controller
     {
         $data = Tahun_akademik::where('kode_tahun_akademik',$id)->first();        
         $data->delete();
-        return Redirect('/admin/tahun_akademik')->with('delete', 'Jam telah dihapus');;
+        return Redirect('/admin/tahun_akademik')->with('delete', 'Jam telah dihapus');
     }
 
 
@@ -145,7 +145,7 @@ class Jadwal extends Controller
         $dataEnrollment->kode_tahun_akademik = $request->kode_tahun_akademik;
         $dataEnrollment->kode_mata_kuliah = $request->kode_mata_kuliah;
         $dataEnrollment->save();
-        return redirect('admin/enrollment');
+        return redirect('admin/enrollment')->with('add', 'Enrollment telah ditambahkan');;
     }
     
 
@@ -166,7 +166,7 @@ class Jadwal extends Controller
             'kode_tahun_akademik' => $request->kode_tahun_akademik,
             'kode_mata_kuliah' => $request->kode_mata_kuliah
         ]);
-        return redirect('admin/enrollment');
+        return redirect('admin/enrollment')->with('update', 'Enrollment telah diupdate');;
     }
 
     public function hapusDataEnrollment($kode_enrollment){
@@ -174,7 +174,7 @@ class Jadwal extends Controller
         $dataTahun = Tahun_akademik::all();
         $dataDosen = Dosen::all();
         DB::table('enrollment')->where('kode_enrollment', $kode_enrollment)->delete();
-        return redirect('admin/enrollment');
+        return redirect('admin/enrollment')->with('delete', 'Enrollment telah dihapus');;
     }
     
 }
