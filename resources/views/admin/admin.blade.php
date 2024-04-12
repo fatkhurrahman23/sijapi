@@ -117,7 +117,7 @@
                     </a>
                 </li>
                 <li id="enrollment-nav">
-                    <a href="#">
+                    <a href="{{ url('admin/enrollment') }}">
                         <span class="icon">
                             <svg class="ml-3" xmlns="http://www.w3.org/2000/svg" class="ionicon" width="30" height="54" viewBox="0 0 512 512"><circle cx="256" cy="184" r="120" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32"/><circle cx="344" cy="328" r="120" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32"/><circle cx="168" cy="328" r="120" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32"/></svg>
                         </span>
