@@ -17,11 +17,11 @@ class kelasMahasiswa extends Seeder
         DB::table('kelas_mahasiswa')->insert([
             [
                 'kode_kelas' => 'TI-2A',
-                'prodi' => 'D4 - Teknologi Rekayasa Komputer'
+                'kode_prodi' => 'TI'
             ],
             [
                 'kode_kelas' => 'TI-2B',
-                'prodi' => 'D4 - Teknologi Rekayasa Komputer'
+                'kode_prodi' => 'TI'
             ]
         ]
         );

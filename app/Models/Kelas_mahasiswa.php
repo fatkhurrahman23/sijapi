@@ -21,9 +21,9 @@ class Kelas_mahasiswa extends Model
         return $this->hasMany('app\Models\Mahasiswa.php', 'kode_kelas');
     }
 
-    public function enrollment(){
-        return $this->hasMany('app\Models\Enrollment.php', 'kode_kelas');
-    }
+    // public function enrollment(){
+    //     return $this->hasMany('app\Models\Enrollment.php', 'kode_kelas');
+    // }
 
     public function data_prodi(){
         return $this->belongsTo('app\Models\Data_prodi.php', 'kode_prodi');

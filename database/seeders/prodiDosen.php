@@ -17,17 +17,17 @@ class prodiDosen extends Seeder
         $prodiDosens = [
             [
                 'kode_prodi' => 'TI',
-                'nama' => 'DOSEN TI'
+                'nama' => 'D4 - TEKNOLOGI REKAYASA KOMPUTER'
             ],
             [
                 'kode_prodi' => 'IK',
-                'nama' => 'DOSEN IK'
+                'nama' => 'D3 - TEKNIK INFORMATIKA'
             ]
         ];
     
         foreach ($prodiDosens as $prodiDosen) {
             // Cek apakah data sudah ada
-            $exist = DB::table('prodi_dosen')
+            $exist = DB::table('data_prodi')
                 ->where('kode_prodi', $prodiDosen['kode_prodi'])
                 ->where('nama', $prodiDosen['nama'])
                 ->first();

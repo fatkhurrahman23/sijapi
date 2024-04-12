@@ -16,11 +16,11 @@ return new class extends Migration
             $table->string('kode_kelas', 20)->unique();
             $table->string('kode_prodi', 20);
 
-            // $table->foreign('kode_prodi')
-            //     ->references('kode_prodi')
-            //     ->on('data_prodi')
-            //     ->onDelete('cascade')
-            //     ->onUpdate('cascade');
+            $table->foreign('kode_prodi')
+                ->references('kode_prodi')
+                ->on('data_prodi')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
         });
     }
 

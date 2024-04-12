@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <div class="container">
         <div class="page ml-12" id="dataprodi">
-            <p class="glow-text mt-10 font-poppins font-bold text-black text-2xl">TAMBAH PRODI DOSEN</p>
+            <p class="glow-text mt-10 font-poppins font-bold text-black text-2xl">TAMBAH DATA PRODI</p>
             <form action="{{ url('admin/data_prodi') }}" method="POST">
                 @csrf
                 <div class="mt-5 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
