@@ -16,7 +16,7 @@
                     <div class="sm:col-span-2">
                         <label for="kode_kelas" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Kelas Mahasiswa</label>
                         <div class="mt-2">
-                            <input type="text" name="kode_kelas" id="kode_kelas" autocomplete="kode_kelas" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" >
+                            <input type="text" name="kode_kelas" id="kode_kelas" autocomplete="kode_kelas" class="pl-2 block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" >
                         </div>
                     </div>
                     <div class="sm:col-span-2">
@@ -90,7 +90,7 @@
                             <div class="sm:col-span-2">
                                 <label for="kode_kelas" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Kelas</label>
                                 <div class="mt-2">
-                                    <input type="text" name="kode_kelas" id="kode_kelas" autocomplete="kode_kelas" class="bg-gray-300 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->kode_kelas }}" required autofocus readonly>
+                                    <input type="text" name="kode_kelas" id="kode_kelas" autocomplete="kode_kelas" class="pl-2 bg-gray-300 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->kode_kelas }}" required autofocus readonly>
                                 </div>
                             </div>
                             <div class="sm:col-span-2">

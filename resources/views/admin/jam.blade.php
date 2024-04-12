@@ -18,19 +18,19 @@
                     <div class="sm:col-span-2">
                         <label for="kode_jam" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Jam</label>
                         <div class="mt-2">
-                            <input type="text" name="kode_jam" id="kode_jam" autocomplete="kode_jam" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" >
+                            <input type="text" name="kode_jam" id="kode_jam" autocomplete="kode_jam" class="pl-2 block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" >
                         </div>
                     </div>
                     <div class="sm:col-span-2">
                         <label for="jam_awal" class=" block text-sm font-poppins font-semibold leading-6 text-gray-900">Jam Awal</label>
                         <div class="mt-2">
-                            <input type="datetime" name="jam_awal" id="jam_awal" autocomplete="jam_awal" class="aturjam block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <input type="datetime" name="jam_awal" id="jam_awal" autocomplete="jam_awal" class="pl-2 aturjam block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                         </div>
                     </div>
                     <div class="sm:col-span-2">
                         <label for="jam_akhir" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Jam Akhir</label>
                         <div class="mt-2">
-                            <input type="datetime" name="jam_akhir" id="jam_akhir" autocomplete="jam_akhir" class="aturjam block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <input type="datetime" name="jam_akhir" id="jam_akhir" autocomplete="jam_akhir" class="pl-2 aturjam block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                         </div>
                     </div>
                     <div class="sm:col-span-2 flex justify-between items-end">
@@ -95,19 +95,19 @@
                             <div class="sm:col-span-2">
                                 <label for="kode_jam" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Jam</label>
                                 <div class="mt-2">
-                                    <input type="datetime" name="kode_jam" id="kode_jam" autocomplete="kode_jam" class="block bg-gray-300 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->kode_jam }}" required autofocus readon;y>
+                                    <input type="datetime" name="kode_jam" id="kode_jam" autocomplete="kode_jam" class="pl-2 block bg-gray-300 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->kode_jam }}" required autofocus readon;y>
                                 </div>
                             </div>
                             <div class="sm:col-span-2">
                                 <label for="jam_awal" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Jam Awal</label>
                                 <div class="mt-2">
-                                    <input type="datetime" name="jam_awal" id="jam_awal" autocomplete="jam_awal" class="aturjam block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->jam_awal }}">
+                                    <input type="datetime" name="jam_awal" id="jam_awal" autocomplete="jam_awal" class="pl-2 aturjam block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->jam_awal }}">
                                 </div>
                             </div>
                             <div class="sm:col-span-2">
                                 <label for="jam_akhir" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Jam Akhir</label>
                                 <div class="mt-2">
-                                    <input type="text" name="jam_akhir" id="jam_akhir" autocomplete="jam_akhir" class="aturjam block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->jam_akhir }}">
+                                    <input type="text" name="jam_akhir" id="jam_akhir" autocomplete="jam_akhir" class="pl-2 aturjam block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->jam_akhir }}">
                                 </div>
                             </div>
                             <div class="sm:col-span-2 flex justify-center items-center">

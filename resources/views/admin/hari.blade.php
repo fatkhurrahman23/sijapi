@@ -16,13 +16,13 @@
                     <div class="sm:col-span-2">
                         <label for="kode_hari" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Hari</label>
                         <div class="mt-2">
-                            <input type="text" name="kode_hari" id="kode_hari" autocomplete="kode_hari" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <input type="text" name="kode_hari" id="kode_hari" autocomplete="kode_hari" class="pl-2 block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                         </div>
                     </div>
                     <div class="sm:col-span-2">
                         <label for="nama_hari" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Nama Hari</label>
                         <div class="mt-2">
-                            <input type="text" name="nama_hari" id="nama_hari" autocomplete="nama_hari" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <input type="text" name="nama_hari" id="nama_hari" autocomplete="nama_hari" class="pl-2 block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                         </div>
                     </div>
                     <div class="sm:col-span-2 flex justify-between items-end">
@@ -85,13 +85,13 @@
                             <div class="sm:col-span-2">
                                 <label for="kode_hari" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Hari</label>
                                 <div class="mt-2">
-                                    <input type="text" name="kode_hari" id="kode_hari" autocomplete="kode_hari" class="block bg-gray-300 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->kode_hari }}" required autofocus readonly>
+                                    <input type="text" name="kode_hari" id="kode_hari" autocomplete="kode_hari" class="pl-2 block bg-gray-300 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->kode_hari }}" required autofocus readonly>
                                 </div>
                             </div>
                             <div class="sm:col-span-2">
                                 <label for="nama_hari" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Nama Hari</label>
                                 <div class="mt-2">
-                                    <input type="text" name="nama_hari" id="nama_hari" autocomplete="nama_hari" class="aturjam block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->nama_hari }}">
+                                    <input type="text" name="nama_hari" id="nama_hari" autocomplete="nama_hari" class="pl-2 aturjam block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->nama_hari }}">
                                 </div>
                             </div>
                             <div class="sm:col-span-2 flex justify-center items-center">
