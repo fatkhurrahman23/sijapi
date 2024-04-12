@@ -20,7 +20,8 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
         
-        // $this->call(RuangTable::class);
+        $this->call(RuangTable::class);
+        $this->call(DataProdi::class);
         $this->call(kelasMahasiswa::class);
         $this->call(jam::class);
         $this->call(mahasiswa::class);

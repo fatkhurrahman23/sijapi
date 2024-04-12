@@ -173,7 +173,7 @@
                     </div>
                     <!-- TAMBAHKAN USERNAME YANG DIDAPAT DARI SESSION -->
                     <p class="username">
-                        <span class="font-poppins font-semibold text-custom-birumuda">{{ isset($username) ? $username : 'Guest' }}</span>
+                        <span class="font-poppins font-semibold text-custom-birumuda">{{ isset($username) ? $username : 'admin' }}</span>
                     </p>
                 </div>
             </div>
