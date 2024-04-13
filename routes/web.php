@@ -10,7 +10,7 @@ use App\Http\Controllers\MataKuliah;
 use App\Http\Controllers\jamController;
 use App\Http\Controllers\tahunakademikController;
 
-Route::get('/', [sijapi::class, 'index'])->middleware('auth');
+Route::get('/', [sijapi::class, 'index'])/* ->middleware('auth') */;
 
 
 
