@@ -8,10 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Enrollment extends Model
 {
     use HasFactory;
+    public $timestamps = false;
 
     protected $table = 'enrollment';
     protected $primarykey = 'id';
     protected $fillable = ['id', 'kode_enrollment', 'kode_dosen', 'kode_tahun_akademik', 'kode_mata_kuliah']; 
+
 
     // public function kelas_mahasiswa(){
     //     return $this->belongsTo('app\Models\Kelas_mahasiswa.php', 'kode_kelas');

@@ -15,13 +15,13 @@
                     <div class="sm:col-span-2">
                         <label for="nama" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Nama Mahasiswa</label>
                         <div class="mt-2">
-                            <input type="text" name="nama" id="nama" autocomplete="nama" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <input type="text" name="nama" id="nama" autocomplete="nama" class="pl-2 block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                         </div>
                     </div>
                     <div class="sm:col-span-2">
                         <label for="nim" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">NIM</label>
                         <div class="mt-2">
-                            <input type="text" name="nim" id="nim" autocomplete="nim" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <input type="text" name="nim" id="nim" autocomplete="nim" class="pl-2 block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                         </div>
                     </div>
                     <div class="sm:col-span-2 sm:col-start-1">
@@ -108,19 +108,19 @@
                             <div class="sm:col-span-2">
                                 <label for="nim" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">NIM</label>
                                 <div class="mt-2">
-                                    <input type="text" name="nim" id="nim" autocomplete="nim" class="bg-gray-300 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->nim }}" require autofocus readonly>
+                                    <input type="text" name="nim" id="nim" autocomplete="nim" class="pl-2 bg-gray-300 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->nim }}" require autofocus readonly>
                                 </div>
                             </div>
                             <div class="sm:col-span-2">
                                 <label for="nama" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Nama Mahasiswa</label>
                                 <div class="mt-2">
-                                    <input type="text" name="nama" id="nama" autocomplete="nama" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->nama }}">
+                                    <input type="text" name="nama" id="nama" autocomplete="nama" class="pl-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->nama }}">
                                 </div>
                             </div>
                             <div class="sm:col-span-2 sm:col-start-1">
                                 <label for="kode_kelas" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Kelas</label>
                                 <div class="mt-2">
-                                    <select id="kode_kelas" name="kode_kelas" class="block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->kode_kelas }}">
+                                    <select id="kode_kelas" name="kode_kelas" class="pl-2 block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->kode_kelas }}">
                                         @foreach($dataKelasMahasiswa as $kelas)
                                             <option value="{{ $kelas->kode_kelas }}">{{ $kelas->kode_kelas }}</option>
                                         @endforeach

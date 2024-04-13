@@ -6,9 +6,19 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Ruang;
 use App\Models\Tahun_akademik;
+use App\Models\Kelas_mahasiswa;
+use App\Models\Mata_kuliah;
 use App\Models\Hari;
+use App\Models\Enrollment;
+use App\Models\Dosen;
 class Jadwal extends Controller
 {
+
+
+    // =================================== DASHBOARD ===================================
+    public function tampilDataDashboard(Request $request){
+        return view('admin/dashboard');
+    }
 
     // ===================================RUANG===================================
     public function tampilDataRuang(Request $request){
@@ -108,49 +118,63 @@ class Jadwal extends Controller
         return Redirect('/admin/tahun_akademik')->with('update', 'Tahun telah diupdate');
     }
 
-
     public function hapusDataTahunAkademik(Request $request, $id)
     {
         $data = Tahun_akademik::where('kode_tahun_akademik',$id)->first();        
         $data->delete();
-        return Redirect('/admin/tahun_akademik')->with('delete', 'Jam telah dihapus');;
+        return Redirect('/admin/tahun_akademik')->with('delete', 'Jam telah dihapus');
     }
 
 
     // ============================= ENROLLMENT =============================
     public function tampilDataEnrollment(Request $request){
+        $dataMatkul = Mata_kuliah::all();
+        $dataTahun = Tahun_akademik::all();
+        $dataDosen = Dosen::all();
         $dataEnrollment = DB::table('enrollment')->get();
-        return view('components/enrollment-component', ['dataEnrollment' => $dataEnrollment]);
+        return view('admin/enrollment', compact('dataEnrollment', 'dataDosen', 'dataTahun', 'dataMatkul'));
     }
 
     public function tambahDataEnrollment(Request $request){
-        DB::table('enrollment')->insert([
-            'kode_enrollment' => $request->kode_enrollment,
-            'kode_kelas' => $request->kode_kelas,
-            'kode_dosen' => $request->kode_dosen,
-            'kode_tahun_akademik' => $request->kode_tahun_akademik,
-            'kode_mata_kuliah' => $request->kode_mata_kuliah
-        ]);
-        return redirect('admin/enrollment');
+        $dataMatkul = Mata_kuliah::all();
+        $dataTahun = Tahun_akademik::all();
+        $dataDosen = Dosen::all();
+        $dataEnrollment = new Enrollment();
+        $dataEnrollment->kode_enrollment = $request->kode_enrollment;
+        $dataEnrollment->kode_dosen = $request->kode_dosen;
+        $dataEnrollment->kode_tahun_akademik = $request->kode_tahun_akademik;
+        $dataEnrollment->kode_mata_kuliah = $request->kode_mata_kuliah;
+        $dataEnrollment->save();
+        return redirect('admin/enrollment')->with('add', 'Enrollment telah ditambahkan');;
     }
+    
 
     public function editEnrollment($kode_enrollment){
-        $enrollmentToEdit = DB::table('enrollment')->where('kode_enrollment', $kode_enrollment)->first();
-        return view('admin/edit_enrollment', ['enrollmentToEdit' => $enrollmentToEdit]);
+        $dataMatkul = Mata_kuliah::all();
+        $dataTahun = Tahun_akademik::all();
+        $dataDosen = Dosen::all();
+        $dataEnrollment = DB::table('enrollment')->where('kode_enrollment', $kode_enrollment)->first();
+        return view('admin/enrollment', compact('dataEnrollment', 'dataDosen','dataTahun', 'dataMatkul'));
     }
 
     public function updateDataEnrollment(Request $request){
+        $dataMatkul = Mata_kuliah::all();
+        $dataDosen = Dosen::all();
+        $dataTahun = Tahun_akademik::all();
         DB::table('enrollment')->where('kode_enrollment', $request->kode_enrollment)->update([
-            'kode_kelas' => $request->kode_kelas,
             'kode_dosen' => $request->kode_dosen,
             'kode_tahun_akademik' => $request->kode_tahun_akademik,
             'kode_mata_kuliah' => $request->kode_mata_kuliah
         ]);
-        return redirect('admin');
+        return redirect('admin/enrollment')->with('update', 'Enrollment telah diupdate');;
     }
 
     public function hapusDataEnrollment($kode_enrollment){
+        $dataMatkul = Mata_kuliah::all();
+        $dataTahun = Tahun_akademik::all();
+        $dataDosen = Dosen::all();
         DB::table('enrollment')->where('kode_enrollment', $kode_enrollment)->delete();
-        return redirect('admin/enrollment');
+        return redirect('admin/enrollment')->with('delete', 'Enrollment telah dihapus');;
     }
+    
 }

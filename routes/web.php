@@ -55,8 +55,8 @@ Route::middleware(['ifNotAdmin'])->group(function () {
     // ruang delete
     Route::get('admin/ruang/{kode_ruang}/delete', [Jadwal::class, 'hapusDataRuang'])->name('ruang.delete');
 
-
-
+    // ======================================== DASHBOARD ========================================
+    Route::get('admin/dashboard', [Jadwal::class, 'tampilDataDashboard']);
 
     // ======================================== MAHASISWA ========================================
     Route::get('admin/mahasiswa', [MahasiswaController::class, 'tampilDataMahasiswa']);
@@ -156,11 +156,11 @@ Route::get('admin/ruang/delete/{kode_ruang}', [Jadwal::class, 'hapusDataRuang'])
     Route::post('admin/enrollment', [Jadwal::class, 'tambahDataEnrollment']);
 
     // enrollment edit
-    Route::get('admin/enrollment/{kode_enrollment}/edit', [Jadwal::class, 'editEnrollment'])->name('enrollment.edit');
-    Route::post('admin/enrollment/{id}/update', [Jadwal::class, 'updateDataEnrollment'])->name('enrollment.update');
+    Route::get('admin/enrollment/edit/{id}', [Jadwal::class, 'editEnrollment'])->name('enrollment.edit');
+    Route::post('admin/enrollment/update/{id}', [Jadwal::class, 'updateDataEnrollment'])->name('enrollment.update');
 
     // enrollment delete
-    Route::get('admin/enrollment/{kode_enrollment}/delete', [Jadwal::class, 'hapusDataEnrollment'])->name('enrollment.delete');
+    Route::get('admin/enrollment/delete/{id}', [Jadwal::class, 'hapusDataEnrollment'])->name('enrollment.delete');
 
 
     // // ======================================== JAM ========================================
@@ -182,7 +182,7 @@ Route::get('admin/ruang/delete/{kode_ruang}', [Jadwal::class, 'hapusDataRuang'])
     Route::post('admin/jam/update/{id}', [jamController::class, 'update']);
     Route::get('admin/jam/delete/{id}', [jamController::class, 'destroy']);
 
-
+    Route::get('/get-matakuliah/{id}', [EnrollmentController::class, 'getMatakuliah']);
 });
 
 

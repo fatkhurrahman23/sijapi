@@ -16,32 +16,32 @@
                         <div class="sm:col-span-2">
                                 <label for="kode_mata_kuliah" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode MatKul</label>
                                 <div class="mt-2">
-                                    <input type="text" name="kode_mata_kuliah" id="kode_mata_kuliah" autocomplete="kode_mata_kuliah" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" >
+                                    <input type="text" name="kode_mata_kuliah" id="kode_mata_kuliah" autocomplete="kode_mata_kuliah" class="pl-2 block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" >
                                 </div>
                             </div>
 
                             <div class="sm:col-span-2">
                                 <label for="nama" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Nama MatKul</label>
                                 <div class="mt-2">
-                                    <input type="text" name="nama" id="nama" autocomplete="nama" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    <input type="text" name="nama" id="nama" autocomplete="nama" class="block pl-2 w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                 </div>
                             </div>
                             <div class="sm:col-span-2">
                                 <label for="semester" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Semester</label>
                                 <div class="mt-2">
-                                    <input type="text" name="semester" id="semester" autocomplete="semester" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    <input type="text" name="semester" id="semester" autocomplete="semester" class="block pl-2 w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                 </div>
                             </div>
                             <div class="sm:col-span-2 sm:col-start-1">
                                 <label for="sks" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">SKS</label>
                                 <div class="mt-2">
-                                    <input type="text" name="sks" id="sks" autocomplete="sks" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    <input type="text" name="sks" id="sks" autocomplete="sks" class="block w-3/4 pl-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                 </div>
                             </div>
                             <div class="sm:col-span-2">
                                 <label for="jenis" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Jenis</label>
                                 <div class="mt-2">
-                                    <select id="jenis" name="jenis" autocomplete="jenis" class="block w-3/4 rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    <select id="jenis" name="jenis" autocomplete="jenis" class="block w-3/4 pl-2 rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                         <option value="gasal">Gasal</option>
                                         <option value="genap">Genap</option>
                                     </select>          
@@ -126,25 +126,25 @@
                             <div class="sm:col-span-2">
                                 <label for="kode_mata_kuliah" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode MatKul</label>
                                 <div class="mt-2">
-                                    <input type="text" name="kode_mata_kuliah" id="kode_mata_kuliah" autocomplete="kode_mata_kuliah" class="block bg-gray-300 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->kode_mata_kuliah }}" required autofocus readonly>
+                                    <input type="text" name="kode_mata_kuliah" id="kode_mata_kuliah" autocomplete="kode_mata_kuliah" class="pl-2 block bg-gray-300 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->kode_mata_kuliah }}" required autofocus readonly>
                                 </div>
                             </div>
                             <div class="sm:col-span-2">
                                 <label for="nama" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Nama MatKul</label>
                                 <div class="mt-2">
-                                    <input type="text" name="nama" id="nama" autocomplete="nama" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->nama }}">
+                                    <input type="text" name="nama" id="nama" autocomplete="nama" class="block w-full pl-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->nama }}">
                                 </div>
                             </div>
                             <div class="sm:col-span-2">
                                 <label for="semester" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Semester</label>
                                 <div class="mt-2">
-                                    <input type="text" name="semester" id="semester" autocomplete="semester" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->semester }}">
+                                    <input type="text" name="semester" id="semester" autocomplete="semester" class="block w-full pl-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->semester }}">
                                 </div>
                             </div>
                             <div class="sm:col-span-2 sm:col-start-1">
                                 <label for="sks" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">SKS</label>
                                 <div class="mt-2">
-                                    <input type="text" name="sks" id="sks" autocomplete="sks" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->sks }}">
+                                    <input type="text" name="sks" id="sks" autocomplete="sks" class="block w-full pl-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->sks }}">
                                 </div>
                             </div>
                             <div class="sm:col-span-2">

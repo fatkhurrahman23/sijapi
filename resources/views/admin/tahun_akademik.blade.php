@@ -15,19 +15,19 @@
                     <div class="sm:col-span-2">
                         <label for="kode_tahun_akademik" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Tahun Akademik</label>
                         <div class="mt-2">
-                            <input type="text" name="kode_tahun_akademik" id="kode_tahun_akademik" autocomplete="kode_tahun_akademik" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <input type="text" name="kode_tahun_akademik" id="kode_tahun_akademik" autocomplete="kode_tahun_akademik" class="pl-2 block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                         </div>
                     </div>
                     <div class="sm:col-span-2">
                         <label for="tahun_akademik" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Tahun Akademik</label>
                         <div class="mt-2">
-                            <input type="text" name="tahun_akademik" id="tahun_akademik" autocomplete="tahun_akademik" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <input type="text" name="tahun_akademik" id="tahun_akademik" autocomplete="tahun_akademik" class="block pl-2 w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                         </div>
                     </div>
                     <div class="sm:col-span-2">
                         <label for="status" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Status</label>
                         <div class="mt-2">
-                            <select id="status" name="status" autocomplete="status" class="block w-3/4 rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <select id="status" name="status" autocomplete="status" class="block w-3/4 rounded-md border-0 pl-2 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                 <option value="gasal">Gasal</option>
                                 <option value="genap">Genap</option>
                             </select>
@@ -95,13 +95,13 @@
                         <div class="sm:col-span-2">
                             <label for="kode_tahun_akademik" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Tahun Akademik</label>
                             <div class="mt-2">
-                                <input type="text" name="kode_tahun_akademik" id="kode_tahun_akademik" autocomplete="kode_tahun_akademik" class="block bg-gray-300 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->kode_tahun_akademik }}" required autofocus readonly>
+                                <input type="text" name="kode_tahun_akademik" id="kode_tahun_akademik" autocomplete="kode_tahun_akademik" class="block pl-2 bg-gray-300 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->kode_tahun_akademik }}" required autofocus readonly>
                             </div>
                         </div>
                         <div class="sm:col-span-2">
                             <label for="tahun_akademik" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Tahun Akademik</label>
                             <div class="mt-2">
-                                <input type="text" name="tahun_akademik" id="tahun_akademik" autocomplete="tahun_akademik" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->tahun_akademik }}">
+                                <input type="text" name="tahun_akademik" id="tahun_akademik" autocomplete="tahun_akademik" class="block pl-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->tahun_akademik }}">
                             </div>
                         </div>
                         <div class="sm:col-span-2">

@@ -10,7 +10,7 @@ class DosenController extends Controller
 {
     //ambil data di database
     public function tampilDataDosen(Request $request){
-        $dataDosen = DB::table('dosen')->get();
+        $dataDosen = Dosen::all();
         $dataProdi = Data_prodi::all();
         return view('admin/dosen', compact('dataDosen', 'dataProdi'));
     }
