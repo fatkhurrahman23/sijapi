@@ -192,6 +192,7 @@
 
     function hideScroll() {
         document.getElementById("myNav").style.overflowY = "hidden";    
+        document.getElementById("myNav").style.overflowX = "hidden";    
     }
     </script>
 </body>

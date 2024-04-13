@@ -41,10 +41,10 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 // })->middleware('ifNotAdmin');
 
 
-Route::middleware(['ifNotAdmin'])->group(function () {
-    Route::get('/admin', function () {
-        return view('admin/admin');
-    });
+// Route::middleware(['ifNotAdmin'])->group(function () {
+//     Route::get('/admin', function () {
+//         return view('admin/admin');
+//     });
 
     // ======================================== RUANG ========================================
     Route::get('admin/ruang', [Jadwal::class, 'tampilDataRuang']);
@@ -183,7 +183,7 @@ Route::get('admin/ruang/delete/{kode_ruang}', [Jadwal::class, 'hapusDataRuang'])
     Route::get('admin/jam/delete/{id}', [jamController::class, 'destroy']);
 
     Route::get('/get-matakuliah/{id}', [EnrollmentController::class, 'getMatakuliah']);
-});
+// });
 
 
 
