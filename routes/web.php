@@ -13,7 +13,6 @@ use App\Http\Controllers\tahunakademikController;
 Route::get('/', [sijapi::class, 'index'])/* ->middleware('auth') */;
 
 
-
 // ======================================== AUTH ========================================
 // LOGIN
 Route::get('/login', [AuthController::class, 'showLoginPage'])->name('login.index');
@@ -55,6 +54,16 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
     // ruang delete
     Route::get('admin/ruang/{kode_ruang}/delete', [Jadwal::class, 'hapusDataRuang'])->name('ruang.delete');
 
+
+    // ======================================== JADWAL KULIAH ========================================
+    Route::get('admin/jadwal_kuliah', [Jadwal::class, 'tampilJadwalKuliah']);
+    Route::post('admin/jadwal_kuliah', [Jadwal::class, 'tambahJadwalKuliah']);
+    // jadwal_kuliah edit
+    Route::get('admin/jadwal_kuliah/edit/{kode_jadwal_kuliah}', [Jadwal::class, 'editDataJadwalKuliah']);
+    Route::post('admin/jadwal_kuliah/update/{id}', [Jadwal::class, 'updateDataJadwalKuiah']);
+    // jadwal_kuliah delete
+    Route::get('admin/jadwal_kuliah/delete/{kode_jadwal_kuliah}', [Jadwal::class, 'hapusDataJadwalKuliah']);
+
     // ======================================== DASHBOARD ========================================
     Route::get('admin/dashboard', [Jadwal::class, 'tampilDataDashboard']);
 
@@ -67,14 +76,14 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
     // mahasiswa delete
     Route::get('admin/mahasiswa/delete/{nim}', [MahasiswaController::class, 'hapusDataMahasiswa']);
 
-// ======================================== RUANG ========================================
-Route::get('admin/ruang', [Jadwal::class, 'tampilDataRuang']);
-Route::post('admin/ruang', [Jadwal::class, 'tambahDataRuang']);
-// ruang edit
-Route::get('admin/ruang/edit/{kode_ruang}', [Jadwal::class, 'editRuang']);
-Route::post('admin/ruang/update/{kode_ruang}', [Jadwal::class, 'updateDataRuang']);
-// ruang delete
-Route::get('admin/ruang/delete/{kode_ruang}', [Jadwal::class, 'hapusDataRuang']);
+    // ======================================== RUANG ========================================
+    Route::get('admin/ruang', [Jadwal::class, 'tampilDataRuang']);
+    Route::post('admin/ruang', [Jadwal::class, 'tambahDataRuang']);
+    // ruang edit
+    Route::get('admin/ruang/edit/{kode_ruang}', [Jadwal::class, 'editRuang']);
+    Route::post('admin/ruang/update/{kode_ruang}', [Jadwal::class, 'updateDataRuang']);
+    // ruang delete
+    Route::get('admin/ruang/delete/{kode_ruang}', [Jadwal::class, 'hapusDataRuang']);
 
     // ======================================== DOSEN ========================================
     Route::get('admin/dosen', [DosenController::class, 'tampilDataDosen']);
@@ -96,9 +105,6 @@ Route::get('admin/ruang/delete/{kode_ruang}', [Jadwal::class, 'hapusDataRuang'])
 
     // prodi dosen delete
     Route::get('admin/data_prodi/delete/{kode_prodi}', [DosenController::class, 'hapusDataProdi']);
-
-
-
 
 
     // ======================================== MATA KULIAH ========================================
@@ -163,13 +169,13 @@ Route::get('admin/ruang/delete/{kode_ruang}', [Jadwal::class, 'hapusDataRuang'])
     Route::get('admin/enrollment/delete/{id}', [Jadwal::class, 'hapusDataEnrollment'])->name('enrollment.delete');
     
     // ======================================== JADWAL KELAS ========================================
-    Route::get('admin/jadwal_kuliah', [Jadwal_kuliah::class, 'tampilDataMahasiswa']);
-    Route::post('admin/jadwal_kuliah', [Jadwal_kuliah::class, 'tambahDataMahasiswa']);
-    // jadwal_kuliah edit
-    Route::get('admin/jadwal_kuliah/edit/{kode_jadwal}', [Jadwal_kuliah::class, 'editMahasiswa']);
-    Route::post('admin/jadwal_kuliah/update/{kode_jadwal}', [Jadwal_kuliah::class, 'updateDataMahasiswa']);
-    // jadwal_kuliah delete
-    Route::get('admin/jadwal_kuliah/delete/{kode_jadwal}', [Jadwal_kuliah::class, 'hapusDataMahasiswa']);
+    // Route::get('admin/jadwal_kuliah', [Jadwal_kuliah::class, 'tampilDataMahasiswa']);
+    // Route::post('admin/jadwal_kuliah', [Jadwal_kuliah::class, 'tambahDataMahasiswa']);
+    // // jadwal_kuliah edit
+    // Route::get('admin/jadwal_kuliah/edit/{kode_jadwal}', [Jadwal_kuliah::class, 'editMahasiswa']);
+    // Route::post('admin/jadwal_kuliah/update/{kode_jadwal}', [Jadwal_kuliah::class, 'updateDataMahasiswa']);
+    // // jadwal_kuliah delete
+    // Route::get('admin/jadwal_kuliah/delete/{kode_jadwal}', [Jadwal_kuliah::class, 'hapusDataMahasiswa']);
 
     // ======================================== JAM ========================================
     Route::get('admin/jam', [jamController::class, 'index']);

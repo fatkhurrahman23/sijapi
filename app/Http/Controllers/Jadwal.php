@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Ruang;
 use App\Models\Tahun_akademik;
 use App\Models\Kelas_mahasiswa;
+use App\Models\Jadwal_kuliah;
 use App\Models\Mata_kuliah;
 use App\Models\Hari;
 use App\Models\Enrollment;
@@ -176,5 +177,25 @@ class Jadwal extends Controller
         DB::table('enrollment')->where('kode_enrollment', $kode_enrollment)->delete();
         return redirect('admin/enrollment')->with('delete', 'Enrollment telah dihapus');;
     }
-    
+
+
+       // ============================= JADWAL KULIAH =============================
+        public function tampilJadwalKuliah(){
+            $dataJadwalKuliah = Jadwal_kuliah::all();
+            $dataKelasMahasiswa = Kelas_mahasiswa::all();
+            return view('\admin\jadwal_kuliah', compact('dataJadwalKuliah', 'dataKelasMahasiswa'))->with('message', 'Jadwal kuliah Telah Ditambahkan');
+        }
+
+        public function tambahJadwalKuliah(Request $request){
+            $dataKelasMahasiswa = Kelas_mahasiswa::all();
+            $dataJadwalKuliah = new Jadwal_kuliah();
+            $dataJadwalKuliah->kode_jadwal_kuliah = $request->kode_jadwal_kuliah;
+            $dataJadwalKuliah->kode_enrollment = $request->kode_enrollment;
+            $dataJadwalKuliah->kode_hari = $request->kode_hari;
+            $dataJadwalKuliah->kode_ruang = $request->kode_ruang;
+            $dataJadwalKuliah->kode_kelas = $request->kode_kelas;
+            $dataJadwalKuliah->kode_jam = $request->kode_jam;
+            $dataJadwalKuliah->save();
+        return Redirect('/admin/jadwal_kuliah')->with('add', 'Jadwal Kuliah telah ditambahkan');
+        }
 }

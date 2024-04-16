@@ -20,6 +20,9 @@ class Kelas_mahasiswa extends Model
     public function mahasiswa(){
         return $this->hasMany('app\Models\Mahasiswa.php', 'kode_kelas');
     }
+    public function jadwal_kuliah(){
+        return $this->hasMany('app\Models\jadwal_kuliah.php', 'kode_kelas');
+    }
 
     // public function enrollment(){
     //     return $this->hasMany('app\Models\Enrollment.php', 'kode_kelas');

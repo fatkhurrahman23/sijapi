@@ -144,7 +144,7 @@ body {
 /* ===================== Main ===================== */
 .main {
     position: absolute;
-    width: calc(100% - 300px);
+    width: calc(110% - 300px);
     left: 300px;
     min-height: 100vh;
     background: var(--white);
@@ -156,7 +156,7 @@ body {
 }
 
 .topbar {
-    width: 100%;
+    /* width: 110%; */
     height: 60px;
     display: flex;
     justify-content: space-between;

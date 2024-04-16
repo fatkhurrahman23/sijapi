@@ -5,16 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+
 class Jadwal_kuliah extends Model
 {
     use HasFactory;
-
+    public $timestamps = false;
     protected $table = 'jadwal_kuliah';
     protected $primarykey = 'id';
-    protected $fillale = ['id', 'kode_jadwal_kuliah', 'kode_enrollment', 'kode_hari', 'kode_ruang', 'kode_kelas', 'kode_jam'];
+    protected $fillable = ['id', 'kode_jadwal_kuliah', 'kode_enrollment', 'kode_hari', 'kode_ruang', 'kode_kelas', 'kode_jam'];
 
     public function ruang(){
         return $this->belongsTo('C:\xampp\htdocs\sijapi\app\Models\Ruang.php' , 'kode_ruang') ;
+    }
+    public function kelas(){
+        return $this->belongsTo('app\Models\Kelas_mahasiswa.php' , 'kode_kelas') ;
     }
     
     public function jam(){
