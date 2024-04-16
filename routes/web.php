@@ -9,6 +9,8 @@ use App\Http\Controllers\DosenController;
 use App\Http\Controllers\MataKuliah;
 use App\Http\Controllers\jamController;
 use App\Http\Controllers\tahunakademikController;
+use App\Http\Controllers\JadwalKuliah;
+
 
 Route::get('/', [sijapi::class, 'index'])/* ->middleware('auth') */;
 
@@ -181,6 +183,14 @@ Route::get('admin/ruang/delete/{kode_ruang}', [Jadwal::class, 'hapusDataRuang'])
     Route::get('/get-matakuliah/{id}', [EnrollmentController::class, 'getMatakuliah']);
     // });
     
+    
+    // ======================================== JADWAL KULIAH ========================================
+    Route::get('admin/jadwal_kuliah/', [JadwalKuliah::class, 'tampilPageJadwal']);
+    Route::get('admin/jadwal_kuliah/{id}', [JadwalKuliah::class, 'tampilJadwalKuliahKelas']);
+    
+
+
+
     
     // ======================================== DIBAWAH INI PAGE BUKAN ADMIN ========================================
 
