@@ -170,14 +170,6 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
     // enrollment delete
     Route::get('admin/enrollment/delete/{id}', [Jadwal::class, 'hapusDataEnrollment'])->name('enrollment.delete');
     
-    // ======================================== JADWAL KELAS ========================================
-    // Route::get('admin/jadwal_kuliah', [Jadwal_kuliah::class, 'tampilDataMahasiswa']);
-    // Route::post('admin/jadwal_kuliah', [Jadwal_kuliah::class, 'tambahDataMahasiswa']);
-    // // jadwal_kuliah edit
-    // Route::get('admin/jadwal_kuliah/edit/{kode_jadwal}', [Jadwal_kuliah::class, 'editMahasiswa']);
-    // Route::post('admin/jadwal_kuliah/update/{kode_jadwal}', [Jadwal_kuliah::class, 'updateDataMahasiswa']);
-    // // jadwal_kuliah delete
-    // Route::get('admin/jadwal_kuliah/delete/{kode_jadwal}', [Jadwal_kuliah::class, 'hapusDataMahasiswa']);
 
     // ======================================== JAM ========================================
     Route::get('admin/jam', [jamController::class, 'index']);
@@ -188,11 +180,6 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
     
     Route::get('/get-matakuliah/{id}', [EnrollmentController::class, 'getMatakuliah']);
     // });
-    
-    
-    // ======================================== JADWAL KULIAH ========================================
-    Route::get('admin/jadwal_kuliah/', [JadwalKuliah::class, 'tampilPageJadwal']);
-    Route::get('admin/jadwal_kuliah/{id}', [JadwalKuliah::class, 'tampilJadwalKuliahKelas']);
     
 
 
