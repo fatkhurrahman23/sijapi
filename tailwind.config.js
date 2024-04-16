@@ -85,6 +85,7 @@ module.exports = {
             "corousel-satu": "url('/resources/Assets/image/corousel_1.png')",
             "corousel-dua": "url('/resources/Assets/image/corousel_2.png')",
             "corousel-tiga": "url('/resources/Assets/image/corousel_3.png')",
+            "background-kaldik": "url('/resources/Assets/image/kaldik.png')",
         },
         backgroundOpacity: ({ theme }) => theme("opacity"),
         backgroundPosition: {
@@ -340,6 +341,7 @@ module.exports = {
             "11/12": "91.666667%",
             full: "100%",
             120: "120vh",
+            140: "140vh",
         }),
         flexGrow: {
             0: "0",
@@ -605,6 +607,8 @@ module.exports = {
             100: "100vh",
             120: "120vh",
             130: "130vh",
+            140: "140vh",
+            150: "150vh",
         }),
         hueRotate: {
             0: "0deg",
