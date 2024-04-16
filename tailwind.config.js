@@ -378,6 +378,7 @@ module.exports = {
                 "monospace",
             ],
             poppins: ["Poppins"],
+            comicnue: ["Comic Neue"],
         },
         fontSize: {
             xs: ["0.75rem", { lineHeight: "1rem" }],
