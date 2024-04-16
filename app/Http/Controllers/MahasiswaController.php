@@ -93,4 +93,12 @@ class MahasiswaController extends Controller
         $dataKelasMahasiswa->delete();
         return Redirect('admin/kelas_mahasiswa')->with('delete', 'Kelas Telah dihapus');
     }
+
+    // ====================================== MAHASISWA BUKAN ADMIN ======================================
+    public function tampilBeranda(Request $request){
+        return view('mahasiswa/page/beranda');
+    }
+    public function tampilJadwal(Request $request){
+        return view('mahasiswa/page/jadwal');
+    }
 }

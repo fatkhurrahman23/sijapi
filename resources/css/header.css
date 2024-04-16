@@ -1,3 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.nav-links {
+    z-index: 1000;
+    /* Sisanya tetap seperti sebelumnya */
+}
+@media (max-width: 768px) {
+    .nav-links {
+        background-color: rgba(
+            255,
+            255,
+            255,
+            0.1
+        ); /* Warna latar belakang dengan opasitas 0.5 */
+        backdrop-filter: blur(10px);
+        z-index: 50;
+    }
+    #beranda-nav {
+        margin-top: 10px;
+    }
+    #jadwal-nav {
+        margin-top: 10px;
+    }
+    #presensi-nav {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+}

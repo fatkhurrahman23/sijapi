@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jadwal Kuliah</title>
-    @vite('resources\css\app.css')
-    @vite('resources/js/app.js')
-</head>
-<body>
+@extends('admin.admin')
+@section('content')
+    @vite('resources/css/jadwal.css')
+    @vite('resources/js/jadwal.js')
 
-<div class="container">
+    <div class="container">
         <div>
             <div id="jadwalkuliah" class="page ml-12">
                 <p class="glow-text mt-10 font-poppins font-bold text-black text-2xl">TAMBAH JADWAL KULIAH</p>
@@ -95,6 +89,4 @@
         </div>     
         </div>
     </div>
-
-</body>
-</html>
+@endsection

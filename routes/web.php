@@ -161,19 +161,15 @@ Route::get('admin/ruang/delete/{kode_ruang}', [Jadwal::class, 'hapusDataRuang'])
 
     // enrollment delete
     Route::get('admin/enrollment/delete/{id}', [Jadwal::class, 'hapusDataEnrollment'])->name('enrollment.delete');
-
-
-    // // ======================================== JAM ========================================
-    // Route::get('admin/jam', [Jadwal::class, 'tampilDataJamKuliah']);
-    // Route::post('admin/jam', [Jadwal::class, 'tambahDataJamKuliah']);
-
-    // // jam edit
-    // Route::get('admin/jam/{kode_jam}/edit', [Jadwal::class, 'editJamKuliah'])->name('jam.edit');
-    // Route::post('admin/jam/{id}/update', [Jadwal::class, 'updateDataJamKuliah'])->name('jam.update');
-
-    // // jam delete
-    // Route::get('admin/jam/{kode_jam}/delete', [Jadwal::class, 'hapusDataJamKuliah'])->name('jam.delete');
-
+    
+    // ======================================== JADWAL KELAS ========================================
+    Route::get('admin/jadwal_kuliah', [Jadwal_kuliah::class, 'tampilDataMahasiswa']);
+    Route::post('admin/jadwal_kuliah', [Jadwal_kuliah::class, 'tambahDataMahasiswa']);
+    // jadwal_kuliah edit
+    Route::get('admin/jadwal_kuliah/edit/{kode_jadwal}', [Jadwal_kuliah::class, 'editMahasiswa']);
+    Route::post('admin/jadwal_kuliah/update/{kode_jadwal}', [Jadwal_kuliah::class, 'updateDataMahasiswa']);
+    // jadwal_kuliah delete
+    Route::get('admin/jadwal_kuliah/delete/{kode_jadwal}', [Jadwal_kuliah::class, 'hapusDataMahasiswa']);
 
     // ======================================== JAM ========================================
     Route::get('admin/jam', [jamController::class, 'index']);
@@ -181,11 +177,18 @@ Route::get('admin/ruang/delete/{kode_ruang}', [Jadwal::class, 'hapusDataRuang'])
     Route::get('admin/jam/edit/{id}', [jamController::class, 'edit']);
     Route::post('admin/jam/update/{id}', [jamController::class, 'update']);
     Route::get('admin/jam/delete/{id}', [jamController::class, 'destroy']);
-
+    
     Route::get('/get-matakuliah/{id}', [EnrollmentController::class, 'getMatakuliah']);
-// });
+    // });
+    
+    
+    // ======================================== DIBAWAH INI PAGE BUKAN ADMIN ========================================
 
-
+    // ======================================== BERANDA MAHASISWA ========================================
+    Route::get('mahasiswa/page/beranda', [MahasiswaController::class, 'tampilBeranda']);
+    
+    // ======================================== JADWAL MAHASISWA ========================================
+    Route::get('mahasiswa/page/jadwal', [MahasiswaController::class, 'tampilJadwal']);
 
 
 

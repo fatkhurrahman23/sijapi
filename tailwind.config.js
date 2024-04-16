@@ -74,10 +74,17 @@ module.exports = {
             "logo-profile": "url('/resources/Assets/image/logo-profile.png')",
             "logo-customer": "url('resources/Assets/image/customer01.jpg')",
             "logo-admin": "url('resources/Assets/image/logo-admin.png')",
-            "people-beranda": "url('/resources/Assets/image/People.png')",
+            "orang-beranda": "url('/resources/Assets/image/orang.png')",
             "sijapi-update": "url('/resources/Assets/image/sijapi_update.png')",
             "sijapi-new": "url('/resources/Assets/image/sijapinew.png')",
             "sijapi-text": "url('/resources/Assets/image/textsijapi.png')",
+            "background-batu":
+                "url('/resources/Assets/image/background-batu.jpg')",
+            "background-gkt":
+                "url('/resources/Assets/image/background-gkt.png')",
+            "corousel-satu": "url('/resources/Assets/image/corousel_1.png')",
+            "corousel-dua": "url('/resources/Assets/image/corousel_2.png')",
+            "corousel-tiga": "url('/resources/Assets/image/corousel_3.png')",
         },
         backgroundOpacity: ({ theme }) => theme("opacity"),
         backgroundPosition: {
@@ -593,6 +600,7 @@ module.exports = {
             min: "min-content",
             max: "max-content",
             fit: "fit-content",
+            99: "90vh",
             100: "100vh",
             120: "120vh",
             130: "130vh",

@@ -140,7 +140,7 @@
             <p class="glow-text font-poppins font-bold text-white mt-2 pl-3 pb-9 second-text-third ">Politeknik Negeri Semarang</p> 
         </div>
 
-            <div class="rounded-lg flex-col bg-custom-putih flex justify-center items-center second-right border border-solid border-blue-500">
+            <div class="rounded-lg flex-col bg-custom-putih flex justify-center items-center second-right ">
                 <div class="w-36 h-36 mt-5 bg-logo-polines logo-cap bg-no-repeat"></div>
                 <p class="mt-2 logo-cap font-poppins text-sm">Welcome Back, Please login to your account</p>
                 <p class="font-poppins font-light text-xl  sign-in">SIGN-IN</p>

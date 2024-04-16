@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.back {
+    background-position: center;
+}
+
+.animator {
+    transition: transform 0.5s ease-out;
+}
+.animator2 {
+    transition: transform 0.5s ease-out;
+}
+.animator3 {
+    transition: transform 0.5s ease-out;
+}

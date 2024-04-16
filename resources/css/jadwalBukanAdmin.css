@@ -1,0 +1,8 @@
+@media (max-width: 768px) {
+    .bg-gray-200 {
+        display: none;
+    }
+    .bg-gray-300 {
+        flex: 1;
+    }
+}
