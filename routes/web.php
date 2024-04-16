@@ -66,6 +66,11 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
     // jadwal_kuliah delete
     Route::get('admin/jadwal_kuliah/delete/{kode_jadwal_kuliah}', [Jadwal::class, 'hapusDataJadwalKuliah']);
 
+    // tampil mata kuliah per kelas
+    Route::get('admin/jadwal_kuliah/{kode_kelas}', [JadwalKuliah::class, 'tampilJadwalKuliahKelas']);
+
+
+
     // ======================================== DASHBOARD ========================================
     Route::get('admin/dashboard', [Jadwal::class, 'tampilDataDashboard']);
 

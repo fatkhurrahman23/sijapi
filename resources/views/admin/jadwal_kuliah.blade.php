@@ -15,13 +15,14 @@
                         <ul>
                             @foreach ( $dataKelasMahasiswa as $kelas )
                                 <li>
-                                    <a class="rounded-lg" href="">
+                                    <a class="rounded-lg" href="/admin/jadwal_kuliah/{{ $kelas->kode_kelas }}">
                                         <div class="w-1/2 bg-gray-200 py-2 mt-3 rounded-lg flex justify-between px-4 shadow-md">
                                             <p>{{ $kelas->kode_kelas }}</p>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="24" class="ionicon" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M268 112l144 144-144 144M392 256H100"/></svg>
                                         </div>
                                     </a>
                                 </li>
+                                
                             @endforeach
                         </ul>
                     </div>

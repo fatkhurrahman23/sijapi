@@ -18,7 +18,9 @@ class JadwalKuliah extends Controller
     public function tampilJadwalKuliahKelas(Request $request, $kodeKelas)
     {
         $dataJadwalKuliahKelas = Jadwal_kuliah::where('kode_kelas', $kodeKelas)->get();
-        // $dataJadwalKuliahKelasHari = Jadwal_kuliah::where('kode_kelas', $kodeKelas)->get();
-        return view('admin/coba_jadwal_kelas', ['dataJadwalKuliahKelas' => $dataJadwalKuliahKelas, $kodeKelas]);
+        return view('admin/coba_jadwal_kelas', [
+            'dataJadwalKuliahKelas' => $dataJadwalKuliahKelas,
+            'kodeKelas' => $kodeKelas // Pass $kodeKelas to the view
+        ]);
     }
 }

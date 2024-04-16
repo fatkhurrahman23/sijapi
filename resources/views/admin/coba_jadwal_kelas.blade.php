@@ -10,55 +10,38 @@
     <h1>Jadwal Kuliah</h1>
     
     @if(count($dataJadwalKuliahKelas) > 0)
-        @for($i = 1; $i <= 5; $i++)
-            <h2>Hari {{$i}}</h2>
-            @php
-            $jadwalHari = $dataJadwalKuliahKelas->where('kode_hari', $i)->first();
-            @endphp
-            @if($jadwalHari)
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Jam</th>
-                            <th>Mata Kuliah</th>
-                            <th>Ruangan</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>{{$jadwalHari->kode_jam}}</td>
-                            <td>{{$jadwalHari->mata_kuliah}}</td>
-                            <td>{{$jadwalHari->ruangan}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            @else
-                <p>Tidak ada jadwal</p>
-            @endif
-        @endfor
-    @else
-        <p>Tidak ada jadwal</p>
-    @endif
+    <h2>Jadwal Kelas {{$kodeKelas}}</h2>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Hari</th>
-                <th>Jam</th>
-                <th>Mata Kuliah</th>
-                <th>Ruangan</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($dataJadwalKuliahKelas as $jadwalKelas): ?>
+    @foreach ($dataJadwalKuliahKelas as $jadwalHari)
+        <h2>Hari {{$jadwalHari->kode_hari}}</h2>
+        <table>
+            <thead>
                 <tr>
-                    <td><?php echo $jadwalKelas['hari']; ?></td>
-                    <td><?php echo $jadwalKelas['jam']; ?></td>
-                    <td><?php echo $jadwalKelas['mata_kuliah']; ?></td>
-                    <td><?php echo $jadwalKelas['ruangan']; ?></td>
+                    <th>Jam</th>
+                    <th>Mata Kuliah</th>
+                    <th>Ruangan</th>
                 </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+            @foreach ($jadwalHari as $jadwal)
+                @if(is_object($jadwal))
+                    <tr>
+                        <td>{{$jadwal->kode_jam}}</td>
+                        <td>{{$jadwal->mata_kuliah}}</td>
+                        <td>{{$jadwal->ruangan}}</td>
+                    </tr>
+                @endif
+                var_dump($jadwalHari);
+            @endforeach
+            </tbody>
+        </table>
+    @endforeach
+    <?php
+        // var_dump($dataJadwalKuliahKelas)
+    ?>
+
+@else
+    <p>Tidak ada jadwal untuk kelas {{$kodeKelas}}</p>
+@endif
 </body>
 </html>
