@@ -212,10 +212,26 @@ class Jadwal extends Controller
         return Redirect('/admin/jadwal_kuliah')->with('add', 'Jadwal Kuliah telah ditambahkan');
     }
 
+    
     public function tampilJadwalKuliahKelas(Request $request, $kodeKelas)
     {
-        $dataJadwalKuliahKelas = Jadwal_kuliah::where('kode_kelas', $kodeKelas)->get();
-        // $dataJadwalKuliahKelasHari = Jadwal_kuliah::where('kode_kelas', $kodeKelas)->get();
-        return view('admin/coba_jadwal_kelas', ['dataJadwalKuliahKelas' => $dataJadwalKuliahKelas, $kodeKelas]);
+        // $dataJadwalKuliahKelas = Jadwal_kuliah::where('kode_kelas', $kodeKelas)->get()->groupBy('kode_hari');
+        $jadwalKuliahSenin = Jadwal_kuliah::where('kode_kelas', $kodeKelas)->where('kode_hari', '1')->get();
+        $jadwalKuliahSelasa = Jadwal_kuliah::where('kode_kelas', $kodeKelas)->where('kode_hari', '2')->get();
+        $jadwalKuliahRabu = Jadwal_kuliah::where('kode_kelas', $kodeKelas)->where('kode_hari', '3')->get();
+        $jadwalKuliahKamis = Jadwal_kuliah::where('kode_kelas', $kodeKelas)->where('kode_hari', '4')->get();
+        $jadwalKuliahJumat = Jadwal_kuliah::where('kode_kelas', $kodeKelas)->where('kode_hari', '5')->get();
+        // $jadwalKuliahSelasa = Jadwal_kuliah::where('kode_kelas', $kodeKelas)->where('kode_hari', '2')->get();
+        
+        return view('admin/coba_jadwal_kelas', [
+            'jadwalKuliahSenin' => $jadwalKuliahSenin,
+            'jadwalKuliahSelasa' => $jadwalKuliahSelasa,
+            'jadwalKuliahRabu' => $jadwalKuliahRabu,
+            'jadwalKuliahKamis' => $jadwalKuliahKamis,
+            'jadwalKuliahJumat' => $jadwalKuliahJumat,
+        
+            'kodeKelas' => $kodeKelas // Pass $kodeKelas to the view
+
+        ]);
     }
 }
