@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Jam;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Redirect;
@@ -70,9 +71,20 @@ class jamController extends Controller
      */
     public function destroy(Request $request, $id)
     {
-        $data = Jam::where('kode_jam',$id)->first();        
-        $data->delete();
-        Session::flash('success','Data berhasil dihapus');
-        return Redirect('/admin/jam')->with('delete', 'Jam telah dihapus');;
+        try{
+            $data = Jam::where('kode_jam',$id)->first();        
+            $data->delete();
+            Session::flash('success','Data berhasil dihapus');
+            return Redirect('/admin/jam')->with('delete', 'Jam telah dihapus');
+        }
+        catch (QueryException $e) {
+            if ($e->errorInfo[1] === 1451) {
+                // Foreign key constraint violation
+                return redirect('admin/jam')->with('error', 'Data memiliki relasi, gagal menghapus');
+            } else {
+                // Other database error
+                return redirect('admin/jam')->with('error', 'Ada error ketika menghapus data');
+            }
+        }
     }
 }

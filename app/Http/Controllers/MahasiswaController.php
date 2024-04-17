@@ -6,6 +6,7 @@ use App\Models\Mahasiswa;
 use App\Models\Data_prodi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\QueryException;
 
 class MahasiswaController extends Controller
 {
@@ -48,9 +49,19 @@ class MahasiswaController extends Controller
 
     // hapus data mahasiswa
     public function hapusDataMahasiswa($nim){
-        DB::table('mahasiswa')->where('nim', $nim)->delete();
-        return redirect('admin/mahasiswa')->with('delete', 'Mahasiswa telah dihapus');
+        try{
+            DB::table('mahasiswa')->where('nim', $nim)->delete();
+            return redirect('admin/mahasiswa')->with('delete', 'Mahasiswa telah dihapus');
+        } catch (QueryException $e) {
+            if ($e->errorInfo[1] === 1451) {
+                // Foreign key constraint violation
+                return redirect('admin/mahasiswa')->with('error', 'Data memiliki relasi, gagal menghapus');
+            } else {
+                // Other database error
+                return redirect('admin/mahasiswa')->with('error', 'Ada error ketika menghapus data');
+            }
     }
+}
 
     //  ============================= KELAS MAHASISWA =============================
     //ambil data di database
@@ -89,9 +100,19 @@ class MahasiswaController extends Controller
 
     public function hapusDataKelasMahasiswa(Request $request, $id)
     {
-        $dataKelasMahasiswa = Kelas_mahasiswa::where('kode_kelas',$id)->first();        
-        $dataKelasMahasiswa->delete();
-        return Redirect('admin/kelas_mahasiswa')->with('delete', 'Kelas Telah dihapus');
+       try{
+            $dataKelasMahasiswa = Kelas_mahasiswa::where('kode_kelas',$id)->first();        
+            $dataKelasMahasiswa->delete();
+            return Redirect('admin/kelas_mahasiswa')->with('delete', 'Kelas Telah dihapus');
+       } catch (QueryException $e) {
+        if ($e->errorInfo[1] === 1451) {
+            // Foreign key constraint violation
+            return redirect('admin/kelas_mahasiswa')->with('error', 'Data memiliki relasi, gagal menghapus');
+        } else {
+            // Other database error
+            return redirect('admin/kelas_mahasiswa')->with('error', 'Ada error ketika menghapus data');
+        }
+    }
     }
 
     // ====================================== MAHASISWA BUKAN ADMIN ======================================

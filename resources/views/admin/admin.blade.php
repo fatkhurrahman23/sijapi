@@ -166,7 +166,7 @@
                     </label>
                 </div>
 
-                <div class="mt-4 flex flex-col justify-center items-center align-middle">
+                <div class="mt-4 flex flex-col justify-center items-center align-middle ">
                     <div class="user bg-yellow-400">
                         <p class="flex justify-center font-poppins text-3xl font-semibold text-custom-putih">A</p>
                     </div>

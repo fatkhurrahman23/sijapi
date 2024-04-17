@@ -42,7 +42,7 @@ body {
     overflow-y: hidden;
 }
 .navigation.active {
-    width: 93px;
+    width: 83px;
 }
 
 .navigation ul {
@@ -151,7 +151,7 @@ body {
     transition: 0.5s;
 }
 .main.active {
-    width: calc(100% - 80px);
+    width: calc(110% - 80px);
     left: 80px;
 }
 

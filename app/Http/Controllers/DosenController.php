@@ -5,6 +5,7 @@ use App\Models\Data_prodi;
 use App\Models\Dosen;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\QueryException;
 
 class DosenController extends Controller
 {
@@ -92,7 +93,18 @@ class DosenController extends Controller
 
     // hapus data prodi dosen
     public function hapusDataProdi($kode_prodi){
-        DB::table('data_prodi')->where('kode_prodi', $kode_prodi)->delete();
-        return redirect('admin/data_prodi')->with('delete', 'Prodi telah dihapus');
+        try{
+            DB::table('data_prodi')->where('kode_prodi', $kode_prodi)->delete();
+            return redirect('admin/data_prodi')->with('delete', 'Prodi telah dihapus');
+        }
+        catch (QueryException $e) {
+            if ($e->errorInfo[1] === 1451) {
+                // Foreign key constraint violation
+                return redirect('admin/data_prodi')->with('error', 'Data memiliki relasi, gagal menghapus');
+            } else {
+                // Other database error
+                return redirect('admin/data_prodi')->with('error', 'Ada error ketika menghapus data');
+            }
+    }
     }
 }

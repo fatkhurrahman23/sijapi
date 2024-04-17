@@ -158,5 +158,18 @@
             };
             toastr.success("{{ Session::get('delete') }}");
         </script>
+
+    @elseif (Session::has('error'))
+        <!-- Initialize Toastr for info message -->
+        <script>
+            toastr.options = {
+                "positionClass": "toast-top-right",
+                "preventDuplicates": true,
+                "progressBar": true,
+                "timeOut": "5000",
+                "closeButton": true,
+            };
+            toastr.error("{{ Session::get('error') }}");
+        </script>
     @endif
 @endsection

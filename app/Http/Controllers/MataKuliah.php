@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Mata_kuliah;
 use App\Models\Kelas_mahasiswa;
 use Illuminate\Http\Request;
+use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\DB;
 
 class MataKuliah extends Controller
@@ -52,9 +53,20 @@ class MataKuliah extends Controller
 
     //hapus data
     public function hapusDataMataKuliah($kode_mata_kuliah){
-        $dataKelasMahasiswa = Kelas_mahasiswa::all();
-        DB::table('mata_kuliah')->where('kode_mata_kuliah', $kode_mata_kuliah)->delete();
-        return redirect('admin/matkul')->with('delete', 'Matkul telah dihapus');
+        try{
+            $dataKelasMahasiswa = Kelas_mahasiswa::all();
+            DB::table('mata_kuliah')->where('kode_mata_kuliah', $kode_mata_kuliah)->delete();
+            return redirect('admin/matkul')->with('delete', 'Matkul telah dihapus');
+        }
+        catch (QueryException $e) {
+            if ($e->errorInfo[1] === 1451) {
+                // Foreign key constraint violation
+                return redirect('admin/matkul')->with('error', 'Data memiliki relasi, gagal menghapus');
+            } else {
+                // Other database error
+                return redirect('admin/matkul')->with('error', 'Ada error ketika menghapus data');
+            }
+    }
     }
     
 }

@@ -50,7 +50,9 @@
                             <td class="border px-4 py-2">{{ $value->nama }}</td>
                             <td class="border px-4 py-2">
                                 <button type="button" data-modal-target="edit_ruang_modal{{ $value->kode_ruang }}" data-modal-toggle="edit_ruang_modal" class="bg-blue-500 hover:bg-blue-700 text-white font-poppins font-normal py-1 px-2 rounded">Edit</button>
-                                <button class="bg-red-500 hover:bg-red-700 text-white font-poppins font-normal py-1 px-2 rounded">Hapus</button>
+                                <a href="{{ url('admin/ruang/delete/'.$value->kode_ruang) }}">
+                                    <button class="bg-red-500 hover:bg-red-700 text-white font-poppins font-normal py-1 px-2 rounded">Hapus</button>
+                                </a>
                             </td>
                         </tr>
                         @endforeach
@@ -138,6 +140,19 @@
                 "closeButton": true,
             };
             toastr.success("{{ Session::get('delete') }}");
+        </script>
+
+    @elseif (Session::has('error'))
+        <!-- Initialize Toastr for info message -->
+        <script>
+            toastr.options = {
+                "positionClass": "toast-top-right",
+                "preventDuplicates": true,
+                "progressBar": true,
+                "timeOut": "5000",
+                "closeButton": true,
+            };
+            toastr.error("{{ Session::get('error') }}");
         </script>
     @endif
 @endsection

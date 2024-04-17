@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Ruang;
@@ -49,9 +50,20 @@ class Jadwal extends Controller
     }
 
     public function hapusDataRuang($kode_ruang){
-        DB::table('ruang')->where('kode_ruang', $kode_ruang)->delete();
-        return redirect('admin/ruang')->with('delete', 'Ruang telah dihapus');
+        try {
+            DB::table('ruang')->where('kode_ruang', $kode_ruang)->delete();
+            return redirect('admin/ruang')->with('delete', 'Ruang telah dihapus');
+        } catch (QueryException $e) {
+            if ($e->errorInfo[1] === 1451) {
+                // Foreign key constraint violation
+                return redirect('admin/ruang')->with('error', 'Data still has related data, cannot be deleted');
+            } else {
+                // Other database error
+                return redirect('admin/ruang')->with('error', 'An error occurred while deleting data');
+            }
+        }
     }
+    
 
     // ============================= HARI =============================
     public function tampilDataHari(Request $request){

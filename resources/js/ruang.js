@@ -18,3 +18,25 @@ document
             document.body.classList.remove("overflow-hidden");
         });
     });
+
+function hapusDataProdi(kode_prodi) {
+    if (confirm("Apakah Anda yakin ingin menghapus data prodi ini?")) {
+        axios
+            .delete(`/admin/prodi/${kode_prodi}`)
+            .then((response) => {
+                // Handle successful deletion
+                console.log(response);
+                window.location.reload(); // Refresh halaman setelah penghapusan berhasil
+            })
+            .catch((error) => {
+                // Handle error
+                if (error.response.status === 500) {
+                    alert(
+                        "Tidak dapat menghapus data prodi karena ada data terkait yang masih ada."
+                    );
+                } else {
+                    console.error("An error occurred");
+                }
+            });
+    }
+}
