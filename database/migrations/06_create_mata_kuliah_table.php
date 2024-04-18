@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('kode_mata_kuliah', 20)->unique();
             // $table->string('kode_kelas')->length(20);
-            $table->string('nama')->length(20);
+            $table->string('nama_mata_kuliah');
             $table->integer('sks')->length(20);
             $table->integer('semester')->length(20);
             $table->enum('jenis', ['gasal', 'genap']);

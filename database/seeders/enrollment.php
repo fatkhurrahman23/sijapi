@@ -21,14 +21,14 @@ class enrollment extends Seeder
         $data = [
             [
                 'kode_enrollment' => 'ENR001',
-                'kode_kelas' => 'TI-2A',
+                // 'kode_kelas' => 'TI-2A',
                 'kode_dosen' => 'D001',
                 'kode_tahun_akademik' => '2021/2022-1',
                 'kode_mata_kuliah' => 'MK001',
             ],
             [
                 'kode_enrollment' => 'ENR002',
-                'kode_kelas' => 'TI-2B',
+                // 'kode_kelas' => 'TI-2B',
                 'kode_dosen' => 'D002',
                 'kode_tahun_akademik' => '2021/2022-1',
                 'kode_mata_kuliah' => 'MK002',

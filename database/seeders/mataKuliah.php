@@ -22,7 +22,7 @@ class mataKuliah extends Seeder
             [
                 'kode_mata_kuliah' => 'MK001',
                 // 'kode_kelas' => 'TI-2A',
-                'nama' => 'Pemrograman Web',
+                'nama_mata_kuliah' => 'Pemrograman Web',
                 'sks' => 3,
                 'semester' => 4,
                 'jenis' => 'gasal',
@@ -30,7 +30,7 @@ class mataKuliah extends Seeder
             [
                 'kode_mata_kuliah' => 'MK002',
                 // 'kode_kelas' => 'TI-2A',
-                'nama' => 'Pemrograman Mobile',
+                'nama_mata_kuliah' => 'Pemrograman Mobile',
                 'sks' => 3,
                 'semester' => 4,
                 'jenis' => 'genap',

@@ -12,7 +12,14 @@ use App\Http\Controllers\tahunakademikController;
 use App\Http\Controllers\JadwalKuliah;
 
 
-Route::get('/', [sijapi::class, 'index'])/* ->middleware('auth') */;
+
+// Route::middleware('auth')->get('/admin', function () {
+//     return response()->json([
+//         'user' => auth()->user(),
+//     ]);
+// });
+
+Route::get('/', [sijapi::class, 'index'])->middleware('auth');
 
 
 // ======================================== AUTH ========================================
@@ -29,7 +36,7 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
 // MIDDLEWARE ADMIN
-// Route::get('admin/', 'AdminController@index')->middleware('admin');
+// Route::get('admin/', 'AdminController@index')/* ->middleware('admin') */;
 
 
 
@@ -37,9 +44,9 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 // ======================================== DASHBOARD ADMIN ========================================
 // page admin hanya route ke halaman admin
 
-// Route::get('admin', function () {
-//     return view('admin/admin');
-// })->middleware('ifNotAdmin');
+Route::get('admin', function () {
+    return view('admin/admin');
+})/* ->middleware('ifNotAdmin') */;
 
 
 // Route::middleware(['ifNotAdmin'])->group(function () {
@@ -67,7 +74,7 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('admin/jadwal_kuliah/delete/{kode_jadwal_kuliah}', [Jadwal::class, 'hapusDataJadwalKuliah']);
 
     // tampil mata kuliah per kelas
-    Route::get('admin/jadwal_kuliah/{kode_kelas}', [JadwalKuliah::class, 'tampilJadwalKuliahKelas']);
+    Route::get('admin/jadwal_kuliah/{kode_kelas}', [Jadwal::class, 'tampilJadwalKuliahKelas']);
 
 
 

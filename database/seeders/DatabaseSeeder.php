@@ -33,7 +33,7 @@ class DatabaseSeeder extends Seeder
         $this->call(hari::class);
         // $this->call(waktuTidakTersedia::class);
         $this->call(enrollment::class);
-        // $this->call(jadwalKuliah::class);
+        $this->call(jadwalKuliah::class);
         // $this->call(presensi::class);
         // $this->call(dataPresensi::class);
         

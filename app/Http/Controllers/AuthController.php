@@ -36,7 +36,15 @@ class AuthController extends Controller
 
             // ngasih level user ke session
             $request->session()->put('level', $user->level);
+            $request->session()->put('username', $user->username);
 
+            // get all session data
+            // dd($request->session()->all());
+            // dd(auth()->check());   
+
+
+        // dd(auth()->check());   
+            
             // redirect user berdasarkan level
             if ($user->level === 'admin') {
                 return redirect('admin');
