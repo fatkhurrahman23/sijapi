@@ -18,10 +18,10 @@
             <div class="z-50 nav-links duration-500 md:static absolute md:min-h-fit min-h-[10vh] left-0 top-[-100%] md:w-auto w-full flex items-center px-5">
                 <ul class=" flex md:flex-row flex-col md:items-center md:gap-[3vw] gap-1 ">
                     <li id="beranda-nav" class="">
-                        <a class="text-custom-putih hover:text-gray-500" href="{{ url('mahasiswa/page/beranda') }}">Beranda</a>
+                        <a class="text-custom-putih hover:text-gray-500" href="{{ url('bukan_admin/beranda') }}">Beranda</a>
                     </li>
                     <li id="jadwal-nav" class="">
-                        <a class="text-custom-putih hover:text-gray-500" href="{{ url('mahasiswa/page/jadwal') }}">Jadwal</a>
+                        <a class="text-custom-putih hover:text-gray-500" href="{{ url('bukan_admin/jadwal') }}">Jadwal</a>
                     </li>
                     <li id="presensi-nav" class="">
                         <a class="text-custom-putih hover:text-gray-500" href="#">Presensi</a>

@@ -73,6 +73,9 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
     // ======================================== DASHBOARD ========================================
     Route::get('admin/dashboard', [Jadwal::class, 'tampilDataDashboard']);
+    
+    // ======================================== DASHBOARD ========================================
+    Route::get('admin/admin', [Jadwal::class, 'tampilDataDashboard']);
 
     // ======================================== MAHASISWA ========================================
     Route::get('admin/mahasiswa', [MahasiswaController::class, 'tampilDataMahasiswa']);
@@ -193,10 +196,10 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
     // ======================================== DIBAWAH INI PAGE BUKAN ADMIN ========================================
 
     // ======================================== BERANDA MAHASISWA ========================================
-    Route::get('mahasiswa/page/beranda', [MahasiswaController::class, 'tampilBeranda']);
+    Route::get('bukan_admin/beranda', [MahasiswaController::class, 'tampilBeranda']);
     
     // ======================================== JADWAL MAHASISWA ========================================
-    Route::get('mahasiswa/page/jadwal', [MahasiswaController::class, 'tampilJadwal']);
+    Route::get('bukan_admin/jadwal', [MahasiswaController::class, 'tampilJadwal']);
 
 
 

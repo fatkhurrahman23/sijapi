@@ -21,6 +21,7 @@ class Jadwal extends Controller
     public function tampilDataDashboard(Request $request){
         return view('admin/dashboard');
     }
+    
 
     // ===================================RUANG===================================
     public function tampilDataRuang(Request $request){
