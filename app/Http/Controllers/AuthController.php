@@ -22,36 +22,31 @@ class AuthController extends Controller
             'username' => 'required',
             'password' => 'required',
         ]);
-        
+
         $credentials = [
             'username' => $request->username,
             'password' => $request->password,
         ];
-        
+
+        // session put level and username
+        $request->session()->put('level', $request->level);
+        $request->session()->put('username', $request->username);
+
+
         $remember = $request->has('remember');
 
-        if (Auth::attempt($credentials, $remember)) {
+        if (Auth::attempt($credentials/* , $remember */)) {
             // Get the currently logged in user
             $user = Auth::user();
 
-            // ngasih level user ke session
-            $request->session()->put('level', $user->level);
-            $request->session()->put('username', $user->username);
+            //dd($user->level);
 
-            // get all session data
-            // dd($request->session()->all());
-            // dd(auth()->check());   
-
-
-        // dd(auth()->check());   
-            
             // redirect user berdasarkan level
             if ($user->level === 'admin') {
                 return redirect('admin');
             } elseif ($user->level === 'dosen') {
                 return redirect('dashboard');
             } else {
-                // redirect ke dashbaord
                 return redirect('dashboard');
             }
         } else {
@@ -81,7 +76,7 @@ class AuthController extends Controller
 
         return redirect()->route('login.index')->with('success', 'Registration successful. You can now login.');
     }
-    
+
     // ======================================== LOGOUT ========================================
     public function logout()
     {

@@ -5,8 +5,13 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Contracts\Auth\Middleware\AuthenticatesRequests;
 
-class Authenticate
+
+
+class Authenticate implements AuthenticatesRequests
 {
     /**
      * Handle an incoming request.
@@ -15,16 +20,15 @@ class Authenticate
      */
 
      
-    public function handle($request, Closure $next)
+    public function handle(Request $request, Closure $next)
     {
         // dd($request->session()->all());
 
-        // dd(auth()->check());   
-        if (!auth()->check()) {
-            // User is not authenticated, redirect to the login page
+        // Check if the user is authenticated
+        if (!$request->session()->has('username')) {
             return redirect()->route('login.index')->with('error', 'Please log in to access this page.');
         }
-
+        
         // User is authenticated, allow the request to proceed
         return $next($request);
     }
