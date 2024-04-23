@@ -67,6 +67,10 @@ class AuthController extends Controller
             'password' => 'required|confirmed',
         ]);
 
+        if (User::where('username', $request->username)->exists()) {
+            return redirect()->route('register.index')->with('error', 'Username already exists');
+        }
+
         $user = new User;
         $user->uuid = (string) Str::uuid();
         $user->username = $request->username;

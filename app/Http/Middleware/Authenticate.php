@@ -14,13 +14,13 @@ class Authenticate
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
 
-     
+
     public function handle($request, Closure $next)
     {
         // dd($request->session()->all());
 
-        // dd(auth()->check());   
-        if (!auth()->check()) {
+        // dd(auth()->check());
+        if (!$request->session()->has('username')) {
             // User is not authenticated, redirect to the login page
             return redirect()->route('login.index')->with('error', 'Please log in to access this page.');
         }

@@ -17,11 +17,11 @@ class RuangTable extends Seeder
         $data = [
             [
                 'kode_ruang' => 'MST-03-03',
-                'nama' => 'Gedung Magister lantai 03 ruang 03'
+                'nama_ruang' => 'Gedung Magister lantai 03 ruang 03'
             ],
             [
                 'kode_ruang' => 'MST-03-04',
-                'nama' => 'Gedung Magister lantai 03 ruang 04'
+                'nama_ruang' => 'Gedung Magister lantai 03 ruang 04'
             ]
         ];
 

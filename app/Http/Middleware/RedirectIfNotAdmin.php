@@ -17,17 +17,12 @@ class RedirectIfNotAdmin
     
     public function handle($request, Closure $next)
     {
-        if ($request->user() && $request->user()->isAdmin()) {
+
+        if (Auth::user()->level === 'admin') {
             return $next($request);
         }
         
-        // if (Auth::user()) {
-        //     dd(Auth::user()->level);
-        // } else {
-        //     dd('No authenticated user');
-        // }
-    
-        // abort(403, 'Unauthorized');
+        
         return $next($request);
 
 

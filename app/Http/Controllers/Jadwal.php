@@ -21,7 +21,7 @@ class Jadwal extends Controller
     public function tampilDataDashboard(Request $request){
         return view('admin/dashboard');
     }
-    
+
 
     // ===================================RUANG===================================
     public function tampilDataRuang(Request $request){
@@ -64,7 +64,7 @@ class Jadwal extends Controller
             }
         }
     }
-    
+
 
     // ============================= HARI =============================
     public function tampilDataHari(Request $request){
@@ -134,7 +134,7 @@ class Jadwal extends Controller
 
     public function hapusDataTahunAkademik(Request $request, $id)
     {
-        $data = Tahun_akademik::where('kode_tahun_akademik',$id)->first();        
+        $data = Tahun_akademik::where('kode_tahun_akademik',$id)->first();
         $data->delete();
         return Redirect('/admin/tahun_akademik')->with('delete', 'Jam telah dihapus');
     }
@@ -161,7 +161,7 @@ class Jadwal extends Controller
         $dataEnrollment->save();
         return redirect('admin/enrollment')->with('add', 'Enrollment telah ditambahkan');;
     }
-    
+
 
     public function editEnrollment($kode_enrollment){
         $dataMatkul = Mata_kuliah::all();
@@ -198,7 +198,7 @@ class Jadwal extends Controller
         $dataKelasMahasiswa = Kelas_mahasiswa::all();
         return view('\admin\jadwal_kuliah', compact('dataJadwalKuliah', 'dataKelasMahasiswa'))->with('message', 'Jadwal kuliah Telah Ditambahkan');
     }
-    
+
     public function tambahJadwalKuliah(Request $request){
         $dataKelasMahasiswa = Kelas_mahasiswa::all();
         $dataJadwalKuliah = new Jadwal_kuliah();
@@ -213,26 +213,31 @@ class Jadwal extends Controller
         return Redirect('/admin/jadwal_kuliah')->with('add', 'Jadwal Kuliah telah ditambahkan');
     }
 
-    
+
     public function tampilJadwalKuliahKelas(Request $request, $kodeKelas)
     {
-        // $dataJadwalKuliahKelas = Jadwal_kuliah::where('kode_kelas', $kodeKelas)->get()->groupBy('kode_hari');
+//        DB::enableQueryLog();
         $jadwalKuliahSenin = Jadwal_kuliah::where('kode_kelas', $kodeKelas)->where('kode_hari', '1')->get();
+//        dd(DB::getQueryLog(), $jadwalKuliahSenin->first()->toArray()); // Show results of log
+//        dd($jadwalKuliahSenin->first()->enrollment->mata_kuliah->toArray(), \DB::getQueryLog()); // Show results of log
+//        dd($jadwalKuliahSenin->first()->ruang->toArray(), \DB::getQueryLog()); // Show results of log
         $jadwalKuliahSelasa = Jadwal_kuliah::where('kode_kelas', $kodeKelas)->where('kode_hari', '2')->get();
         $jadwalKuliahRabu = Jadwal_kuliah::where('kode_kelas', $kodeKelas)->where('kode_hari', '3')->get();
         $jadwalKuliahKamis = Jadwal_kuliah::where('kode_kelas', $kodeKelas)->where('kode_hari', '4')->get();
         $jadwalKuliahJumat = Jadwal_kuliah::where('kode_kelas', $kodeKelas)->where('kode_hari', '5')->get();
-        // $jadwalKuliahSelasa = Jadwal_kuliah::where('kode_kelas', $kodeKelas)->where('kode_hari', '2')->get();
-        
+
+
         return view('admin/coba_jadwal_kelas', [
             'jadwalKuliahSenin' => $jadwalKuliahSenin,
             'jadwalKuliahSelasa' => $jadwalKuliahSelasa,
             'jadwalKuliahRabu' => $jadwalKuliahRabu,
             'jadwalKuliahKamis' => $jadwalKuliahKamis,
             'jadwalKuliahJumat' => $jadwalKuliahJumat,
-        
+
             'kodeKelas' => $kodeKelas // Pass $kodeKelas to the view
 
         ]);
     }
+
+
 }
