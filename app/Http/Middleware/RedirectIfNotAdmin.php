@@ -13,19 +13,14 @@ use App\Models\User;
 
 class RedirectIfNotAdmin
 {
-
-    
     public function handle($request, Closure $next)
     {
-
-        if (Auth::user()->level === 'admin') {
+//        dd($request->session()->all());
+        if ($request->session()->has('level') && $request->session()->get('level') == 'admin') {
             return $next($request);
         }
-        
-        
+        return redirect('/')->with('error', 'You are not authorized to access this page');
         return $next($request);
-
-
 
     }
 }

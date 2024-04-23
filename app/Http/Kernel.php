@@ -22,7 +22,7 @@ class Kernel extends HttpKernel
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
 
-        
+
 
     ];
 
@@ -40,7 +40,7 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             // \App\Http\Middleware\RedirectIfNotAdmin::class,
-            
+
         ],
 
         'api' => [
@@ -73,7 +73,7 @@ class Kernel extends HttpKernel
         'ifNotAdmin' => \App\Http\Middleware\RedirectIfNotAdmin::class,
         'admin.guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'share.username' => \App\Http\Middleware\ShareUsername::class,
-        'ceklevel' => \App\Http\Middleware\CekLevel::class,
+        'cekUserLevel' => \App\Http\Middleware\CekLevel::class,
 
 
     ];

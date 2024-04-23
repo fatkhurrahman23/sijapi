@@ -29,7 +29,6 @@ class AuthController extends Controller
         ];
 
         // session put level and username
-        $request->session()->put('level', $request->level);
         $request->session()->put('username', $request->username);
 
 
@@ -38,6 +37,9 @@ class AuthController extends Controller
         if (Auth::attempt($credentials/* , $remember */)) {
             // Get the currently logged in user
             $user = Auth::user();
+
+            // session put level
+            $request->session()->put('level', $user->level);
 
             //dd($user->level);
 
