@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB; 
+use Illuminate\Support\Facades\DB;
 
 class mahasiswa extends Seeder
 {
@@ -15,25 +15,25 @@ class mahasiswa extends Seeder
     {
         $data = [
             [
-                'nim' => '4.33.22.0.01',
+                'nim' => '43322001',
                 'nama' => 'MAHASISWA A 1',
                 'jenis_kelamin' => 'L',
                 'kode_kelas' => 'TI-2A'
             ],
             [
-                'nim' => '4.33.22.0.02',
+                'nim' => '43322002',
                 'nama' => 'MAHASISWA A 2',
                 'jenis_kelamin' => 'L',
                 'kode_kelas' => 'TI-2A'
             ],
             [
-                'nim' => '4.33.22.1.01',
+                'nim' => '43322101',
                 'nama' => 'MAHASISWA B 1',
                 'jenis_kelamin' => 'L',
                 'kode_kelas' => 'TI-2B'
             ],
             [
-                'nim' => '4.33.22.1.02',
+                'nim' => '43322102',
                 'nama' => 'MAHASISWA B 2',
                 'jenis_kelamin' => 'L',
                 'kode_kelas' => 'TI-2B'

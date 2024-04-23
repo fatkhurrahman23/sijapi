@@ -12,28 +12,32 @@ class Jadwal_kuliah extends Model
     public $timestamps = false;
     protected $table = 'jadwal_kuliah';
     protected $primarykey = 'id';
-    protected $fillable = ['id', 'kode_jadwal_kuliah', 'kode_enrollment', 'kode_hari', 'kode_ruang', 'kode_kelas', 'kode_jam'];
+    protected $fillable = ['id', 'kode_jadwal_kuliah', 'kode_enrollment', 'kode_hari', 'kode_ruang', 'kode_kelas', 'kode_jam_awal', 'kode_jam_akhir'];
 
     public function ruang(){
-        return $this->belongsTo('C:\xampp\htdocs\sijapi\app\Models\Ruang.php' , 'kode_ruang') ;
+        return $this->belongsTo(Ruang::class , 'kode_ruang') ;
     }
     public function kelas(){
-        return $this->belongsTo('app\Models\Kelas_mahasiswa.php' , 'kode_kelas') ;
+        return $this->belongsTo(Kelas_mahasiswa::class , 'kode_kelas') ;
     }
-    
-    public function jam(){
-        return $this->belongsTo('app\Models\Jam.php', 'kode_jam');
+
+    public function jamAwal(){
+        return $this->belongsTo(Jam::class, 'kode_jam_awal');
+    }
+
+    public function jamAkhir(){
+        return $this->belongsTo(Jam::class, 'kode_jam_awal');
     }
 
     public function hari(){
-        return $this->belongsTo('app\Models\Hari.php', 'kode_hari');
+        return $this->belongsTo(Hari::class, 'kode_hari');
     }
 
     public function enrollment(){
-        return $this->belongsTo('app\Models\Enrollment.php', 'kode_enrollment');
+        return $this->hasOne(Enrollment::class, 'kode_enrollment', 'kode_enrollment');
     }
 
     public function presensi(){
-        return $this->hasMany('app\Models\Presensi.php', 'kode_jadwal_kuliah');
+        return $this->hasMany(Presensi::class , 'kode_jadwal_kuliah');
     }
 }

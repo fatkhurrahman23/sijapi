@@ -20,7 +20,7 @@ class Enrollment extends Model
     // }
 
     public function mata_kuliah(){
-        return $this->belongsTo('app\Models\Mata_kuliah.php', 'kode_enrollment');
+        return $this->belongsTo(Mata_Kuliah::class, 'kode_mata_kuliah', 'kode_mata_kuliah');
     }
 
     public function dosen(){
@@ -32,7 +32,7 @@ class Enrollment extends Model
     }
 
     public function jadwal_kuliah(){
-        return $this->hasMany('app\Models\Jadwal_kuliah.php', 'kode_enrollment');
+        return $this->belongsToMany('app\Models\Jadwal_kuliah.php', 'kode_enrollment');
     }
 
 }

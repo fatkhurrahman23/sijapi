@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         if (!Schema::hasTable('jadwal_kuliah')) {
-        
+
             Schema::create('jadwal_kuliah', function (Blueprint $table) {
                 $table->id();
                 $table->string('kode_jadwal_kuliah', 20)->unique();
@@ -20,30 +20,36 @@ return new class extends Migration
                 $table->string('kode_hari', 20);
                 $table->string('kode_ruang', 20);
                 $table->string('kode_kelas', 20);
-                $table->string('kode_jam', 20);
-    
+                $table->integer('kode_jam_awal');
+                $table->integer('kode_jam_akhir');
+
+
                 $table->foreign('kode_enrollment')
                     ->references('kode_enrollment')
                     ->on('enrollment');
-                
+
                 $table->foreign('kode_hari')
                     ->references('kode_hari')
                     ->on('hari');
-                
+
                 $table->foreign('kode_ruang')
                     ->references('kode_ruang')
                     ->on('ruang');
-                
+
                 $table->foreign('kode_kelas')
                     ->references('kode_kelas')
                     ->on('kelas_mahasiswa');
-                
-                $table->foreign('kode_jam')
+
+                $table->foreign('kode_jam_awal')
+                    ->references('kode_jam')
+                    ->on('jam');
+
+                $table->foreign('kode_jam_akhir')
                     ->references('kode_jam')
                     ->on('jam');
             });
         }
-        
+
     }
 
     /**

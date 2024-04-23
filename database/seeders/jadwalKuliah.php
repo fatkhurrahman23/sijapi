@@ -26,20 +26,24 @@ class jadwalKuliah extends Seeder
                 'kode_hari' => '1',
                 'kode_ruang' => 'MST-03-03',
                 'kode_kelas' => 'TI-2A',
-                'kode_jam' => '1',
+                'kode_jam_awal' => '1',
+                'kode_jam_akhir' => '6'
             ],
             [
                 'kode_jadwal_kuliah' => 'JK002',
                 'kode_enrollment' => 'ENR002',
-                'kode_hari' => '2',
-                'kode_ruang' => 'MST-03-03',
+                'kode_hari' => '1',
+                'kode_ruang' => 'MST-03-04',
                 'kode_kelas' => 'TI-2A',
-                'kode_jam' => '2',
-            ]
-            
+                'kode_jam_awal' => '7',
+                'kode_jam_akhir' => '8'
+            ],
+
+
+
         ];
 
         DB::table('jadwal_kuliah')->insert($data);
-            
+
     }
 }

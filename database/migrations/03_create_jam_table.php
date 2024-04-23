@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('jam', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('kode_jam', 20)->unique();
+            $table->integer('kode_jam')->unique();
             $table->time('jam_awal');
             $table->time('jam_akhir');
         });

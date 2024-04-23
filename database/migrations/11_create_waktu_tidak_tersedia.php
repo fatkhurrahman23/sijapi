@@ -17,22 +17,20 @@ return new class extends Migration
                 $table->id();
                 $table->string('kode_waktu_tidak_tersedia', 20);
                 $table->string('kode_dosen', 20);
-                $table->string('kode_jam', 20);
+                $table->integer('kode_jam');
                 $table->string('kode_hari', 20);
                 // $table->timestamps();
-    
+
                 $table->foreign('kode_dosen')
                     ->references('kode_dosen')
                     ->on('dosen')
                     ->onDelete('cascade');
-    
-                    
+
+
                 $table->foreign('kode_jam')
                     ->references('kode_jam')
-                    ->on('jam')
-                    ->onDelete('cascade')
-                    ->onUpdate('cascade');
-                    
+                    ->on('jam');
+
                 $table->foreign('kode_hari')
                     ->references('kode_hari')
                     ->on('hari');

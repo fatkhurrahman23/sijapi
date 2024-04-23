@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB; 
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-        
+
         $this->call(RuangTable::class);
         $this->call(DataProdi::class);
         $this->call(kelasMahasiswa::class);
@@ -29,13 +29,13 @@ class DatabaseSeeder extends Seeder
         $this->call(mataKuliah::class);
         $this->call(dosen::class);
         $this->call(users::class);
-        $this->call(tahunAkademik::class);
         $this->call(hari::class);
+        $this->call(tahunAkademik::class);
         // $this->call(waktuTidakTersedia::class);
         $this->call(enrollment::class);
         $this->call(jadwalKuliah::class);
         // $this->call(presensi::class);
         // $this->call(dataPresensi::class);
-        
+
     }
 }
