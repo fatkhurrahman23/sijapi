@@ -125,4 +125,7 @@ class MahasiswaController extends Controller
     public function tampilPresensi(Request $request){
         return view('mahasiswa/page/presensi');
     }
+    public function tampilScanner(Request $request){
+        return view('mahasiswa/page/scanner');
+    }
 }

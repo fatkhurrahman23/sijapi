@@ -211,6 +211,10 @@ Route::get('admin', function () {
     // ======================================== JADWAL MAHASISWA ========================================
     Route::get('mahasiswa/page/presensi', [MahasiswaController::class, 'tampilPresensi']);
     
+    // ======================================== SCANNER MAHASISWA ========================================
+    Route::get('mahasiswa/page/scanner', [MahasiswaController::class, 'tampilScanner']);
+    
+
     
     // ======================================== BERANDA DOSEN ========================================
     Route::get('dosen/page/beranda', [DosenController::class, 'tampilBeranda']);
