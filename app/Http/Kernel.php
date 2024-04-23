@@ -73,6 +73,8 @@ class Kernel extends HttpKernel
         'ifNotAdmin' => \App\Http\Middleware\RedirectIfNotAdmin::class,
         'admin.guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'share.username' => \App\Http\Middleware\ShareUsername::class,
+        'ceklevel' => \App\Http\Middleware\CekLevel::class,
+
 
     ];
 }
