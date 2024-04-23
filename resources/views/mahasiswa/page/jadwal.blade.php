@@ -1,9 +1,9 @@
-@extends('bukan_admin.header')
+@extends('mahasiswa.page.header')
 @section('content')
     @vite('resources\css\jadwalBukanAdmin.css')
     @vite('resources\js\jadwalBukanAdmin.js')
 
-    <div class="px-9 bg-gray-200 border border-solid border-yellow-400 w-screen">
+    <div class="px-9 bg-custom-silver border border-solid border-yellow-400 w-screen">
         <div class="mt-5 flex h-72">
             <div class="bg-custom-putih pt-3 pl-4 flex-1 hidden md:block rounded-l-lg">
                 <div class="bg-orang-beranda bg-cover bg-no-repeat h-full w-full"></div>

@@ -86,6 +86,10 @@ module.exports = {
             "corousel-dua": "url('/resources/Assets/image/corousel_2.png')",
             "corousel-tiga": "url('/resources/Assets/image/corousel_3.png')",
             "background-kaldik": "url('/resources/Assets/image/kaldik.png')",
+            barcode: "url('/resources/Assets/image/barcode.png')",
+            "popup-presensi":
+                "url('/resources/Assets/image/popup_presensi.png')",
+            "animasi-phone": "url('/resources/Assets/image/animasi-phone.png')",
         },
         backgroundOpacity: ({ theme }) => theme("opacity"),
         backgroundPosition: {
@@ -107,6 +111,7 @@ module.exports = {
         blur: {
             0: "0",
             none: "0",
+            tm: "1px",
             sm: "4px",
             DEFAULT: "8px",
             md: "12px",
@@ -129,6 +134,11 @@ module.exports = {
             xl: "0.75rem",
             "2xl": "1rem",
             "3xl": "1.5rem",
+            "4xl": "2rem",
+            "5xl": "2.5rem",
+            "6xl": "3rem",
+            "7xl": "3.5rem",
+            "8xl": "4rem",
             full: "9999px",
         },
         borderSpacing: ({ theme }) => ({
@@ -201,6 +211,7 @@ module.exports = {
                 birumuda: "#0D63A5",
                 putih: "#F4F4F4",
                 birumuda: "#0F4B7E",
+                silver: "#DBDFEB",
             },
         }),
         columns: {
@@ -880,6 +891,7 @@ module.exports = {
             150: "1.5",
         },
         screens: {
+            tm: "340px",
             sm: "640px",
             md: "768px",
             lg: "1024px",

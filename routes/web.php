@@ -203,12 +203,23 @@ Route::get('admin', function () {
     // ======================================== DIBAWAH INI PAGE BUKAN ADMIN ========================================
 
     // ======================================== BERANDA MAHASISWA ========================================
-    Route::get('bukan_admin/beranda', [MahasiswaController::class, 'tampilBeranda']);
+    Route::get('mahasiswa/page/beranda', [MahasiswaController::class, 'tampilBeranda']);
     
     // ======================================== JADWAL MAHASISWA ========================================
-    Route::get('bukan_admin/jadwal', [MahasiswaController::class, 'tampilJadwal']);
+    Route::get('mahasiswa/page/jadwal', [MahasiswaController::class, 'tampilJadwal']);
 
+    // ======================================== JADWAL MAHASISWA ========================================
+    Route::get('mahasiswa/page/presensi', [MahasiswaController::class, 'tampilPresensi']);
+    
+    
+    // ======================================== BERANDA DOSEN ========================================
+    Route::get('dosen/page/beranda', [DosenController::class, 'tampilBeranda']);
+    
+    // ======================================== JADWAL DOSEN ========================================
+    Route::get('dosen/page/jadwal', [DosenController::class, 'tampilJadwal']);
 
+    // ======================================== JADWAL DOSEN ========================================
+    Route::get('dosen/page/presensi', [DosenController::class, 'tampilPresensi']);
 
 
 Route::get('/edit_matkul', function () {

@@ -1,4 +1,4 @@
-@extends('bukan_admin.header')
+@extends('mahasiswa.page.header')
 @section('content')
     @vite('resources\css\beranda.css')
     @vite('resources\js\beranda.js')

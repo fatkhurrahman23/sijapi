@@ -117,9 +117,12 @@ class MahasiswaController extends Controller
 
     // ====================================== MAHASISWA BUKAN ADMIN ======================================
     public function tampilBeranda(Request $request){
-        return view('bukan_admin/beranda');
+        return view('mahasiswa/page/beranda');
     }
     public function tampilJadwal(Request $request){
-        return view('bukan_admin/jadwal');
+        return view('mahasiswa/page/jadwal');
+    }
+    public function tampilPresensi(Request $request){
+        return view('mahasiswa/page/presensi');
     }
 }

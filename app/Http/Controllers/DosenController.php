@@ -107,4 +107,15 @@ class DosenController extends Controller
             }
     }
     }
+
+    // ====================================== DOSEN BUKAN ADMIN ======================================
+    public function tampilBeranda(Request $request){
+        return view('dosen/page/beranda');
+    }
+    public function tampilJadwal(Request $request){
+        return view('dosen/page/jadwal');
+    }
+    public function tampilPresensi(Request $request){
+        return view('dosen/page/presensi');
+    }
 }
