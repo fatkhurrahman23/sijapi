@@ -43,11 +43,11 @@ class AuthController extends Controller
 
             // redirect user berdasarkan level
             if ($user->level === 'admin') {
-                return redirect('admin');
+                return redirect('admin/dashboard');
             } elseif ($user->level === 'dosen') {
-                return redirect('dashboard');
+                return redirect('dosen/page/beranda');
             } else {
-                return redirect('dashboard');
+                return redirect('mahasiswa/page/beranda');
             }
         } else {
             return redirect()->route('login.index')->with('error', 'Username atau password salah');
