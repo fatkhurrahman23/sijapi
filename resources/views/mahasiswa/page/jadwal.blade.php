@@ -18,8 +18,7 @@
 
         <div class="tengah bg-custom-putih rounded-lg grow my-9 p-4" >
             <p class="text-yellow-500 px-4 mt-4 font-poppins font-semibold underline underline-offset-4 h-12">Jadwal hari ini</p>
-            <p class="font-poppins flex justify-center font-bold h-12">Jumat, 03 Juni 2024</p>
-            <div class="overflow-x-auto pb-5 flex justify-center ">
+            <p class="font-poppins flex justify-center font-bold h-12">{{ \Carbon\Carbon::now()->locale('id')->isoFormat('dddd, D MMMM Y') }}</p>          <div class="overflow-x-auto pb-5 flex justify-center ">
                 <table class="table-auto w-11/12 border-collapse">
                     <thead>
                         <tr>
@@ -38,6 +37,20 @@
                             <td class="border px-4 py-2">Kurnianingsih</td>
                             <td class="border px-4 py-2">MST III/04</td>
                         </tr>
+                        @foreach($jadwalKuliahHariIni as $jadwal)
+                            @for($jam_kuliah = ($jadwal->kode_jam_awal); $jam_kuliah <= $jadwal->kode_jam_akhir; $jam_kuliah++)
+{{--                                {{ $jam = $jadwal->jam->jam_awal }}--}}
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $jam_kuliah }}</td>
+{{--                                    <td>{{ $jadwal->jam->jam_awal }} - {{ $jadwal->jam->jam_akhir }}</td>--}}
+                                    <td>{{$jadwal->enrollment->mata_kuliah->nama_mata_kuliah }}</td>
+                                    <td>{{$jadwal->enrollment->dosen->nama}}</td>
+                                    <td>{{$jadwal->ruang->nama_ruang}}</td>
+                                </tr>
+                            @endfor
+                        @endforeach
+
                     </tbody>
                 </table>
             </div>
