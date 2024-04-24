@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        
+
         Schema::create('users', function (Blueprint $table) {
             $table->uuid('uuid')->primary();
             $table->string('username');
             $table->string('password');
             $table->enum('level', ['mahasiswa', 'dosen', 'admin']);
+
         });
     }
 
