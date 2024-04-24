@@ -30,7 +30,7 @@
             </div>
             <div class="flex items-center gap-2 z-50">
                 <button class="bg-custom-birumuda border border-solid border-custom-putih text-white px-3 py-1 rounded-lg hover:bg-blue-900">Log out</button>
-                <button class="bg-custom-birumuda border border-solid border-custom-putih text-white px-4 py-1 rounded-lg hover:bg-blue-900">Profile</button>
+                <a href="{{ url('mahasiswa/page/profile') }}" class="bg-custom-birumuda border border-solid border-custom-putih text-white px-4 py-1 rounded-lg hover:bg-blue-900">Profile</a>
                 <ion-icon id="menu-icon" name="menu" class="text-3xl cursor-pointer md:hidden"></ion-icon>
             </div>
         </nav>

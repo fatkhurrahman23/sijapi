@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
 
 class AuthController extends Controller
 {
@@ -28,8 +29,7 @@ class AuthController extends Controller
             'password' => $request->password,
         ];
 
-        // session put level and username
-        $request->session()->put('username', $request->username);
+
 
 
         $remember = $request->has('remember');
@@ -38,10 +38,12 @@ class AuthController extends Controller
             // Get the currently logged in user
             $user = Auth::user();
 
-            // session put level
+            $request->session()->put('username', $user->username);
             $request->session()->put('level', $user->level);
 
-            //dd($user->level);
+
+
+//            dd($request->session()->all());
 
             // redirect user berdasarkan level
             if ($user->level === 'admin') {
@@ -49,6 +51,16 @@ class AuthController extends Controller
             } elseif ($user->level === 'dosen') {
                 return redirect('dosen/page/beranda');
             } else {
+                // put kelas dengan join dari tabel mahasiswa berdasarkan kolom username user
+                $kelas = DB::table('users')
+                    ->join('mahasiswa', 'users.username', '=', 'mahasiswa.nim')
+                    ->join('kelas_mahasiswa', 'mahasiswa.kode_kelas', '=', 'kelas_mahasiswa.kode_kelas')
+                    ->select('kelas_mahasiswa.kode_kelas', 'kelas_mahasiswa.kode_kelas')
+                    ->where('users.username', $user->username)
+                    ->first();
+//                dd($kelas);
+                $request->session()->put('kode_kelas', $kelas->kode_kelas);
+//                dd($request->session()->all());
                 return redirect('mahasiswa/page/beranda');
             }
         } else {

@@ -217,7 +217,7 @@ class Jadwal extends Controller
         $dataJadwalKuliah->kode_jam_akhir = $request->kode_jam_akhir;
         $dataJadwalKuliah->save();
 
-        return Redirect('admin/jadwal_kuliah')->with('add', 'Jadwal Kuliah telah ditambahkan');
+        return Redirect('admin/jadwal_kuliah/$kode_kelas')->with('add', 'Jadwal Kuliah telah ditambahkan');
     }
 
     public function hapusDataJadwalKuliah(Request $request, $id)
@@ -237,14 +237,14 @@ class Jadwal extends Controller
         $dataRuang = Ruang::all();
         $dataJam = Jam::all();
 //        DB::enableQueryLog();
-        $jadwalKuliahSenin = Jadwal_kuliah::where('kode_kelas', $kodeKelas)->where('kode_hari', '1')->get();
+        $jadwalKuliahSenin = Jadwal_kuliah::where('kode_kelas', $kodeKelas)->where('kode_hari', '1')->orderBy('kode_jam_awal', 'asc')->get();
 //        dd(DB::getQueryLog(), $jadwalKuliahSenin->first()->toArray()); // Show results of log
 //        dd($jadwalKuliahSenin->first()->enrollment->mata_kuliah->toArray(), \DB::getQueryLog()); // Show results of log
 //        dd($jadwalKuliahSenin->first()->ruang->toArray(), \DB::getQueryLog()); // Show results of log
-        $jadwalKuliahSelasa = Jadwal_kuliah::where('kode_kelas', $kodeKelas)->where('kode_hari', '2')->get();
-        $jadwalKuliahRabu = Jadwal_kuliah::where('kode_kelas', $kodeKelas)->where('kode_hari', '3')->get();
-        $jadwalKuliahKamis = Jadwal_kuliah::where('kode_kelas', $kodeKelas)->where('kode_hari', '4')->get();
-        $jadwalKuliahJumat = Jadwal_kuliah::where('kode_kelas', $kodeKelas)->where('kode_hari', '5')->get();
+        $jadwalKuliahSelasa = Jadwal_kuliah::where('kode_kelas', $kodeKelas)->where('kode_hari', '2')->orderBy('kode_jam_awal', 'asc')->get();
+        $jadwalKuliahRabu = Jadwal_kuliah::where('kode_kelas', $kodeKelas)->where('kode_hari', '3')->orderBy('kode_jam_awal', 'asc')->get();
+        $jadwalKuliahKamis = Jadwal_kuliah::where('kode_kelas', $kodeKelas)->where('kode_hari', '4')->orderBy('kode_jam_awal', 'asc')->get();
+        $jadwalKuliahJumat = Jadwal_kuliah::where('kode_kelas', $kodeKelas)->where('kode_hari', '5')->orderBy('kode_jam_awal', 'asc')->get();
 
 
         return view('admin/coba_jadwal_kelas', [
