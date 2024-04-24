@@ -38,6 +38,79 @@ class jadwalKuliah extends Seeder
                 'kode_jam_awal' => '7',
                 'kode_jam_akhir' => '8'
             ],
+            [
+                'kode_jadwal_kuliah' => 'JK003',
+                'kode_enrollment' => 'ENR001',
+                'kode_hari' => '2',
+                'kode_ruang' => 'MST-03-03',
+                'kode_kelas' => 'TI-2A',
+                'kode_jam_awal' => '1',
+                'kode_jam_akhir' => '6'
+            ],
+            [
+                'kode_jadwal_kuliah' => 'JK004',
+                'kode_enrollment' => 'ENR002',
+                'kode_hari' => '2',
+                'kode_ruang' => 'MST-03-04',
+                'kode_kelas' => 'TI-2A',
+                'kode_jam_awal' => '7',
+                'kode_jam_akhir' => '8'
+            ],
+            [
+                'kode_jadwal_kuliah' => 'JK005',
+                'kode_enrollment' => 'ENR001',
+                'kode_hari' => '3',
+                'kode_ruang' => 'MST-03-03',
+                'kode_kelas' => 'TI-2A',
+                'kode_jam_awal' => '1',
+                'kode_jam_akhir' => '6'
+            ],
+            [
+                'kode_jadwal_kuliah' => 'JK006',
+                'kode_enrollment' => 'ENR002',
+                'kode_hari' => '3',
+                'kode_ruang' => 'MST-03-04',
+                'kode_kelas' => 'TI-2A',
+                'kode_jam_awal' => '7',
+                'kode_jam_akhir' => '8'
+            ],
+            [
+                'kode_jadwal_kuliah' => 'JK007',
+                'kode_enrollment' => 'ENR001',
+                'kode_hari' => '4',
+                'kode_ruang' => 'MST-03-03',
+                'kode_kelas' => 'TI-2A',
+                'kode_jam_awal' => '1',
+                'kode_jam_akhir' => '6'
+            ],
+            [
+                'kode_jadwal_kuliah' => 'JK008',
+                'kode_enrollment' => 'ENR002',
+                'kode_hari' => '4',
+                'kode_ruang' => 'MST-03-04',
+                'kode_kelas' => 'TI-2A',
+                'kode_jam_awal' => '7',
+                'kode_jam_akhir' => '8'
+            ],
+            [
+                'kode_jadwal_kuliah' => 'JK009',
+                'kode_enrollment' => 'ENR001',
+                'kode_hari' => '5',
+                'kode_ruang' => 'MST-03-03',
+                'kode_kelas' => 'TI-2A',
+                'kode_jam_awal' => '1',
+                'kode_jam_akhir' => '6'
+            ],
+            [
+                'kode_jadwal_kuliah' => 'JK010',
+                'kode_enrollment' => 'ENR002',
+                'kode_hari' => '5',
+                'kode_ruang' => 'MST-03-04',
+                'kode_kelas' => 'TI-2A',
+                'kode_jam_awal' => '7',
+                'kode_jam_akhir' => '8'
+            ],
+
 
 
 
