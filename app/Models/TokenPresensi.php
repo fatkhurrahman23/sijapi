@@ -13,7 +13,7 @@ class TokenPresensi extends Model
 
     protected $fillable = [
         'token',
-        'kode_jadwal',
+        'kode_jadwal_kuliah',
         'created_at',
         'expired_at'
     ];
@@ -22,6 +22,6 @@ class TokenPresensi extends Model
 
     public function jadwalKuliah()
     {
-        return $this->belongsTo(JadwalKuliah::class, 'kode_jadwal');
+        return $this->belongsTo(JadwalKuliah::class, 'kode_jadwal_kuliah');
     }
 }

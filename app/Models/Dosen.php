@@ -17,8 +17,8 @@ class Dosen extends Model
         return $this->belongsTo('app\Models\Data_prodi.php', 'kode_prodi');
     }
 
-    public function enrollment(){
-        return $this->hasMany('app\Models\Enrollment.php', 'kode_dosen');
+    public function dosen(){
+        return $this->belongsTo(Dosen::class, 'kode_dosen', 'kode_dosen');
     }
 
     public function waktu_tidak_tersedia(){
