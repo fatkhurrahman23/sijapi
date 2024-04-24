@@ -35,6 +35,7 @@
             </form>
             <div class="overflow-x-auto pb-2">
                 <table class="table-auto mt-24 w-11/12 border-collapse">
+                    
                     <thead>
                         <tr>
                             <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">No</th>

@@ -21,9 +21,9 @@
                             </div>
 
                             <div class="sm:col-span-2">
-                                <label for="nama" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Nama MatKul</label>
+                                <label for="nama_mata_kuliah" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Nama MatKul</label>
                                 <div class="mt-2">
-                                    <input type="text" name="nama" id="nama" autocomplete="nama" class="block pl-2 w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    <input type="text" name="nama_mata_kuliah" id="nama_mata_kuliah" autocomplete="nama_mata_kuliah" class="block pl-2 w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                 </div>
                             </div>
                             <div class="sm:col-span-2">
@@ -72,7 +72,7 @@
                                 <tr>
                                     <td class="border px-4 py-2">{{ $no+1 }}</td>
                                     <td class="border px-4 py-2">{{ $value->kode_mata_kuliah }}</td>
-                                    <td class="border px-4 py-2">{{ $value->nama }}</td>
+                                    <td class="border px-4 py-2">{{ $value->nama_mata_kuliah }}</td>
                                     <td class="border px-4 py-2">{{ $value->sks }}</td>
                                     <td class="border px-4 py-2">
                                         <button type="button" data-modal-target="edit_matkul_modal{{ $value->kode_mata_kuliah }}" data-modal-toggle="edit_matkul_modal" class="bg-blue-500 hover:bg-blue-700 text-white font-poppins font-normal py-1 px-2 rounded">Edit</button>
@@ -120,7 +120,7 @@
                             <div class="sm:col-span-2">
                                 <label for="nama" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Nama MatKul</label>
                                 <div class="mt-2">
-                                    <input type="text" name="nama" id="nama" autocomplete="nama" class="block w-full pl-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->nama }}">
+                                    <input type="text" name="nama" id="nama" autocomplete="nama" class="block w-full pl-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->nama_mata_kuliah }}">
                                 </div>
                             </div>
                             <div class="sm:col-span-2">

@@ -24,7 +24,7 @@ class Enrollment extends Model
     }
 
     public function dosen(){
-        return $this->belongsTo('app\Models\Dosen.php', 'kode_dosen');
+        return $this->belongsTo(Dosen::class, 'app\Models\Dosen.php', 'kode_dosen');
     }
 
     public function tahun_akademik(){

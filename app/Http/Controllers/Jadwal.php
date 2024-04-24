@@ -6,6 +6,7 @@ use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Ruang;
+use App\Models\Jam;
 use App\Models\Tahun_akademik;
 use App\Models\Kelas_mahasiswa;
 use App\Models\Jadwal_kuliah;
@@ -193,29 +194,42 @@ class Jadwal extends Controller
 
 
        // ============================= JADWAL KULIAH =============================
-    public function tampilJadwalKuliah(){
+       public function tampilJadwalKuliah(){
         $dataJadwalKuliah = Jadwal_kuliah::all();
         $dataKelasMahasiswa = Kelas_mahasiswa::all();
         return view('\admin\jadwal_kuliah', compact('dataJadwalKuliah', 'dataKelasMahasiswa'))->with('message', 'Jadwal kuliah Telah Ditambahkan');
     }
 
+
     public function tambahJadwalKuliah(Request $request){
         $dataKelasMahasiswa = Kelas_mahasiswa::all();
+        $dataEnrollment =  Enrollment::all();
+        $dataHari = Hari::all();
+        $dataRuang = Ruang::all();
+        $dataJam = Jam::all();
         $dataJadwalKuliah = new Jadwal_kuliah();
         $dataJadwalKuliah->kode_jadwal_kuliah = $request->kode_jadwal_kuliah;
         $dataJadwalKuliah->kode_enrollment = $request->kode_enrollment;
         $dataJadwalKuliah->kode_hari = $request->kode_hari;
         $dataJadwalKuliah->kode_ruang = $request->kode_ruang;
         $dataJadwalKuliah->kode_kelas = $request->kode_kelas;
-        $dataJadwalKuliah->kode_jam = $request->kode_jam;
+        $dataJadwalKuliah->kode_jam_awal = $request->kode_jam_awal;
+        $dataJadwalKuliah->kode_jam_akhir = $request->kode_jam_akhir;
         $dataJadwalKuliah->save();
 
-        return Redirect('/admin/jadwal_kuliah')->with('add', 'Jadwal Kuliah telah ditambahkan');
+        return Redirect('admin/jadwal_kuliah')->with('add', 'Jadwal Kuliah telah ditambahkan');
     }
 
 
     public function tampilJadwalKuliahKelas(Request $request, $kodeKelas)
     {
+        // $dataJadwalKuliah = new Jadwal_kuliah();
+        $dataKelasMahasiswa = Kelas_mahasiswa::all();
+        $dataKelasMahasiswa = Kelas_mahasiswa::all();
+        $dataEnrollment =  Enrollment::all();
+        $dataHari = Hari::all();
+        $dataRuang = Ruang::all();
+        $dataJam = Jam::all();
 //        DB::enableQueryLog();
         $jadwalKuliahSenin = Jadwal_kuliah::where('kode_kelas', $kodeKelas)->where('kode_hari', '1')->get();
 //        dd(DB::getQueryLog(), $jadwalKuliahSenin->first()->toArray()); // Show results of log
@@ -236,7 +250,7 @@ class Jadwal extends Controller
 
             'kodeKelas' => $kodeKelas // Pass $kodeKelas to the view
 
-        ]);
+        ], compact( 'jadwalKuliahSenin','jadwalKuliahRabu', 'jadwalKuliahKamis', 'jadwalKuliahJumat' ,'jadwalKuliahSelasa','dataKelasMahasiswa','dataEnrollment', 'dataHari', 'dataRuang', 'dataJam'));
     }
 
 

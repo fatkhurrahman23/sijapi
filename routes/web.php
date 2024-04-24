@@ -60,9 +60,10 @@ Route::group(['middleware' => ['cekUserLevel:admin'], 'prefix' => 'admin'], func
     Route::post('/jadwal_kuliah/update/{id}', [Jadwal::class, 'updateDataJadwalKuiah']);
     // jadwal_kuliah delete
     Route::get('/jadwal_kuliah/delete/{kode_jadwal_kuliah}', [Jadwal::class, 'hapusDataJadwalKuliah']);
-
+    
     // tampil mata kuliah per kelas
     Route::get('/jadwal_kuliah/{kode_kelas}', [Jadwal::class, 'tampilJadwalKuliahKelas']);
+    Route::get('/admin/coba_jadwal_kelas', [Jadwal::class, 'tampilCobaJadwal']);
 
 
     // ======================================== DASHBOARD ========================================

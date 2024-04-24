@@ -46,7 +46,7 @@
                                     <select id="kode_mata_kuliah" name="kode_mata_kuliah" class="block w-3/4 rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
 
                                         @foreach($dataMatkul as $matkul)
-                                            <option value="{{ $matkul->kode_mata_kuliah }}">{{ $matkul->nama }}</option>
+                                            <option value="{{ $matkul->kode_mata_kuliah }}">{{ $matkul->nama_mata_kuliah }}</option>
                                         @endforeach 
                                     </select>
                                 </div>
@@ -74,6 +74,7 @@
                     </thead>
                     <tbody>
                         @foreach($dataEnrollment as $no => $value)
+                        
                         <tr>
                                 <td class="border px-4 py-2">{{ $no+1}}</td>
                                 <td class="border px-4 py-2">{{ $value->kode_enrollment }}</td>
@@ -94,7 +95,7 @@
                                 <td class="border px-4 py-2">
                                     @foreach($dataMatkul as $matkul)
                                         @if($matkul->kode_mata_kuliah == $value->kode_mata_kuliah)
-                                            {{ $matkul->nama }}
+                                            {{ $matkul->nama_mata_kuliah }}
                                         @endif
                                     @endforeach
                                 </td>

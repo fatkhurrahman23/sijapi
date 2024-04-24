@@ -19,9 +19,9 @@
                         </div>
                     </div>
                     <div class="sm:col-span-2">
-                        <label for="nama" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Nama Ruang</label>
+                        <label for="nama_ruang" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Nama Ruang</label>
                         <div class="mt-2">
-                            <input type="text" name="nama" id="nama" autocomplete="nama" class="pl-2 block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <input type="text" name="nama_ruang" id="nama_ruang" autocomplete="nama_ruang" class="pl-2 block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                         </div>
                     </div>
                     <div class="sm:col-span-2 flex justify-between items-end">
@@ -47,7 +47,7 @@
                         <tr>
                             <td class="border px-4 py-2">{{ $no+1 }}</td>
                             <td class="border px-4 py-2">{{ $value->kode_ruang }}</td>
-                            <td class="border px-4 py-2">{{ $value->nama }}</td>
+                            <td class="border px-4 py-2">{{ $value->nama_ruang }}</td>
                             <td class="border px-4 py-2">
                                 <button type="button" data-modal-target="edit_ruang_modal{{ $value->kode_ruang }}" data-modal-toggle="edit_ruang_modal" class="bg-blue-500 hover:bg-blue-700 text-white font-poppins font-normal py-1 px-2 rounded">Edit</button>
                                 <a href="{{ url('admin/ruang/delete/'.$value->kode_ruang) }}">
@@ -88,9 +88,9 @@
                                 </div>
                             </div>
                             <div class="sm:col-span-2">
-                                <label for="nama" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Nama Ruang</label>
+                                <label for="nama_ruang" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Nama Ruang</label>
                                 <div class="mt-2">
-                                    <input type="text" name="nama" id="nama" autocomplete="nama" class="pl-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->nama }}">
+                                    <input type="text" name="nama_ruang" id="nama_ruang" autocomplete="nama_ruang" class="pl-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->nama_ruang }}">
                                 </div>
                             </div>
                             <div class="sm:col-span-2 flex justify-center items-center">
