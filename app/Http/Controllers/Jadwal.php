@@ -220,6 +220,12 @@ class Jadwal extends Controller
         return Redirect('admin/jadwal_kuliah')->with('add', 'Jadwal Kuliah telah ditambahkan');
     }
 
+    public function hapusDataJadwalKuliah(Request $request, $id)
+    {
+        $data = Jadwal_kuliah::where('kode_jadwal_kuliah',$id)->first();
+        $data->delete();
+        return Redirect('/admin/jadwal_kuliah')->with('delete', 'Jadwal kuliah telah dihapus');
+    }
 
     public function tampilJadwalKuliahKelas(Request $request, $kodeKelas)
     {

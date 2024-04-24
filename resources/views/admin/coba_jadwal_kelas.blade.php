@@ -104,7 +104,7 @@
                                 <td class="border px-4 py-2">{{ $senin->kode_ruang }}</td>
                                 <td class="border px-4 py-2">
                                     <button type="button" data-modal-target="" data-modal-toggle="" class="bg-blue-500 hover:bg-blue-700 text-white font-poppins font-normal py-1 px-2 rounded">Edit</button>
-                                    <a href="">
+                                    <a href="{{ url('admin/jadwal_kuliah/delete/'.$senin->kode_jadwal_kuliah) }}">
                                         <button class="bg-red-500 hover:bg-red-700 text-white font-poppins font-normal py-1 px-2 rounded">Hapus</button>
                                     </a>
                                 </td>
