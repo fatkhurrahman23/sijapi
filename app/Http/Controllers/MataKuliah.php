@@ -21,7 +21,6 @@ class MataKuliah extends Controller
         $data = new Mata_kuliah();
         $dataKelasMahasiswa = Kelas_mahasiswa::all();
         $data->kode_mata_kuliah = $request->kode_mata_kuliah;
-        $data->kode_kelas = $request->kode_kelas;
         $data->nama = $request->nama;
         $data->sks = $request->sks;
         $data->semester = $request->semester;

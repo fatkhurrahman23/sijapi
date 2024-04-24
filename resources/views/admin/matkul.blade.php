@@ -47,16 +47,6 @@
                                     </select>          
                                 </div>
                             </div>
-                            <div class="sm:col-span-2">
-                                <label for="kode_kelas" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Kelas</label>
-                                <div class="mt-2">
-                                    <select name="kode_kelas" id="kode_kelas" autocomplete="kode_kelas" class="block w-3/4 rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                                        @foreach( $dataKelasMahasiswa as $kelas )
-                                            <option value="{{ $kelas->kode_kelas }}">{{ $kelas->kode_kelas }}</option>                                    
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
                             
                             <div class="sm:col-span-2 flex justify-between items-end">
                                 <button type="submit" class=" flex justify-center w-3/6 rounded-md bg-custom-birumuda px-3 py-2 text-sm font-poppins font-semibold text-white shadow-sm hover:bg-custom-birutua focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" >
@@ -74,7 +64,6 @@
                                     <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Kode</th>
                                     <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Matkul</th>
                                     <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">SKS</th>
-                                    <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Kode Kelas</th>
                                     <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Aksi</th>
                                 </tr>
                             </thead>
@@ -85,7 +74,6 @@
                                     <td class="border px-4 py-2">{{ $value->kode_mata_kuliah }}</td>
                                     <td class="border px-4 py-2">{{ $value->nama }}</td>
                                     <td class="border px-4 py-2">{{ $value->sks }}</td>
-                                    <td class="border px-4 py-2">{{ $value->kode_kelas }}</td>
                                     <td class="border px-4 py-2">
                                         <button type="button" data-modal-target="edit_matkul_modal{{ $value->kode_mata_kuliah }}" data-modal-toggle="edit_matkul_modal" class="bg-blue-500 hover:bg-blue-700 text-white font-poppins font-normal py-1 px-2 rounded">Edit</button>
                                         <a href="{{ url('admin/matkul/delete/'.$value->kode_mata_kuliah) }}">
@@ -156,16 +144,6 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="sm:col-span-2">
-                                    <label for="kode_kelas" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Kelas</label>
-                                    <div class="mt-2">
-                                        <select name="kode_kelas" id="kode_kelas" autocomplete="kode_kelas" class="block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                                            @foreach($dataKelasMahasiswa as $kelas)
-                                                <option value="{{ $kelas->kode_kelas }}">{{ $kelas->kode_kelas }}</option>                                    
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
                             <div class="sm:col-span-2 flex justify-center items-center">
                                 <button type="submit" class=" flex justify-center align-middle items-center w-3/6 rounded-md bg-custom-birumuda px-3 py-2 text-sm font-poppins font-semibold text-white shadow-sm hover:bg-custom-birutua focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                                     <img class="flex justify-center align-bottom items-center" width="17" height="17" src="https://img.icons8.com/sf-black-filled/64/plus-math.png" alt="plus-math" style="filter: invert(100%);"/>

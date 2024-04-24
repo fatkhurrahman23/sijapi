@@ -8,7 +8,7 @@
             <video id="preview" width="100%"></video>
         </div>
         <div class="flex flex-col justify-center items-center border w-screen text-center">
-            <p class="font-poppins text-lg">Arahkan ke Barcode yang diberikan dosen mata kuliah yang sedang dijalankan</p>
+            <p class="border font-poppins text-lg px-12">Arahkan ke Barcode yang diberikan dosen mata kuliah yang sedang dijalankan</p>
             <input type="text" name="text" id="text" readonly placeholder="Scan QR code" class="form-control">
         </div>
     </div>

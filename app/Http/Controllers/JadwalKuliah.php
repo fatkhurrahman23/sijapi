@@ -15,6 +15,7 @@ class JadwalKuliah extends Controller
         return view('admin/coba_jadwal', ['dataKelas' => $dataKelas]);
     }
 
+    // ================================ jadwalkuliah kelas ================================
     public function tampilJadwalKuliahKelas(Request $request, $kodeKelas)
     {
         $dataJadwalKuliahKelas = Jadwal_kuliah::where('kode_kelas', $kodeKelas)->get();
@@ -22,5 +23,13 @@ class JadwalKuliah extends Controller
             'dataJadwalKuliahKelas' => $dataJadwalKuliahKelas,
             'kodeKelas' => $kodeKelas // Pass $kodeKelas to the view
         ]);
+    }
+
+    public function tambahDataRuang(Request $request){
+        $dataRuang = new Ruang();
+        $dataRuang->kode_ruang = $request->kode_ruang;
+        $dataRuang->nama = $request->nama;
+        $dataRuang->save();
+        return redirect('admin/ruang')->with('add', 'Ruang telah ditambahkan');
     }
 }
