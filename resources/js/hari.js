@@ -1,3 +1,33 @@
+import DataTable from "datatables.net-dt";
+import "datatables.net-buttons-dt";
+import "datatables.net-responsive-dt";
+
+// DataTables initialisation
+$(document).ready(function () {
+    let table = new DataTable("#myTable", {});
+    let totalHariElement = $("#totalHari");
+
+    function updateTotalHari() {
+        let totalHari = table.rows().count();
+        totalHariElement.text(totalHari);
+    }
+
+    // Panggil fungsi updateTotalHari saat tabel diperbarui
+    table.on("draw", function () {
+        updateTotalHari();
+    });
+
+    // Panggil fungsi updateTotalHari saat data baru ditambahkan
+    $("#tambahDataButton").on("click", function () {
+        // Kode untuk menambahkan data baru ke tabel
+        table.row.add([]).draw();
+        updateTotalHari();
+    });
+
+    // Pertama kali, panggil fungsi updateTotalHari
+    updateTotalHari();
+});
+
 document.querySelector("table").addEventListener("click", (event) => {
     if (event.target.matches('[data-modal-toggle="edit_hari_modal"]')) {
         const modalId = event.target.getAttribute("data-modal-target");

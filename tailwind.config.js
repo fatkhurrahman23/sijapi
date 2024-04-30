@@ -90,6 +90,7 @@ module.exports = {
             "popup-presensi":
                 "url('/resources/Assets/image/popup_presensi.png')",
             "animasi-phone": "url('/resources/Assets/image/animasi-phone.png')",
+            admin: "url('/resources/Assets/image/admin.png')",
         },
         backgroundOpacity: ({ theme }) => theme("opacity"),
         backgroundPosition: {
@@ -212,6 +213,8 @@ module.exports = {
                 putih: "#F4F4F4",
                 birumuda: "#0F4B7E",
                 silver: "#DBDFEB",
+                abu: "#F9F9F9",
+                dark: "#342e37",
             },
         }),
         columns: {
@@ -616,6 +619,7 @@ module.exports = {
             fit: "fit-content",
             99: "90vh",
             100: "100vh",
+            110: "110vh",
             120: "120vh",
             130: "130vh",
             140: "140vh",

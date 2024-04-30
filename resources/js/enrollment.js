@@ -1,3 +1,33 @@
+import DataTable from "datatables.net-dt";
+import "datatables.net-buttons-dt";
+import "datatables.net-responsive-dt";
+
+// DataTables initialisation
+$(document).ready(function () {
+    let table = new DataTable("#myTable", {});
+    let totalEnrollmentElement = $("#totalEnrollment");
+
+    function updateTotalEnrollment() {
+        let totalEnrollment = table.rows().count();
+        totalEnrollmentElement.text(totalEnrollment);
+    }
+
+    // Panggil fungsi updateTotalEnrollment saat tabel diperbarui
+    table.on("draw", function () {
+        updateTotalEnrollment();
+    });
+
+    // Panggil fungsi updateTotalEnrollment saat data baru ditambahkan
+    $("#tambahDataButton").on("click", function () {
+        // Kode untuk menambahkan data baru ke tabel
+        table.row.add([]).draw();
+        updateTotalEnrollment();
+    });
+
+    // Pertama kali, panggil fungsi updateTotalEnrollment
+    updateTotalEnrollment();
+});
+
 document.querySelector("table").addEventListener("click", (event) => {
     if (event.target.matches('[data-modal-toggle="edit_enrollment_modal"]')) {
         const modalId = event.target.getAttribute("data-modal-target");

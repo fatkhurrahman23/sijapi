@@ -6,13 +6,39 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <div class="container">
-        <div>
-            <div id="matkul" class="page ml-12">
-                <p class="glow-text mt-10 font-poppins font-bold text-black text-2xl">TAMBAH DATA MATKUL</p>
-                <form action="{{ url('admin/matkul') }}" method="POST">
+    <h1>Data Mata Kuliah</h1>
+                                <ul class="breadcrumb">
+                                <li>
+                                    <a href="#">Admin</a>
+                                </li>
+                                <li><i class="bx bx-chevron-right"></i></li>
+                                <li>
+                                    <a class="active" href="#">Mata kuliah</a>
+                                </li>
+                            </ul>
+                        </div>
+                           
+                        </div>
+                            <ul class="box-info">
+                                <li>
+                                    <i class="bx bxs-calendar-check"></i>
+                                    <span class="text">
+                                    <h3 id="totalMatkul"></h3>
+                                    <p>Total Matkul</p>
+                                    </span>
+                                </li>
+                                <li>
+                                    <i class="bx bxs-time"></i>
+                                    <span class="text">
+                                    <h3 id="totalSKS"></h3>
+                                    <p>Total SKS</p>
+                                    </span>
+                                </li>
+                            </ul>
+                <form class=" mb-2 px-8 my-6 rounded-2xl py-7 bg-custom-abu " action="{{ url('admin/matkul') }}" method="POST">
+                    <h3 class="font-poppins font-medium text-2xl text-custom-dark">Tambah Matkul</h3>
                     @csrf
-                    <div class="mt-5 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                    <div class="mt-7 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                         <div class="sm:col-span-2">
                                 <label for="kode_mata_kuliah" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode MatKul</label>
                                 <div class="mt-2">
@@ -56,8 +82,8 @@
                             </div>
                         </div>
                 </form>
-                <div class="overflow-x-auto pb-2">
-                    <table class="table-auto mt-24 w-11/12 border-collapse">
+                <div class="overflow-x-auto pb-12 px-8  my-7 py-7 bg-custom-abu rounded-2xl ">
+                    <table id="myTable" class="mt-11 w-full table table-striped">
                     <thead>
                                 <tr>
                                     <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">No</th>
@@ -70,11 +96,11 @@
                             <tbody>
                             @foreach($data as $no => $value)
                                 <tr>
-                                    <td class="border px-4 py-2">{{ $no+1 }}</td>
-                                    <td class="border px-4 py-2">{{ $value->kode_mata_kuliah }}</td>
-                                    <td class="border px-4 py-2">{{ $value->nama_mata_kuliah }}</td>
-                                    <td class="border px-4 py-2">{{ $value->sks }}</td>
-                                    <td class="border px-4 py-2">
+                                    <td class="border pl-2 py-2">{{ $no+1 }}</td>
+                                    <td class="border pl-2 py-2">{{ $value->kode_mata_kuliah }}</td>
+                                    <td class="border pl-2 py-2">{{ $value->nama_mata_kuliah }}</td>
+                                    <td class="border pl-2 py-2">{{ $value->sks }}</td>
+                                    <td class="border pl-2 py-2">
                                         <button type="button" data-modal-target="edit_matkul_modal{{ $value->kode_mata_kuliah }}" data-modal-toggle="edit_matkul_modal" class="bg-blue-500 hover:bg-blue-700 text-white font-poppins font-normal py-1 px-2 rounded">Edit</button>
                                         <a href="{{ url('admin/matkul/delete/'.$value->kode_mata_kuliah) }}">
                                             <button class="bg-red-500 hover:bg-red-700 text-white font-poppins font-normal  py-1 px-2 rounded">Hapus</button>
@@ -85,20 +111,17 @@
                             </tbody>
                     </table>
                 </div>
-            </div>
 
-        </div>
-    </div>
 
 <!-- ========================================================MODAL======================================================== -->
     @foreach($data as $no => $value)
-        <div id="edit_matkul_modal{{ $value->kode_mata_kuliah }}" tabindex="-1" aria-hidden="true" class="hidden modal h-full overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full flex items-center">
+        <div id="edit_matkul_modal{{ $value->kode_mata_kuliah }}" tabindex="-1" aria-hidden="true" class="hidden h-100 mt-5 py-12 modal flex overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center">
         <div class="backdrop absolute inset-0 bg-black opacity-30 h-130"></div>
             <div class="relative p-4 w-full max-w-md max-h-full">
                 <!-- Modal content -->
-                <div class="relative bg-white rounded-lg h-120 shadow dark:bg-gray-700">
-                    <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                <div class="relative bg-white rounded-lg shadow">
+                    <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t ">
+                        <h3 class="text-xl font-semibold text-gray-900 ">
                             EDIT DATA MATKUL
                         </h3>
                         <button type="button" class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="edit_matkul_modal">
@@ -118,9 +141,9 @@
                                 </div>
                             </div>
                             <div class="sm:col-span-2">
-                                <label for="nama" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Nama MatKul</label>
+                                <label for="nama_mata_kuliah" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Nama MatKul</label>
                                 <div class="mt-2">
-                                    <input type="text" name="nama" id="nama" autocomplete="nama" class="block w-full pl-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->nama_mata_kuliah }}">
+                                    <input type="text" name="nama_mata_kuliah" id="nama_mata_kuliah" autocomplete="nama_mata_kuliah" class="block w-full pl-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->nama_mata_kuliah }}">
                                 </div>
                             </div>
                             <div class="sm:col-span-2">

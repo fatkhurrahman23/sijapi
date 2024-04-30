@@ -1,48 +1,41 @@
-let list = document.querySelectorAll(".navigation li");
+const allSideMenu = document.querySelectorAll("#sidebar .side-menu.top li a");
 
-function activeLink() {
-    list.forEach((item) => {
-        item.classList.remove("hovered");
-    });
-    this.classList.add("hovered");
-}
+allSideMenu.forEach((item) => {
+    const li = item.parentElement;
 
-list.forEach((item) => item.addEventListener("mouseover", activeLink));
-
-// Menu Toggle
-let toggle = document.querySelector(".toggle");
-let navigation = document.querySelector(".navigation");
-let main = document.querySelector(".main");
-
-toggle.onclick = function () {
-    navigation.classList.toggle("active");
-    main.classList.toggle("active");
-};
-
-document.addEventListener("DOMContentLoaded", function () {
-    const navigationItems = document.querySelectorAll(".navigation ul li");
-
-    navigationItems.forEach((item) => {
-        item.addEventListener("click", function (event) {
-            // Hide all pages
-            document.querySelectorAll(".main .page").forEach((page) => {
-                page.style.display = "none";
-            });
-
-            // Get target id from clicked navigation item
-            const targetId = this.id.replace("-nav", "");
-
-            // Show the target page
-            document.getElementById(targetId).style.display = "block";
+    item.addEventListener("click", function () {
+        allSideMenu.forEach((i) => {
+            i.parentElement.classList.remove("active");
         });
+        li.classList.add("active");
     });
 });
 
-document
-    .getElementById("signOutButton")
-    .addEventListener("click", function (event) {
-        event.preventDefault();
-        if (confirm("Are you sure you want to sign out?")) {
-            window.location.href = '{{ route("login") }}';
-        }
-    });
+// TOGGLE SIDEBAR
+const menuBar = document.querySelector("#content nav .bx.bx-menu");
+const sidebar = document.getElementById("sidebar");
+
+menuBar.addEventListener("click", function () {
+    sidebar.classList.toggle("hide");
+});
+
+const searchButton = document.querySelector(
+    "#content nav form .form-input button"
+);
+const searchButtonIcon = document.querySelector(
+    "#content nav form .form-input button .bx"
+);
+const searchForm = document.querySelector("#content nav form");
+
+$(".menu > ul > li").click(function (e) {
+    // remove active from already active
+    $(this).siblings().removeClass("hide");
+    // add hide to clicked
+    $(this).toggleClass("hide");
+    // if has sub menu open it
+    $(this).find("ul").slideToggle();
+    // close other sub menu if any open
+    $(this).siblings().find("ul").slideUp();
+    // remove hide class of sub menu items
+    $(this).siblings().find("ul").find("li").removeClass("hide");
+});

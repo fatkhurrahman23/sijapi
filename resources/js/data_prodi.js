@@ -1,3 +1,75 @@
+import DataTable from "datatables.net-dt";
+import "datatables.net-buttons-dt";
+import "datatables.net-responsive-dt";
+
+// DataTables initialisation
+$(document).ready(function () {
+    let table = new DataTable("#myTable", {});
+    let totalProdiElement = $("#totalProdi");
+
+    function updateTotalProdi() {
+        let totalProdi = table.rows().count();
+        totalProdiElement.text(totalProdi);
+    }
+
+    // Panggil fungsi updateTotalProdi saat tabel diperbarui
+    table.on("draw", function () {
+        updateTotalProdi();
+    });
+
+    // Panggil fungsi updateTotalProdi saat data baru ditambahkan
+    $("#tambahDataButton").on("click", function () {
+        // Kode untuk menambahkan data baru ke tabel
+        table.row.add([]).draw();
+        updateTotalProdi();
+    });
+
+    // Pertama kali, panggil fungsi updateTotalProdi
+    updateTotalProdi();
+
+    let totalProdiTIElement = $("#totalProdiTI");
+
+    function updateTotalProdiTI() {
+        let totalProdiTI = table
+            .rows()
+            .data()
+            .toArray()
+            .filter(function (row) {
+                return row[1].includes("TI"); // Menggunakan indeks kolom (indeks dimulai dari 0)
+            }).length;
+        totalProdiTIElement.text(totalProdiTI);
+    }
+
+    // Panggil fungsi updateTotalProdiTI saat tabel diperbarui
+    table.on("draw", function () {
+        updateTotalProdiTI();
+    });
+
+    // Pertama kali, panggil fungsi updateTotalProdiTI
+    updateTotalProdiTI();
+
+    let totalProdiIKElement = $("#totalProdiIK");
+
+    function updateTotalProdiTRK() {
+        let totalProdiIK = table
+            .rows()
+            .data()
+            .toArray()
+            .filter(function (row) {
+                return row[1].includes("IK"); // Menggunakan indeks kolom (indeks dimulai dari 0)
+            }).length;
+        totalProdiIKElement.text(totalProdiIK);
+    }
+
+    // Panggil fungsi updateTotalProdiTI saat tabel diperbarui
+    table.on("draw", function () {
+        updateTotalProdiTRK();
+    });
+
+    // Pertama kali, panggil fungsi updateTotalProdiTI
+    updateTotalProdiTRK();
+});
+
 document.querySelector("table").addEventListener("click", (event) => {
     if (event.target.matches('[data-modal-toggle="edit_dataprodi_modal"]')) {
         const modalId = event.target.getAttribute("data-modal-target");

@@ -85,39 +85,39 @@
                             </div>
                         </div>
                     </form>
-            <div class="overflow-x-auto pb-2">
-                <table class="table-auto mt-24 w-11/12 border-collapse">
-                    <thead>
-                        <tr>
-                            <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Jam</th>
-                            <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Mata Kuliah</th>
-                            <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Ruang</th>
-                            <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($jadwalKuliahSenin as $senin)
-                        @for($jam_kuliah = ($senin->kode_jam_awal); $jam_kuliah <= $senin->kode_jam_akhir; $jam_kuliah++)
+                <div class="overflow-x-auto pb-2">
+                    <table class="table-auto mt-24 w-11/12 border-collapse">
+                        <thead>
                             <tr>
-                                <td class="border px-4 py-2">{{ $jam_kuliah }}</td>
-                                <td class="border px-4 py-2">{{ $senin->enrollment->mata_kuliah->nama_mata_kuliah }}</td>
-                                <td class="border px-4 py-2">{{ $senin->kode_ruang }}</td>
-                                <td class="border px-4 py-2">
-                                    <button type="button" data-modal-target="" data-modal-toggle="" class="bg-blue-500 hover:bg-blue-700 text-white font-poppins font-normal py-1 px-2 rounded">Edit</button>
-                                    <a href="{{ url('admin/jadwal_kuliah/delete/'.$senin->kode_jadwal_kuliah) }}">
-                                        <button class="bg-red-500 hover:bg-red-700 text-white font-poppins font-normal py-1 px-2 rounded">Hapus</button>
-                                    </a>
-                                </td>
+                                <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Jam</th>
+                                <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Mata Kuliah</th>
+                                <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Ruang</th>
+                                <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Aksi</th>
                             </tr>
-                            @endfor
-                        @endforeach
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            @foreach($jadwalKuliahSenin as $senin)
+                            @for($jam_kuliah = ($senin->kode_jam_awal); $jam_kuliah <= $senin->kode_jam_akhir; $jam_kuliah++)
+                                <tr>
+                                    <td class="border px-4 py-2">{{ $jam_kuliah }}</td>
+                                    <td class="border px-4 py-2">{{ $senin->enrollment->mata_kuliah->nama_mata_kuliah }}</td>
+                                    <td class="border px-4 py-2">{{ $senin->kode_ruang }}</td>
+                                    <td class="border px-4 py-2">
+                                        <button type="button" data-modal-target="" data-modal-toggle="" class="bg-blue-500 hover:bg-blue-700 text-white font-poppins font-normal py-1 px-2 rounded">Edit</button>
+                                        <a href="{{ url('admin/jadwal_kuliah/delete/'.$senin->kode_jadwal_kuliah) }}">
+                                            <button class="bg-red-500 hover:bg-red-700 text-white font-poppins font-normal py-1 px-2 rounded">Hapus</button>
+                                        </a>
+                                    </td>
+                                </tr>
+                                @endfor
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!--  -->
+        <!--  -->
     @if (Session::has('add'))
         <!-- Initialize Toastr -->
         <script>

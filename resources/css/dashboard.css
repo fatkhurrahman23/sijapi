@@ -268,9 +268,7 @@ body.dark {
     #content nav form .form-input input {
         display: none;
     }
-    #content .data div {
-        display: none;
-    }
+
     #content nav form .form-input button {
         width: auto;
         height: auto;

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('hari', function (Blueprint $table) {
             $table->id();
             $table->string('kode_hari', 20)->unique();
-            $table->enum('nama_hari', ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu']);
+            $table->string('nama_hari');
         });
     }
 

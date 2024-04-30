@@ -1,3 +1,75 @@
+import DataTable from "datatables.net-dt";
+import "datatables.net-buttons-dt";
+import "datatables.net-responsive-dt";
+
+// DataTables initialisation
+$(document).ready(function () {
+    let table = new DataTable("#myTable", {});
+    let totalKelasElement = $("#totalKelas");
+
+    function updateTotalKelas() {
+        let totalKelas = table.rows().count();
+        totalKelasElement.text(totalKelas);
+    }
+
+    // Panggil fungsi updateTotalKelas saat tabel diperbarui
+    table.on("draw", function () {
+        updateTotalKelas();
+    });
+
+    // Panggil fungsi updateTotalKelas saat data baru ditambahkan
+    $("#tambahDataButton").on("click", function () {
+        // Kode untuk menambahkan data baru ke tabel
+        table.row.add([]).draw();
+        updateTotalKelas();
+    });
+
+    // Pertama kali, panggil fungsi updateTotalKelas
+    updateTotalKelas();
+
+    let totalKelasTIElement = $("#totalKelasTI");
+
+    function updateTotalKelasTI() {
+        let totalKelasTI = table
+            .rows()
+            .data()
+            .toArray()
+            .filter(function (row) {
+                return row[3].includes("TI"); // Menggunakan indeks kolom (indeks dimulai dari 0)
+            }).length;
+        totalKelasTIElement.text(totalKelasTI);
+    }
+
+    // Panggil fungsi updateTotalKelasTI saat tabel diperbarui
+    table.on("draw", function () {
+        updateTotalKelasTI();
+    });
+
+    // Pertama kali, panggil fungsi updateTotalKelasTI
+    updateTotalKelasTI();
+
+    let totalKelasIKElement = $("#totalKelasIK");
+
+    function updateTotalKelasTRK() {
+        let totalKelasIK = table
+            .rows()
+            .data()
+            .toArray()
+            .filter(function (row) {
+                return row[3].includes("IK"); // Menggunakan indeks kolom (indeks dimulai dari 0)
+            }).length;
+        totalKelasIKElement.text(totalKelasIK);
+    }
+
+    // Panggil fungsi updateTotalKelasTI saat tabel diperbarui
+    table.on("draw", function () {
+        updateTotalKelasTRK();
+    });
+
+    // Pertama kali, panggil fungsi updateTotalKelasTI
+    updateTotalKelasTRK();
+});
+
 document.querySelector("table").addEventListener("click", (event) => {
     if (
         event.target.matches('[data-modal-toggle="edit_kelasmahasiswa_modal"]')

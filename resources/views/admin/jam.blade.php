@@ -9,12 +9,33 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-<div class="container">
-        <div id="jam" class="page ml-12">
-            <p class="glow-text mt-10 font-poppins font-bold text-black text-2xl">TAMBAH JAM</p>
-            <form action="{{ url('admin/jam') }}" method="POST">
+<h1>Data Jam</h1>
+                                <ul class="breadcrumb">
+                                <li>
+                                    <a href="#">Admin</a>
+                                </li>
+                                <li><i class="bx bx-chevron-right"></i></li>
+                                <li>
+                                    <a class="active" href="#">Jam</a>
+                                </li>
+                            </ul>
+                        </div>
+                           
+                        </div>
+                            <ul class="box-info">
+                                <li>
+                                    <i class="bx bxs-calendar-check"></i>
+                                    <span class="text">
+                                    <h3 id="totalJam"></h3>
+                                    <p>Total Jam</p>
+                                    </span>
+                                </li>
+
+                            </ul>
+            <form class=" mb-2 px-8 my-6 rounded-2xl py-7 bg-custom-abu " action="{{ url('admin/jam') }}" method="POST">
+                <h3 class="font-poppins font-medium text-2xl text-custom-dark">Tambah Jam</h3>
             @csrf
-                <div class="mt-5 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                <div class="mt-7 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                     <div class="sm:col-span-2">
                         <label for="kode_jam" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Jam</label>
                         <div class="mt-2">
@@ -41,8 +62,8 @@
                     </div>
                 </div>
             </form>
-            <div class="overflow-x-auto pb-2">
-                <table class="table-auto mt-24 w-11/12 border-collapse">
+            <div  class="overflow-x-auto pb-12 px-8  my-7 py-7 bg-custom-abu rounded-2xl ">
+                <table id="myTable"  class=" mt-11 w-full table table-striped">
                     <thead>
                         <tr>
                             <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">No</th>
@@ -55,33 +76,32 @@
                     <tbody>
                         @foreach($data as $no => $value)
                         <tr>
-                            <td class="border px-4 py-2">{{ $no+1 }}</td>
-                            <td class="border px-4 py-2">{{ $value->kode_jam }}</td>
-                            <td class="border px-4 py-2">{{ date('H:i', strtotime($value->jam_awal)) }}</td>
-                            <td class="border px-4 py-2">{{ date('H:i', strtotime($value->jam_akhir)) }}</td>
-                            <td class="border px-4 py-2">
+                            <td class="border pl-2 py-2">{{ $no+1 }}</td>
+                            <td class="border pl-2 py-2">{{ $value->kode_jam }}</td>
+                            <td class="border pl-2 py-2">{{ date('H:i', strtotime($value->jam_awal)) }}</td>
+                            <td class="border pl-2 py-2">{{ date('H:i', strtotime($value->jam_akhir)) }}</td>
+                            <td class="border pl-2 py-2">
                                 <button type="button" data-modal-target="edit_jam_modal{{ $value->kode_jam }}" data-modal-toggle="edit_jam_modal" class="bg-blue-500 hover:bg-blue-700 text-white font-poppins font-normal py-1 px-2 rounded">Edit</button>
                                 <a href="{{ url('admin/jam/delete/'.$value->kode_jam) }}">                                    
                                     <button class="bg-red-500 hover:bg-red-700 text-white font-poppins font-normal py-1 px-2 rounded">Hapus</button>
                                 </a>
                             </td>
                         </tr>
+                        
                         @endforeach
                     </tbody>
                 </table>
             </div>
-        </div>
-    </div>
 
 <!-- ===============================MODAL EDIT=============================== -->
     @foreach($data as $no => $value)
-        <div id="edit_jam_modal{{ $value->kode_jam }}" tabindex="-1" aria-hidden="true" class="hidden h-screen modal flex overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center">
+        <div id="edit_jam_modal{{ $value->kode_jam }}" tabindex="-1" aria-hidden="true" class="hidden h-100 mt-5 py-12 modal flex overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center">
             <div class="backdrop absolute inset-0 bg-black opacity-30"></div>
             <div class="relative p-4 w-full max-w-md max-h-full">
                 <!-- Modal content -->
-                <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                    <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">EDIT DATA JAM</h3>
+                <div class="relative bg-white rounded-lg  shadow">
+                    <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t ">
+                        <h3 class="text-xl font-semibold text-gray-900 ">EDIT DATA JAM</h3>
                         <button type="button" class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="edit_jam_modal">
                             <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />

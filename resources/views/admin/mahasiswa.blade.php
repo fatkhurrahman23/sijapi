@@ -3,15 +3,57 @@
     @vite('resources/css/mahasiswa.css')
     @vite('resources/js/mahasiswa.js')
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <div class="container">
-        <div id="mahasiswa" class="page ml-12">
-            <p class="glow-text mt-10 font-poppins font-bold text-black text-2xl">TAMBAH DATA MAHASISWA</p>
-            <form action="{{ url('admin\mahasiswa') }}" method="POST">
-                <div class="mt-5 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                    @csrf
+                                <h1>Data Mahasiswa</h1>
+                                <ul class="breadcrumb">
+                                <li>
+                                    <a href="#">Admin</a>
+                                </li>
+                                <li><i class="bx bx-chevron-right"></i></li>
+                                <li>
+                                    <a class="active" href="#">Mahasiswa</a>
+                                </li>
+                            </ul>
+                            </div>
+                                <button type="submit" class="buttons-pdf" id="download-pdf" >
+                                    <i class="bx bxs-cloud-download "></i>
+                                    <span class="text">Download PDF</span>
+                                </button>
+
+                            </div>
+                        
+                           
+                        </div>
+                            <ul class="box-info">
+                                <li>
+                                    <i class="bx bxs-calendar-check"></i>
+                                    <span class="text">
+                                    <h3 id="totalMahasiswa"></h3>
+                                    <p>Total Mahasiswa</p>
+                                    </span>
+                                </li>
+                                <li>
+                                    <i class="bx bxs-group"></i>
+                                    <span class="text">
+                                    <h3 id="totalMahasiswaTI"></h3>
+                                    <p>Mahasiswa TI</p>
+                                    </span>
+                                </li>
+                                <li>
+                                    <i class="bx bxs-group"></i>
+                                    <span class="text">
+                                    <h3 id="totalMahasiswaIK"></h3>
+                                    <p>Mahaiswa IK</p>
+                                    </span>
+                                </li>
+                            </ul>
+            <form class=" mb-2 px-8 my-6 rounded-2xl py-7 bg-custom-abu " action="{{ url('admin\mahasiswa') }}" method="POST">
+                <h3 class="font-poppins font-medium text-2xl text-custom-dark">Tambah Mahasiswa</h3>
+                @csrf
+                <div class="mt-7 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                     <div class="sm:col-span-2">
                         <label for="nama" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Nama Mahasiswa</label>
                         <div class="mt-2">
@@ -27,7 +69,7 @@
                     <div class="sm:col-span-2 sm:col-start-1">
                         <label for="kode_kelas" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Kelas</label>
                         <div class="mt-2">
-                            <select id="kode_kelas" name="kode_kelas" class="block w-3/4 rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <select id="kode_kelas" name="kode_kelas" class="pl-1 block w-3/4 rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                 @foreach($dataKelasMahasiswa as $kelas)
                                     <option value="{{ $kelas->kode_kelas }}">{{ $kelas->kode_kelas }}</option>
                                 @endforeach
@@ -38,7 +80,7 @@
                     <div class="sm:col-span-2">
                         <label for="jenis_kelamin" class="block text-sm font-poppins font-semibold leading-6 text-gray-90">Jenis Kelamin</label>
                         <div class="mt-2">
-                            <select id="jenis_kelamin" name="jenis_kelamin" autocomplete="jenis_kelamin" class="block w-3/4 rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <select id="jenis_kelamin" name="jenis_kelamin" autocomplete="jenis_kelamin" class="pl-1 block w-3/4 rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                 <option value="L">Laki-laki</option>
                                 <option value="P">Perempuan</option>
                             </select>          
@@ -53,8 +95,9 @@
                     </div>
                 </div>
             </form>
-            <div class="overflow-x-auto pb-2">
-                <table class="table-auto mt-24 w-11/12 border-collapse">
+            <div class="overflow-x-auto pb-12 px-8  my-7 py-7 bg-custom-abu rounded-2xl">
+                <table id="myTable" class="dataTables_wrapper mt-11 w-full table table-striped">
+   
                     <thead>
                         <tr>
                             <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">No</th>
@@ -82,20 +125,18 @@
                     </tbody>
                 </table>
             </div>
-        </div>
-    </div>
 
 
     <!-- ==========================================modal========================================== -->
 @foreach( $dataMahasiswa as $no => $value )
-    <div id="edit_mahasiswa_modal{{ $value->nim }}" tabindex="-1" aria-hidden="true" class="hidden h-screen modal flex overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center">
+    <div id="edit_mahasiswa_modal{{ $value->nim }}" tabindex="-1" aria-hidden="true" class="hidden h-100 modal flex mt-5 py-12 overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center">
             <div class="backdrop absolute inset-0 bg-black opacity-30"></div>
             <div class="relative p-4 w-full max-w-md max-h-full">
                 <!-- Modal content -->
-                <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                    <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">EDIT DATA MAHASISWA</h3>
-                        <button type="button" class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="edit_mahasiswa_modal">
+                <div class="relative bg-white rounded-lg shadow ">
+                    <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t  ">
+                        <h3 class="text-xl font-semibold text-gray-900 ">EDIT DATA MAHASISWA</h3>
+                        <button type="button" class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 " data-modal-hide="edit_mahasiswa_modal">
                             <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
                             </svg>
@@ -120,7 +161,7 @@
                             <div class="sm:col-span-2 sm:col-start-1">
                                 <label for="kode_kelas" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Kelas</label>
                                 <div class="mt-2">
-                                    <select id="kode_kelas" name="kode_kelas" class="pl-2 block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->kode_kelas }}">
+                                    <select id="kode_kelas" name="kode_kelas" class="pl-1 block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->kode_kelas }}">
                                         @foreach($dataKelasMahasiswa as $kelas)
                                             <option value="{{ $kelas->kode_kelas }}">{{ $kelas->kode_kelas }}</option>
                                         @endforeach
@@ -131,7 +172,7 @@
                             <div class="sm:col-span-2">
                                 <label for="jenis_kelamin" class="block text-sm font-poppins font-semibold leading-6 text-gray-90">Jenis Kelamin</label>
                                 <div class="mt-2">
-                                    <select id="jenis_kelamin" name="jenis_kelamin" autocomplete="jenis_kelamin" class="block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" >
+                                    <select id="jenis_kelamin" name="jenis_kelamin" autocomplete="jenis_kelamin" class="block pl-1 w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" >
                                         <option value="L">Laki-laki</option>
                                         <option value="P">Perempuan</option>
                                     </select>          
@@ -199,4 +240,24 @@
             toastr.error("{{ Session::get('error') }}");
         </script>
     @endif
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <!-- CSS for DataTables Buttons -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
+    <!-- JavaScript for jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- JavaScript for DataTables -->
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <!-- JavaScript for DataTables Buttons -->
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+
+    
+
+     <!-- Include necessary JavaScript files -->
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+
 @endsection

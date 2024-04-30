@@ -21,7 +21,7 @@ class MataKuliah extends Controller
         $data = new Mata_kuliah();
         $dataKelasMahasiswa = Kelas_mahasiswa::all();
         $data->kode_mata_kuliah = $request->kode_mata_kuliah;
-        $data->nama = $request->nama;
+        $data->nama_mata_kuliah = $request->nama_mata_kuliah;
         $data->sks = $request->sks;
         $data->semester = $request->semester;
         $data->jenis = $request->jenis;
@@ -42,7 +42,7 @@ class MataKuliah extends Controller
         $dataKelasMahasiswa = Kelas_mahasiswa::all();
         DB::table('mata_kuliah')->where('kode_mata_kuliah', $kode_mata_kuliah)->update([
             // 'kode_kelas' => $request->kode_kelas,
-            'nama' => $request->nama,
+            'nama_mata_kuliah' => $request->nama_mata_kuliah,
             'sks' => $request->sks,
             'semester' => $request->semester,
             'jenis' => $request->jenis

@@ -1,3 +1,33 @@
+import DataTable from "datatables.net-dt";
+import "datatables.net-buttons-dt";
+import "datatables.net-responsive-dt";
+
+// DataTables initialisation
+$(document).ready(function () {
+    let table = new DataTable("#myTable", {});
+    let totalJamElement = $("#totalJam");
+
+    function updateTotalJam() {
+        let totalJam = table.rows().count();
+        totalJamElement.text(totalJam);
+    }
+
+    // Panggil fungsi updateTotalJam saat tabel diperbarui
+    table.on("draw", function () {
+        updateTotalJam();
+    });
+
+    // Panggil fungsi updateTotalJam saat data baru ditambahkan
+    $("#tambahDataButton").on("click", function () {
+        // Kode untuk menambahkan data baru ke tabel
+        table.row.add([]).draw();
+        updateTotalJam();
+    });
+
+    // Pertama kali, panggil fungsi updateTotalJam
+    updateTotalJam();
+});
+
 document.querySelector("table").addEventListener("click", (event) => {
     if (event.target.matches('[data-modal-toggle="edit_jam_modal"]')) {
         const modalId = event.target.getAttribute("data-modal-target");
