@@ -1,3 +1,53 @@
+import DataTable from "datatables.net-dt";
+import "datatables.net-buttons-dt";
+import "datatables.net-responsive-dt";
+
+// DataTables initialisation
+$(document).ready(function () {
+    var table = $("#myTable").DataTable({
+        layout: {
+            topStart: {
+                buttons: ["copyHtml5", "excelHtml5", "csvHtml5", "pdfHtml5"],
+            },
+        },
+        dom: "Bfrtip",
+        buttons: [
+            {
+                extend: "pdfHtml5",
+                text: "Download PDF",
+                title: "Data Ruang",
+                exportOptions: {
+                    columns: [0, 1, 2],
+                },
+                customize: function (doc) {
+                    doc.content[1].table.widths = ["*", "*", "*"];
+                },
+            },
+        ],
+    });
+    let totalRuangElement = $("#totalRuang");
+
+    function updateTotalRuang() {
+        let totalRuang = table.rows().count();
+        totalRuangElement.text(totalRuang);
+    }
+
+    // Panggil fungsi updateTotalRuang saat tabel diperbarui
+    table.on("draw", function () {
+        updateTotalRuang();
+    });
+
+    // Panggil fungsi updateTotalRuang saat data baru ditambahkan
+    $("#tambahDataButton").on("click", function () {
+        // Kode untuk menambahkan data baru ke tabel
+        table.row.add([]).draw();
+        updateTotalRuang();
+    });
+
+    // Pertama kali, panggil fungsi updateTotalRuang
+    updateTotalRuang();
+});
+
 document.querySelector("table").addEventListener("click", (event) => {
     if (event.target.matches('[data-modal-toggle="edit_ruang_modal"]')) {
         const modalId = event.target.getAttribute("data-modal-target");

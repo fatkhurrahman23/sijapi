@@ -9,7 +9,10 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+.dataTables_wrapper {
+    padding-top: 20px; /* Atur jarak atas */
+    padding-bottom: 20px; /* Atur jarak bawah */
+}
 a {
     text-decoration: none;
 }
@@ -99,7 +102,7 @@ body.dark {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     grid-gap: 24px;
-    width: 25vh;
+    width: 30vh;
     margin-top: 36px;
 }
 #content main .box-info li {

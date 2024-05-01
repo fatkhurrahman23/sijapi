@@ -33,7 +33,7 @@ class Jadwal extends Controller
     public function tambahDataRuang(Request $request){
         $dataRuang = new Ruang();
         $dataRuang->kode_ruang = $request->kode_ruang;
-        $dataRuang->nama = $request->nama;
+        $dataRuang->nama_ruang = $request->nama_ruang;
         $dataRuang->save();
         return redirect('admin/ruang')->with('add', 'Ruang telah ditambahkan');
     }
@@ -46,7 +46,7 @@ class Jadwal extends Controller
     public function updateDataRuang(Request $request,  $id){
         $dataRuang = Ruang::where('kode_ruang', $id)->first();
         $dataRuang->kode_ruang = $request->kode_ruang;
-        $dataRuang->nama = $request->nama;
+        $dataRuang->nama_ruang = $request->nama_ruang;
         $dataRuang->save();
         return redirect('admin/ruang')->with('update', 'Ruang telah diupdate');
     }

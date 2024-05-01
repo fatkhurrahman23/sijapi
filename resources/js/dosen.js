@@ -5,8 +5,25 @@ import "datatables.net-responsive-dt";
 // DataTables initialisation
 $(document).ready(function () {
     var table = $("#myTable").DataTable({
+        layout: {
+            topStart: {
+                buttons: ["copyHtml5", "excelHtml5", "csvHtml5", "pdfHtml5"],
+            },
+        },
         dom: "Bfrtip",
-        buttons: ["pdf"],
+        buttons: [
+            {
+                extend: "pdfHtml5",
+                text: "Download PDF",
+                title: "Data Dosen",
+                exportOptions: {
+                    columns: [0, 1, 2, 3],
+                },
+                customize: function (doc) {
+                    doc.content[1].table.widths = ["*", "*", "*", "*"];
+                },
+            },
+        ],
     });
     let totalDosenElement = $("#totalDosen");
 
