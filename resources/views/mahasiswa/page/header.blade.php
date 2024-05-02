@@ -30,11 +30,15 @@
             </div>
             <div class="flex items-center gap-2 z-50">
 
-            <p class= "text-white mr-8  "> ABDIEL RAYHAN JAYA</p>
-                <button class="bg-custom-birumuda border border-solid border-custom-putih text-white px-3 py-1 rounded-lg hover:bg-blue-900">Log out
+            <p class= "text-white mr-8  "> {{ session('namaMhs') }} </p>
+                <a href="/logout">
+
+                <button class="bg-custom-birumuda border border-solid border-custom-putih text-white px-3 py-1 rounded-lg hover:bg-blue-900">
+                    Log out
                 </button>
-                
-               
+                </a>
+
+
                 <ion-icon id="menu-icon" name="menu" class="text-3xl cursor-pointer md:hidden"></ion-icon>
             </div>
         </nav>

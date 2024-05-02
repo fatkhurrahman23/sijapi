@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
+
                         <h1>Jadwal Kelas {{ request('kode_kelas') }}</h1>
                                 <ul class="breadcrumb">
                                 <li>
@@ -25,7 +25,7 @@
                                 </li>
                             </ul>
                         </div>
-                           
+
                         </div>
                             <ul class="box-info">
                                 <li>
@@ -43,37 +43,37 @@
                             <div class="sm:col-span-2">
                                 <label for="kode_jadwal_kuliah" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Jadwal Kuliah</label>
                                 <div class="mt-2">
-                                    <input type="text" name="kode_jadwal_kuliah" id="kode_jadwal_kuliah" class="pl-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    <input type="text" name="kode_jadwal_kuliah" id="kode_jadwal_kuliah" class="pl-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required>
                                 </div>
                             </div>
                             <div class="sm:col-span-2">
                                 <label for="kode_enrollment" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Enrollment</label>
                                 <div class="mt-2">
-                                    <select id="kode_enrollment" name="kode_enrollment" class="pl-1 block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    <select id="kode_enrollment" name="kode_enrollment" class="pl-1 block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required>
                                     @foreach($dataEnrollment as $enrollment)
                                         <option value="{{ $enrollment->kode_enrollment }}">{{ $enrollment->kode_enrollment }}</option>
                                     @endforeach
-                                    </select>          
+                                    </select>
                                 </div>
                             </div>
                             <div class="sm:col-span-2">
                                 <label for="kode_hari" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Hari</label>
                                 <div class="mt-2">
-                                    <select id="kode_hari" name="kode_hari" class="pl-1 block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    <select id="kode_hari" name="kode_hari" class="pl-1 block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required>
                                     @foreach($dataHari as $hari)
                                         <option value="{{ $hari->kode_hari }}">{{ $hari->nama_hari }}</option>
                                     @endforeach
-                                    </select>          
+                                    </select>
                                 </div>
                             </div>
                             <div class="sm:col-span-2 sm:col-start-1">
                                 <label for="kode_ruang" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Ruang</label>
                                 <div class="mt-2">
-                                    <select id="kode_ruang" name="kode_ruang" class="pl-1 block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    <select id="kode_ruang" name="kode_ruang" class="pl-1 block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required>
                                     @foreach($dataRuang as $ruang)
                                         <option value="{{ $ruang->kode_ruang }}">{{ $ruang->nama_ruang }}</option>
                                     @endforeach
-                                    </select>          
+                                    </select>
                                 </div>
                             </div>
                             <div class="sm:col-span-2 sm:col-start-1" readonly hidden>
@@ -81,27 +81,27 @@
                                 <div class="mt-2">
                                     <select id="kode_kelas" name="kode_kelas" class="pl-1 block bg-gray-300 w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" readonly>
                                         <option class="" value="{{ request('kode_kelas') }}" selected>{{ request('kode_kelas') }}</option>
-                                    </select>                                  
+                                    </select>
                                 </div>
                             </div>
                             <div class="sm:col-span-2">
                                 <label for="kode_jam_awal" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Jam Awal</label>
                                 <div class="mt-2">
-                                    <select id="kode_jam_awal" name="kode_jam_awal" class="pl-1 block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    <select id="kode_jam_awal" name="kode_jam_awal" class="pl-1 block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required>
                                     @foreach($dataJam as $jam)
                                         <option value="{{ $jam->kode_jam }}">{{ $jam->kode_jam }}</option>
                                     @endforeach
-                                    </select>          
+                                    </select>
                                 </div>
                             </div>
                             <div class="sm:col-span-2">
                                 <label for="kode_jam_akhir" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Jam Akhir</label>
                                 <div class="mt-2">
-                                    <select id="kode_jam_akhir" name="kode_jam_akhir" class="pl-1 block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    <select id="kode_jam_akhir" name="kode_jam_akhir" class="pl-1 block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required>
                                     @foreach($dataJam as $jam)
                                         <option value="{{ $jam->kode_jam }}">{{ $jam->kode_jam }}</option>
                                     @endforeach
-                                    </select>          
+                                    </select>
                                 </div>
                             </div>
                             <div class="sm:col-span-2 flex justify-between items-end">
@@ -173,7 +173,7 @@
                                     @foreach($dataEnrollment as $enrollment)
                                         <option value="{{ $enrollment->kode_enrollment }}">{{ $enrollment->kode_enrollment }}</option>
                                     @endforeach
-                                    </select>          
+                                    </select>
                                 </div>
                             </div>
                             <div class="sm:col-span-2">
@@ -183,7 +183,7 @@
                                     @foreach($dataHari as $hari)
                                         <option value="{{ $hari->kode_hari }}">{{ $hari->nama_hari }}</option>
                                     @endforeach
-                                    </select>          
+                                    </select>
                                 </div>
                             </div>
                             <div class="sm:col-span-2 sm:col-start-1">
@@ -193,7 +193,7 @@
                                     @foreach($dataRuang as $ruang)
                                         <option value="{{ $ruang->kode_ruang }}">{{ $ruang->nama_ruang }}</option>
                                     @endforeach
-                                    </select>          
+                                    </select>
                                 </div>
                             </div>
                             <div class="sm:col-span-2 sm:col-start-1" readonly hidden>
@@ -201,7 +201,7 @@
                                 <div class="mt-2">
                                     <select id="kode_kelas" name="kode_kelas" class="pl-1 block bg-gray-300 w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" readonly>
                                         <option class="" value="{{ request('kode_kelas') }}" selected>{{ request('kode_kelas') }}</option>
-                                    </select>                                  
+                                    </select>
                                 </div>
                             </div>
                             <div class="sm:col-span-2">
@@ -211,7 +211,7 @@
                                     @foreach($dataJam as $jam)
                                         <option value="{{ $jam->kode_jam }}">{{ $jam->kode_jam }}</option>
                                     @endforeach
-                                    </select>          
+                                    </select>
                                 </div>
                             </div>
                             <div class="sm:col-span-2">
@@ -221,7 +221,7 @@
                                     @foreach($dataJam as $jam)
                                         <option value="{{ $jam->kode_jam }}">{{ $jam->kode_jam }}</option>
                                     @endforeach
-                                    </select>          
+                                    </select>
                                 </div>
                             </div>
                             <div class="sm:col-span-2 flex justify-between items-end">
@@ -230,7 +230,7 @@
                                     <p class="ml-2">Tambah</p>
                                 </button>
                             </div>
-                      
+
                     </form>
                     </div>
                 </div>

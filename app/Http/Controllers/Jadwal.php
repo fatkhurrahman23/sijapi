@@ -119,13 +119,13 @@ class Jadwal extends Controller
 
     public function editTahunAkademik(Request $request, $id)
     {
-        $data = Tahun_akademik::where('kode_tahun_akademik', $id)->first();
+        $data = Tahun_akademik::where('id', $id)->first();
         return view('/admin/tahun_akademik', compact('data'));
     }
 
     public function updateDataTahunAkademik(Request $request, $id)
     {
-        $data = Tahun_akademik::where('kode_tahun_akademik', $id)->first();
+        $data = Tahun_akademik::where('id', $id)->first();
         $data->kode_tahun_akademik = $request->kode_tahun_akademik;
         $data->tahun_akademik = $request->tahun_akademik;
         $data->status = $request->status;
@@ -135,9 +135,8 @@ class Jadwal extends Controller
 
     public function hapusDataTahunAkademik(Request $request, $id)
     {
-        $data = Tahun_akademik::where('kode_tahun_akademik',$id)->first();
-        $data->delete();
-        return Redirect('/admin/tahun_akademik')->with('delete', 'Jam telah dihapus');
+        DB::table('tahun_akademik')->where('id', $id)->delete();
+        return Redirect('/admin/tahun_akademik')->with('delete', 'Tahun akademik telah dihapus');
     }
 
 

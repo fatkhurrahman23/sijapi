@@ -15,7 +15,13 @@ class TokenController extends Controller
         $token = Str::random(32); // generate random token
         $kode_jadwal = $request->kode_jadwal;
         $created_at = now();
-        $expired_at = now()->addHour(2);
+
+        // Get the end time from the 'jam' table based on 'jam_akhir'
+        $jam_akhir = Jam::where('kode_jadwal', $kode_jadwal)->first()->jam_akhir;
+
+        // Convert 'jam_akhir' to a Carbon instance and set it as 'expired_at'
+        $expired_at = Carbon::createFromFormat('H:i:s', $jam_akhir);
+
 
         $tokenPresensi = new TokenPresensi;
         $tokenPresensi->token = $token;

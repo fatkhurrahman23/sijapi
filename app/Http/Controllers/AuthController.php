@@ -46,14 +46,18 @@ class AuthController extends Controller
                 return redirect('dosen/page/beranda');
             } else {
                 // put kelas dengan join dari tabel mahasiswa berdasarkan kolom username user
-                $kelas = DB::table('users')
+                $dataMhs = DB::table('users')
                     ->join('mahasiswa', 'users.username', '=', 'mahasiswa.nim')
                     ->join('kelas_mahasiswa', 'mahasiswa.kode_kelas', '=', 'kelas_mahasiswa.kode_kelas')
-                    ->select('kelas_mahasiswa.kode_kelas', 'kelas_mahasiswa.kode_kelas')
+                    ->select('kelas_mahasiswa.kode_kelas', 'mahasiswa.nama')
                     ->where('users.username', $user->username)
                     ->first();
-//                dd($kelas);
-                $request->session()->put('kode_kelas', $kelas->kode_kelas);
+//                dd($dataMhs);
+//                dd($dataMhs);
+
+
+                $request->session()->put('kode_kelas', $dataMhs->kode_kelas);
+                $request->session()->put('namaMhs', $dataMhs->nama);
 //                dd($request->session()->all());
                 return redirect('mahasiswa/page/beranda');
             }

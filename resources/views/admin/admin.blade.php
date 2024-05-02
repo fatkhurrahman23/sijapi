@@ -19,7 +19,7 @@
     <section id="sidebar" class="">
       <div class="head">
         <div class="user-img bg-cover  bg-no-repeat bg-admin">
-          <div class="bg-admin bg-contain"></div>        
+          <div class="bg-admin bg-contain"></div>
         </div>
         <div class="user-details">
           <p class="title">administrator</p>
@@ -32,7 +32,7 @@
           <ul>
             <li class="">
               <a href="{{ url('admin/dashboard') }}">
-                <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#757575" viewBox="0 0 256 256"><path d="M222.14,105.85l-80-80a20,20,0,0,0-28.28,0l-80,80A19.86,19.86,0,0,0,28,120v96a12,12,0,0,0,12,12H216a12,12,0,0,0,12-12V120A19.86,19.86,0,0,0,222.14,105.85ZM204,204H52V121.65l76-76,76,76Z"></path></svg>            
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#757575" viewBox="0 0 256 256"><path d="M222.14,105.85l-80-80a20,20,0,0,0-28.28,0l-80,80A19.86,19.86,0,0,0,28,120v96a12,12,0,0,0,12,12H216a12,12,0,0,0,12-12V120A19.86,19.86,0,0,0,222.14,105.85ZM204,204H52V121.65l76-76,76,76Z"></path></svg>
                 <span class="text">Dashboard</span>
               </a>
             </li>
@@ -114,7 +114,7 @@
               </ul>
             </li>
             <li class="">
-              <a href="{{ url('admin/tahun_akademik') }}"> 
+              <a href="{{ url('admin/tahun_akademik') }}">
                 <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#757575" viewBox="0 0 256 256"><path d="M208,28H188V24a12,12,0,0,0-24,0v4H92V24a12,12,0,0,0-24,0v4H48A20,20,0,0,0,28,48V208a20,20,0,0,0,20,20H208a20,20,0,0,0,20-20V48A20,20,0,0,0,208,28ZM68,52a12,12,0,0,0,24,0h72a12,12,0,0,0,24,0h16V76H52V52ZM52,204V100H204V204Zm60-80v56a12,12,0,0,1-24,0V143.32a12,12,0,0,1-9.37-22l16-8A12,12,0,0,1,112,124Zm61.49,33.88L163.9,168H168a12,12,0,0,1,0,24H136a12,12,0,0,1-8.71-20.25L155.45,142a4,4,0,0,0,.55-2,4,4,0,0,0-7.47-2,12,12,0,0,1-20.78-12A28,28,0,0,1,180,140a27.77,27.77,0,0,1-5.64,16.86A10.63,10.63,0,0,1,173.49,157.88Z"></path></svg>
                 <span class="text">Tahun Akademik</span>
               </a>
@@ -125,7 +125,7 @@
           <p class="title">Account</p>
           <ul>
             <li>
-              <a href="#">
+              <a href="/logout">
                 <i class="icon ph-bold ph-sign-out"></i>
                 <span class="text">Logout</span>
               </a>
