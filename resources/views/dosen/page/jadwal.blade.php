@@ -46,7 +46,14 @@
             <p class=" px-4 mt-4 font-poppins font-semibold h-12">Jadwal kaldik</p>
             <div class="font-poppins flex justify-center align-middle items-center w-full font-bold h-140">
                 <div class="flex w-1/2 h-full bg-background-kaldik bg-contain bg-no-repeat"></div>
+
+                
             </div>
+
+            <div class ="flex justify-end border-solid-birumuda  mr-96">
+                <button class="ustify-self-end bg-custom-birumuda border border-solid border-custom-putih text-white px-3 py-1 rounded-lg hover:bg-blue-900 ">DOWNLOAD</button>
+            </div>
+            
         </div>
 
     </div>
