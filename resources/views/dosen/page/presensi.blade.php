@@ -16,12 +16,22 @@
                             <p class="text-custom-putih font-poppins font-medium text-sm">Open Camera</p>
                         </div>
                     </button>
-                    <button class=" flex justify-center items-start py-1 sm:h-24 md:h-32 lg-h-32">
-                        <div class="border bg-custom-birutua w-full py-2 sm:py-1 md:py-1 lg:py-2 xl:py-2 rounded-lg flex justify-between items-center px-7">
-                            <svg  width="43px" height="25px" xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path d="M432 112V96a48.14 48.14 0 00-48-48H64a48.14 48.14 0 00-48 48v256a48.14 48.14 0 0048 48h16" fill="none" stroke="white" stroke-linejoin="round" stroke-width="32"/><rect x="96" y="128" width="400" height="336" rx="45.99" ry="45.99" fill="none" stroke="white" stroke-linejoin="round" stroke-width="32"/><ellipse cx="372.92" cy="219.64" rx="30.77" ry="30.55" fill="none" stroke="white" stroke-miterlimit="10" stroke-width="32"/><path d="M342.15 372.17L255 285.78a30.93 30.93 0 00-42.18-1.21L96 387.64M265.23 464l118.59-117.73a31 31 0 0141.46-1.87L496 402.91" fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/></svg>
-                            <p class="text-custom-putih font-poppins font-medium text-sm">Unggah Foto</p>
-                        </div>
+                    <label for="photo-upload" class="custom-file-upload">
+                         <div class="flex justify-center items-start py-1 sm:h-24 md:h-32 lg-h-32">
+                            <div class="border bg-custom-birutua w-full py-2 sm:py-1 md:py-1 lg:py-2 xl:py-2 rounded-lg flex justify-between items-center px-7">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="43px" height="25px" class="ionicon" viewBox="0 0 512 512">
+                                    <path d="M432 112V96a48.14 48.14 0 00-48-48H64a48.14 48.14 0 00-48 48v256a48.14 48.14 0 0048 48h16" fill="none" stroke="white" stroke-linejoin="round" stroke-width="32"/>
+                                    <rect x="96" y="128" width="400" height="336" rx="45.99" ry="45.99" fill="none" stroke="white" stroke-linejoin="round" stroke-width="32"/>
+                                    <ellipse cx="372.92" cy="219.64" rx="30.77" ry="30.55" fill="none" stroke="white" stroke-miterlimit="10" stroke-width="32"/>
+                                    <path d="M342.15 372.17L255 285.78a30.93 30.93 0 00-42.18-1.21L96 387.64M265.23 464l118.59-117.73a31 31 0 0141.46-1.87L496 402.91" fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/>
+                                </svg>
+                                <p class="text-custom-putih font-poppins font-medium text-sm">Unggah Foto</p>
+                            </div>
+                         </div>
+                        </label>
+                        <input id="photo-upload" type="file" name="photo" accept="image/*" style="display: none;">
                     </button>
+
                     <button class=" flex justify-center items-start  sm:h-24 md:h-32 lg-h-32">
                         <div class="border bg-custom-birutua w-full py-2 sm:py-1 md:py-1 lg:py-2 xl:py-2 rounded-lg flex justify-between items-center px-7">
                             <svg width="40px" height="25px" xmlns="http://www.w3.org/2000/svg" class="ionicon text-white" viewBox="0 0 512 512"><rect x="336" y="336" width="80" height="80" rx="8" ry="8"/><rect x="272" y="272" width="64" height="64" rx="8" ry="8"/><rect x="416" y="416" width="64" height="64" rx="8" ry="8"/><rect x="432" y="272" width="48" height="48" rx="8" ry="8"/><rect x="272" y="432" width="48" height="48" rx="8" ry="8"/><rect x="336" y="96" width="80" height="80" rx="8" ry="8"/><rect x="288" y="48" width="176" height="176" rx="16" ry="16" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><rect x="96" y="96" width="80" height="80" rx="8" ry="8"/><rect x="48" y="48" width="176" height="176" rx="16" ry="16" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><rect x="96" y="336" width="80" height="80" rx="8" ry="8"/><rect x="48" y="288" width="176" height="176" rx="16" ry="16" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/></svg>

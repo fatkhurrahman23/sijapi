@@ -3,15 +3,39 @@
     @vite('resources/css/tahun_akademik.css')
     @vite('resources/js/tahun_akademik.js')
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <div class="container">
-        <div id="tahunakademik" class="page ml-12">
-            <p class="glow-text mt-10 font-poppins font-bold text-black text-2xl">TAMBAH TAHUN AKADEMIK</p>
-            <form action="{{ url('admin/tahun_akademik') }}" method="POST">
+    <h1>Data Tahun Akademik</h1>
+                                <ul class="breadcrumb">
+                                <li>
+                                    <a href="#">Admin</a>
+                                </li>
+                                <li><i class="bx bx-chevron-right"></i></li>
+                                <li>
+                                    <a class="active" href="#">Tahun Akademik</a>
+                                </li>
+                            </ul>
+                        </div>
+                           
+                        </div>
+                            <ul class="box-info">
+                                <li>
+                                    <i class="bx bxs-calendar-check"></i>
+                                    <span class="text">
+                                    <h3 id="totalTahun"></h3>
+                                    <p>Total Tahun</p>
+                                    </span>
+                                </li>
+                                
+                            </ul>
+    <form class=" mb-2 px-8 my-6 rounded-2xl py-7 bg-custom-abu " action="{{ url('admin/tahun_akademik') }}" method="POST">
+        <h3 class="font-poppins font-medium text-2xl text-custom-dark">Tambah Tahun Akademik</h3>
             @csrf
-                <div class="mt-5 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                <div class="mt-7 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                     <div class="sm:col-span-2">
                         <label for="kode_tahun_akademik" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Tahun Akademik</label>
                         <div class="mt-2">
@@ -41,15 +65,15 @@
                     </div>
                 </div>
             </form>
-            <div class="overflow-x-auto">
-                <table class="table-auto mt-24 w-11/12 border-collapse">
+            <div class="overflow-x-auto pb-12 px-8  my-7 py-7 bg-custom-abu rounded-2xl ">
+                <table  id="myTable" class="dataTables_wrapper mt-11 w-full table table-striped">
                     <thead>
                         <tr>
-                            <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">No</th>
-                            <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Kode Tahun Akademik</th>
-                            <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Tahun Akademik</th>
-                            <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Status</th>
-                            <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Aksi</th>
+                            <th class="px-4 pl-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">No</th>
+                            <th class="px-4 pl-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Kode Tahun Akademik</th>
+                            <th class="px-4 pl-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Tahun Akademik</th>
+                            <th class="px-4 pl-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Status</th>
+                            <th class="px-4 pl-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -70,16 +94,15 @@
                     </tbody>
                 </table>
             </div>
-        </div>
-    </div>
+  
     @foreach( $data as $no => $value )
     <div id="edit_tahun_akademik_modal{{ $value->kode_tahun_akademik }}" tabindex="-1" aria-hidden="true" class="hidden h-screen modal flex overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center">
         <div class="backdrop absolute inset-0 bg-black opacity-30"></div>
         <div class="relative p-4 w-full max-w-md max-h-full">
             <!-- Modal content -->
-            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+            <div class="relative bg-white rounded-lg shadow ">
+                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t ">
+                    <h3 class="text-xl font-semibold text-gray-900 ">
                         EDIT TAHUN AKADEMIK
                     </h3>
                     <button type="button" class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="edit_tahun_akademik_modal">
@@ -122,8 +145,7 @@
                     </form>
                 </div>
             </div>
-        </div>
-    </div>
+
     @endforeach
     @if (Session::has('add'))
         <!-- Initialize Toastr -->
@@ -175,4 +197,14 @@
             toastr.error("{{ Session::get('error') }}");
         </script>
     @endif
+         <!-- DataTables -->
+         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
 @endsection

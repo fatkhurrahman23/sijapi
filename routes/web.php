@@ -10,6 +10,7 @@ use App\Http\Controllers\MataKuliah;
 use App\Http\Controllers\jamController;
 use App\Http\Controllers\tahunakademikController;
 use App\Http\Controllers\JadwalKuliah;
+use App\Http\Controllers\PhotoController;
 
 
 
@@ -212,6 +213,8 @@ Route::group(['middleware' => ['cekUserLevel:dosen'], 'prefix' => 'dosen'], func
     Route::get('/page/presensi', [DosenController::class, 'tampilPresensi']);
 
 });
+
+Route::post('/upload-photo', [PhotoController::class, 'upload'])->name('upload.photo');
 
 Route::get('/edit_matkul', function () {
     return view('edit_matkul');

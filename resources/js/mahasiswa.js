@@ -4,8 +4,14 @@ import "datatables.net-responsive-dt";
 import jsPDF from "jspdf";
 
 // DataTables initialization
+
 $(document).ready(function () {
     var table = $("#myTable").DataTable({
+        layout: {
+            topStart: {
+                buttons: ["copyHtml5", "excelHtml5", "csvHtml5", "pdfHtml5"],
+            },
+        },
         dom: "Bfrtip",
         buttons: [
             {
@@ -21,8 +27,6 @@ $(document).ready(function () {
             },
         ],
     });
-
-    // Event listener for Previous button
 
     let totalMahasiswaElement = $("#totalMahasiswa");
 
