@@ -24,8 +24,8 @@
                                 </button>
 
                             </div>
-                        
-                           
+
+
                         </div>
                             <ul class="box-info">
                                 <li>
@@ -57,23 +57,23 @@
                     <div class="sm:col-span-2">
                         <label for="nama" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Nama Mahasiswa</label>
                         <div class="mt-2">
-                            <input type="text" name="nama" id="nama" autocomplete="nama" class="pl-2 block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <input type="text" name="nama" id="nama" autocomplete="nama" class="pl-2 block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required>
                         </div>
                     </div>
                     <div class="sm:col-span-2">
                         <label for="nim" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">NIM</label>
                         <div class="mt-2">
-                            <input type="text" name="nim" id="nim" autocomplete="nim" class="pl-2 block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <input type="text" name="nim" id="nim" autocomplete="nim" class="pl-2 block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required>
                         </div>
                     </div>
                     <div class="sm:col-span-2 sm:col-start-1">
                         <label for="kode_kelas" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Kelas</label>
                         <div class="mt-2">
-                            <select id="kode_kelas" name="kode_kelas" class="pl-1 block w-3/4 rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <select id="kode_kelas" name="kode_kelas" class="pl-1 block w-3/4 rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required>
                                 @foreach($dataKelasMahasiswa as $kelas)
                                     <option value="{{ $kelas->kode_kelas }}">{{ $kelas->kode_kelas }}</option>
                                 @endforeach
-                            </select>                                   
+                            </select>
                         </div>
                     </div>
 
@@ -83,7 +83,7 @@
                             <select id="jenis_kelamin" name="jenis_kelamin" autocomplete="jenis_kelamin" class="pl-1 block w-3/4 rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                 <option value="L">Laki-laki</option>
                                 <option value="P">Perempuan</option>
-                            </select>          
+                            </select>
                         </div>
                     </div>
 
@@ -97,7 +97,7 @@
             </form>
             <div class="overflow-x-auto pb-12 px-8  my-7 py-7 bg-custom-abu rounded-2xl">
                 <table id="myTable" class="dataTables_wrapper mt-11 w-full table table-striped">
-   
+
                     <thead>
                         <tr>
                             <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">No</th>
@@ -165,7 +165,7 @@
                                         @foreach($dataKelasMahasiswa as $kelas)
                                             <option value="{{ $kelas->kode_kelas }}">{{ $kelas->kode_kelas }}</option>
                                         @endforeach
-                                    </select>                                   
+                                    </select>
                                 </div>
                             </div>
 
@@ -175,7 +175,7 @@
                                     <select id="jenis_kelamin" name="jenis_kelamin" autocomplete="jenis_kelamin" class="block pl-1 w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" >
                                         <option value="L">Laki-laki</option>
                                         <option value="P">Perempuan</option>
-                                    </select>          
+                                    </select>
                                 </div>
                             </div>
                             <div class="sm:col-span-2 flex justify-center items-center">
@@ -251,7 +251,7 @@
     <script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
 
-    
+
 
      <!-- Include necessary JavaScript files -->
      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

@@ -13,6 +13,7 @@ class DosenController extends Controller
     public function tampilDataDosen(Request $request){
         $dataDosen = Dosen::all();
         $dataProdi = Data_prodi::all();
+//        dd($dataProdi->toArray());
         return view('admin/dosen', compact('dataDosen', 'dataProdi'));
     }
 
@@ -25,17 +26,18 @@ class DosenController extends Controller
         $dataDosen->nama = $request->nama;
         $dataDosen->alamat = $request->alamat;
         $dataDosen->no_telp = $request->no_telp;
-        $dataDosen->kode_prodi = $request->kode_prodi; 
-    
+        $dataDosen->kode_prodi = $request->kode_prodi;
+
         $dataDosen->save();
         return redirect('/admin/dosen')->with('add', 'Dosen telah ditambahkan');
     }
 
 
     // edit data dosen
-    public function editDosen($nip){
+    public function editDosen($kode_dosen){
         $dataDosen = DB::table('dosen')->where('kode_dosen', $kode_dosen)->first();
         $dataProdi = Data_prodi::all();
+        dd($dataProdi->toArray());
         return view('admin/dosen', compact('dataDosen', 'dataProdi'));
     }
 
@@ -66,7 +68,7 @@ class DosenController extends Controller
         $dataProdi = Data_prodi::all();
         return view('\admin\data_prodi', compact('dataProdi'));
     }
-    
+
     //tambah data ke database
     public function tambahDataProdi(Request $request){
         DB::table('data_prodi')->insert([

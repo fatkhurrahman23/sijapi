@@ -18,7 +18,7 @@
                                 </li>
                             </ul>
                         </div>
-                           
+
                         </div>
                             <ul class="box-info">
                                 <li>
@@ -36,36 +36,36 @@
                             <div class="sm:col-span-2">
                                 <label for="kode_enrollment" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Enrollment</label>
                                 <div class="mt-2">
-                                    <input type="text" name="kode_enrollment" id="kode_enrollment" class="pl-2 block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="">
+                                    <input type="text" name="kode_enrollment" id="kode_enrollment" class="pl-2 block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="" required>
                                 </div>
                             </div>
                             <div class="sm:col-span-2">
                                 <label for="kode_dosen" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Dosen</label>
                                 <div class="mt-2">
-                                    <select id="kode_dosen" name="kode_dosen" class="block pl-1 w-3/4 rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    <select id="kode_dosen" name="kode_dosen" class="block pl-1 w-3/4 rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required>
                                         @foreach($dataDosen as $dosen)
                                             <option value="{{ $dosen->kode_dosen }}">{{ $dosen->nama }}</option>
                                         @endforeach
-                                    </select>                                   
+                                    </select>
                                 </div>
                             </div>
                             <div class="sm:col-span-2 sm:col-start-1">
                                 <label for="kode_tahun_akademik" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Tahun Akademik</label>
                                 <div class="mt-2">
-                                    <select id="kode_tahun_akademik" name="kode_tahun_akademik" class="block pl-1 w-3/4 rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">   
+                                    <select id="kode_tahun_akademik" name="kode_tahun_akademik" class="block pl-1 w-3/4 rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required>
                                         @foreach($dataTahun as $tahun)
                                             <option value="{{ $tahun->kode_tahun_akademik }}">{{ $tahun->tahun_akademik }}</option>
-                                        @endforeach                                
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
                             <div class="sm:col-span-2">
                                 <label for="kode_mata_kuliah" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Matkul</label>
                                 <div class="mt-2">
-                                    <select id="kode_mata_kuliah" name="kode_mata_kuliah" class="block pl-1 w-3/4 rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    <select id="kode_mata_kuliah" name="kode_mata_kuliah" class="block pl-1 w-3/4 rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required>
                                         @foreach($dataMatkul as $matkul)
                                             <option value="{{ $matkul->kode_mata_kuliah }}">{{ $matkul->nama_mata_kuliah }}</option>
-                                        @endforeach 
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
@@ -92,7 +92,7 @@
                     </thead>
                     <tbody>
                         @foreach($dataEnrollment as $no => $value)
-                        
+
                         <tr>
                                 <td class="border pl-2 py-2">{{ $no+1}}</td>
                                 <td class="border pl-2 py-2">{{ $value->kode_enrollment }}</td>
@@ -129,7 +129,7 @@
                 </table>
             </div>
 
-    
+
 
     <!-- ===============================MODAL EDIT=============================== -->
     @foreach($dataEnrollment as $no => $value)
@@ -163,16 +163,16 @@
                                         @foreach($dataDosen as $dosen)
                                             <option value="{{ $dosen->kode_dosen }}">{{ $dosen->nama }}</option>
                                         @endforeach
-                                    </select>                                   
+                                    </select>
                                 </div>
                             </div>
                             <div class="sm:col-span-2 sm:col-start-1">
                                 <label for="kode_tahun_akademik" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Tahun Akademik</label>
                                 <div class="mt-2">
-                                    <select id="kode_tahun_akademik" name="kode_tahun_akademik" class="block pl-1 w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">   
+                                    <select id="kode_tahun_akademik" name="kode_tahun_akademik" class="block pl-1 w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                         @foreach($dataTahun as $tahun)
                                             <option value="{{ $tahun->kode_tahun_akademik }}">{{ $tahun->tahun_akademik }}</option>
-                                        @endforeach                                
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
@@ -183,7 +183,7 @@
 
                                         @foreach($dataMatkul as $matkul)
                                             <option value="{{ $matkul->kode_mata_kuliah }}">{{ $matkul->nama_mata_kuliah }}</option>
-                                        @endforeach 
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>

@@ -29,9 +29,6 @@ class AuthController extends Controller
             'password' => $request->password,
         ];
 
-
-
-
         $remember = $request->has('remember');
 
         if (Auth::attempt($credentials/* , $remember */)) {
@@ -41,10 +38,7 @@ class AuthController extends Controller
             $request->session()->put('username', $user->username);
             $request->session()->put('level', $user->level);
 
-
-
 //            dd($request->session()->all());
-
             // redirect user berdasarkan level
             if ($user->level === 'admin') {
                 return redirect('admin/dashboard');
@@ -99,6 +93,8 @@ class AuthController extends Controller
     public function logout()
     {
         Auth::logout();
+//        return kembali ke halaman login
         return redirect()->route('login.index');
+
     }
 }

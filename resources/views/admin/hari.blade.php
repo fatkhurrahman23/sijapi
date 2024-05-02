@@ -18,7 +18,7 @@
                                 </li>
                             </ul>
                         </div>
-                           
+
                         </div>
                             <ul class="box-info">
                                 <li>
@@ -36,13 +36,21 @@
                     <div class="sm:col-span-2">
                         <label for="kode_hari" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Hari</label>
                         <div class="mt-2">
-                            <input type="text" name="kode_hari" id="kode_hari" autocomplete="kode_hari" class="pl-2 block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <input type="text" name="kode_hari" id="kode_hari" autocomplete="kode_hari" class="pl-2 block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required>
                         </div>
                     </div>
                     <div class="sm:col-span-2">
                         <label for="nama_hari" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Nama Hari</label>
                         <div class="mt-2">
-                            <input type="text" name="nama_hari" id="nama_hari" autocomplete="nama_hari" class="pl-2 block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <select name="nama_hari" id="nama_hari" class="pl-2 block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required>
+                                <option value="">-- Pilih nama hari --</option>
+                                @php
+                                $days = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'];
+                                @endphp
+                                @foreach($days as $day)
+                                    <option value="{{ $day }}">{{ $day }}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                     <div class="sm:col-span-2 flex justify-between items-end">
@@ -107,12 +115,14 @@
                                     <input type="text" name="kode_hari" id="kode_hari" autocomplete="kode_hari" class="pl-2 block bg-gray-300 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->kode_hari }}" required autofocus readonly>
                                 </div>
                             </div>
-                            <div class="sm:col-span-2">
-                                <label for="nama_hari" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Nama Hari</label>
-                                <div class="mt-2">
-                                    <input type="text" name="nama_hari" id="nama_hari" autocomplete="nama_hari" class="pl-2 aturjam block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->nama_hari }}">
-                                </div>
-                            </div>
+                            <select name="nama_hari" id="nama_hari" class="pl-2 aturjam block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                @php
+                                $days = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'];
+                                @endphp
+                                @foreach($days as $day)
+                                    <option value="{{ $day }}" {{ $day == $value->nama_hari ? 'selected' : '' }}>{{ $day }}</option>
+                                @endforeach
+                            </select>
                             <div class="sm:col-span-2 flex justify-center items-center">
                                 <button type="submit" class="flex justify-center align-middle items-center w-3/6 rounded-md bg-custom-birumuda px-3 py-2 text-sm font-poppins font-semibold text-white shadow-sm hover:bg-custom-birutua focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                                     <img class="flex justify-center align-bottom items-center" width="17" height="17" src="https://img.icons8.com/sf-black-filled/64/plus-math.png" alt="plus-math" style="filter: invert(100%);"/>

@@ -17,7 +17,7 @@
                                 </li>
                             </ul>
                         </div>
-                           
+
                         </div>
                             <ul class="box-info">
                                 <li>
@@ -42,38 +42,38 @@
                         <div class="sm:col-span-2">
                                 <label for="kode_mata_kuliah" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode MatKul</label>
                                 <div class="mt-2">
-                                    <input type="text" name="kode_mata_kuliah" id="kode_mata_kuliah" autocomplete="kode_mata_kuliah" class="pl-2 block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" >
+                                    <input type="text" name="kode_mata_kuliah" id="kode_mata_kuliah" autocomplete="kode_mata_kuliah" class="pl-2 block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"  required>
                                 </div>
                             </div>
 
                             <div class="sm:col-span-2">
                                 <label for="nama_mata_kuliah" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Nama MatKul</label>
                                 <div class="mt-2">
-                                    <input type="text" name="nama_mata_kuliah" id="nama_mata_kuliah" autocomplete="nama_mata_kuliah" class="block pl-2 w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    <input type="text" name="nama_mata_kuliah" id="nama_mata_kuliah" autocomplete="nama_mata_kuliah" class="block pl-2 w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required>
                                 </div>
                             </div>
                             <div class="sm:col-span-2">
                                 <label for="semester" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Semester</label>
                                 <div class="mt-2">
-                                    <input type="text" name="semester" id="semester" autocomplete="semester" class="block pl-2 w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    <input type="text" name="semester" id="semester" autocomplete="semester" class="block pl-2 w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required>
                                 </div>
                             </div>
                             <div class="sm:col-span-2 sm:col-start-1">
                                 <label for="sks" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">SKS</label>
                                 <div class="mt-2">
-                                    <input type="text" name="sks" id="sks" autocomplete="sks" class="block w-3/4 pl-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    <input type="text" name="sks" id="sks" autocomplete="sks" class="block w-3/4 pl-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required>
                                 </div>
                             </div>
                             <div class="sm:col-span-2">
                                 <label for="jenis" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Jenis</label>
                                 <div class="mt-2">
-                                    <select id="jenis" name="jenis" autocomplete="jenis" class="block w-3/4 pl-2 rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    <select id="jenis" name="jenis" autocomplete="jenis" class="block w-3/4 pl-2 rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required>
                                         <option value="gasal">Gasal</option>
                                         <option value="genap">Genap</option>
-                                    </select>          
+                                    </select>
                                 </div>
                             </div>
-                            
+
                             <div class="sm:col-span-2 flex justify-between items-end">
                                 <button type="submit" class=" flex justify-center w-3/6 rounded-md bg-custom-birumuda px-3 py-2 text-sm font-poppins font-semibold text-white shadow-sm hover:bg-custom-birutua focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" >
                                     <img class="flex justify-end align-bottom items-end" width="17" height="17" src="https://img.icons8.com/sf-black-filled/64/plus-math.png" alt="plus-math" style="filter: invert(100%);"/>

@@ -14,7 +14,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
+
                             <h1>Data Dosen</h1>
                                 <ul class="breadcrumb">
                                 <li>
@@ -26,7 +26,7 @@
                                 </li>
                             </ul>
                         </div>
-                           
+
                         </div>
                             <ul class="box-info">
                                 <li>
@@ -58,41 +58,41 @@
                             <div class="sm:col-span-2">
                                 <label for="kode_dosen" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Dosen</label>
                                 <div class="mt-2">
-                                    <input type="text" name="kode_dosen" id="kode_dosen" class="pl-2 block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    <input type="text" name="kode_dosen" id="kode_dosen" class="pl-2 block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required>
                                 </div>
                             </div>
                             <div class="sm:col-span-2">
                                 <label for="nip" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">NIP</label>
                                 <div class="mt-2">
-                                    <input type="text" name="nip" id="nip" class="pl-2 block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    <input type="text" name="nip" id="nip" class="pl-2 block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required>
                                 </div>
                             </div>
                             <div class="sm:col-span-2">
                                 <label for="nama" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Nama Dosen</label>
                                 <div class="mt-2">
-                                    <input type="text" name="nama" id="nama" class="pl-2 block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    <input type="text" name="nama" id="nama" class="pl-2 block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required>
                                 </div>
                             </div>
                             <div class="sm:col-span-2 sm:col-start-1">
                                 <label for="alamat" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Alamat</label>
                                 <div class="mt-2">
-                                    <input type="text" name="alamat" id="alamat" class="pl-2 block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    <input type="text" name="alamat" id="alamat" class="pl-2 block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required>
                                 </div>
                             </div>
                             <div class="sm:col-span-2">
                                 <label for="no_telp" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">No Telp</label>
                                 <div class="mt-2">
-                                    <input type="text" name="no_telp" id="no_telp" class="pl-2 block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    <input type="text" name="no_telp" id="no_telp" class="pl-2 block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required>
                                 </div>
                             </div>
                             <div class="sm:col-span-2">
                                 <label for="kode_prodi" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Prodi</label>
                                 <div class="mt-2">
-                                    <select id="kode_prodi" name="kode_prodi" class="block w-3/4 rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    <select id="kode_prodi" name="kode_prodi" class="block w-3/4 rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required>
                                     @foreach($dataProdi as $prodi)
                                         <option value="{{ $prodi->kode_prodi }}">{{ $prodi->nama }}</option>
                                     @endforeach
-                                    </select>          
+                                    </select>
                                 </div>
                             </div>
                             <div class="sm:col-span-2 flex justify-between items-end mb-24">
@@ -116,7 +116,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach( $dataDosen as $no => $value )             
+                                @foreach( $dataDosen as $no => $value )
                                     <tr>
                                         <td class="border pl-2 py-2">{{ $no+1 }}</td>
                                         <td class="border pl-2 py-2">{{ $value->kode_dosen }}</td>
@@ -133,14 +133,14 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        
+
                     </div>
 
-@foreach( $dataDosen as $no => $value )
-    <div id="edit_dosen_modal{{ $value->kode_dosen }}" tabindex="-1" aria-hidden="true" class="hidden h-100 mt-5 py-12 modal flex overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center">
+    @foreach( $dataDosen as $no => $value )
+        <div id="edit_dosen_modal{{ $value->kode_dosen }}" tabindex="-1" aria-hidden="true" class="hidden h-100 mt-5 py-12 modal flex overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center">
             <div class="backdrop absolute inset-0 bg-black opacity-30 h-130"></div>
             <div class="relative p-4 w-full max-w-md max-h-full">
-              
+
                 <div class="relative bg-white rounded-lg  shadow ">
                     <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
                         <h3 class="text-xl font-semibold text-gray-900 ">EDIT DATA DOSEN</h3>
@@ -189,9 +189,9 @@
                                 <div class="mt-2">
                                     <select id="kode_prodi" name="kode_prodi" class="pl-2 block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                         @foreach($dataProdi as $prodi)
-                                            <option value="{{ $prodi->kode_prodi }}">{{ $prodi->nama }}</option>
+                                            <option value="{{ $prodi->kode_prodi }}" {{ $prodi->kode_prodi == $value->kode_prodi ? 'selected' : '' }}>{{ $prodi->nama }}</option>
                                         @endforeach
-                                    </select>   
+                                    </select>
                                 </div>
                             </div>
                             <div class="sm:col-span-2 flex justify-center items-center">
@@ -255,7 +255,7 @@
             };
             toastr.error("{{ Session::get('error') }}");
         </script>
-    @endif 
-    
+    @endif
+
 
 @endsection
