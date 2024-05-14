@@ -17,14 +17,12 @@ class tahunAkademik extends Seeder
         // buat 2 data ke kolom kode_tahun_akademik, tahun_akademik, status (gasal/genap)
         $data = [
             [
-                'kode_tahun_akademik' => '2021/2022-1',
                 'tahun_akademik' => '2021/2022',
-                'status' => 'genap'
+                'status' => 'tidak aktif'
             ],
             [
-                'kode_tahun_akademik' => '2021/2022-2',
-                'tahun_akademik' => '2021/2022',
-                'status' => 'genap'
+                'tahun_akademik' => '2022/2023',
+                'status' => 'aktif'
             ]
         ];
 

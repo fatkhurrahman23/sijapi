@@ -21,6 +21,7 @@ return new class extends Migration
                 $table->string('kode_hari', 20);
                 $table->string('kode_ruang', 20);
                 $table->string('kode_kelas', 20);
+                $table->enum('semester', ['gasal', 'genap']);
                 $table->integer('kode_jam_awal');
                 $table->integer('kode_jam_akhir');
 

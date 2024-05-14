@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('tahun_akademik', function (Blueprint $table) {
             $table->id();
-            $table->string('kode_tahun_akademik')->unique();
-            $table->string('tahun_akademik');
-            $table->enum('status', ['gasal', 'genap']);
+//            $table->string('kode_tahun_akademik')->unique();
+            $table->string('tahun_akademik')->unique();
+            $table->enum('status', ['aktif', 'tidak aktif'])->default('tidak aktif');
         });
     }
 

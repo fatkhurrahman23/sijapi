@@ -28,7 +28,8 @@ class jadwalKuliah extends Seeder
                 'kode_kelas' => 'TI-2A',
                 'kode_jam_awal' => '1',
                 'kode_jam_akhir' => '6',
-                'kode_tahun_akademik' => '2021/2022-1',
+                'tahun_akademik' => '2022/2023',
+                'semester' => 'gasal',
             ],
             [
                 'kode_jadwal_kuliah' => 'JK002',
@@ -38,8 +39,8 @@ class jadwalKuliah extends Seeder
                 'kode_kelas' => 'TI-2A',
                 'kode_jam_awal' => '7',
                 'kode_jam_akhir' => '8',
-                'kode_tahun_akademik' => '2021/2022-1',
-
+                'tahun_akademik' => '2022/2023',
+                'semester' => 'gasal',
 
             ],
             [
@@ -50,7 +51,9 @@ class jadwalKuliah extends Seeder
                 'kode_kelas' => 'TI-2A',
                 'kode_jam_awal' => '1',
                 'kode_jam_akhir' => '6',
-                'kode_tahun_akademik' => '2021/2022-1',
+                'tahun_akademik' => '2022/2023',
+                'semester' => 'gasal',
+
 
             ],
             [
@@ -61,7 +64,9 @@ class jadwalKuliah extends Seeder
                 'kode_kelas' => 'TI-2A',
                 'kode_jam_awal' => '7',
                 'kode_jam_akhir' => '8',
-                'kode_tahun_akademik' => '2021/2022-1',
+                'tahun_akademik' => '2022/2023',
+                'semester' => 'gasal',
+
 
             ],
             [
@@ -72,7 +77,9 @@ class jadwalKuliah extends Seeder
                 'kode_kelas' => 'TI-2A',
                 'kode_jam_awal' => '1',
                 'kode_jam_akhir' => '6',
-                'kode_tahun_akademik' => '2021/2022-1',
+                'tahun_akademik' => '2022/2023',
+                'semester' => 'gasal',
+
 
             ],
             [
@@ -83,7 +90,9 @@ class jadwalKuliah extends Seeder
                 'kode_kelas' => 'TI-2A',
                 'kode_jam_awal' => '7',
                 'kode_jam_akhir' => '8',
-                'kode_tahun_akademik' => '2021/2022-1',
+                'tahun_akademik' => '2022/2023',
+                'semester' => 'gasal',
+
 
             ],
             [
@@ -94,7 +103,9 @@ class jadwalKuliah extends Seeder
                 'kode_kelas' => 'TI-2A',
                 'kode_jam_awal' => '1',
                 'kode_jam_akhir' => '6',
-                'kode_tahun_akademik' => '2021/2022-1',
+                'tahun_akademik' => '2022/2023',
+                'semester' => 'gasal',
+
 
             ],
             [
@@ -105,7 +116,9 @@ class jadwalKuliah extends Seeder
                 'kode_kelas' => 'TI-2A',
                 'kode_jam_awal' => '7',
                 'kode_jam_akhir' => '8',
-                'kode_tahun_akademik' => '2021/2022-1',
+                'tahun_akademik' => '2022/2023',
+                'semester' => 'gasal',
+
 
             ],
             [
@@ -116,7 +129,9 @@ class jadwalKuliah extends Seeder
                 'kode_kelas' => 'TI-2A',
                 'kode_jam_awal' => '1',
                 'kode_jam_akhir' => '6',
-                'kode_tahun_akademik' => '2021/2022-1',
+                'tahun_akademik' => '2022/2023',
+                'semester' => 'gasal',
+
 
             ],
             [
@@ -127,7 +142,9 @@ class jadwalKuliah extends Seeder
                 'kode_kelas' => 'TI-2A',
                 'kode_jam_awal' => '7',
                 'kode_jam_akhir' => '8',
-                'kode_tahun_akademik' => '2021/2022-1',
+                'tahun_akademik' => '2022/2023',
+                'semester' => 'gasal',
+
 
             ],
 
