@@ -21,6 +21,8 @@ class mahasiswa extends Seeder
                 'kode_prodi' => 'TI',
                 'jenis_kelamin' => 'L',
                 'status' => 'Aktif',
+                'kode_kelas' => 'TI-2A',
+
             ],
 
         ];

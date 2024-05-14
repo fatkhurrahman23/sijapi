@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('tahun_masuk');
             $table->string('kode_prodi', 20);
             $table->string('kelas')->nullable();
+            $table->string('kode_kelas');
             $table->enum('jenis_kelamin', ['L', 'P']);
             $table->enum('status', ['Lulus', 'Cuti', 'Aktif']);
 
