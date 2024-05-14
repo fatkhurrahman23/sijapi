@@ -25,7 +25,7 @@ return new class extends Migration
                 ->on('data_prodi')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-            
+
         });
     }
 

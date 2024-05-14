@@ -14,6 +14,11 @@ class Jadwal_kuliah extends Model
     protected $primarykey = 'id';
     protected $fillable = ['id', 'kode_jadwal_kuliah', 'kode_enrollment', 'kode_hari', 'kode_ruang', 'kode_kelas', 'kode_jam_awal', 'kode_jam_akhir'];
 
+
+    public function tahun_akademik(){
+        return $this->belongsTo('app\Models\Tahun_akademik.php', 'kode_tahun_akademik');
+    }
+
     public function ruang(){
         return $this->belongsTo(Ruang::class , 'kode_ruang', 'kode_ruang') ;
     }

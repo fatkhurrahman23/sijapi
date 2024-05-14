@@ -11,14 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::dropIfExists('data_prodi');
+        Schema::dropIfExists('prodi');
 
 
         Schema::create('data_prodi', function (Blueprint $table) {
             $table->id();
             $table->string('kode_prodi', 20)->unique();
+            $table->string('kode_jurusan');
             $table->string('nama');
-            // $table->timestamps();
+
+            $table->foreign('kode_jurusan')
+                ->references('kode_jurusan')
+                ->on('jurusan');
         });
     }
 
@@ -27,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('data_prodi');
+        Schema::dropIfExists('prodi');
     }
 };

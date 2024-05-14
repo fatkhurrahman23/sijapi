@@ -16,10 +16,12 @@ class DataProdi extends Seeder
         $data = [
             [
                 'kode_prodi' => 'TI',
+                'kode_jurusan' => 'elektro',
                 'nama' => 'D4 - TEKNOLOGI REKAYASA KOMPUTER'
             ],
             [
                 'kode_prodi' => 'IK',
+                'kode_jurusan' => 'elektro',
                 'nama' => 'D3 - TEKNIK INFORMATIKA'
             ]
         ];
@@ -28,6 +30,6 @@ class DataProdi extends Seeder
         foreach ($data as $prodi) {
             \DB::table('data_prodi')->insert($prodi);
         }
-        
+
     }
 }

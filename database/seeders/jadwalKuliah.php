@@ -27,7 +27,8 @@ class jadwalKuliah extends Seeder
                 'kode_ruang' => 'MST-03-03',
                 'kode_kelas' => 'TI-2A',
                 'kode_jam_awal' => '1',
-                'kode_jam_akhir' => '6'
+                'kode_jam_akhir' => '6',
+                'kode_tahun_akademik' => '2021/2022-1',
             ],
             [
                 'kode_jadwal_kuliah' => 'JK002',
@@ -36,7 +37,10 @@ class jadwalKuliah extends Seeder
                 'kode_ruang' => 'MST-03-04',
                 'kode_kelas' => 'TI-2A',
                 'kode_jam_awal' => '7',
-                'kode_jam_akhir' => '8'
+                'kode_jam_akhir' => '8',
+                'kode_tahun_akademik' => '2021/2022-1',
+
+
             ],
             [
                 'kode_jadwal_kuliah' => 'JK003',
@@ -45,7 +49,9 @@ class jadwalKuliah extends Seeder
                 'kode_ruang' => 'MST-03-03',
                 'kode_kelas' => 'TI-2A',
                 'kode_jam_awal' => '1',
-                'kode_jam_akhir' => '6'
+                'kode_jam_akhir' => '6',
+                'kode_tahun_akademik' => '2021/2022-1',
+
             ],
             [
                 'kode_jadwal_kuliah' => 'JK004',
@@ -54,7 +60,9 @@ class jadwalKuliah extends Seeder
                 'kode_ruang' => 'MST-03-04',
                 'kode_kelas' => 'TI-2A',
                 'kode_jam_awal' => '7',
-                'kode_jam_akhir' => '8'
+                'kode_jam_akhir' => '8',
+                'kode_tahun_akademik' => '2021/2022-1',
+
             ],
             [
                 'kode_jadwal_kuliah' => 'JK005',
@@ -63,7 +71,9 @@ class jadwalKuliah extends Seeder
                 'kode_ruang' => 'MST-03-03',
                 'kode_kelas' => 'TI-2A',
                 'kode_jam_awal' => '1',
-                'kode_jam_akhir' => '6'
+                'kode_jam_akhir' => '6',
+                'kode_tahun_akademik' => '2021/2022-1',
+
             ],
             [
                 'kode_jadwal_kuliah' => 'JK006',
@@ -72,7 +82,9 @@ class jadwalKuliah extends Seeder
                 'kode_ruang' => 'MST-03-04',
                 'kode_kelas' => 'TI-2A',
                 'kode_jam_awal' => '7',
-                'kode_jam_akhir' => '8'
+                'kode_jam_akhir' => '8',
+                'kode_tahun_akademik' => '2021/2022-1',
+
             ],
             [
                 'kode_jadwal_kuliah' => 'JK007',
@@ -81,7 +93,9 @@ class jadwalKuliah extends Seeder
                 'kode_ruang' => 'MST-03-03',
                 'kode_kelas' => 'TI-2A',
                 'kode_jam_awal' => '1',
-                'kode_jam_akhir' => '6'
+                'kode_jam_akhir' => '6',
+                'kode_tahun_akademik' => '2021/2022-1',
+
             ],
             [
                 'kode_jadwal_kuliah' => 'JK008',
@@ -90,7 +104,9 @@ class jadwalKuliah extends Seeder
                 'kode_ruang' => 'MST-03-04',
                 'kode_kelas' => 'TI-2A',
                 'kode_jam_awal' => '7',
-                'kode_jam_akhir' => '8'
+                'kode_jam_akhir' => '8',
+                'kode_tahun_akademik' => '2021/2022-1',
+
             ],
             [
                 'kode_jadwal_kuliah' => 'JK009',
@@ -99,7 +115,9 @@ class jadwalKuliah extends Seeder
                 'kode_ruang' => 'MST-03-03',
                 'kode_kelas' => 'TI-2A',
                 'kode_jam_awal' => '1',
-                'kode_jam_akhir' => '6'
+                'kode_jam_akhir' => '6',
+                'kode_tahun_akademik' => '2021/2022-1',
+
             ],
             [
                 'kode_jadwal_kuliah' => 'JK010',
@@ -108,7 +126,9 @@ class jadwalKuliah extends Seeder
                 'kode_ruang' => 'MST-03-04',
                 'kode_kelas' => 'TI-2A',
                 'kode_jam_awal' => '7',
-                'kode_jam_akhir' => '8'
+                'kode_jam_akhir' => '8',
+                'kode_tahun_akademik' => '2021/2022-1',
+
             ],
 
 

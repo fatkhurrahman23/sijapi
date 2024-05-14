@@ -11,6 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
+        //
         Schema::create('kelas_mahasiswa', function (Blueprint $table) {
             $table->id();
             $table->string('kode_kelas', 20)->unique();
@@ -18,9 +19,7 @@ return new class extends Migration
 
             $table->foreign('kode_prodi')
                 ->references('kode_prodi')
-                ->on('data_prodi')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
+                ->on('data_prodi');
         });
     }
 
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('kelas_mahasiswa');
+        //
     }
 };

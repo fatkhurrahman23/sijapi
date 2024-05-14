@@ -20,6 +20,8 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
+        $this->call(Jurusan::class);
+        $this->call(tahunAkademik::class);
         $this->call(RuangTable::class);
         $this->call(DataProdi::class);
         $this->call(kelasMahasiswa::class);
@@ -30,7 +32,6 @@ class DatabaseSeeder extends Seeder
         $this->call(dosen::class);
         $this->call(users::class);
         $this->call(hari::class);
-        $this->call(tahunAkademik::class);
         // $this->call(waktuTidakTersedia::class);
         $this->call(enrollment::class);
         $this->call(jadwalKuliah::class);

@@ -13,7 +13,7 @@ class Tahun_akademik extends Model
     protected $primarykey = 'id';
     protected $fillable = ['id', 'kode_tahun_akademik', 'tahun_akademik', 'status'];
 
-    public function enrollment(){
-        return $this->hasMany('app\Models\Enrollment.php', 'kode_tahun_akademik');
+    public function jadwal_kuliah(){
+        return $this->hasMany(Jadwal_kuliah::class, 'kode_tahun_akademik', 'kode_tahun_akademik');
     }
 }

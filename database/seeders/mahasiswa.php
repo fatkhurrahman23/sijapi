@@ -17,27 +17,12 @@ class mahasiswa extends Seeder
             [
                 'nim' => '43322001',
                 'nama' => 'MAHASISWA A 1',
+                'tahun_masuk' => '2021/2022-1',
+                'kode_prodi' => 'TI',
                 'jenis_kelamin' => 'L',
-                'kode_kelas' => 'TI-2A'
+                'status' => 'Aktif',
             ],
-            [
-                'nim' => '43322002',
-                'nama' => 'MAHASISWA A 2',
-                'jenis_kelamin' => 'L',
-                'kode_kelas' => 'TI-2A'
-            ],
-            [
-                'nim' => '43322101',
-                'nama' => 'MAHASISWA B 1',
-                'jenis_kelamin' => 'L',
-                'kode_kelas' => 'TI-2B'
-            ],
-            [
-                'nim' => '43322102',
-                'nama' => 'MAHASISWA B 2',
-                'jenis_kelamin' => 'L',
-                'kode_kelas' => 'TI-2B'
-            ]
+
         ];
 
         // insert data mahasiswa

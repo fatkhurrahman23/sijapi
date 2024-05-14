@@ -12,15 +12,23 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('mahasiswa', function (Blueprint $table) {
-            // $table->id();
-            $table->string('nim', 20)->primary();
+             $table->id();
+            $table->string('nim', 20)->unique();
             $table->string('nama', 90);
-            $table->string('kode_kelas', 20);
+            $table->string('tahun_masuk');
+            $table->string('kode_prodi', 20);
+            $table->string('kelas')->nullable();
             $table->enum('jenis_kelamin', ['L', 'P']);
-            
-            $table->foreign('kode_kelas')
-                ->references('kode_kelas')
-                ->on('kelas_mahasiswa');
+            $table->enum('status', ['Lulus', 'Cuti', 'Aktif']);
+
+
+            $table->foreign('kode_prodi')
+                ->references('kode_prodi')
+                ->on('data_prodi');
+
+            $table->foreign('tahun_masuk')
+                ->references('kode_tahun_akademik')
+                ->on('tahun_akademik');
 
         });
     }

@@ -12,12 +12,8 @@ class Enrollment extends Model
 
     protected $table = 'enrollment';
     protected $primarykey = 'id';
-    protected $fillable = ['id', 'kode_enrollment', 'kode_dosen', 'kode_tahun_akademik', 'kode_mata_kuliah'];
+    protected $fillable = ['id', 'kode_enrollment', 'kode_dosen', 'kode_mata_kuliah'];
 
-
-    // public function kelas_mahasiswa(){
-    //     return $this->belongsTo('app\Models\Kelas_mahasiswa.php', 'kode_kelas');
-    // }
 
     public function mata_kuliah(){
         return $this->belongsTo(Mata_Kuliah::class, 'kode_mata_kuliah', 'kode_mata_kuliah');
@@ -25,10 +21,6 @@ class Enrollment extends Model
 
     public function dosen(){
         return $this->belongsTo(Dosen::class, 'kode_dosen', 'kode_dosen');
-    }
-
-    public function tahun_akademik(){
-        return $this->belongsTo('app\Models\Tahun_akademik.php', 'kode_tahun_akademik');
     }
 
     public function jadwal_kuliah(){
