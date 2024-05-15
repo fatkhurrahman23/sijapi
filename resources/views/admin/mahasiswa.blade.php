@@ -21,7 +21,6 @@
                                 </li>
                             </ul>
                             </div>
-<<<<<<< HEAD
                                 <button type="submit" class="buttons-pdf" id="download-pdf" >
                                     <i class="bx bxs-cloud-download "></i>
                                     <span class="text">Download PDF</span>
@@ -29,11 +28,6 @@
 
                             </div>
 
-
-=======
-
-
->>>>>>> 14e5d22ef1a9ee07afba4566533e847bc1b7a4cb
                         </div>
                             <ul class="box-info">
                                 <li>

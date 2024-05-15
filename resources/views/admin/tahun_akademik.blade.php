@@ -64,7 +64,6 @@
                     <thead>
                         <tr>
                             <th class="px-4 pl-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">No</th>
-                            <th class="px-4 pl-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Kode Tahun Akademik</th>
                             <th class="px-4 pl-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Tahun Akademik</th>
                             <th class="px-4 pl-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Status</th>
                             <th class="px-4 pl-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Aksi</th>
@@ -119,8 +118,8 @@
                             <label for="status" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Status</label>
                             <div class="mt-2">
                                 <select id="status" name="status" autocomplete="status" class="block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                                    <option value="gasal">Gasal</option>
-                                    <option value="genap">Genap</option>
+                                    <option value="aktif">Aktif</option>
+                                    <option value="tidak aktif">Tidak aktif</option>
                                 </select>
                             </div>
                         </div>
