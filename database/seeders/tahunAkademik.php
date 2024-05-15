@@ -14,7 +14,6 @@ class tahunAkademik extends Seeder
      */
     public function run(): void
     {
-        // buat 2 data ke kolom kode_tahun_akademik, tahun_akademik, status (gasal/genap)
         $data = [
             [
                 'tahun_akademik' => '2021/2022',

@@ -16,7 +16,7 @@ return new class extends Migration
             Schema::create('jadwal_kuliah', function (Blueprint $table) {
                 $table->id();
                 $table->string('kode_jadwal_kuliah', 20)->unique();
-                $table->string('kode_tahun_akademik', 20);
+                $table->string('tahun_akademik', 20);
                 $table->string('kode_enrollment', 20);
                 $table->string('kode_hari', 20);
                 $table->string('kode_ruang', 20);
@@ -25,8 +25,8 @@ return new class extends Migration
                 $table->integer('kode_jam_awal');
                 $table->integer('kode_jam_akhir');
 
-                $table->foreign('kode_tahun_akademik')
-                    ->references('kode_tahun_akademik')
+                $table->foreign('tahun_akademik')
+                    ->references('tahun_akademik')
                     ->on('tahun_akademik');
 
                 $table->foreign('kode_enrollment')

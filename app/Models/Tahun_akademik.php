@@ -11,9 +11,9 @@ class Tahun_akademik extends Model
     public $timestamps = false;
     protected $table = 'tahun_akademik';
     protected $primarykey = 'id';
-    protected $fillable = ['id', 'kode_tahun_akademik', 'tahun_akademik'];
+    protected $fillable = ['id', 'tahun_akademik'];
 
     public function jadwal_kuliah(){
-        return $this->hasMany(Jadwal_kuliah::class, 'kode_tahun_akademik', 'kode_tahun_akademik');
+        return $this->hasMany(Jadwal_kuliah::class, 'tahun_akademik', 'tahun_akademik');
     }
 }

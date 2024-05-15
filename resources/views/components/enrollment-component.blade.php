@@ -34,12 +34,6 @@
                                     <input type="text" name="kode_dosen" id="kode_dosen" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="">
                                 </div>
                             </div>
-                            <div class="sm:col-span-2 sm:col-start-1">
-                                <label for="kode_tahun_akademik" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Tahun Akademik</label>
-                                <div class="mt-2">
-                                    <input type="text" name="kode_tahun_akademik" id="kode_tahun_akademik" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="">
-                                </div>
-                            </div>
                             <div class="sm:col-span-2">
                                 <label for="kode_mata_kuliah" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Matkul</label>
                                 <div class="mt-2">
@@ -75,7 +69,6 @@
                                 <td class="border px-4 py-2">{{ $enrollment->kode_enrollment }}</td>
                                 <td class="border px-4 py-2">{{ $enrollment->kode_kelas }}</td>
                                 <td class="border px-4 py-2">{{ $enrollment->kode_dosen }}</td>
-                                <td class="border px-4 py-2">{{ $enrollment->kode_tahun_akademik }}</td>
                                 <td class="border px-4 py-2">{{ $enrollment->kode_mata_kuliah }}</td>
                                 <td class="border px-4 py-2">
                                     <a href="/admin/enrollment/{{ $enrollment->kode_enrollment }}/edit" class="bg-blue-500 hover:bg-blue-700 text-white font-poppins font-normal py-1 px-2 rounded">Edit</a>

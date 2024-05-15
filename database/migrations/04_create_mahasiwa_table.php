@@ -29,7 +29,7 @@ return new class extends Migration
                 ->on('data_prodi');
 
             $table->foreign('tahun_masuk')
-                ->references('kode_tahun_akademik')
+                ->references('tahun_akademik')
                 ->on('tahun_akademik');
 
         });

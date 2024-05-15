@@ -37,12 +37,6 @@
             @csrf
                 <div class="mt-7 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                     <div class="sm:col-span-2">
-                        <label for="kode_tahun_akademik" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Tahun Akademik</label>
-                        <div class="mt-2">
-                            <input type="text" name="kode_tahun_akademik" id="kode_tahun_akademik" autocomplete="kode_tahun_akademik" class="pl-2 block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                        </div>
-                    </div>
-                    <div class="sm:col-span-2">
                         <label for="tahun_akademik" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Tahun Akademik</label>
                         <div class="mt-2">
                             <input type="text" name="tahun_akademik" id="tahun_akademik" autocomplete="tahun_akademik" class="block pl-2 w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
@@ -81,11 +75,10 @@
 
                         <tr>
                             <td class="border px-4 py-2">{{ $no+1 }}</td>
-                            <td class="border px-4 py-2">{{ $value->kode_tahun_akademik }}</td>
                             <td class="border px-4 py-2">{{ $value->tahun_akademik }}</td>
                             <td class="border px-4 py-2">{{ $value->status }}</td>
                             <td class="border px-4 py-2">
-                                <button type="button" data-modal-target="edit_tahun_akademik_modal{{ $value->kode_tahun_akademik }}" data-modal-toggle="edit_tahun_akademik_modal" class="bg-blue-500 hover:bg-blue-700 text-white font-poppins font-normal py-1 px-2 rounded">Edit</button>
+                                <button type="button" data-modal-target="edit_tahun_akademik_modal{{ $value->tahun_akademik }}" data-modal-toggle="edit_tahun_akademik_modal" class="bg-blue-500 hover:bg-blue-700 text-white font-poppins font-normal py-1 px-2 rounded">Edit</button>
                                 <a href="{{ url('admin/tahun_akademik/delete/'.$value->id) }}">
                                     <button class="bg-red-500 hover:bg-red-700 text-white font-poppins font-normal py-1 px-2 rounded">Hapus</button>
                                 </a>
@@ -97,7 +90,7 @@
             </div>
 
     @foreach( $data as $no => $value )
-    <div id="edit_tahun_akademik_modal{{ $value->kode_tahun_akademik }}" tabindex="-1" aria-hidden="true" class="hidden h-screen modal flex overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center">
+    <div id="edit_tahun_akademik_modal{{ $value->tahun_akademik }}" tabindex="-1" aria-hidden="true" class="hidden h-screen modal flex overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center">
         <div class="backdrop absolute inset-0 bg-black opacity-30"></div>
         <div class="relative p-4 w-full max-w-md max-h-full">
             <!-- Modal content -->
@@ -116,12 +109,6 @@
                 <div class="p-4 md:p-5">
                     <form class="space-y-4" action="{{ url('admin/tahun_akademik/update/'.$value->id) }}" method="POST">
                     @csrf
-                        <div class="sm:col-span-2">
-                            <label for="kode_tahun_akademik" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Tahun Akademik</label>
-                            <div class="mt-2">
-                                <input type="text" name="kode_tahun_akademik" id="kode_tahun_akademik" autocomplete="kode_tahun_akademik" class="block pl-2 bg-gray-300 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->kode_tahun_akademik }}" required autofocus readonly>
-                            </div>
-                        </div>
                         <div class="sm:col-span-2">
                             <label for="tahun_akademik" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Tahun Akademik</label>
                             <div class="mt-2">

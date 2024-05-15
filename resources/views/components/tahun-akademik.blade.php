@@ -15,12 +15,6 @@
                 @csrf
                 <div class="mt-5 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                     <div class="sm:col-span-2">
-                        <label for="kode_tahun_akademik" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Tahun Akademik</label>
-                        <div class="mt-2">
-                            <input type="text" name="kode_tahun_akademik" id="kode_tahun_akademik" autocomplete="kode_tahun_akademik" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                        </div>
-                    </div>
-                    <div class="sm:col-span-2">
                         <label for="nama_tahun_akademik" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Tahun Akademik</label>
                         <div class="mt-2">
                             <input type="text" name="nama_tahun_akademik" id="nama_tahun_akademik" autocomplete="nama_tahun_akademik" class="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
@@ -59,12 +53,9 @@
                         @foreach ($dataTahunAkademik as $tahunAkademik)
                         <tr>
                             <td class="border px-4 py-2">{{ $loop->iteration }}</td>
-                            <td class="border px-4 py-2">{{ $tahunAkademik->kode_tahun_akademik }}</td>
                             <td class="border px-4 py-2">{{ $tahunAkademik->tahun_akademik }}</td>
                             <td class="border px-4 py-2">{{ $tahunAkademik->status }}</td>
                             <td class="border px-4 py-2">
-                            <button type="button" data-modal-target="edit_tahun_akademik_modal" data-id="{{ $tahunAkademik->kode_tahun_akademik }}" data-modal-toggle="edit_tahun_akademik_modal" class="edit-modal-btn bg-blue-500 hover:bg-blue-700 text-white font-poppins font-normal py-1 px-2 rounded">Edit</button>
-
                             <!-- Modal -->
                             <div id="edit_tahun_akademik_modal" tabindex="-1" aria-hidden="true"class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
                                 <div class="relative p-4 w-full max-w-md max-h-full">

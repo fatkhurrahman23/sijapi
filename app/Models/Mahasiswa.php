@@ -42,7 +42,7 @@ class Mahasiswa extends Model
     }
 
     public function tahun_akademik(){
-        return $this->belongsTo(Tahun_akademik::class, 'tahun_masuk', 'kode_tahun_akademik');
+        return $this->belongsTo(Tahun_akademik::class, 'tahun_masuk', 'tahun_akademik');
     }
 
 }

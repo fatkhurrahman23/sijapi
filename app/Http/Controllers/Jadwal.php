@@ -110,7 +110,6 @@ class Jadwal extends Controller
     public function tambahDataTahunAkademik(Request $request)
     {
         $data = new Tahun_akademik();
-        $data->kode_tahun_akademik = $request->kode_tahun_akademik;
         $data->tahun_akademik = $request->tahun_akademik;
         $data->status = $request->status;
         $data->save();
@@ -126,7 +125,6 @@ class Jadwal extends Controller
     public function updateDataTahunAkademik(Request $request, $id)
     {
         $data = Tahun_akademik::where('id', $id)->first();
-        $data->kode_tahun_akademik = $request->kode_tahun_akademik;
         $data->tahun_akademik = $request->tahun_akademik;
         $data->status = $request->status;
         $data->save();
@@ -156,7 +154,6 @@ class Jadwal extends Controller
         $dataEnrollment = new Enrollment();
         $dataEnrollment->kode_enrollment = $request->kode_enrollment;
         $dataEnrollment->kode_dosen = $request->kode_dosen;
-        $dataEnrollment->kode_tahun_akademik = $request->kode_tahun_akademik;
         $dataEnrollment->kode_mata_kuliah = $request->kode_mata_kuliah;
         $dataEnrollment->save();
         return redirect('admin/enrollment')->with('add', 'Enrollment telah ditambahkan');;
@@ -177,7 +174,6 @@ class Jadwal extends Controller
         $dataTahun = Tahun_akademik::all();
         DB::table('enrollment')->where('kode_enrollment', $request->kode_enrollment)->update([
             'kode_dosen' => $request->kode_dosen,
-            'kode_tahun_akademik' => $request->kode_tahun_akademik,
             'kode_mata_kuliah' => $request->kode_mata_kuliah
         ]);
         return redirect('admin/enrollment')->with('update', 'Enrollment telah diupdate');;

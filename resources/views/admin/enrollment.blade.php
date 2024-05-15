@@ -52,16 +52,6 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="sm:col-span-2 sm:col-start-1">
-                                <label for="kode_tahun_akademik" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Tahun Akademik</label>
-                                <div class="mt-2">
-                                    <select id="kode_tahun_akademik" name="kode_tahun_akademik" class="block pl-1 w-3/4 rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required>
-                                        @foreach($dataTahun as $tahun)
-                                            <option value="{{ $tahun->kode_tahun_akademik }}">{{ $tahun->tahun_akademik }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
                             <div class="sm:col-span-2">
                                 <label for="kode_mata_kuliah" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Matkul</label>
                                 <div class="mt-2">
@@ -103,13 +93,6 @@
                                     @foreach($dataDosen as $dosen)
                                         @if($dosen->kode_dosen == $value->kode_dosen)
                                             {{ $dosen->nama }}
-                                        @endif
-                                    @endforeach
-                                </td>
-                                <td class="border pl-2 py-2">
-                                    @foreach($dataTahun as $tahun)
-                                        @if($tahun->kode_tahun_akademik == $value->kode_tahun_akademik)
-                                            {{ $tahun->tahun_akademik }}
                                         @endif
                                     @endforeach
                                 </td>
@@ -165,16 +148,6 @@
                                     <select id="kode_dosen" name="kode_dosen" class="block w-full pl-1 rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" >
                                         @foreach($dataDosen as $dosen)
                                             <option value="{{ $dosen->kode_dosen }}">{{ $dosen->nama }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="sm:col-span-2 sm:col-start-1">
-                                <label for="kode_tahun_akademik" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Tahun Akademik</label>
-                                <div class="mt-2">
-                                    <select id="kode_tahun_akademik" name="kode_tahun_akademik" class="block pl-1 w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                                        @foreach($dataTahun as $tahun)
-                                            <option value="{{ $tahun->kode_tahun_akademik }}">{{ $tahun->tahun_akademik }}</option>
                                         @endforeach
                                     </select>
                                 </div>
