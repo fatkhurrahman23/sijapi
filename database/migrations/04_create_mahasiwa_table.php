@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('nama', 90);
             $table->string('tahun_masuk');
             $table->string('kode_prodi', 20);
-            $table->string('kelas');
+            $table->string('kelas')->default('A');
             $table->string('tingkat', 4)->default('1');
             $table->string('kode_kelas');
             $table->enum('jenis_kelamin', ['L', 'P']);

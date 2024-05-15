@@ -38,7 +38,7 @@ class users extends Seeder
             [
                 'uuid' => (string) Str::uuid(),
                 'username' => '43322001',
-                'password' => Hash::make('asd'), // Hash the password
+                'password' => Hash::make('43322001'), // Hash the password
                 'level' => 'mahasiswa'
             ],
         ]
