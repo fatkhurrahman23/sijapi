@@ -11,7 +11,7 @@
 
 <body class="">
     <div class="contain overflow-x-hidden">
-        <nav class="bg-custom-birutua shadow-2xl flex justify-between align-middle items-center w-full mx-auto px-6 h-12">
+        <nav class="bg-custom-birutua  shadow-bottom flex justify-between align-middle items-center w-full mx-auto px-6 h-12">
             <div class="">
                 <div class="w-24 flex items-center align-middle justify-center bg-sijapi-update cursor-pointer bg-contain h-7 bg-no-repeat "></div>
             </div>

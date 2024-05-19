@@ -6,6 +6,11 @@
     z-index: 1000;
     /* Sisanya tetap seperti sebelumnya */
 }
+#navbar {
+    top: 0;
+    transition: top 0.4s;
+}
+
 @media (max-width: 768px) {
     .nav-links {
         background-color: rgba(

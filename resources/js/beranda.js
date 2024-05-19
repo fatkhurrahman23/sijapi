@@ -50,3 +50,51 @@ document.addEventListener("DOMContentLoaded", function () {
     prevButton.addEventListener("click", showPrevSlide);
     nextButton.addEventListener("click", showNextSlide);
 });
+
+$(document).ready(function () {
+    const typewriterElement = document.querySelector(".hometype");
+    const phrases = [
+        "SELAMAT DATANG DI SIJAPI",
+        "APLIKASI PENJADWALAN PRESENSI",
+    ];
+    let currentPhraseIndex = 0;
+
+    function typeWriter(text, i, callback) {
+        if (i < text.length) {
+            typewriterElement.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(function () {
+                typeWriter(text, i, callback);
+            }, 100);
+        } else {
+            setTimeout(callback, 1000);
+        }
+    }
+
+    function eraseText(callback) {
+        let text = typewriterElement.innerHTML;
+        let i = text.length - 1;
+
+        const erasingInterval = setInterval(function () {
+            text = text.substring(0, i);
+            typewriterElement.innerHTML = text;
+            i--;
+
+            if (i < 0) {
+                clearInterval(erasingInterval);
+                callback();
+            }
+        }, 50);
+    }
+
+    function nextPhrase() {
+        eraseText(function () {
+            currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
+            typewriterElement.innerHTML = " ";
+            typeWriter(phrases[currentPhraseIndex], 0, nextPhrase);
+        });
+    }
+
+    // Start the typewriter effect
+    typeWriter(phrases[currentPhraseIndex], 0, nextPhrase);
+});

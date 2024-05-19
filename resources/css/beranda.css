@@ -5,7 +5,13 @@
 .back {
     background-position: center;
 }
-
+.hometype {
+    font-family: "Poppins";
+    font-weight: bold;
+    overflow: hidden;
+    position: absolute;
+    border-right: 0.1em solid #ffbd59;
+}
 .animator {
     transition: transform 0.5s ease-out;
 }

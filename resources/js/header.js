@@ -34,3 +34,39 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 });
+$(document).ready(function () {
+    // Tambahkan animasi scroll untuk tautan navbar
+    $("a.nav-link").on("click", function (event) {
+        if (this.hash !== "") {
+            // Mencegah perilaku bawaan
+            event.preventDefault();
+
+            // Mengambil hash dari tautan
+            var hash = this.hash;
+
+            // Menggunakan animasi jQuery untuk scroll ke elemen yang sesuai
+            $("html, body").animate(
+                {
+                    scrollTop: $(hash).offset().top,
+                },
+                800,
+                function () {
+                    // Menambahkan hash ke URL setelah animasi selesai (opsional)
+                    window.location.hash = hash;
+                }
+            );
+        }
+    });
+});
+var prevScrollpos = window.pageYOffset;
+var navbar = document.getElementById("navbar");
+
+window.onscroll = function () {
+    var currentScrollPos = window.pageYOffset;
+    if (prevScrollpos > currentScrollPos) {
+        navbar.style.top = "0";
+    } else {
+        navbar.style.top = "-50px";
+    }
+    prevScrollpos = currentScrollPos;
+};

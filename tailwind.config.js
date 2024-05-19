@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+    plugins: [require("flowbite/plugin")],
     content: [
         "./resources/**/*.blade.php",
         "./resources/**/*.js",
@@ -91,6 +92,12 @@ module.exports = {
                 "url('/resources/Assets/image/popup_presensi.png')",
             "animasi-phone": "url('/resources/Assets/image/animasi-phone.png')",
             admin: "url('/resources/Assets/image/admin.png')",
+            "polines-full": "url('/resources/Assets/image/polinesfull.png')",
+            bukuberanda: "url('/resources/Assets/image/bukuberanda.png')",
+            bermanfaat1: "url('/resources/Assets/image/bermanfaat1.jpg')",
+            bermanfaat2: "url('/resources/Assets/image/bermanfaat2.jpg')",
+            bermanfaat3: "url('/resources/Assets/image/bermanfaat3.jpg')",
+            gkt: "url('/resources/Assets/image/gkt.png')",
         },
         backgroundOpacity: ({ theme }) => theme("opacity"),
         backgroundPosition: {
@@ -209,12 +216,15 @@ module.exports = {
             custom: {
                 birutua: "#083358",
                 kuning: "#FFD717",
+                kuningtua: "#FFBD59",
                 birumuda: "#0D63A5",
                 putih: "#F4F4F4",
-                birumuda: "#0F4B7E",
                 silver: "#DBDFEB",
                 abu: "#F9F9F9",
                 dark: "#342e37",
+                tomat: "#FFBD59",
+                abugelap: "#A9A9A9",
+                hitam: "#121212",
             },
         }),
         columns: {
@@ -395,8 +405,10 @@ module.exports = {
             ],
             poppins: ["Poppins"],
             comicnue: ["Comic Neue"],
+            anton: ["Anton"],
         },
         fontSize: {
+            ls: ["0.65rem", { lineHeight: "0.85rem" }],
             xs: ["0.75rem", { lineHeight: "1rem" }],
             sm: ["0.875rem", { lineHeight: "1.25rem" }],
             base: ["1rem", { lineHeight: "1.5rem" }],
@@ -617,6 +629,8 @@ module.exports = {
             min: "min-content",
             max: "max-content",
             fit: "fit-content",
+            97: "68vh",
+            98: "80vh",
             99: "90vh",
             100: "100vh",
             110: "110vh",
@@ -957,6 +971,7 @@ module.exports = {
             72: "18rem",
             80: "20rem",
             96: "24rem",
+            100: "35rem",
         },
         stroke: ({ theme }) => ({
             none: "none",
@@ -1124,7 +1139,9 @@ module.exports = {
             min: "min-content",
             max: "max-content",
             fit: "fit-content",
+            97: "100vh",
             120: "170vh",
+            140: "200vh",
         }),
         willChange: {
             auto: "auto",
