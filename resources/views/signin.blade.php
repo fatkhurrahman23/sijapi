@@ -11,7 +11,7 @@
         @media (max-width: 768px) {
             .second {
                 grid-template-columns: 1fr;
-                height: auto;
+                height: 110%;
                 grid-template-rows: 1fr 1fr;
             }
 
@@ -22,6 +22,7 @@
                 display: flex;
                 flex-direction: column;
                 text-align: center;
+               
             }
 
             .second-right {
@@ -30,18 +31,18 @@
             }
 
             .second-text-first{
-                display: block;
+                display: hidden;
+                font-size: 3vh;
             }
-            .second-text-third {
-                display: block;
-            }
+            
 
             .second-text-second {
                 display: block;
-                background-image: url('resources/Assets/image/background-andorid.png');
-                background-size: cover;
-                width: 100%;
-                height: 100%;
+                
+            }
+
+            .second-text-third {
+                display: block;
             }
 
             .logo-cap {
