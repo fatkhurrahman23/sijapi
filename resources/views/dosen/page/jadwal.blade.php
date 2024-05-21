@@ -2,7 +2,13 @@
 @section('content')
     @vite('resources\css\jadwalBukanAdmin.css')
     @vite('resources\js\jadwalBukanAdmin.js')
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <div class="px-9 bg-custom-silver border border-solid border-yellow-400 w-screen">
         <div class="mt-5 flex h-72">
             <div class="bg-custom-putih pt-3 pl-4 flex-1 hidden md:block rounded-l-lg">
@@ -15,32 +21,25 @@
             </div>
         </div>
 
-        <div class="tengah bg-custom-putih rounded-lg grow my-9 p-4" >
-            <p class="text-yellow-500 px-4 mt-4 font-poppins font-semibold underline underline-offset-4 h-12">Jadwal hari ini</p>
-            <p class="font-poppins flex justify-center font-bold h-12">Jumat, 03 Juni 2024</p>
-            <div class="overflow-x-auto pb-5 flex justify-center ">
-                <table class="table-auto w-11/12 border-collapse">
+        <div class="overflow-x-auto pb-12 px-8  my-7 py-7 bg-custom-abu rounded-2xl">
+                <table id="myTable" class="dataTables_wrapper mt-11 w-full table table-striped">
                     <thead>
                         <tr>
                             <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">No</th>
-                            <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Waktu</th>
-                            <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Mata kuliah</th>
-                            <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Dosen</th>
-                            <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Ruangan</th>
+                            <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Kode Prodi</th>
+                            <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Nama Prodi</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="border px-4 py-2">01</td>
-                            <td class="border px-4 py-2">07:00 - 09:00</td>
-                            <td class="border px-4 py-2">Machine Learning</td>
-                            <td class="border px-4 py-2">Kurnianingsih</td>
-                            <td class="border px-4 py-2">MST III/04</td>
+                            <td class="border px-4 py-2">1</td>
+                            <td class="border px-2 py-2">MK921</td>
+                            <td class="border px-2 py-2">Machine Learning</td>
+                           
                         </tr>
                     </tbody>
                 </table>
             </div>
-        </div>
 
         <div class="bg-custom-putih rounded-lg my-9 p-4 " >
             <p class=" px-4 mt-4 font-poppins font-semibold h-12">Jadwal kaldik</p>
@@ -57,4 +56,14 @@
         </div>
 
     </div>
+        <!-- DataTables -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
 @endsection

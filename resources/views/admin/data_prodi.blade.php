@@ -71,7 +71,6 @@
                 </div>
             </form>
             <div class="overflow-x-auto pb-12 px-8  my-7 py-7 bg-custom-abu rounded-2xl">
-{{--                <table id="myTable" class="mt-11 w-full table table-striped">--}}
                 <table id="myTable" class="dataTables_wrapper mt-11 w-full table table-striped">
                     <thead>
                         <tr>
