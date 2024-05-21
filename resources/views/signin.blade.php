@@ -11,18 +11,12 @@
         @media (max-width: 768px) {
             .second {
                 grid-template-columns: 1fr;
-                height: 110%;
+                height: 110vh;
                 grid-template-rows: 1fr 1fr;
             }
 
             .second-left {
                 max-height: 100%;
-                justify-content: center;
-                align-items: center;
-                display: flex;
-                flex-direction: column;
-                text-align: center;
-               
             }
 
             .second-right {
@@ -30,23 +24,14 @@
                 align-items: center;
             }
 
-            .second-text-first{
-                display: hidden;
-                font-size: 3vh;
-            }
-            
-
-            .second-text-second {
-                display: block;
-                
-            }
-
+            .second-text-first,
+            .second-text-second,
             .second-text-third {
                 display: block;
             }
 
             .logo-cap {
-                display: block;
+                display: none;
             }
 
             ul {
@@ -74,7 +59,10 @@
                 margin-top: 2rem;
             }
 
-            .password,
+            .password {
+                font-size: 2.3vh;
+            }
+
             .username {
                 font-size: 2.3vh;
             }
