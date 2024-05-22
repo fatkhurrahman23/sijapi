@@ -65,6 +65,7 @@
         "foreground-child": "^3.1.1",
         "form-data": "^4.0.0",
         "fraction.js": "^4.3.7",
+        "fullcalendar": "^6.1.11",
         "function-bind": "^1.1.2",
         "glob": "^10.3.10",
         "glob-parent": "^6.0.2",
