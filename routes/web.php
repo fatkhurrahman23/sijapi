@@ -209,8 +209,9 @@ Route::group(['middleware' => ['cekUserLevel:dosen'], 'prefix' => 'dosen'], func
     // ======================================== JADWAL DOSEN ========================================
     Route::get('/page/jadwal', [DosenController::class, 'tampilJadwal']);
 
-    // ======================================== JADWAL DOSEN ========================================
+    // ======================================== PRESENSI DOSEN ========================================
     Route::get('/page/presensi', [DosenController::class, 'tampilPresensi']);
+
 
 });
 
