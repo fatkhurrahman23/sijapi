@@ -1,41 +1,66 @@
 @extends('dosen.page.header')
-@section('content')
-    @vite('resources\css\jadwalBukanAdmin.css')
-    @vite('resources\js\jadwalBukanAdmin.js')
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-   
-    <div class=" w-screen h-full py-20 ">
-        <div id='calendar' class="container w-screen mx-auto"></div>
+@section('content')
+    @vite(['resources/css/mobiscroll.jquery.min.css', 'resources/js/mobiscroll.jquery.min.js'])
+
+    <script>
+      // Ignore this in your implementation
+      window.isMbscDemo = true;
+    </script>
+
+    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+
+    <style type="text/css">
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      body,
+      html {
+        height: 100%;
+      }
+    </style>
+    <div class="w-screen h-full mt-12 px-2 py-2">
+      <div mbsc-page class="demo-responsive-month-view">
+        <div style="height: 100%">
+          <div id="demo-responsive-month-view"></div>
+        </div>
+      </div>
     </div>
 
-    <!-- Calender -->
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
     <script>
-
-      document.addEventListener('DOMContentLoaded', function() {
-        var calendarEl = document.getElementById('calendar');
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-          initialView: 'dayGridMonth'
+      
+      $(document).ready(function() {
+        mobiscroll.setOptions({
+          locale: mobiscroll.localeEn, // Specify language like: locale: mobiscroll.localePl or omit setting to use default
+          theme: "ios", // Specify theme like: theme: 'ios' or omit setting to use default
+          themeVariant: "light", // More info about themeVariant: https://mobiscroll.com/docs/jquery/eventcalendar/api#opt-themeVariant
         });
-        calendar.render();
-      });
 
+        var inst = $("#demo-responsive-month-view")
+          .mobiscroll()
+          .eventcalendar({
+            responsive: {
+              xsmall: {
+                view: {
+                  calendar: { type: "week" },
+                  agenda: { type: "day" },
+                },
+              },
+              custom: {
+                breakpoint: 600,
+                view: {
+                  calendar: { labels: true },
+                },
+              },
+            },
+          })
+          .mobiscroll("getInst");
+
+        $.getJSON("https://trial.mobiscroll.com/events/?vers=5&callback=?", function (events) {
+          inst.setEvents(events);
+        }, "jsonp");
+      });
     </script>
-        <!-- DataTables -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
 @endsection
