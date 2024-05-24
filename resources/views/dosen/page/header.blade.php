@@ -12,7 +12,7 @@
 
 <body class="">
     <div class="contain overflow-x-hidden">
-        <nav class=" bg-custom-birutua flex justify-between fixed items-center mx-auto h-12 shadow-md z-50" id="navbar">
+        <nav class=" bg-custom-birutua flex justify-between fixed items-center mx-auto h-12 z-50" id="navbar">
             <div class="w-screen h-full justify-between flex mx-2 ">
                 <p class="ml-7 justify-start flex  items-center font-poppins font-bold  h-full text-xl sm:text-2xl text-custom-tomat w-96">S I J A P I</p>
                 <div class="h-full w-96 items-center  flex justify-between">

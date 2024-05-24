@@ -7,39 +7,53 @@
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
     @vite('resources/css/header.css')
     @vite('resources/js/header.js')
+    
 </head>
 
 <body class="">
     <div class="contain overflow-x-hidden">
-        <nav class="bg-custom-birutua  shadow-bottom flex justify-between align-middle items-center w-full mx-auto px-6 h-12">
-            <div class="">
-                <div class="w-24 flex items-center align-middle justify-center bg-sijapi-update cursor-pointer bg-contain h-7 bg-no-repeat "></div>
-            </div>
-            <div class="z-50 nav-links duration-500 md:static absolute md:min-h-fit min-h-[10vh] left-0 top-[-100%] md:w-auto w-full flex items-center px-5">
-                <ul class=" flex md:flex-row flex-col md:items-center md:gap-[3vw] gap-1 ">
-                    <li id="beranda-nav" class="">
-                        <a class="text-custom-putih hover:text-gray-500 " href="{{ url('mahasiswa/page/beranda') }}">Beranda</a>
-                    </li>
-                    <li id="jadwal-nav" class="">
-                        <a class="text-custom-putih hover:text-gray-500" href="{{ url('mahasiswa/page/jadwal') }}">Jadwal</a>
-                    </li>
-                    <li id="presensi-nav" class="">
-                        <a class="text-custom-putih hover:text-gray-500" href="{{ url('mahasiswa/page/presensi') }}">Presensi</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="flex items-center gap-2 z-50">
-
-            <p class= "text-white mr-8  "> {{ session('namaMhs') }} </p>
-                <a href="/logout">
-
-                <button class="bg-custom-birumuda border border-solid border-custom-putih text-white px-3 py-1 rounded-lg hover:bg-blue-900">
-                    Log out
-                </button>
+        <nav class=" bg-custom-birutua flex justify-between fixed items-center mx-auto h-12 shadow-md z-50" id="navbar">
+            <div class="w-screen h-full justify-between flex mx-2 ">
+                <p class="ml-7 justify-start flex  items-center font-poppins font-bold  h-full text-xl sm:text-2xl text-custom-tomat w-96">S I J A P I</p>
+                <div class="h-full w-96 items-center  flex justify-between">
+                    <ul class=" gap-12  mx-auto hidden sm:flex z-50">
+                        <li><a href="{{ url('dosen/page/beranda') }}" class="font-poppins font-normal text-custom-putih text-sm md:text-base lg:text-base ">Beranda</a></li>  
+                        <li><a href="{{ url('dosen/page/jadwal') }}" class="font-poppins font-normal text-custom-putih text-sm md:text-base lg:text-base ">Jadwal</a></li>
+                        <li><a href="{{ url('dosen/page/presensi') }}" class="font-poppins font-normal text-custom-putih text-sm md:text-base lg:text-base">Presensi</a></li>
+                    </ul>
+                </div>
+             
+                <p>{{ session('namaMhs') }}</p>
+                <a class="w-96  items-center flex justify-end font-poppins mr-12" href="/logout">
+                    <button class="bg-custom-birutua to-custom-birumuda text-ls sm:text-base  border border-solid border-custom-putih text-custom-putih font-semibold px-3 py-1 rounded-lg ">
+                        Log out
+                    </button>
                 </a>
-
-
-                <ion-icon id="menu-icon" name="menu" class="text-3xl cursor-pointer md:hidden"></ion-icon>
+            </div>
+            <div class="fixed bg-custom-birutua w-full bottom-0 h-12 z-50 sm:hidden">
+                <div class="mx-4 my-2">
+                    <ul class="flex mx-auto  justify-around w-full ">
+                        <button>
+                            <li class=" flex flex-col items-center justify-between gap-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" width="16px" height="16px" viewBox="0 0 512 512"><path fill="#FFD717" d="M261.56 101.28a8 8 0 00-11.06 0L66.4 277.15a8 8 0 00-2.47 5.79L63.9 448a32 32 0 0032 32H192a16 16 0 0016-16V328a8 8 0 018-8h80a8 8 0 018 8v136a16 16 0 0016 16h96.06a32 32 0 0032-32V282.94a8 8 0 00-2.47-5.79z"/><path d="M490.91 244.15l-74.8-71.56V64a16 16 0 00-16-16h-48a16 16 0 00-16 16v32l-57.92-55.38C272.77 35.14 264.71 32 256 32c-8.68 0-16.72 3.14-22.14 8.63l-212.7 203.5c-6.22 6-7 15.87-1.34 22.37A16 16 0 0043 267.56L250.5 69.28a8 8 0 0111.06 0l207.52 198.28a16 16 0 0022.59-.44c6.14-6.36 5.63-16.86-.76-22.97z" fill="#FFD717" stroke="#FFD717"/></svg>
+                                <a href="{{ url('dosen/page/beranda') }}" class="font-poppins text-ls text-custom-kuning">Beranda</a>
+                            </li>
+                        </button>
+                        <button>
+                            <li class=" flex flex-col items-center justify-between gap-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" width="16px" height="16px" viewBox="0 0 512 512"><path d="M428 224H288a48 48 0 01-48-48V36a4 4 0 00-4-4h-92a64 64 0 00-64 64v320a64 64 0 0064 64h224a64 64 0 0064-64V228a4 4 0 00-4-4zm-92 160H176a16 16 0 010-32h160a16 16 0 010 32zm0-80H176a16 16 0 010-32h160a16 16 0 010 32z" fill="#fff"/><path fill="#fff" d="M419.22 188.59L275.41 44.78a2 2 0 00-3.41 1.41V176a16 16 0 0016 16h129.81a2 2 0 001.41-3.41z"/></svg>                                
+                                <a href="{{ url('dosen/page/jadwal') }}" class="font-poppins text-ls text-custom-putih">Jadwal</a>
+                            </li>
+                        </button>
+                        <button>
+                            <li class=" flex flex-col items-center justify-between gap-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" width="16px" height="16px" viewBox="0 0 512 512"><path fill="#fff" d="M439.91 112h-23.82a.09.09 0 00-.09.09V416a32 32 0 0032 32 32 32 0 0032-32V152.09A40.09 40.09 0 00439.91 112z"/><path fill="#fff" d="M384 416V72a40 40 0 00-40-40H72a40 40 0 00-40 40v352a56 56 0 0056 56h342.85a1.14 1.14 0 001.15-1.15 1.14 1.14 0 00-.85-1.1A64.11 64.11 0 01384 416zM96 128a16 16 0 0116-16h64a16 16 0 0116 16v64a16 16 0 01-16 16h-64a16 16 0 01-16-16zm208 272H112.45c-8.61 0-16-6.62-16.43-15.23A16 16 0 01112 368h191.55c8.61 0 16 6.62 16.43 15.23A16 16 0 01304 400zm0-64H112.45c-8.61 0-16-6.62-16.43-15.23A16 16 0 01112 304h191.55c8.61 0 16 6.62 16.43 15.23A16 16 0 01304 336zm0-64H112.45c-8.61 0-16-6.62-16.43-15.23A16 16 0 01112 240h191.55c8.61 0 16 6.62 16.43 15.23A16 16 0 01304 272zm0-64h-63.55c-8.61 0-16-6.62-16.43-15.23A16 16 0 01240 176h63.55c8.61 0 16 6.62 16.43 15.23A16 16 0 01304 208zm0-64h-63.55c-8.61 0-16-6.62-16.43-15.23A16 16 0 01240 112h63.55c8.61 0 16 6.62 16.43 15.23A16 16 0 01304 144z"/></svg>
+                                <a href="{{ url('dosen/page/presensi') }}" class="font-poppins text-ls text-custom-putih">Presensi</a>
+                            </li>
+                        </button>
+                
+                    </ul>
+                </div>
             </div>
         </nav>
         <div class="container">
@@ -47,6 +61,35 @@
         </div>
     </div>
 
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const productElement = document.querySelector(".slowshake6");
+
+        if (productElement) {
+          productElement.addEventListener("mouseenter", function () {
+            // Add the 'slow-shake' class on mouse enter
+            productElement.classList.add("slow-shake");
+          });
+
+          productElement.addEventListener("mouseleave", function () {
+            // Remove the 'slow-shake' class on mouse leave
+            productElement.classList.remove("slow-shake");
+          });
+        }
+      });
+    </script>
+    <script>
+      var prevScrollpos = window.pageYOffset;
+      window.onscroll = function () {
+        var currentScrollPos = window.pageYOffset;
+        if (prevScrollpos > currentScrollPos) {
+          document.getElementById("navbar").style.top = "0";
+        } else {
+          document.getElementById("navbar").style.top = "-50px";
+        }
+        prevScrollpos = currentScrollPos;
+      };
+    </script>
 </body>
 
 </html>

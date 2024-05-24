@@ -79,24 +79,24 @@
             
         </div>
         <div class="hidden sm:flex md:flex lg:flex xl:flex  flex-col bg-custom-birutua justify-center items-center py-3">
-            <div class="flex justify-center w-screen my-7">
-                <div class="px-8  flex justify-center">
+            <div class="flex justify-around lg:justify-center w-screen my-7">
+                <div class="lg:px-20  flex justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" width="55px" height="55px" class="ionicon" viewBox="0 0 512 512"><path fill="#ffffff" d="M432 176H320V64a48 48 0 00-48-48H80a48 48 0 00-48 48v416a16 16 0 0016 16h104a8 8 0 008-8v-71.55c0-8.61 6.62-16 15.23-16.43A16 16 0 01192 416v72a8 8 0 008 8h264a16 16 0 0016-16V224a48 48 0 00-48-48zM98.08 431.87a16 16 0 1113.79-13.79 16 16 0 01-13.79 13.79zm0-80a16 16 0 1113.79-13.79 16 16 0 01-13.79 13.79zm0-80a16 16 0 1113.79-13.79 16 16 0 01-13.79 13.79zm0-80a16 16 0 1113.79-13.79 16 16 0 01-13.79 13.79zm0-80a16 16 0 1113.79-13.79 16 16 0 01-13.79 13.79zm80 240a16 16 0 1113.79-13.79 16 16 0 01-13.79 13.79zm0-80a16 16 0 1113.79-13.79 16 16 0 01-13.79 13.79zm0-80a16 16 0 1113.79-13.79 16 16 0 01-13.79 13.79zm0-80a16 16 0 1113.79-13.79 16 16 0 01-13.79 13.79zm80 320a16 16 0 1113.79-13.79 16 16 0 01-13.79 13.79zm0-80a16 16 0 1113.79-13.79 16 16 0 01-13.79 13.79zm0-80a16 16 0 1113.79-13.79 16 16 0 01-13.79 13.79zm0-80a16 16 0 1113.79-13.79 16 16 0 01-13.79 13.79zm0-80a16 16 0 1113.79-13.79 16 16 0 01-13.79 13.79zM444 464H320V208h112a16 16 0 0116 16v236a4 4 0 01-4 4z"/><path fill="#ffffff" d="M400 400a16 16 0 1016 16 16 16 0 00-16-16zM400 320a16 16 0 1016 16 16 16 0 00-16-16zM400 240a16 16 0 1016 16 16 16 0 00-16-16zM336 400a16 16 0 1016 16 16 16 0 00-16-16zM336 320a16 16 0 1016 16 16 16 0 00-16-16zM336 240a16 16 0 1016 16 16 16 0 00-16-16z"/></svg>                    
-                    <div class="px-9">
+                    <div class="px-5">
                         <p class="font-poppins text-base sm:text-xl md:text-xl lg:text-xl font-medium text-custom-kuningtua ">Gedung</p>
                         <p class="font-poppins font-medium text-base sm:text-lg md:text-lg lg:text-lg text-white">11 Total</p>
                     </div>
                 </div>        
-                <div class=" px-8  flex justify-center">
+                <div class="lg:px-20 flex justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg"  width="55px" height="55px" class="ionicon" viewBox="0 0 512 512"><path fill="#ffffff" d="M336 80H176a16 16 0 00-16 16v16h192V96a16 16 0 00-16-16z" /><path fill="#ffffff" d="M496 176a64.07 64.07 0 00-64-64h-48V96a48.05 48.05 0 00-48-48H176a48.05 48.05 0 00-48 48v16H80a64.07 64.07 0 00-64 64v48h480zm-144-64H160V96a16 16 0 0116-16h160a16 16 0 0116 16zM336 264a24 24 0 01-24 24H200a24 24 0 01-24-24v-4a4 4 0 00-4-4H16v144a64 64 0 0064 64h352a64 64 0 0064-64V256H340a4 4 0 00-4 4z"/></svg>
-                    <div class="px-9">
+                    <div class="px-5">
                         <p class="font-poppins text-base sm:text-xl md:text-xl lg:text-xl font-medium text-custom-kuningtua ">Ruang Kuliah</p>
                         <p class="font-poppins font-medium text-base sm:text-lg md:text-lg lg:text-lg text-white">91 Total</p>
                     </div>
                 </div>     
-                <div class="  flex justify-center">
+                <div class="lg:px-20  flex justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" width="55px" height="55px" class="ionicon" viewBox="0 0 512 512"><path fill="#ffffff" d="M432 176H320V64a48 48 0 00-48-48H80a48 48 0 00-48 48v416a16 16 0 0016 16h104a8 8 0 008-8v-71.55c0-8.61 6.62-16 15.23-16.43A16 16 0 01192 416v72a8 8 0 008 8h264a16 16 0 0016-16V224a48 48 0 00-48-48zM98.08 431.87a16 16 0 1113.79-13.79 16 16 0 01-13.79 13.79zm0-80a16 16 0 1113.79-13.79 16 16 0 01-13.79 13.79zm0-80a16 16 0 1113.79-13.79 16 16 0 01-13.79 13.79zm0-80a16 16 0 1113.79-13.79 16 16 0 01-13.79 13.79zm0-80a16 16 0 1113.79-13.79 16 16 0 01-13.79 13.79zm80 240a16 16 0 1113.79-13.79 16 16 0 01-13.79 13.79zm0-80a16 16 0 1113.79-13.79 16 16 0 01-13.79 13.79zm0-80a16 16 0 1113.79-13.79 16 16 0 01-13.79 13.79zm0-80a16 16 0 1113.79-13.79 16 16 0 01-13.79 13.79zm80 320a16 16 0 1113.79-13.79 16 16 0 01-13.79 13.79zm0-80a16 16 0 1113.79-13.79 16 16 0 01-13.79 13.79zm0-80a16 16 0 1113.79-13.79 16 16 0 01-13.79 13.79zm0-80a16 16 0 1113.79-13.79 16 16 0 01-13.79 13.79zm0-80a16 16 0 1113.79-13.79 16 16 0 01-13.79 13.79zM444 464H320V208h112a16 16 0 0116 16v236a4 4 0 01-4 4z"/><path fill="#ffffff" d="M400 400a16 16 0 1016 16 16 16 0 00-16-16zM400 320a16 16 0 1016 16 16 16 0 00-16-16zM400 240a16 16 0 1016 16 16 16 0 00-16-16zM336 400a16 16 0 1016 16 16 16 0 00-16-16zM336 320a16 16 0 1016 16 16 16 0 00-16-16zM336 240a16 16 0 1016 16 16 16 0 00-16-16z"/></svg>                    
-                    <div class="px-9">
+                    <div class="px-5">
                         <p class="font-poppins text-base sm:text-xl md:text-xl lg:text-xl font-medium text-custom-kuningtua">Lab & Workshop</p>
                         <p class="font-poppins font-medium text-base sm:text-lg md:text-lg lg:text-lg text-white">36 Total</p>
                     </div>
