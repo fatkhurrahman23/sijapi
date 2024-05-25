@@ -1,73 +1,66 @@
 @extends('mahasiswa.page.header')
+
 @section('content')
-    @vite('resources\css\jadwalBukanAdmin.css')
-    @vite('resources\js\jadwalBukanAdmin.js')
+    @vite(['resources/css/mobiscroll.jquery.min.css', 'resources/js/mobiscroll.jquery.min.js'])
 
-    <div class="px-9 bg-custom-silver border border-solid border-yellow-400 w-screen">
-        <div class="mt-5 flex h-72">
-            <div class="bg-custom-putih pt-3 pl-4 flex-1 hidden md:block rounded-l-lg">
-                <div class="bg-orang-beranda bg-cover bg-no-repeat h-full w-full"></div>
-            </div>
-            <div class="w-3/4 bg-custom-putih p-2 flex flex-col rounded-r-lg pl-12 align-middle justify-center">
-                <h1 class="mb-5 font-poppins font-semibold text-custom-birutua sm:text-2xl md:text-3xl lg:text-4xl">Hai, Hanni Pham</h1>
-                <p class="mt-2 font-poppins font-light text-black sm:text-lg lg:text-xl">Semester 4</p>
-                <p class="mt-2 font-poppins font-light text-black sm:text-lg lg:text-xl">Mahasiswa D4-Teknologi Rekayasa Komputer</p>
-                <p class="mt-4 font-poppins font-light text-black sm:text-lg lg:text-xl">Politeknik Negeri Semarang </p>
-            </div>
+    <script>
+      // Ignore this in your implementation
+      window.isMbscDemo = true;
+    </script>
+
+    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+
+    <style type="text/css">
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      body,
+      html {
+        height: 100%;
+      }
+    </style>
+    <div class="w-screen h-full mt-12 px-2 py-2">
+      <div mbsc-page class="demo-responsive-month-view">
+        <div style="height: 100%">
+          <div id="demo-responsive-month-view"></div>
         </div>
-
-        <div class="tengah bg-custom-putih rounded-lg grow my-9 p-4" >
-            <p class="text-yellow-500 px-4 mt-4 font-poppins font-semibold underline underline-offset-4 h-12">Jadwal hari ini</p>
-            <p class="font-poppins flex justify-center font-bold h-12">{{ \Carbon\Carbon::now()->locale('id')->isoFormat('dddd, D MMMM Y') }}</p>          <div class="overflow-x-auto pb-5 flex justify-center ">
-                <table class="table-auto w-11/12 border-collapse">
-                    <thead>
-                        <tr>
-                            <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">No</th>
-                            <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Waktu</th>
-                            <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Mata kuliah</th>
-                            <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Dosen</th>
-                            <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Ruangan</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="border px-4 py-2">01</td>
-                            <td class="border px-4 py-2">07:00 - 09:00</td>
-                            <td class="border px-4 py-2">Machine Learning</td>
-                            <td class="border px-4 py-2">Kurnianingsih</td>
-                            <td class="border px-4 py-2">MST III/04</td>
-                        </tr>
-                        @foreach($jadwalKuliahHariIni as $jadwal)
-                            @for($jam_kuliah = ($jadwal->kode_jam_awal); $jam_kuliah <= $jadwal->kode_jam_akhir; $jam_kuliah++)
-{{--                                {{ $jam = $jadwal->jam->jam_awal }}--}}
-                                <tr>
-                                    <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $jam_kuliah }}</td>
-{{--                                    <td>{{ $jadwal->jam->jam_awal }} - {{ $jadwal->jam->jam_akhir }}</td>--}}
-                                    <td>{{$jadwal->enrollment->mata_kuliah->nama_mata_kuliah }}</td>
-                                    <td>{{$jadwal->enrollment->dosen->nama}}</td>
-                                    <td>{{$jadwal->ruang->nama_ruang}}</td>
-                                </tr>
-                            @endfor
-                        @endforeach
-
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <div class="bg-custom-putih rounded-lg my-9 p-4 " >
-            <p class=" px-4 mt-4 font-poppins font-semibold h-12">Jadwal kaldik</p>
-            <div class="font-poppins flex justify-center align-middle items-center w-full font-bold h-140">
-                <div class="flex w-1/2 h-full bg-background-kaldik bg-contain bg-no-repeat"></div>
-            </div>
-            <div class ="flex justify-end border-solid-birumuda  mr-96">
-                <button class="ustify-self-end bg-custom-birumuda border border-solid border-custom-putih text-white px-3 py-1 rounded-lg hover:bg-blue-900 ">DOWNLOAD</button>
-            </div>
-            
-        </div>
-        <div class ="flex justify-end border-solid-birumuda  mr-96">
-                <button class="ustify-self-end bg-custom-birumuda border border-solid border-custom-putih text-white px-3 py-1 rounded-lg hover:bg-blue-900 ">DOWNLOAD</button>
-            </div>
+      </div>
     </div>
+
+    <script>
+      
+      $(document).ready(function() {
+        mobiscroll.setOptions({
+          locale: mobiscroll.localeEn, // Specify language like: locale: mobiscroll.localePl or omit setting to use default
+          theme: "ios", // Specify theme like: theme: 'ios' or omit setting to use default
+          themeVariant: "light", // More info about themeVariant: https://mobiscroll.com/docs/jquery/eventcalendar/api#opt-themeVariant
+        });
+
+        var inst = $("#demo-responsive-month-view")
+          .mobiscroll()
+          .eventcalendar({
+            responsive: {
+              xsmall: {
+                view: {
+                  calendar: { type: "week" },
+                  agenda: { type: "day" },
+                },
+              },
+              custom: {
+                breakpoint: 600,
+                view: {
+                  calendar: { labels: true },
+                },
+              },
+            },
+          })
+          .mobiscroll("getInst");
+
+        $.getJSON("https://trial.mobiscroll.com/events/?vers=5&callback=?", function (events) {
+          inst.setEvents(events);
+        }, "jsonp");
+      });
+    </script>
 @endsection

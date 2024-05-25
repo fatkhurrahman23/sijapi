@@ -137,7 +137,7 @@
             <div class="rounded-lg flex-col bg-custom-putih flex justify-center items-center second-right ">
                 <div class="w-36 h-36 mt-5 bg-logo-polines logo-cap bg-no-repeat"></div>
                 <p class="mt-2 logo-cap font-poppins text-sm">Welcome Back, Please login to your account</p>
-                <p class="font-poppins font-light text-xl sign-in">SIGN-IN</p>
+                <p class="font-poppins font-semibold text-2xl sign-in">SIGN-IN</p>
                 @if (session('error'))
                 <div class="alert alert-danger" style="color: red;">
                     {{ session('error') }}
@@ -148,21 +148,21 @@
                     {{ session('success') }}
                 </div>
                 @endif
-                <form class="w-7/12 mt-16 form" action="{{route('login')}}" method="POST">
+                <form class="flex flex-col justify-center w-7/12 mt-16 form" action="{{route('login')}}" method="POST">
                     @csrf
                     <div class="mb-1">
-                        <label for="username" class="block font-poppins mb-2 text-sm font-semibold text-gray-900 username">Username</label>
-                        <input type="username" id="username" name="username" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-custom-birutua focus:border-custom-birutua block w-11/12 p-2.5 input" required />
+                        <label for="username" class="block font-poppins mb-2 text-ls sm:text-sm md:text-sm lg:text-sm font-semibold text-gray-900 username">Username</label>
+                        <input type="username" id="username" name="username" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-custom-birutua focus:border-custom-birutua block w-full p-2.5 input" required />
                     </div>
-                    <div class="mt-3 ">
-                        <label for="password" class="block font-poppins mb-2 text-sm font-semibold text-gray-900 password">Password</label>
-                        <input type="password" id="password" name="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-custom-birutua focus:border-custom-birutua block w-11/12 p-2.5 input" required />
+                    <div class="mt-5 sm:mt-3 md:mt-3 lg:mt-3">
+                        <label for="password" class="block font-poppins mb-2 text-ls sm:text-sm md:text-sm lg:text-sm font-semibold text-gray-900 password">Password</label>
+                        <input type="password" id="password" name="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-custom-birutua focus:border-custom-birutua block w-full p-2.5 input" required />
                     </div>
-                    <div class="flex items-start mt-3 ">
+                    <div class="flex items-center mt-3 ">
                         <div class="flex items-center h-5 kotak">
                             <input id="remember" type="checkbox" value="" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-custom-birutua dark:focus:ring-blue-600" />
                         </div>
-                        <label for="remember" class="remember-forget ms-1 text-xs font-poppins font-light text-gray-900">Remember me</label>
+                        <label for="remember" class="remember-forget ms-1 text-xl sm:text-xs md:text-xs lg:text-xs font-poppins font-light text-gray-900">Remember me</label>
                         <a class="remember-forget ml-auto text-xs font-poppins font-light text-custom-birumuda hover:text-custom-birutua" href="">Forgot Password?</a>
                     </div>
                     <div class="text-center mt-5">

@@ -3,13 +3,9 @@
     @vite('resources\css\scanner.css')
     @vite('resources\js\scanner.js')
 
-    <div id="scanner" class="container flex flex-col h-screen">
-        <div class="flex justify-center items-center border w-screen py-8 px-8">
-            <video id="preview" width="100%"></video>
-        </div>
-        <div class="flex flex-col justify-center items-center border w-screen text-center">
-            <p class="border font-poppins text-lg px-12">Arahkan ke Barcode yang diberikan dosen mata kuliah yang sedang dijalankan</p>
-            <input type="text" name="text" id="text" readonly placeholder="Scan QR code" class="form-control">
+    <div id="scanner" class="container flex flex-col">
+        <div class="flex justify-center items-center border mt-8 w-screen">
+            <video id="preview" width="100%" height="100%"></video>
         </div>
     </div>
 
