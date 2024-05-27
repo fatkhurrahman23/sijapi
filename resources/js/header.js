@@ -70,3 +70,56 @@ window.onscroll = function () {
     }
     prevScrollpos = currentScrollPos;
 };
+
+document.addEventListener("DOMContentLoaded", function () {
+    const productElement = document.querySelector(".slowshake6");
+
+    if (productElement) {
+        productElement.addEventListener("mouseenter", function () {
+            // Add the 'slow-shake' class on mouse enter
+            productElement.classList.add("slow-shake");
+        });
+
+        productElement.addEventListener("mouseleave", function () {
+            // Remove the 'slow-shake' class on mouse leave
+            productElement.classList.remove("slow-shake");
+        });
+    }
+});
+
+var prevScrollpos = window.pageYOffset;
+window.onscroll = function () {
+    var currentScrollPos = window.pageYOffset;
+    if (prevScrollpos > currentScrollPos) {
+        document.getElementById("navbar").style.top = "0";
+    } else {
+        document.getElementById("navbar").style.top = "-50px";
+    }
+    prevScrollpos = currentScrollPos;
+};
+
+document.getElementById("profileIcon").addEventListener("click", function () {
+    var dropdown = document.getElementById("dropdownMenu");
+    dropdown.classList.toggle("hidden");
+});
+
+document.addEventListener("click", function (event) {
+    var isClickInside =
+        document.getElementById("profileIcon").contains(event.target) ||
+        document.getElementById("dropdownMenu").contains(event.target);
+
+    if (!isClickInside) {
+        document.getElementById("dropdownMenu").classList.add("hidden");
+    }
+});
+
+function toggleDropdown() {
+    const dropdown = document.getElementById("dropdownMenu");
+    if (dropdown.classList.contains("opacity-0")) {
+        dropdown.classList.remove("opacity-0", "pointer-events-none");
+        dropdown.classList.add("opacity-100");
+    } else {
+        dropdown.classList.remove("opacity-100");
+        dropdown.classList.add("opacity-0", "pointer-events-none");
+    }
+}

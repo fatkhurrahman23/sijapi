@@ -7,27 +7,49 @@
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
     @vite('resources/css/header.css')
     @vite('resources/js/header.js')
-    
 </head>
 
 <body class="">
     <div class="contain overflow-x-hidden">
-        <nav class=" bg-custom-birutua flex justify-between fixed items-center mx-auto h-12 z-50" id="navbar">
+        <nav class=" bg-custom-birutua flex justify-between fixed items-center mx-auto h-12 shadow-md z-50" id="navbar">
             <div class="w-screen h-full justify-between flex mx-2 ">
-                <p class="ml-7 justify-start flex  items-center font-poppins font-bold  h-full text-xl sm:text-2xl text-custom-tomat w-96">S I J A P I</p>
-                <div class="h-full w-96 items-center  flex justify-between">
+                <p class="ml-2 sm:ml-7 md:ml-7 lg:ml-7 w-full justify-start flex  items-center font-poppins font-bold  h-full text-xl sm:text-2xl text-custom-tomat">S I J A P I</p>
+                <div class="h-full w-full items-center  flex justify-between">
                     <ul class=" gap-12  mx-auto hidden sm:flex z-50">
                         <li><a href="{{ url('dosen/page/beranda') }}" class="font-poppins font-normal text-custom-putih text-sm md:text-base lg:text-base ">Beranda</a></li>  
                         <li><a href="{{ url('dosen/page/jadwal') }}" class="font-poppins font-normal text-custom-putih text-sm md:text-base lg:text-base ">Jadwal</a></li>
                         <li><a href="{{ url('dosen/page/presensi') }}" class="font-poppins font-normal text-custom-putih text-sm md:text-base lg:text-base">Presensi</a></li>
                     </ul>
                 </div>
-                <a class="w-96  items-center flex justify-end font-poppins mr-12" href="/logout">
-                    <button class="bg-custom-birutua to-custom-birumuda text-ls sm:text-base  border border-solid border-custom-putih text-custom-putih font-semibold px-3 py-1 rounded-lg ">
-                        Log out
-                    </button>
-                </a>
+             
+                <div class="w-full items-center flex justify-center sm:justify-end md:justify-end lg:justify-end font-poppins -mr-8  sm:mr-12 md:mr-12 lg:mr-12 relative">
+                    <p class="text-custom-silver sm:mr-2 md:mr-2 lg:mr-3 hidden font-poppins font-medium sm:text-base md:text-base lg:flex lg:text-base order-last sm:order-first md:order-first lg:order-first">Professor Snape</p>
+                    <div class="relative cursor-pointer group" onclick="toggleDropdown()">
+                        <div onclick="toggleDropdown()" id="profileIcon" class="flex justify-center items-center">    
+                            <svg  xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" class="ionicon" viewBox="0 0 512 512">
+                                <path stroke="#000" fill="#DBDFEB" d="M332.64 64.58C313.18 43.57 286 32 256 32c-30.16 0-57.43 11.5-76.8 32.38-19.58 21.11-29.12 49.8-26.88 80.78C156.76 206.28 203.27 256 256 256s99.16-49.71 103.67-110.82c2.27-30.7-7.33-59.33-27.03-80.6zM432 480H80a31 31 0 01-24.2-11.13c-6.5-7.77-9.12-18.38-7.18-29.11C57.06 392.94 83.4 353.61 124.8 326c36.78-24.51 83.37-38 131.2-38s94.42 13.5 131.2 38c41.4 27.6 67.74 66.93 76.18 113.75 1.94 10.73-.68 21.34-7.18 29.11A31 31 0 01432 480z"/>
+                            </svg>
+                            <svg   xmlns="http://www.w3.org/2000/svg" class="cursor-pointer animate-bounce" width="10px" height="10px" class="ionicon" viewBox="0 0 512 512">
+                                <path fill="#DBDFEB" d="M64 144l192 224 192-224H64z"/>
+                            </svg>
+                        </div>
+                        <div id="dropdownMenu" class="transition-opacity duration-300 ease-in-out absolute right-0 mt-2 w-48 bg-custom-abu opacity-95 border border-gray-200 rounded shadow-lg hidden">
+                            <div class=" py-2  lg:hidden">
+                                <p class="block px-4  text-gray-800  font-poppins text-sm font-medium">Username</p>
+                                <p class="block px-6 py-1  text-gray-800  font-poppins font-base text-xs">Professor Snape</p>
+                            </div>
+                            <a class="  cursor-pointer" href="/logout">
+                                <button class="font-poppins text-sm font-semibold px-4 w-full justify-start flex py-2 text-red-600 hover:bg-gray-100">
+                                    Log out
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                    
+                </div>
             </div>
+            
+            
             <div class="fixed bg-custom-birutua w-full bottom-0 h-12 z-50 sm:hidden">
                 <div class="mx-4 my-2">
                     <ul class="flex mx-auto  justify-around w-full ">
@@ -58,36 +80,6 @@
             @yield('content')
         </div>
     </div>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const productElement = document.querySelector(".slowshake6");
-
-        if (productElement) {
-          productElement.addEventListener("mouseenter", function () {
-            // Add the 'slow-shake' class on mouse enter
-            productElement.classList.add("slow-shake");
-          });
-
-          productElement.addEventListener("mouseleave", function () {
-            // Remove the 'slow-shake' class on mouse leave
-            productElement.classList.remove("slow-shake");
-          });
-        }
-      });
-    </script>
-    <script>
-      var prevScrollpos = window.pageYOffset;
-      window.onscroll = function () {
-        var currentScrollPos = window.pageYOffset;
-        if (prevScrollpos > currentScrollPos) {
-          document.getElementById("navbar").style.top = "0";
-        } else {
-          document.getElementById("navbar").style.top = "-50px";
-        }
-        prevScrollpos = currentScrollPos;
-      };
-    </script>
 </body>
 
 </html>

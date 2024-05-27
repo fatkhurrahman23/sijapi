@@ -4,7 +4,6 @@
     @vite(['resources/css/mobiscroll.jquery.min.css', 'resources/js/mobiscroll.jquery.min.js'])
 
     <script>
-      // Ignore this in your implementation
       window.isMbscDemo = true;
     </script>
 

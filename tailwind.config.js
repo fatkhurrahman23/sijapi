@@ -8,6 +8,18 @@ module.exports = {
     presets: [],
     darkMode: "media", // or 'class'
     theme: {
+        extend: {
+            animation: {
+                "gradual-rotate": "gradual-rotate 0.3s ease-in-out",
+            },
+            keyframes: {
+                "gradual-rotate": {
+                    "0%": { transform: "rotate(0deg)" },
+                    "50%": { transform: "rotate(3deg)" },
+                    "100%": { transform: "rotate(6deg)" },
+                },
+            },
+        },
         accentColor: ({ theme }) => ({
             ...theme("colors"),
             auto: "auto",
@@ -407,6 +419,7 @@ module.exports = {
             anton: ["Anton"],
         },
         fontSize: {
+            ms: ["0.50rem", { lineHeight: "0.60rem" }],
             ls: ["0.65rem", { lineHeight: "0.85rem" }],
             xs: ["0.75rem", { lineHeight: "1rem" }],
             sm: ["0.875rem", { lineHeight: "1.25rem" }],
