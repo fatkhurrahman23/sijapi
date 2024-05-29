@@ -68,6 +68,16 @@
                             <input type="text" name="nim" id="nim" autocomplete="nim" class="pl-2 block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required>
                         </div>
                     </div>
+                    <div class="sm:col-span-2">
+                        <label for="prodi" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Prodi</label>
+                        <div class="mt-2">
+                            <select id="prodi" name="prodi" class="pl-1 block w-3/4 rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required>
+                                @foreach($dataProdi as $prodi)
+                                    <option value="{{ $prodi->kode_prodi }}">{{ $prodi->nama }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
                     <div class="sm:col-span-2 sm:col-start-1">
                         <label for="kode_kelas" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Kelas</label>
                         <div class="mt-2">

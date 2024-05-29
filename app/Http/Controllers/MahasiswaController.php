@@ -8,13 +8,7 @@
 
     use App\Models\Mahasiswa;
     use App\Models\Data_prodi;
-    use App\Models\Ruang;
-    use App\Models\Tahun_akademik;
     use App\Models\Jadwal_kuliah;
-    use App\Models\Mata_kuliah;
-    use App\Models\Hari;
-    use App\Models\Enrollment;
-    use App\Models\Dosen;
 
 
     class MahasiswaController extends Controller
@@ -23,17 +17,22 @@
         public function tampilDataMahasiswa(Request $request){
             $dataMahasiswa = DB::table('mahasiswa')->get();
             $dataKelasMahasiswa = Kelas_mahasiswa::all();
-            return view('/admin/mahasiswa', compact('dataMahasiswa', 'dataKelasMahasiswa'));
+            $dataProdi = Data_prodi::all();
+            return view('/admin/mahasiswa', compact('dataMahasiswa', 'dataKelasMahasiswa', 'dataProdi'));
         }
 
         //tambah data ke database
         public function tambahDataMahasiswa(Request $request){
-            $dataKelasMahasiswa = Kelas_mahasiswa::all();
+            $dataKelasMahasiswa = Mahasiswa::all();
+            $tahunMasuk = new Mahasiswa();
+            $tahunMasuk->setDefaultTahunMasuk();
             DB::table('mahasiswa')->insert([
                 'nim' => $request->nim,
                 'nama' => $request->nama,
                 'jenis_kelamin' => $request->jenis_kelamin,
-                'kode_kelas' => $request->kode_kelas
+                'kode_kelas' => $request->kode_kelas,
+                'tahun_masuk' => $tahunMasuk->tahun_masuk,
+                'kode_prodi' => $request->prodi
             ]);
             return redirect('/admin/mahasiswa')->with('add', 'Mahasiswa telah ditambahkan');
         }
@@ -114,14 +113,14 @@
                 $dataKelasMahasiswa->delete();
                 return Redirect('admin/kelas_mahasiswa')->with('delete', 'Kelas Telah dihapus');
            } catch (QueryException $e) {
-            if ($e->errorInfo[1] === 1451) {
-                // Foreign key constraint violation
-                return redirect('admin/kelas_mahasiswa')->with('error', 'Data memiliki relasi, gagal menghapus');
-            } else {
-                // Other database error
-                return redirect('admin/kelas_mahasiswa')->with('error', 'Ada error ketika menghapus data');
-            }
-        }
+                if ($e->errorInfo[1] === 1451) {
+                    // Foreign key constraint violation
+                    return redirect('admin/kelas_mahasiswa')->with('error', 'Data memiliki relasi, gagal menghapus');
+                } else {
+                    // Other database error
+                    return redirect('admin/kelas_mahasiswa')->with('error', 'Ada error ketika menghapus data');
+                }
+           }
         }
 
         // ====================================== MAHASISWA BUKAN ADMIN ======================================
@@ -138,11 +137,8 @@
             // kelas mahasiswa
             $kodeKelas = $request->session()->get('kode_kelas');
 
-            DB::enableQueryLog();
             // get today's schedule
             $jadwalKuliahHariIni = Jadwal_kuliah::where('kode_kelas' , $kodeKelas)->where('kode_hari', $kodeHari)->orderBy('kode_jam_awal', 'asc')->get();
-    //        dd(DB::getQueryLog(), $jadwalKuliahHariIni->first()); // Show results of log
-//            dd($jadwalKuliahHariIni->first()->enrollment->mata_kuliah->toArray(), DB::getQueryLog()); // Show results of log
 
             return view('mahasiswa/page/jadwal', compact('jadwalKuliahHariIni'));
         }
@@ -153,10 +149,7 @@
             return view('mahasiswa/page/scanner');
         }
 
-        // ======================================== PROFILE ========================================
-        // get profile untuk mahasiswa menggunakan join table berdasarkan username user
-        // menampilkan nama, nim, dan kelas mahasiswa
-        // mengambil username dari session
+
         public function getProfileMahasiswa(Request $request)
         {
             // get username from session
@@ -170,9 +163,6 @@
                 ->where('users.username', $username)
                 ->first();
 
-    //        dd($data);
-            // return the profile data
-    //        return view('mahasiswa/page/profile', ['profile' => $profile]);
             return view('mahasiswa/page/profile', compact('profile'));
         }
 

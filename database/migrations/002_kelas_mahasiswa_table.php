@@ -28,6 +28,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        // Drop table kelas_mahasiswa
+        Schema::dropIfExists('kelas_mahasiswa');
     }
 };

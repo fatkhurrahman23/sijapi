@@ -16,16 +16,16 @@
                 <p class="ml-2 sm:ml-7 md:ml-7 lg:ml-7 w-full justify-start flex  items-center font-poppins font-bold  h-full text-xl sm:text-2xl text-custom-tomat">S I J A P I</p>
                 <div class="h-full w-full items-center  flex justify-between">
                     <ul class=" gap-12  mx-auto hidden sm:flex z-50">
-                        <li><a href="{{ url('dosen/page/beranda') }}" class="font-poppins font-normal text-custom-putih text-sm md:text-base lg:text-base ">Beranda</a></li>  
+                        <li><a href="{{ url('dosen/page/beranda') }}" class="font-poppins font-normal text-custom-putih text-sm md:text-base lg:text-base ">Beranda</a></li>
                         <li><a href="{{ url('dosen/page/jadwal') }}" class="font-poppins font-normal text-custom-putih text-sm md:text-base lg:text-base ">Jadwal</a></li>
                         <li><a href="{{ url('dosen/page/presensi') }}" class="font-poppins font-normal text-custom-putih text-sm md:text-base lg:text-base">Presensi</a></li>
                     </ul>
                 </div>
-             
+
                 <div class="w-full items-center flex justify-center sm:justify-end md:justify-end lg:justify-end font-poppins -mr-8  sm:mr-12 md:mr-12 lg:mr-12 relative">
-                    <p class="text-custom-silver sm:mr-2 md:mr-2 lg:mr-3 hidden font-poppins font-medium sm:text-base md:text-base lg:flex lg:text-base order-last sm:order-first md:order-first lg:order-first">Professor Snape</p>
+                    <p class="text-custom-silver sm:mr-2 md:mr-2 lg:mr-3 hidden font-poppins font-medium sm:text-base md:text-base lg:flex lg:text-base order-last sm:order-first md:order-first lg:order-first">{{ session('nama') }}</p>
                     <div class="relative cursor-pointer group" onclick="toggleDropdown()">
-                        <div onclick="toggleDropdown()" id="profileIcon" class="flex justify-center items-center">    
+                        <div onclick="toggleDropdown()" id="profileIcon" class="flex justify-center items-center">
                             <svg  xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" class="ionicon" viewBox="0 0 512 512">
                                 <path stroke="#000" fill="#DBDFEB" d="M332.64 64.58C313.18 43.57 286 32 256 32c-30.16 0-57.43 11.5-76.8 32.38-19.58 21.11-29.12 49.8-26.88 80.78C156.76 206.28 203.27 256 256 256s99.16-49.71 103.67-110.82c2.27-30.7-7.33-59.33-27.03-80.6zM432 480H80a31 31 0 01-24.2-11.13c-6.5-7.77-9.12-18.38-7.18-29.11C57.06 392.94 83.4 353.61 124.8 326c36.78-24.51 83.37-38 131.2-38s94.42 13.5 131.2 38c41.4 27.6 67.74 66.93 76.18 113.75 1.94 10.73-.68 21.34-7.18 29.11A31 31 0 01432 480z"/>
                             </svg>
@@ -45,11 +45,11 @@
                             </a>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
-            
-            
+
+
             <div class="fixed bg-custom-birutua w-full bottom-0 h-12 z-50 sm:hidden">
                 <div class="mx-4 my-2">
                     <ul class="flex mx-auto  justify-around w-full ">
@@ -61,7 +61,7 @@
                         </button>
                         <button>
                             <li class=" flex flex-col items-center justify-between gap-1">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" width="16px" height="16px" viewBox="0 0 512 512"><path d="M428 224H288a48 48 0 01-48-48V36a4 4 0 00-4-4h-92a64 64 0 00-64 64v320a64 64 0 0064 64h224a64 64 0 0064-64V228a4 4 0 00-4-4zm-92 160H176a16 16 0 010-32h160a16 16 0 010 32zm0-80H176a16 16 0 010-32h160a16 16 0 010 32z" fill="#fff"/><path fill="#fff" d="M419.22 188.59L275.41 44.78a2 2 0 00-3.41 1.41V176a16 16 0 0016 16h129.81a2 2 0 001.41-3.41z"/></svg>                                
+                                <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" width="16px" height="16px" viewBox="0 0 512 512"><path d="M428 224H288a48 48 0 01-48-48V36a4 4 0 00-4-4h-92a64 64 0 00-64 64v320a64 64 0 0064 64h224a64 64 0 0064-64V228a4 4 0 00-4-4zm-92 160H176a16 16 0 010-32h160a16 16 0 010 32zm0-80H176a16 16 0 010-32h160a16 16 0 010 32z" fill="#fff"/><path fill="#fff" d="M419.22 188.59L275.41 44.78a2 2 0 00-3.41 1.41V176a16 16 0 0016 16h129.81a2 2 0 001.41-3.41z"/></svg>
                                 <a href="{{ url('dosen/page/jadwal') }}" class="font-poppins text-ls text-custom-putih">Jadwal</a>
                             </li>
                         </button>
@@ -71,7 +71,7 @@
                                 <a href="{{ url('dosen/page/presensi') }}" class="font-poppins text-ls text-custom-putih">Presensi</a>
                             </li>
                         </button>
-                
+
                     </ul>
                 </div>
             </div>

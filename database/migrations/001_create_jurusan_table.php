@@ -19,12 +19,7 @@ return new class extends Migration
             $table->string('nama_jurusan');
         });
     }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+    
     public function down()
     {
         Schema::dropIfExists('jurusan');

@@ -11,14 +11,20 @@ class Data_presensi extends Model
 
     protected $table = 'data_presensi';
     protected $primarykey = 'id';
-    protected $fillable = ['kode_data_presensi', 'kode_presensi', 'nim', 'waktu', 'status']; 
+    protected $fillable = [
+        'token',
+        'nim',
+        'waktu_presensi',
+        'status'
+    ];
+    public $timestamps = false;
 
     public function mahasiswa(){
-        return $this->belongsTo('app\Models\Mahasiswa.php', 'nim');
+        return $this->belongsTo(Mahasiswa::class, 'nim', 'nim');
     }
 
-    public function presensi(){
-        return $this->hasMany('app\Models\Presensi.php', 'kode_presensi');
+    public function token_presensi(){
+        return $this->belongsTo(TokenPresensi::class, 'token', 'token');
     }
 
 }

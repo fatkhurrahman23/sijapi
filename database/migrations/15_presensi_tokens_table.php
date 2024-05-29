@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('presensi_tokens', function (Blueprint $table) {
             $table->id();
-            $table->string('token');
+            $table->string('token')->unique();
             $table->string('kode_jadwal_kuliah');
             $table->dateTime('created_at')->useCurrent();
             $table->dateTime('expired_at')->nullable();

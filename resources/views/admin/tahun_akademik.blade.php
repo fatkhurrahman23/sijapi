@@ -30,35 +30,64 @@
                                     <p>Total Tahun</p>
                                     </span>
                                 </li>
-
                             </ul>
     <form class=" mb-2 px-8 my-6 rounded-2xl py-7 bg-custom-abu " action="{{ url('admin/tahun_akademik') }}" method="POST">
+        @csrf
         <h3 class="font-poppins font-medium text-2xl text-custom-dark">Tambah Tahun Akademik</h3>
-            @csrf
-                <div class="mt-7 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                    <div class="sm:col-span-2">
-                        <label for="tahun_akademik" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Tahun Akademik</label>
-                        <div class="mt-2">
-                            <input type="text" name="tahun_akademik" id="tahun_akademik" autocomplete="tahun_akademik" class="block pl-2 w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                        </div>
-                    </div>
-                    <div class="sm:col-span-2">
-                        <label for="status" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Status</label>
-                        <div class="mt-2">
-                            <select id="status" name="status" autocomplete="status" class="block w-3/4 rounded-md border-0 pl-2 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                                <option value="gasal">Gasal</option>
-                                <option value="genap">Genap</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="sm:col-span-2 flex justify-between items-end">
-                        <button type="submit" class="flex justify-center w-3/6 rounded-md bg-custom-birumuda px-3 py-2 text-sm font-poppins font-semibold text-white shadow-sm hover:bg-custom-birutua focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                            <img class="flex justify-end align-bottom items-end" width="17" height="17" src="https://img.icons8.com/sf-black-filled/64/plus-math.png" alt="plus-math" style="filter: invert(100%);"/>
-                            <p class="ml-2">Tambah</p>
-                        </button>
-                    </div>
+        <div class="mt-7 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+            <div class="sm:col-span-2">
+                <label for="tahun_akademik" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Tahun Akademik</label>
+                <div class="mt-2">
+                    <input type="text" name="tahun_akademik" id="tahun_akademik" autocomplete="tahun_akademik" class="block pl-2 w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                 </div>
-            </form>
+            </div>
+            <div class="sm:col-span-2">
+                <label for="status" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Status</label>
+                <div class="mt-2">
+                    <select id="status" name="status" autocomplete="status" class="block w-3/4 rounded-md border-0 pl-2 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                        <option value="gasal">Gasal</option>
+                        <option value="genap">Genap</option>
+                    </select>
+                </div>
+            </div>
+            <div class="sm:col-span-2 flex justify-between items-end">
+                <button type="submit" class="flex justify-center w-3/6 rounded-md bg-custom-birumuda px-3 py-2 text-sm font-poppins font-semibold text-white shadow-sm hover:bg-custom-birutua focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                    <img class="flex justify-end align-bottom items-end" width="17" height="17" src="https://img.icons8.com/sf-black-filled/64/plus-math.png" alt="plus-math" style="filter: invert(100%);"/>
+                    <p class="ml-2">Tambah</p>
+                </button>
+            </div>
+        </div>
+    </form>
+
+    <form action="{{ url('admin/aktivasi_tahun_akademik') }}" method="POST" class="items-center">
+        @csrf
+        <div class="mt-7 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+            <div class="sm:col-span-2">
+                <label for="status" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Status</label>
+                <div class="mt-2">
+                    <select id="tahun_akademik" name="tahun_akademik" autocomplete="tahun_akademik" class="block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required>
+                        <option value="" disabled selected>Pilih Tahun Akademik</option>
+                        @foreach($data as $tahun)
+                            <option value="{{ $tahun->tahun_akademik }}">{{ $tahun->tahun_akademik }}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+            <div class="sm:col-span-2 flex justify-between items-end">
+                <button type="submit" class="flex justify-center w-3/6 rounded-md bg-custom-birumuda px-3 py-2 text-sm font-poppins font-semibold text-white shadow-sm hover:bg-custom-birutua focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                    <img class="flex justify-end align-bottom items-end" width="17" height="17" src="https://img.icons8.com/sf-black-filled/64/checklist.png" alt="plus-math" style="filter: invert(100%);"/>
+                    <p class="ml-2">AKTIVASI</p>
+                </button>
+            </div>
+{{--            status tahun akademik yang diaktifkan--}}
+{{--            tahun akademik aktif: 2021/2022--}}
+
+        </div>
+            <p class="mt-2">Tahun akademik aktif: {{ $tahunAktif->tahun_akademik }}</p>
+    </form>
+
+
+
             <div class="overflow-x-auto pb-12 px-8  my-7 py-7 bg-custom-abu rounded-2xl ">
                 <table  id="myTable" class="dataTables_wrapper mt-11 w-full table table-striped">
                     <thead>

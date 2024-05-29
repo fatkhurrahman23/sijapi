@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\PresensiController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,3 +19,22 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:web')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/', function () {
+    return response()->json([
+        'message' => 'Welcome to the API',
+        'status' => 'Connected'
+    ], 200);
+});
+
+Route::group(['middleware' => ['cekUserLevel:mahasiswa']], function () {
+
+});
+
+Route::group(['middleware' => ['cekUserLevel:dosen']], function () {
+
+});
+
+Route::get('/jadwal_now', [PresensiController::class, 'getCurrentSchedule']);
+
+

@@ -4,21 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Tahun_akademik;
-
-// Membuat instance baru dari model Mahasiswa
-$mahasiswa = new Mahasiswa;
-
-// Mengatur nilai default untuk tahun_masuk berdasarkan query ke tabel tahun_akademik
-$mahasiswa->tahun_masuk = Tahun_akademik::where('status', 'aktif')->first()->tahun_akademik;
-
-//// Mengatur nilai lainnya
-//$mahasiswa->nim = '123456';
-//$mahasiswa->nama = 'John Doe';
-//// ...
-
-// Menyimpan model
-$mahasiswa->save();
 
 class Mahasiswa extends Model
 {
@@ -43,6 +28,12 @@ class Mahasiswa extends Model
 
     public function tahun_akademik(){
         return $this->belongsTo(Tahun_akademik::class, 'tahun_masuk', 'tahun_akademik');
+    }
+
+    public function setDefaultTahunMasuk()
+    {
+        // Mengatur nilai default untuk tahun_masuk berdasarkan query ke tabel tahun_akademik
+        $this->tahun_masuk = Tahun_akademik::where('status', 'aktif')->first()->tahun_akademik;
     }
 
 }

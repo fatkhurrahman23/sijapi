@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Dosen;
+use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -38,28 +40,30 @@ class AuthController extends Controller
             $request->session()->put('username', $user->username);
             $request->session()->put('level', $user->level);
 
-//            dd($request->session()->all());
             // redirect user berdasarkan level
             if ($user->level === 'admin') {
-                return redirect('admin/dashboard');
+                return redirect()->intended('admin/dashboard');
             } elseif ($user->level === 'dosen') {
-                return redirect('dosen/page/beranda');
+                $data_dosen = Dosen::where('nip', $user->username)->first();
+
+                $request->session()->put('kode_dosen', $data_dosen->kode_dosen);
+                $request->session()->put('nama', $data_dosen->nama);
+
+                return redirect()->intended('dosen/page/beranda');
             } else {
                 // put kelas dengan join dari tabel mahasiswa berdasarkan kolom username user
-                $dataMhs = DB::table('users')
-                    ->join('mahasiswa', 'users.username', '=', 'mahasiswa.nim')
-                    ->join('kelas_mahasiswa', 'mahasiswa.kode_kelas', '=', 'kelas_mahasiswa.kode_kelas')
-                    ->select('kelas_mahasiswa.kode_kelas', 'mahasiswa.nama')
-                    ->where('users.username', $user->username)
-                    ->first();
-//                dd($dataMhs);
-//                dd($dataMhs);
 
+                $dataMhs = Mahasiswa::where('nim', $user->username)->first();
 
-                $request->session()->put('kode_kelas', $dataMhs->kode_kelas);
+                $prodi = $dataMhs->kode_prodi;
+                $tingkat = $dataMhs->tingkat;
+                $kelas = $dataMhs->kelas;
+                $kode_kelas = $prodi . '-' . $tingkat . $kelas;
+
+                $request->session()->put('kelas', $kode_kelas);
                 $request->session()->put('namaMhs', $dataMhs->nama);
-//                dd($request->session()->all());
-                return redirect('mahasiswa/page/beranda');
+
+                return redirect()->intended('mahasiswa/page/beranda');
             }
         } else {
             return redirect()->route('login.index')->with('error', 'Username atau password salah');
@@ -94,10 +98,10 @@ class AuthController extends Controller
     }
 
     // ======================================== LOGOUT ========================================
-    public function logout()
+    public function logout(Request $request)
     {
         Auth::logout();
-//        return kembali ke halaman login
+        $request->session()->flush();
         return redirect()->route('login.index');
 
     }

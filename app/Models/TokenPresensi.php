@@ -24,4 +24,9 @@ class TokenPresensi extends Model
     {
         return $this->belongsTo(JadwalKuliah::class, 'kode_jadwal_kuliah');
     }
+
+    public function dataPresensi()
+    {
+        return $this->hasMany(DataPresensi::class, 'token', 'token');
+    }
 }

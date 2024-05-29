@@ -127,4 +127,39 @@ class DosenController extends Controller
     public function tampilPresensi(Request $request){
         return view('dosen/page/presensi');
     }
+
+    public function getCurrentScheduleByDosen()
+    {
+        $day = \Carbon\Carbon::now()->locale('id')->dayOfWeek;
+        $currentTime = \Carbon\Carbon::now()->locale('id')->isoFormat('HH:mm:ss');
+        $kode_dosen = session('kode_dosen'); // mengambil kode_dosen dari session
+
+        $jam = Jam::where('jam_awal', '<=', $currentTime)
+            ->where('jam_akhir', '>=', $currentTime)
+            ->first();
+
+        if ($jam) {
+            try {
+                $currentSchedule = Jadwal_kuliah::where('kode_hari', $day)
+                    ->where('kode_jam_awal', '<=', $jam->kode_jam)
+                    ->where('kode_jam_akhir', '>=', $jam->kode_jam)
+                    ->where('kode_dosen', $kode_dosen)
+                    ->firstOrFail();
+
+                return response()->json([
+                    'message' => 'Jadwal kuliah saat ini ditemukan',
+                    'jadwal' => $currentSchedule
+                ]);
+            } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+                return response()->json([
+                    'message' => 'Tidak ada jadwal kuliah saat ini'
+                ], 404);
+            }
+        } else {
+            return response()->json([
+                'message' => 'Tidak ada jadwal kuliah saat ini'
+            ], 404);
+        }
+    }
+
 }

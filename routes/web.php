@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PresensiController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\sijapi;
 use App\Http\Controllers\AuthController;
@@ -168,6 +169,9 @@ Route::group(['middleware' => ['cekUserLevel:admin'], 'prefix' => 'admin'], func
     // tahun akademik delete
     Route::get('/tahun_akademik/delete/{id}', [Jadwal::class, 'hapusDataTahunAkademik'])->name('tahun_akademik.delete');
 
+    // ======================================== AKTIVASI TAHUN AKADEMIK ========================================
+    Route::get('/aktivasi_tahun_akademik', [Jadwal::class, 'AktivasiTahunAkademik']);
+
 
     // ======================================== ENROLLMENT ========================================
     Route::get('/enrollment', [Jadwal::class, 'tampilDataEnrollment']);
@@ -188,7 +192,7 @@ Route::group(['middleware' => ['cekUserLevel:admin'], 'prefix' => 'admin'], func
     Route::post('/jam/update/{id}', [jamController::class, 'update']);
     Route::get('/jam/delete/{id}', [jamController::class, 'destroy']);
 
-    Route::get('/get-matakuliah/{id}', [EnrollmentController::class, 'getMatakuliah']);
+//    Route::get('/get-matakuliah/{id}', [EnrollmentController::class, 'getMatakuliah']);
 });
 
 
@@ -208,6 +212,11 @@ Route::group(['middleware' => ['cekUserLevel:mahasiswa'], 'prefix' => 'mahasiswa
 
     // ======================================== SCANNER MAHASISWA ========================================
     Route::get('/page/scanner', [MahasiswaController::class, 'tampilScanner']);
+
+    // ======================================== PRESENSI MAHASISWA ========================================
+    Route::get('/presensi/{token}', [PresensiController::class, 'checkToken']);
+
+
 });
 
 // route untuk prefix dosen
@@ -221,6 +230,8 @@ Route::group(['middleware' => ['cekUserLevel:dosen'], 'prefix' => 'dosen'], func
     // ======================================== PRESENSI DOSEN ========================================
     Route::get('/page/presensi', [DosenController::class, 'tampilPresensi']);
 
+    // ======================================== BUAT PRESENSI DOSEN ========================================
+    Route::get('/buat_presensi', [PresensiController::class, 'generateToken']);
 
 
 });
