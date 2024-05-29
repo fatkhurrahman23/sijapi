@@ -48,7 +48,7 @@ return new class extends Migration
                 $table->foreign('kode_jam_awal')
                     ->references('kode_jam')
                     ->on('jam');
-
+                
                 $table->foreign('kode_jam_akhir')
                     ->references('kode_jam')
                     ->on('jam');

@@ -204,6 +204,7 @@ class Jadwal extends Controller
         $dataJam = Jam::all();
         $dataJadwalKuliah = new Jadwal_kuliah();
         $dataJadwalKuliah->kode_jadwal_kuliah = $request->kode_jadwal_kuliah;
+        $dataJadwalKuliah->kode_ = $request->kode_jadwal_kuliah;
         $dataJadwalKuliah->kode_enrollment = $request->kode_enrollment;
         $dataJadwalKuliah->kode_hari = $request->kode_hari;
         $dataJadwalKuliah->kode_ruang = $request->kode_ruang;

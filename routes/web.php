@@ -11,6 +11,7 @@ use App\Http\Controllers\jamController;
 use App\Http\Controllers\tahunakademikController;
 use App\Http\Controllers\JadwalKuliah;
 use App\Http\Controllers\PhotoController;
+use App\Http\Controllers\jurusanController;
 
 
 
@@ -112,6 +113,14 @@ Route::group(['middleware' => ['cekUserLevel:admin'], 'prefix' => 'admin'], func
     // prodi dosen delete
     Route::get('/data_prodi/delete/{kode_prodi}', [DosenController::class, 'hapusDataProdi']);
 
+    // ======================================== JURUSAN =======================================
+    Route::get('/jurusan', [jurusanController::class, 'tampilDataJurusan']);
+    Route::post('/jurusan', [jurusanController::class, 'tambahDataJurusan']);
+        // jurusan edit
+    Route::get('/jurusan/edit/{kode_jurusan}', [jurusanController::class, 'editDataJurusan']);
+    Route::post('/jurusan/update/{kode_jurusan}', [jurusanController::class, 'updateDataJurusan']);
+        // jurusan deletes
+    Route::get('/jurusan/delete/{kode_jurusan}', [jurusanController::class, 'hapusDataJurusan']);
 
     // ======================================== MATA KULIAH ========================================
     Route::get('/matkul', [MataKuliah::class, 'tampilMataKuliah']);

@@ -116,7 +116,7 @@
                             <div class="sm:col-span-2">
                                 <label for="kode_jam" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Jam</label>
                                 <div class="mt-2">
-                                    <input type="datetime" name="kode_jam" id="kode_jam" autocomplete="kode_jam" class="pl-2 block bg-gray-300 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->kode_jam }}" required autofocus readon;y>
+                                    <input type="datetime" name="kode_jam" id="kode_jam" autocomplete="kode_jam" class="pl-2 block bg-gray-300 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->kode_jam }}" required autofocus readonly>
                                 </div>
                             </div>
                             <div class="sm:col-span-2">

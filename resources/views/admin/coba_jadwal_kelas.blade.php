@@ -122,22 +122,9 @@
                                 <th class="px-4 pl-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Aksi</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            @foreach($jadwalKuliahSenin as $senin)
-                            @for($jam_kuliah = ($senin->kode_jam_awal); $jam_kuliah <= $senin->kode_jam_akhir; $jam_kuliah++)
-                                <tr>
-                                    <td class="border px-4 py-2">{{ $jam_kuliah }}</td>
-                                    <td class="border px-4 py-2">{{ $senin->enrollment->mata_kuliah->nama_mata_kuliah }}</td>
-                                    <td class="border px-4 py-2">{{ $senin->kode_ruang }}</td>
-                                    <td class="border px-4 py-2">
-                                        <button type="button" data-modal-target="edit_cobajadwal_modal{{ $senin->kode_jadwal_kuliah }}" data-modal-toggle="edit_cobajadwal_modal" class="bg-blue-500 hover:bg-blue-700 text-white font-poppins font-normal py-1 px-2 rounded">Edit</button>
-                                        <a href="{{ url('admin/jadwal_kuliah/delete/'.$senin->kode_jadwal_kuliah) }}">
-                                            <button class="bg-red-500 hover:bg-red-700 text-white font-poppins font-normal py-1 px-2 rounded">Hapus</button>
-                                        </a>
-                                    </td>
-                                </tr>
-                                @endfor
-                            @endforeach
+                        <tbody id="tableBody">
+                              
+
                         </tbody>
                     </table>
                 </div>
@@ -289,6 +276,82 @@
             toastr.error("{{ Session::get('error') }}");
         </script>
     @endif
+    <script>
+        $(document).ready(function() {
+    const dayMapping = {
+        1: "Senin",
+        2: "Selasa",
+        3: "Rabu",
+        4: "Kamis",
+        5: "Jumat"
+    };
+
+    let currentDay = new Date().getDay();
+    if (currentDay === 0 || currentDay === 6) {
+        currentDay = 1;
+    }
+
+    function loadDayData(day) {
+        $.ajax({
+            url: `/jadwal_kuliah/${day}`,
+            method: 'GET',
+            success: function(data) {
+                let tableBody = $('#tableBody');
+                tableBody.empty();
+
+                data.forEach(function(item) {
+                    for (let jam_kuliah = item.kode_jam_awal; jam_kuliah <= item.kode_jam_akhir; jam_kuliah++) {
+                        let row = `<tr>
+                            <td class="border px-4 py-2">${jam_kuliah}</td>
+                            <td class="border px-4 py-2">${item.enrollment.mata_kuliah.nama_mata_kuliah}</td>
+                            <td class="border px-4 py-2">${item.kode_ruang}</td>
+                            <td class="border px-4 py-2">
+                                <button type="button" data-modal-target="edit_cobajadwal_modal${item.kode_jadwal_kuliah}" data-modal-toggle="edit_cobajadwal_modal" class="bg-blue-500 hover:bg-blue-700 text-white font-poppins font-normal py-1 px-2 rounded">Edit</button>
+                                <a href="/admin/jadwal_kuliah/delete/${item.kode_jadwal_kuliah}">
+                                    <button class="bg-red-500 hover:bg-red-700 text-white font-poppins font-normal py-1 px-2 rounded">Hapus</button>
+                                </a>
+                            </td>
+                        </tr>`;
+                        tableBody.append(row);
+                    }
+                });
+
+                $('#myTable').DataTable().draw();
+            },
+            error: function(xhr, status, error) {
+                console.error("Failed to load data:", error);
+            }
+        });
+    }
+
+    $('#myTable').DataTable({
+        paging: true,
+        searching: false,
+        ordering: true,
+        info: true,
+        autoWidth: false,
+        language: {
+            paginate: {
+                next: 'Next Day',
+                previous: 'Previous Day'
+            }
+        }
+    });
+
+    loadDayData(currentDay);
+
+    $('.dataTables_paginate .paginate_button.next').on('click', function() {
+        currentDay = (currentDay % 5) + 1;
+        loadDayData(currentDay);
+    });
+
+    $('.dataTables_paginate .paginate_button.previous').on('click', function() {
+        currentDay = (currentDay === 1) ? 5 : currentDay - 1;
+        loadDayData(currentDay);
+    });
+});
+
+    </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>

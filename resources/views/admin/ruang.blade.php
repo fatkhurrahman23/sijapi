@@ -26,7 +26,7 @@
                                 <li>
                                     <i class="bx bxs-calendar-check"></i>
                                     <span class="text">
-                                    <h3 id="totalKelas"></h3>
+                                    <h3 id="totalRuang"></h3>
                                     <p>Total Ruang</p>
                                     </span>
                                 </li>

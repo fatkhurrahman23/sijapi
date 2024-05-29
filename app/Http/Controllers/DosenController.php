@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Data_prodi;
 use App\Models\Dosen;
+use App\Models\Jurusan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\QueryException;
@@ -66,13 +67,16 @@ class DosenController extends Controller
     //ambil data di database
     public function tampilDataProdi(){
         $dataProdi = Data_prodi::all();
-        return view('\admin\data_prodi', compact('dataProdi'));
+        $dataJurusan = Jurusan::all();
+        return view('\admin\data_prodi', compact('dataProdi', 'dataJurusan'));
     }
 
     //tambah data ke database
     public function tambahDataProdi(Request $request){
+        $dataJurusan = Jurusan::all();
         DB::table('data_prodi')->insert([
             'kode_prodi' => $request->kode_prodi,
+            'kode_jurusan' => $request->kode_jurusan,
             'nama' => $request->nama
         ]);
         return redirect('/admin/data_prodi')->with('add', 'Prodi telah ditambahkan');
@@ -80,14 +84,17 @@ class DosenController extends Controller
 
     // edit data prodi dosen
     public function editProdi($kode_prodi){
+        $dataJurusan = Jurusan::all();
         $dataProdi = DB::table('data_prodi')->where('kode_prodi', $kode_prodi)->first();
-        return view('admin/data_prodi', compact('dataProdi'));
+        return view('admin/data_prodi', compact('dataProdi','dataJurusan'));
     }
 
     // update data prodi dosen
     public function updateDataProdi(Request $request, $id){
+        $dataJurusan = Jurusan::all();
         $data = Data_prodi::where('kode_prodi', $id)->first();
         $data->kode_prodi = $request->kode_prodi;
+        $data->kode_jurusan = $request->kode_jurusan;
         $data->nama = $request->nama;
         $data->save();
         return redirect('admin/data_prodi')->with('update', 'Prodi telah diupdate');
