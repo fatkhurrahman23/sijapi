@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CsvImportController;
 use App\Http\Controllers\PresensiController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\sijapi;
@@ -192,7 +193,9 @@ Route::group(['middleware' => ['cekUserLevel:admin'], 'prefix' => 'admin'], func
     Route::post('/jam/update/{id}', [jamController::class, 'update']);
     Route::get('/jam/delete/{id}', [jamController::class, 'destroy']);
 
-//    Route::get('/get-matakuliah/{id}', [EnrollmentController::class, 'getMatakuliah']);
+    // ======================================== upload data ========================================
+    Route::post('/upload', [CsvImportController::class, 'upload']);
+
 });
 
 

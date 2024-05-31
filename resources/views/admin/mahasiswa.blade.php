@@ -107,6 +107,23 @@
                     </div>
                 </div>
             </form>
+
+            <form class="mb-2 px-8 my-6 rounded-2xl py-7 bg-custom-abu" action="{{ url('/admin/upload') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <h3 class="font-poppins font-medium text-2xl text-custom-dark">Upload Data Mahasiswa</h3>
+
+                <div class="mt-7 grid">
+                    <label for="file">Pilih file upload:</label> <br>
+                    <input type="file" id="file" name="file" accept=".csv" required>
+                    <div class="sm:col-span-2 flex items-end mt-7">
+                        <button type="submit" id="btn_tambah_mahasiswa" class="flex justify-center  rounded-md bg-custom-birumuda px-3 py-2 text-sm font-poppins font-semibold text-white shadow-sm hover:bg-custom-birutua focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                            <img class="flex justify-end align-bottom items-end" width="17" height="17" src="https://img.icons8.com/sf-black-filled/64/plus-math.png" alt="plus-math" style="filter: invert(100%);"/>
+                            <p class="ml-2">Tambah</p>
+                        </button>
+                    </div>
+                </div>
+            </form>
+
             <div class="overflow-x-auto pb-12 px-8  my-7 py-7 bg-custom-abu rounded-2xl">
                 <table id="myTable" class="dataTables_wrapper mt-11 w-full table table-striped">
 

@@ -15,11 +15,11 @@ return new class extends Migration
              $table->id();
             $table->string('nim', 20)->unique();
             $table->string('nama', 90);
-            $table->string('tahun_masuk');
+            $table->string('tahun_masuk')->default('2022/2023');
             $table->string('kode_prodi', 20);
             $table->string('kelas')->default('A');
             $table->string('tingkat', 4)->default('1');
-            $table->string('kode_kelas');
+            $table->string('kode_kelas')->nullable();
             $table->enum('jenis_kelamin', ['L', 'P']);
             $table->enum('status', ['Lulus', 'Cuti', 'Aktif'])->default('Aktif');
 
