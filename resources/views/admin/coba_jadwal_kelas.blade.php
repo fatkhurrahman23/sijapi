@@ -46,6 +46,7 @@
                                     <input type="text" name="kode_jadwal_kuliah" id="kode_jadwal_kuliah" class="pl-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required>
                                 </div>
                             </div>
+                       
                             <div class="sm:col-span-2">
                                 <label for="kode_enrollment" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Enrollment</label>
                                 <div class="mt-2">
@@ -123,8 +124,21 @@
                             </tr>
                         </thead>
                         <tbody id="tableBody">
-                              
-
+                            @foreach($jadwalKuliahSenin as $senin)
+                            @for($jam_kuliah = ($senin->kode_jam_awal); $jam_kuliah <= $senin->kode_jam_akhir; $jam_kuliah++)
+                                <tr>
+                                    <td class="border px-4 py-2">{{ $jam_kuliah }}</td>
+                                    <td class="border px-4 py-2">{{ $senin->enrollment->mata_kuliah->nama_mata_kuliah }}</td>
+                                    <td class="border px-4 py-2">{{ $senin->kode_ruang }}</td>
+                                    <td class="border px-4 py-2">
+                                        <button type="button" data-modal-target="edit_cobajadwal_modal{{ $senin->kode_jadwal_kuliah }}" data-modal-toggle="edit_cobajadwal_modal" class="bg-blue-500 hover:bg-blue-700 text-white font-poppins font-normal py-1 px-2 rounded">Edit</button>
+                                        <a href="{{ url('admin/jadwal_kuliah/delete/'.$senin->kode_jadwal_kuliah) }}">
+                                            <button class="bg-red-500 hover:bg-red-700 text-white font-poppins font-normal py-1 px-2 rounded">Hapus</button>
+                                        </a>
+                                    </td>
+                                </tr>
+                                @endfor
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -150,7 +164,7 @@
                             <div class="sm:col-span-2">
                                 <label for="kode_jadwal_kuliah" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Jadwal Kuliah</label>
                                 <div class="mt-2">
-                                    <input type="text" name="kode_jadwal_kuliah" id="kode_jadwal_kuliah" class="bg-gray-300 pl-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required autofocus readonly>
+                                    <input type="text" name="kode_jadwal_kuliah" id="kode_jadwal_kuliah" class="bg-gray-300 pl-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->kode_jadwal_kuliah }}" required autofocus readonly>
                                 </div>
                             </div>
                             <div class="sm:col-span-2">
@@ -211,13 +225,12 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="sm:col-span-2 flex justify-between items-end">
-                                <button type="submit" class="flex justify-center w-3/6 rounded-md bg-custom-birumuda px-3 py-2 text-sm font-poppins font-semibold text-white shadow-sm hover:bg-custom-birutua focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                                    <img class="flex justify-end align-bottom items-end" width="17" height="17" src="https://img.icons8.com/sf-black-filled/64/plus-math.png" alt="plus-math" style="filter: invert(100%);"/>
-                                    <p class="ml-2">Tambah</p>
+                            <div class="sm:col-span-2 flex justify-center items-center">
+                                <button type="submit" class="flex justify-center align-middle items-center w-3/6 rounded-md bg-custom-birumuda px-3 py-2 text-sm font-poppins font-semibold text-white shadow-sm hover:bg-custom-birutua focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                                    <img class="flex justify-center align-bottom items-center" width="17" height="17" src="https://img.icons8.com/sf-black-filled/64/plus-math.png" alt="plus-math" style="filter: invert(100%);"/>
+                                    <p class="ml-2">Simpan</p>
                                 </button>
                             </div>
-
                     </form>
                     </div>
                 </div>
@@ -276,82 +289,7 @@
             toastr.error("{{ Session::get('error') }}");
         </script>
     @endif
-    <script>
-        $(document).ready(function() {
-    const dayMapping = {
-        1: "Senin",
-        2: "Selasa",
-        3: "Rabu",
-        4: "Kamis",
-        5: "Jumat"
-    };
-
-    let currentDay = new Date().getDay();
-    if (currentDay === 0 || currentDay === 6) {
-        currentDay = 1;
-    }
-
-    function loadDayData(day) {
-        $.ajax({
-            url: `/jadwal_kuliah/${day}`,
-            method: 'GET',
-            success: function(data) {
-                let tableBody = $('#tableBody');
-                tableBody.empty();
-
-                data.forEach(function(item) {
-                    for (let jam_kuliah = item.kode_jam_awal; jam_kuliah <= item.kode_jam_akhir; jam_kuliah++) {
-                        let row = `<tr>
-                            <td class="border px-4 py-2">${jam_kuliah}</td>
-                            <td class="border px-4 py-2">${item.enrollment.mata_kuliah.nama_mata_kuliah}</td>
-                            <td class="border px-4 py-2">${item.kode_ruang}</td>
-                            <td class="border px-4 py-2">
-                                <button type="button" data-modal-target="edit_cobajadwal_modal${item.kode_jadwal_kuliah}" data-modal-toggle="edit_cobajadwal_modal" class="bg-blue-500 hover:bg-blue-700 text-white font-poppins font-normal py-1 px-2 rounded">Edit</button>
-                                <a href="/admin/jadwal_kuliah/delete/${item.kode_jadwal_kuliah}">
-                                    <button class="bg-red-500 hover:bg-red-700 text-white font-poppins font-normal py-1 px-2 rounded">Hapus</button>
-                                </a>
-                            </td>
-                        </tr>`;
-                        tableBody.append(row);
-                    }
-                });
-
-                $('#myTable').DataTable().draw();
-            },
-            error: function(xhr, status, error) {
-                console.error("Failed to load data:", error);
-            }
-        });
-    }
-
-    $('#myTable').DataTable({
-        paging: true,
-        searching: false,
-        ordering: true,
-        info: true,
-        autoWidth: false,
-        language: {
-            paginate: {
-                next: 'Next Day',
-                previous: 'Previous Day'
-            }
-        }
-    });
-
-    loadDayData(currentDay);
-
-    $('.dataTables_paginate .paginate_button.next').on('click', function() {
-        currentDay = (currentDay % 5) + 1;
-        loadDayData(currentDay);
-    });
-
-    $('.dataTables_paginate .paginate_button.previous').on('click', function() {
-        currentDay = (currentDay === 1) ? 5 : currentDay - 1;
-        loadDayData(currentDay);
-    });
-});
-
-    </script>
+    
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
