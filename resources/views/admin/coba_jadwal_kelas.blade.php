@@ -58,6 +58,25 @@
                                 </div>
                             </div>
                             <div class="sm:col-span-2">
+                                <label for="tahun_akademik" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Tahun Akademik</label>
+                                <div class="mt-2">
+                                    <select id="tahun_akademik" name="tahun_akademik" class="pl-1 block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required>
+                                    @foreach($dataTahunAkademik as $tahun)
+                                        <option value="{{ $tahun->tahun_akademik }}">{{ $tahun->tahun_akademik }}</option>
+                                    @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="sm:col-span-2">
+                                <label for="semester" class="block text-sm font-poppins font-semibold leading-6 text-gray-90">semester</label>
+                                <div class="mt-2">
+                                    <select id="semester" name="semester" autocomplete="semester" class="pl-1 block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                        <option value="gasal">Gasal</option>
+                                        <option value="genap">Genap</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="sm:col-span-2">
                                 <label for="kode_hari" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Hari</label>
                                 <div class="mt-2">
                                     <select id="kode_hari" name="kode_hari" class="pl-1 block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required>
@@ -67,7 +86,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="sm:col-span-2 sm:col-start-1">
+                            <div class="sm:col-span-2 ">
                                 <label for="kode_ruang" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Ruang</label>
                                 <div class="mt-2">
                                     <select id="kode_ruang" name="kode_ruang" class="pl-1 block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required>
@@ -113,132 +132,66 @@
                             </div>
                         </div>
                     </form>
-                <div class="overflow-x-auto pb-12 px-8  my-7 py-7 bg-custom-abu rounded-2xl">
-                    <table id="myTable" class="dataTables_wrapper mt-11 w-full table table-striped">
-                        <thead>
-                            <tr>
-                                <th class="px-4 pl-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Jam</th>
-                                <th class="px-4 pl-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Mata Kuliah</th>
-                                <th class="px-4 pl-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Ruang</th>
-                                <th class="px-4 pl-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tableBody">
-                            @foreach($jadwalKuliahSenin as $senin)
-                            @for($jam_kuliah = ($senin->kode_jam_awal); $jam_kuliah <= $senin->kode_jam_akhir; $jam_kuliah++)
-                                <tr>
-                                    <td class="border px-4 py-2">{{ $jam_kuliah }}</td>
-                                    <td class="border px-4 py-2">{{ $senin->enrollment->mata_kuliah->nama_mata_kuliah }}</td>
-                                    <td class="border px-4 py-2">{{ $senin->kode_ruang }}</td>
-                                    <td class="border px-4 py-2">
-                                        <button type="button" data-modal-target="edit_cobajadwal_modal{{ $senin->kode_jadwal_kuliah }}" data-modal-toggle="edit_cobajadwal_modal" class="bg-blue-500 hover:bg-blue-700 text-white font-poppins font-normal py-1 px-2 rounded">Edit</button>
-                                        <a href="{{ url('admin/jadwal_kuliah/delete/'.$senin->kode_jadwal_kuliah) }}">
-                                            <button class="bg-red-500 hover:bg-red-700 text-white font-poppins font-normal py-1 px-2 rounded">Hapus</button>
-                                        </a>
-                                    </td>
-                                </tr>
-                                @endfor
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-                <!-- MODAL -->
-    @foreach($jadwalKuliahSenin as $no => $value)
-        <div id="edit_cobajadwal_modal{{ $value->kode_jadwal_kuliah }}" tabindex="-1" aria-hidden="true" class="hidden h-100 mt-5 py-12 modal flex overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center">
-            <div class="backdrop absolute inset-0 bg-black opacity-30 h-130"></div>
-            <div class="relative p-4 w-full max-w-md max-h-full">
-                <!-- Modal content -->
-                <div class="relative bg-white rounded-lg shadow ">
-                    <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t ">
-                        <h3 class="text-xl font-semibold text-gray-900 ">EDIT JADWAL</h3>
-                        <button type="button" class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="edit_cobajadwal_modal">
-                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                            </svg>
-                            <span class="sr-only">Close modal</span>
-                        </button>
-                    </div>
-                    <div class="p-4 md:p-5">
-                        <form class="space-y-4" action="{{ url('admin/jadwal_kuliah/update/'.$value->kode_jadwal_kuliah) }}" method="POST">
-                            @csrf
-                            <div class="sm:col-span-2">
-                                <label for="kode_jadwal_kuliah" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Jadwal Kuliah</label>
-                                <div class="mt-2">
-                                    <input type="text" name="kode_jadwal_kuliah" id="kode_jadwal_kuliah" class="bg-gray-300 pl-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->kode_jadwal_kuliah }}" required autofocus readonly>
-                                </div>
-                            </div>
-                            <div class="sm:col-span-2">
-                                <label for="kode_enrollment" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Enrollment</label>
-                                <div class="mt-2">
-                                    <select id="kode_enrollment" name="kode_enrollment" class="pl-1 block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                                    @foreach($dataEnrollment as $enrollment)
-                                        <option value="{{ $enrollment->kode_enrollment }}">{{ $enrollment->kode_enrollment }}</option>
-                                    @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="sm:col-span-2">
-                                <label for="kode_hari" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Hari</label>
-                                <div class="mt-2">
-                                    <select id="kode_hari" name="kode_hari" class="pl-1 block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                                    @foreach($dataHari as $hari)
-                                        <option value="{{ $hari->kode_hari }}">{{ $hari->nama_hari }}</option>
-                                    @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="sm:col-span-2 sm:col-start-1">
-                                <label for="kode_ruang" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Ruang</label>
-                                <div class="mt-2">
-                                    <select id="kode_ruang" name="kode_ruang" class="pl-1 block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                                    @foreach($dataRuang as $ruang)
-                                        <option value="{{ $ruang->kode_ruang }}">{{ $ruang->nama_ruang }}</option>
-                                    @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="sm:col-span-2 sm:col-start-1" readonly hidden>
-                                <label for="kode_kelas" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Kelas</label>
-                                <div class="mt-2">
-                                    <select id="kode_kelas" name="kode_kelas" class="pl-1 block bg-gray-300 w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" readonly>
-                                        <option class="" value="{{ request('kode_kelas') }}" selected>{{ request('kode_kelas') }}</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="sm:col-span-2">
-                                <label for="kode_jam_awal" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Jam Awal</label>
-                                <div class="mt-2">
-                                    <select id="kode_jam_awal" name="kode_jam_awal" class="pl-1 block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                                    @foreach($dataJam as $jam)
-                                        <option value="{{ $jam->kode_jam }}">{{ $jam->kode_jam }}</option>
-                                    @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="sm:col-span-2">
-                                <label for="kode_jam_akhir" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Jam Akhir</label>
-                                <div class="mt-2">
-                                    <select id="kode_jam_akhir" name="kode_jam_akhir" class="pl-1 block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                                    @foreach($dataJam as $jam)
-                                        <option value="{{ $jam->kode_jam }}">{{ $jam->kode_jam }}</option>
-                                    @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="sm:col-span-2 flex justify-center items-center">
-                                <button type="submit" class="flex justify-center align-middle items-center w-3/6 rounded-md bg-custom-birumuda px-3 py-2 text-sm font-poppins font-semibold text-white shadow-sm hover:bg-custom-birutua focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                                    <img class="flex justify-center align-bottom items-center" width="17" height="17" src="https://img.icons8.com/sf-black-filled/64/plus-math.png" alt="plus-math" style="filter: invert(100%);"/>
-                                    <p class="ml-2">Simpan</p>
-                                </button>
-                            </div>
-                    </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    @endforeach
+                    <div class="overflow-x-auto pb-12 px-8  my-7 py-7 bg-custom-abu rounded-2xl">
+    <label for="selectDay">Pilih Hari:</label>
+    <select id="selectDay" onchange="showSchedule()">
+        @foreach ($jadwalKuliah as $hari => $jadwal)
+        <option value="{{ $hari }}">{{ ucfirst($hari) }}</option>
+        @endforeach
+    </select>
+    <div id="scheduleTables">
+        @foreach ($jadwalKuliah as $hari => $jadwal)
+        <table data-hari="{{ $hari }}" id="myTable{{ strtolower($hari) }}" class="jadwal-table dataTables_wrapper mt-11 w-full table table-striped">
+            <thead>
+                <tr>
+                    <th class="px-4 pl-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Jam</th>
+                    <th class="px-4 pl-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Mata Kuliah</th>
+                    <th class="px-4 pl-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Ruang</th>
+                    <th class="px-4 pl-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Aksi</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+            @foreach ($jadwal as $value)
+                @for($jam_kuliah = $value->kode_jam_awal; $jam_kuliah <= $value->kode_jam_akhir; $jam_kuliah++)
+                    <tr>
+                        <td class="border px-4 py-2">{{ $jam_kuliah }}</td>
+                        <td class="border px-4 py-2">{{ $value->enrollment->mata_kuliah->nama_mata_kuliah }}</td>
+                        <td class="border px-4 py-2">{{ $value->kode_ruang }}</td>
+                        <td class="border px-4 py-2">
+                            <button type="button" data-modal-target="edit_cobajadwal_modal{{ $value->kode_jadwal_kuliah }}" data-modal-toggle="edit_cobajadwal_modal" class="bg-blue-500 hover:bg-blue-700 text-white font-poppins font-normal py-1 px-2 rounded">Edit</button>
+                            <a href="{{ url('admin/jadwal_kuliah/delete/'.$value->kode_jadwal_kuliah) }}">
+                                <button class="bg-red-500 hover:bg-red-700 text-white font-poppins font-normal py-1 px-2 rounded">Hapus</button>
+                            </a>
+                        </td>
+                    </tr>
+                @endfor
+            @endforeach
+            </tbody>
+        </table>
+        @endforeach
+    </div>
+</div>
 
-        <!--  -->
+<script>
+    function showSchedule() {
+    var selectedDay = document.getElementById('selectDay').value;
+    var allTables = document.querySelectorAll('.jadwal-table');
+
+    document.getElementById('kode_hari').value = selectedDay;
+    allTables.forEach(function(table) {
+        if (table.getAttribute('data-hari') === selectedDay) {
+            table.style.display = 'table'; // Menampilkan tabel yang sesuai dengan hari yang dipilih
+        } else {
+            table.style.display = 'none'; // Menyembunyikan tabel yang tidak sesuai
+        }
+    });
+}
+
+    // Menampilkan tabel berdasarkan hari yang dipilih saat pertama kali halaman dimuat
+    document.addEventListener('DOMContentLoaded', function() {
+        showSchedule();
+    });
+</script>
     @if (Session::has('add'))
         <!-- Initialize Toastr -->
         <script>
