@@ -17,11 +17,27 @@ class CekLevel
      */
     public function handle(Request $request, Closure $next, $level)
     {
-        if (!$request->session()->has('level') || $request->session()->get('level') != $level) {
-//            return redirect('/')->with('error', 'You are not authorized to access this page');
-            return redirect()->intended()->with('error', 'You are not authorized to access this page');
+        if (!$request->session()->has('level')) {
+            return redirect()->route('login.index')->with('error', 'Silakan login terlebih dahulu.');
+        }
+
+        $currentLevel = $request->session()->get('level');
+
+        if ($currentLevel != $level) {
+            switch ($currentLevel) {
+                case 'admin':
+                    return redirect('/admin')->with('error', 'Anda tidak berhak mengakses halaman tersebut');
+                case 'dosen':
+                    return redirect('/dosen/page/beranda')->with('error', 'Anda tidak berhak mengakses halaman tersebut');
+                case 'mahasiswa':
+                    return redirect('/mahasiswa/page/beranda')->with('error', 'Anda tidak berhak mengakses halaman tersebut');
+                default:
+                    return redirect('/login')->with('error', 'Anda tidak berhak mengakses halaman tersebut');
+            }
         }
 
         return $next($request);
     }
+
+
 }

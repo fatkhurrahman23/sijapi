@@ -22,7 +22,7 @@ class Authenticate
         // dd(auth()->check());
         if (!$request->session()->has('username')) {
             // User is not authenticated, redirect to the login page
-            return redirect()->route('login.index')->with('error', 'Please log in to access this page.');
+            return redirect()->route('login.index')->with('error', 'Silakan login terlebih dahulu.');
         }
 
         // User is authenticated, allow the request to proceed

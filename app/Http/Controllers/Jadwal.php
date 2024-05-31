@@ -104,7 +104,8 @@ class Jadwal extends Controller
     public function tampilDataTahunAkademik()
     {
         $data = Tahun_akademik::all();
-        return view('\admin\tahun_akademik', compact('data'));
+        $tahunAktif = Tahun_akademik::where('status', 'aktif')->first();
+        return view('\admin\tahun_akademik', compact('data'), compact('tahunAktif'));
     }
 
     public function tambahDataTahunAkademik(Request $request)
