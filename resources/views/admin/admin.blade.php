@@ -22,8 +22,8 @@
           <div class="bg-admin bg-contain"></div>
         </div>
         <div class="user-details">
-          <p class="title font-poppins font-medium ">administrator</p>
-          <p class="name">Rais Hannan Rizanto</p>
+          <p class="title font-poppins font-medium ">{{ session()->get('level') }}</p>
+          <p class="name" style="text-transform: uppercase;">{{ session()->get('username') }}</p>
         </div>
       </div>
       <div class="nav">
@@ -57,7 +57,7 @@
             </li>
             <li>
               <a href="#">
-                <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#757575" viewBox="0 0 256 256"><path d="M244,204H232V99.3A12,12,0,0,0,228,76H188V51.3A12,12,0,0,0,184,28H40a12,12,0,0,0-4,23.3V204H24a12,12,0,0,0,0,24H244a12,12,0,0,0,0-24ZM208,100V204H188V100ZM60,52H164V204H148V160a12,12,0,0,0-12-12H88a12,12,0,0,0-12,12v44H60Zm64,152H100V172h24ZM72,80A12,12,0,0,1,84,68h8a12,12,0,0,1,0,24H84A12,12,0,0,1,72,80Zm48,0a12,12,0,0,1,12-12h8a12,12,0,0,1,0,24h-8A12,12,0,0,1,120,80ZM72,120a12,12,0,0,1,12-12h8a12,12,0,0,1,0,24H84A12,12,0,0,1,72,120Zm48,0a12,12,0,0,1,12-12h8a12,12,0,0,1,0,24h-8A12,12,0,0,1,120,120Z"></path></svg>                
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#757575" viewBox="0 0 256 256"><path d="M244,204H232V99.3A12,12,0,0,0,228,76H188V51.3A12,12,0,0,0,184,28H40a12,12,0,0,0-4,23.3V204H24a12,12,0,0,0,0,24H244a12,12,0,0,0,0-24ZM208,100V204H188V100ZM60,52H164V204H148V160a12,12,0,0,0-12-12H88a12,12,0,0,0-12,12v44H60Zm64,152H100V172h24ZM72,80A12,12,0,0,1,84,68h8a12,12,0,0,1,0,24H84A12,12,0,0,1,72,80Zm48,0a12,12,0,0,1,12-12h8a12,12,0,0,1,0,24h-8A12,12,0,0,1,120,80ZM72,120a12,12,0,0,1,12-12h8a12,12,0,0,1,0,24H84A12,12,0,0,1,72,120Zm48,0a12,12,0,0,1,12-12h8a12,12,0,0,1,0,24h-8A12,12,0,0,1,120,120Z"></path></svg>
                 <span class="text font-poppins font-medium">Fakultas</span>
                 <i class="arrow ph-bold ph-caret-down"></i>
               </a>

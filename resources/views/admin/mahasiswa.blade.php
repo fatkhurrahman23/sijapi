@@ -133,6 +133,7 @@
                             <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Nama Mahasiswa</th>
                             <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">NIM</th>
                             <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Kelas</th>
+                            <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Prodi</th>
                             <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Aksi</th>
                         </tr>
                     </thead>
@@ -142,7 +143,8 @@
                                 <td class="border px-4 py-2">{{ $no + 1 }}</td>
                                 <td class="border px-4 py-2">{{ $mahasiswa->nama }}</td>
                                 <td class="border px-4 py-2">{{ $mahasiswa->nim }}</td>
-                                <td class="border px-4 py-2">{{ $mahasiswa->kode_kelas }}</td>
+                                <td class="border px-4 py-2">{{ $mahasiswa->kode_prodi . "-" . $mahasiswa->tingkat . $mahasiswa->kelas }}</td>
+                                <td class="border px-4 py-2">{{ $mahasiswa->kode_prodi }}</td>
                                 <td class="border px-4 py-2">
                                     <button type="button" data-modal-target="edit_mahasiswa_modal{{ $mahasiswa->nim }}" data-modal-toggle="edit_mahasiswa_modal" class="bg-blue-500 hover:bg-blue-700 text-white font-poppins font-normal py-1 px-2 rounded">Edit</button>
                                     <a href="{{ url('admin/mahasiswa/delete/'.$mahasiswa->nim) }}">
@@ -268,6 +270,19 @@
             };
             toastr.error("{{ Session::get('error') }}");
         </script>
+    @elseif (Session::has('success'))
+        <!-- Initialize Toastr for info message -->
+        <script>
+            toastr.options = {
+                "positionClass": "toast-top-right",
+                "preventDuplicates": true,
+                "progressBar": true,
+                "timeOut": "5000",
+                "closeButton": true,
+            };
+            toastr.success("{{ Session::get('success') }}");
+        </script>
+
     @endif
 
 

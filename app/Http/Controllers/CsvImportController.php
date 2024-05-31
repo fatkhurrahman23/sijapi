@@ -28,13 +28,14 @@ class CsvImportController extends Controller
         // Memanggil metode import dengan path file yang baru diunggah
         $this->import($path);
 
-        return back()->with('success', "File has been uploaded and imported successfully.");
+        return back()->with('success', "Data berhasil diimport");
 //        return json_decode('{"status": "success"}');
 
     }
 
     public function import($filePath)
-    {
+{
+    try {
         $csv = Reader::createFromPath(storage_path('app/public/' . $filePath), 'r');
         $csv->setHeaderOffset(0);
 
@@ -47,7 +48,6 @@ class CsvImportController extends Controller
             User::create([
                 'uuid' => $uuid,
                 'username' => $record['nim'],
-//                'email' => $record['email'],
                 'password' => Hash::make($record['nim'])
             ]);
 
@@ -55,7 +55,6 @@ class CsvImportController extends Controller
                 'nim' => $record['nim'],
                 'nama' => $record['nama'],
                 'kode_prodi' => $record['prodi'],
-//                'tingkat' => $record['tingkat'],
                 'kelas' => $record['kelas'],
                 'tahun_masuk' => $record['tahunMasuk'],
                 'jenis_kelamin' => $record['jk'],
@@ -65,6 +64,12 @@ class CsvImportController extends Controller
         // Menghapus file setelah diimpor
         Storage::disk('public')->delete($filePath);
 
-        return back()->with('success', 'Data has been imported successfully.');
+        return back()->with('add', "Data berhasil diimport");
+    } catch (\Exception $e) {
+        // Menghapus file jika terjadi kesalahan
+        Storage::disk('public')->delete($filePath);
+
+        return back()->with('error', "Format file tidak sesuai");
     }
+}
 }

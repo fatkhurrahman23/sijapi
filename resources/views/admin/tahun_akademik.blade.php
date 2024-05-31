@@ -79,9 +79,6 @@
                     <p class="ml-2">AKTIVASI</p>
                 </button>
             </div>
-{{--            status tahun akademik yang diaktifkan--}}
-{{--            tahun akademik aktif: 2021/2022--}}
-
         </div>
             <p class="mt-2">Tahun akademik aktif: {{ $tahunAktif->tahun_akademik }}</p>
     </form>
