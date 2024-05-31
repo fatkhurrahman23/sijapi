@@ -19,10 +19,10 @@ $(document).ready(function () {
                 text: "Download PDF",
                 title: "Data Mahasiswa",
                 exportOptions: {
-                    columns: [0, 1, 2, 3],
+                    columns: [0, 1, 2, 3, 4],
                 },
                 customize: function (doc) {
-                    doc.content[1].table.widths = ["*", "*", "*", "*"];
+                    doc.content[1].table.widths = ["*", "*", "*", "*", "*"];
                 },
             },
         ],
@@ -58,7 +58,7 @@ $(document).ready(function () {
             .data()
             .toArray()
             .filter(function (row) {
-                return row[3].includes("TI"); // Menggunakan indeks kolom (indeks dimulai dari 0)
+                return row[4].includes("TI"); // Menggunakan indeks kolom (indeks dimulai dari 0)
             }).length;
         totalMahasiswaTIElement.text(totalMahasiswaTI);
     }

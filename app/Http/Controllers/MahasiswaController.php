@@ -15,7 +15,7 @@
     {
         //ambil data di database
         public function tampilDataMahasiswa(Request $request){
-            $dataMahasiswa = DB::table('mahasiswa')->get();
+            $dataMahasiswa = Mahasiswa::all();
             $dataKelasMahasiswa = Kelas_mahasiswa::all();
             $dataProdi = Data_prodi::all();
             return view('/admin/mahasiswa', compact('dataMahasiswa', 'dataKelasMahasiswa', 'dataProdi'));
@@ -23,18 +23,26 @@
 
         //tambah data ke database
         public function tambahDataMahasiswa(Request $request){
-            $dataKelasMahasiswa = Mahasiswa::all();
-            $tahunMasuk = new Mahasiswa();
-            $tahunMasuk->setDefaultTahunMasuk();
-            DB::table('mahasiswa')->insert([
-                'nim' => $request->nim,
-                'nama' => $request->nama,
-                'jenis_kelamin' => $request->jenis_kelamin,
-                'kode_kelas' => $request->kode_kelas,
-                'tahun_masuk' => $tahunMasuk->tahun_masuk,
-                'kode_prodi' => $request->prodi
-            ]);
-            return redirect('/admin/mahasiswa')->with('add', 'Mahasiswa telah ditambahkan');
+            try {
+                $dataKelasMahasiswa = Mahasiswa::all();
+                $tahunMasuk = new Mahasiswa();
+                $tahunMasuk->setDefaultTahunMasuk();
+                DB::table('mahasiswa')->insert([
+                    'nim' => $request->nim,
+                    'nama' => $request->nama,
+                    'jenis_kelamin' => $request->jenis_kelamin,
+                    'kode_kelas' => $request->kode_kelas,
+                    'tahun_masuk' => $tahunMasuk->tahun_masuk,
+                    'kode_prodi' => $request->prodi
+                ]);
+                return redirect('/admin/mahasiswa')->with('add', 'Mahasiswa telah ditambahkan');
+            } catch (\Illuminate\Database\QueryException $e) {
+                if ($e->errorInfo[1] === 1062) {
+                    return redirect('/admin/mahasiswa')->with('error', 'NIM sudah ada, gagal menambahkan mahasiswa');
+                } else {
+                    return redirect('/admin/mahasiswa')->with('error', 'Terjadi kesalahan saat menambahkan mahasiswa');
+                }
+            }
         }
 
         // edit data mahasiswa
