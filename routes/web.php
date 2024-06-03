@@ -57,19 +57,18 @@ Route::group(['middleware' => ['cekUserLevel:admin'], 'prefix' => 'admin'], func
 
 
     // ======================================== JADWAL KULIAH ========================================
-    Route::get('/jadwal_kuliah', [Jadwal::class, 'tampilJadwalKuliah']);
-    Route::post('/jadwal_kuliah', [Jadwal::class, 'tambahJadwalKuliah']);
+    Route::get('/jenis_jurusan', [Jadwal::class, 'tampilJenisJurusan'])->name('tampilJenisJurusan');
+    Route::post('/jenis_prodi', [Jadwal::class, 'tampilJenisProdi'])->name('tampilJenisProdi');
+    Route::get('/jenis_kelas/{kode_prodi}', [Jadwal::class, 'tampilJenisKelas'])->name('tampilJenisKelas');
+    Route::get('/jadwal_kelas/{kodeKelas}', [Jadwal::class, 'tampilJadwalKuliahKelas'])->name('tampilJadwalKuliahKelas');
+    Route::post('/jadwal_kelas', [Jadwal::class, 'tambahJadwalKuliah']);
     // jadwal_kuliah edit
-    Route::get('/jadwal_kuliah/edit/{kode_jadwal_kuliah}', [Jadwal::class, 'editDataJadwalKuliah']);
-    Route::post('/jadwal_kuliah/update/{id}', [Jadwal::class, 'updateDataJadwalKuiah']);
+    Route::get('/jadwal_kelas/edit/{kode_jadwal_kuliah}', [Jadwal::class, 'editDataJadwalKuliah'])->name('editDataJadwalKuliah');
+    Route::post('/jadwal_kelas/update/{kode_jadwal_kuliah}', [Jadwal::class, 'updateDataJadwalKuiah'])->name('updateDataJadwalKuiah');
     // jadwal_kuliah delete
-    Route::get('/jadwal_kuliah/delete/{kode_jadwal_kuliah}', [Jadwal::class, 'hapusDataJadwalKuliah']);
+    Route::get('/jadwal_kelas/delete/{kode_jadwal_kuliah}', [Jadwal::class, 'hapusDataJadwalKuliah']);
 
-    // tampil mata kuliah per kelas
-    Route::get('/jadwal_kuliah/{kode_kelas}', [Jadwal::class, 'tampilJadwalKuliahKelas']);
-    Route::get('/admin/coba_jadwal_kelas', [Jadwal::class, 'tampilCobaJadwal']);
-
-
+    
     // ======================================== DASHBOARD ========================================
     Route::get('/dashboard', [Jadwal::class, 'tampilDataDashboard']);
 

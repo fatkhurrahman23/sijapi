@@ -10,8 +10,10 @@ use App\Models\Jam;
 use App\Models\Tahun_akademik;
 use App\Models\Kelas_mahasiswa;
 use App\Models\Jadwal_kuliah;
+use App\Models\Jurusan;
 use App\Models\Mata_kuliah;
 use App\Models\Hari;
+use App\Models\Data_prodi;
 use App\Models\Enrollment;
 use App\Models\Dosen;
 class Jadwal extends Controller
@@ -190,13 +192,63 @@ class Jadwal extends Controller
 
 
        // ============================= JADWAL KULIAH =============================
-       public function tampilJadwalKuliah(){
-        $dataJadwalKuliah = Jadwal_kuliah::all();
+
+       public function tampilJenisJurusan()
+       {
+           $dataJurusan = Jurusan::all();
+           return view('admin/jenis_jurusan', compact('dataJurusan'));
+       }
+   
+       public function tampilJenisProdi(Request $request)
+       {
+           $kode_jurusan = $request->input('kode_jurusan');
+           $dataProdi = Data_prodi::where('kode_jurusan', $kode_jurusan)->get();
+   
+           return view('admin/jenis_prodi', compact('dataProdi'));
+       }
+       public function tampilJenisKelas($kode_prodi)
+       {
+           $dataKelas = Kelas_mahasiswa::where('kode_prodi', $kode_prodi)->get();
+           return view('admin/jenis_kelas', compact('dataKelas'));
+       }
+
+    public function tampilJadwalKuliahKelas($kodeKelas)
+    {
+        $dataTahunAkademik = Tahun_akademik::all();
         $dataKelasMahasiswa = Kelas_mahasiswa::all();
-        return view('\admin\jadwal_kuliah', compact('dataJadwalKuliah', 'dataKelasMahasiswa'))->with('message', 'Jadwal kuliah Telah Ditambahkan');
+        $dataEnrollment = Enrollment::all();
+        $dataHari = Hari::all();
+        $dataRuang = Ruang::all();
+        $dataJam = Jam::all();
+
+        $days = [
+            '1' => 'Senin',
+            '2' => 'Selasa',
+            '3' => 'Rabu',
+            '4' => 'Kamis',
+            '5' => 'Jumat'
+        ];
+
+        $jadwalKuliah = [];
+
+        foreach ($days as $kode_hari => $datahari) {
+            $jadwalKuliah[$kode_hari] = Jadwal_kuliah::where('kode_kelas', $kodeKelas)
+                                                ->where('kode_hari', $kode_hari)
+                                                ->orderBy('kode_jam_awal', 'asc')
+                                                ->get();
+        }
+
+        return view('admin/jadwal_kelas', [
+            'jadwalKuliah' => $jadwalKuliah,
+            'kodeKelas' => $kodeKelas,
+            'dataKelasMahasiswa' => $dataKelasMahasiswa,
+            'dataEnrollment' => $dataEnrollment,
+            'dataHari' => $dataHari,
+            'dataRuang' => $dataRuang,
+            'dataJam' => $dataJam,
+            'dataTahunAkademik' => $dataTahunAkademik,
+        ]);
     }
-
-
     public function tambahJadwalKuliah(Request $request){
         $dataKelasMahasiswa = Kelas_mahasiswa::all();
         $dataEnrollment =  Enrollment::all();
@@ -216,53 +268,44 @@ class Jadwal extends Controller
         $dataJadwalKuliah->kode_jam_akhir = $request->kode_jam_akhir;
         $dataJadwalKuliah->save();
 
-        return Redirect('admin/jadwal_kuliah/$kode_kelas')->with('add', 'Jadwal Kuliah telah ditambahkan');
+        return redirect()->back()->with('add', 'Jadwal Kuliah telah ditambahkan');
+    }
+
+    public function editDataJadwalKuliah(Request $request,$id){
+        $dataKelasMahasiswa = Kelas_mahasiswa::all();
+        $dataEnrollment =  Enrollment::all();
+        $dataHari = Hari::all();
+        $dataRuang = Ruang::all();
+        $dataJam = Jam::all();
+        $dataTahunAkademik = Tahun_akademik::all();
+        $dataJadwalKuliah = Jadwal_kuliah::where('id', $id)->first();
+        return view('admin/jadwal_kelas/', compact('dataKelasMahasiswa', 'dataEnrollment','dataHari', 'dataRuang', 'dataJam', 'dataTahunAkademik', 'dataJadwalKuliah'));
+    }
+
+    public function updateDataJadwalKuliah(Request $request){
+        Jadwal_kuliah::where('id', $request->id)->update([
+            'tahun_akademik' => $request->tahun_akademik,
+            'kode_enrollment' => $request->kode_enrollment,
+            'kode_hari' => $request->kode_hari,
+            'kode_ruang' => $request->kode_ruang,
+            'kode_kelas' => $request->kode_kelas,
+            'semester' => $request->semester,
+            'kode_jam_awal' => $request->kode_jam_awal,
+            'kode_jam_akhir' => $request->kode_jam_akhir,
+        ]);
+        return redirect()->back()->with('update', 'Jadwal telah diupdate');;
     }
 
     public function hapusDataJadwalKuliah(Request $request, $id)
     {
+        
         $data = Jadwal_kuliah::where('kode_jadwal_kuliah',$id)->first();
         $data->delete();
-        return Redirect('/admin/jadwal_kuliah')->with('delete', 'Jadwal kuliah telah dihapus');
+        return redirect()->back()->with('delete', 'Jadwal kuliah telah dihapus');
     }
 
-    public function tampilJadwalKuliahKelas(Request $request, $kodeKelas)
-{
-    $dataTahunAkademik = Tahun_akademik::all();
-    $dataKelasMahasiswa = Kelas_mahasiswa::all();
-    $dataEnrollment = Enrollment::all();
-    $dataHari = Hari::all();
-    $dataRuang = Ruang::all();
-    $dataJam = Jam::all();
+    
 
-    $days = [
-        '1' => 'Senin',
-        '2' => 'Selasa',
-        '3' => 'Rabu',
-        '4' => 'Kamis',
-        '5' => 'Jumat'
-    ];
-
-    $jadwalKuliah = [];
-
-    foreach ($days as $kode_hari => $hari) {
-        $jadwalKuliah[$hari] = Jadwal_kuliah::where('kode_kelas', $kodeKelas)
-                                            ->where('kode_hari', $kode_hari)
-                                            ->orderBy('kode_jam_awal', 'asc')
-                                            ->get();
-    }
-
-    return view('admin/coba_jadwal_kelas', [
-        'jadwalKuliah' => $jadwalKuliah,
-        'kodeKelas' => $kodeKelas,
-        'dataKelasMahasiswa' => $dataKelasMahasiswa,
-        'dataEnrollment' => $dataEnrollment,
-        'dataHari' => $dataHari,
-        'dataRuang' => $dataRuang,
-        'dataJam' => $dataJam,
-        'dataTahunAkademik' => $dataTahunAkademik,
-    ]);
-}
     public function updateTingkatMahasiswa()
     {
         // Mendapatkan tahun akademik aktif

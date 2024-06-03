@@ -113,7 +113,7 @@
                   </a>
                 </li>
                 <li>
-                  <a href="{{ url('admin/jadwal_kuliah') }}">
+                  <a href="{{ url('admin/jenis_jurusan') }}">
                     <span class="text">Jadwal kuliah</span>
                   </a>
                 </li>

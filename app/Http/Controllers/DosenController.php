@@ -4,6 +4,14 @@ namespace App\Http\Controllers;
 use App\Models\Data_prodi;
 use App\Models\Dosen;
 use App\Models\Jurusan;
+use App\Models\Ruang;
+use App\Models\Jam;
+use App\Models\Tahun_akademik;
+use App\Models\Kelas_mahasiswa;
+use App\Models\Jadwal_kuliah;
+use App\Models\Mata_kuliah;
+use App\Models\Hari;
+use App\Models\Enrollment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\QueryException;
@@ -70,7 +78,12 @@ class DosenController extends Controller
         $dataJurusan = Jurusan::all();
         return view('\admin\data_prodi', compact('dataProdi', 'dataJurusan'));
     }
-
+    public function tampilJenisProdi(){
+        $dataJurusan = Jurusan::all();
+        $dataProdi = Data_prodi::all();
+        $dataKelasMahasiswa = Kelas_mahasiswa::all();
+        return view('\admin\jenis_prodi', compact('dataJurusan','dataProdi', 'dataKelasMahasiswa'))->with('message', 'Jadwal kuliah Telah Ditambahkan');
+    }
     //tambah data ke database
     public function tambahDataProdi(Request $request){
         $dataJurusan = Jurusan::all();

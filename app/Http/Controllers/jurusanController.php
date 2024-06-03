@@ -2,6 +2,16 @@
 
 namespace App\Http\Controllers;
 use App\models\Jurusan;
+use App\Models\Ruang;
+use App\Models\Jam;
+use App\Models\Tahun_akademik;
+use App\Models\Kelas_mahasiswa;
+use App\Models\Jadwal_kuliah;
+use App\Models\Mata_kuliah;
+use App\Models\Hari;
+use App\Models\Data_prodi;
+use App\Models\Enrollment;
+use App\Models\Dosen;
 use Illuminate\Http\Request;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Session;
@@ -9,11 +19,17 @@ use Redirect;
 
 class jurusanController extends Controller
 {
+    public function tampilJenisJurusan(){
+        $dataJurusan = Jurusan::all();
+        $dataProdi = Data_prodi::all();
+        $dataKelasMahasiswa = Kelas_mahasiswa::all();
+        return view('\admin\jenis_jurusan', compact('dataJurusan','dataProdi', 'dataKelasMahasiswa'))->with('message', 'Jadwal kuliah Telah Ditambahkan');
+    }
      //ambil data di database
      public function tampilDataJurusan(Request $request){
         $dataJurusan = Jurusan::all();
         return view('admin/jurusan', compact('dataJurusan'));
-    }
+    }   
 
     //tambah data ke database
     public function tambahDataJurusan(Request $request){

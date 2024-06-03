@@ -42,7 +42,7 @@ class AuthController extends Controller
 
             // redirect user berdasarkan level
             if ($user->level === 'admin') {
-                return redirect()->intended('admin/dashboard');
+                return redirect()->intended('admin/mahasiswa');
             } elseif ($user->level === 'dosen') {
                 $data_dosen = Dosen::where('nip', $user->username)->first();
 
