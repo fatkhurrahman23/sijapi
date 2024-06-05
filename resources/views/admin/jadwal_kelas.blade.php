@@ -150,7 +150,7 @@
     </select>
     <div id="scheduleTables">
         @foreach ($jadwalKuliah as $hari => $jadwal)
-        <table data-hari="{{ $hari }}" id="myTable{{ strtolower($hari) }}" class="jadwal-table dataTables_wrapper mt-11 w-full table table-striped">
+        <table data-hari="{{ $hari }}" id="myTable" class="jadwal-table dataTables_wrapper mt-11 w-full table table-striped">
             <thead>
                 <tr>
                     <th class="py-3 px-4 pl-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Jam</th>
@@ -200,9 +200,9 @@
                         </button>
                     </div>
                     <div class="p-4 md:p-5">
-                        <form class="space-y-4" action="{{ route('updateDataJadwalKuiah', $value->id) }}" method="POST">
+                        <form class="space-y-4" action="{{ url('admin/jadwal_kelas/update/'.$value->kode_jadwal_kuliah) }}" method="POST">
                             @csrf
-                            @method('PUT')
+                          
                             <div class="sm:col-span-2">
                                 <label for="kode_jadwal_kuliah" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Jadwal Kuliah</label>
                                 <div class="mt-2">

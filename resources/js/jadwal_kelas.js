@@ -4,7 +4,7 @@ import "datatables.net-responsive-dt";
 
 // DataTables initialisation
 $(document).ready(function () {
-    var table = $("#myTable").DataTable({
+    var table = $("#myTable{{ strtolower($hari) }}").DataTable({
         layout: {
             topStart: {
                 buttons: ["copyHtml5", "excelHtml5", "csvHtml5", "pdfHtml5"],
@@ -21,6 +21,14 @@ $(document).ready(function () {
                 },
                 customize: function (doc) {
                     doc.content[1].table.widths = ["*", "*", "*"];
+                },
+            },
+            {
+                extend: "excelHtml5",
+                text: "Download Excel",
+                title: "Data Mahasiswa",
+                exportOptions: {
+                    columns: [0, 1, 2],
                 },
             },
         ],
