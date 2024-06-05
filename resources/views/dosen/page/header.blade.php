@@ -36,7 +36,7 @@
                         <div id="dropdownMenu" class="transition-opacity duration-300 ease-in-out absolute right-0 mt-2 w-48 bg-custom-abu opacity-95 border border-gray-200 rounded shadow-lg hidden">
                             <div class=" py-2  lg:hidden">
                                 <p class="block px-4  text-gray-800  font-poppins text-sm font-medium">Username</p>
-                                <p class="block px-6 py-1  text-gray-800  font-poppins font-base text-xs">Professor Snape</p>
+                                <p class="block px-6 py-1  text-gray-800  font-poppins font-base text-xs">{{ session('nama') }}</p>
                             </div>
                             <a class="  cursor-pointer" href="/logout">
                                 <button class="font-poppins text-sm font-semibold px-4 w-full justify-start flex py-2 text-red-600 hover:bg-gray-100">

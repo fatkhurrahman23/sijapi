@@ -151,16 +151,19 @@ class DosenController extends Controller
                 // Other database error
                 return redirect('admin/data_prodi')->with('error', 'Ada error ketika menghapus data');
             }
-    }
+        }
     }
 
     // ====================================== DOSEN BUKAN ADMIN ======================================
     public function tampilBeranda(Request $request){
         return view('dosen/page/beranda');
     }
+
     public function tampilJadwal(Request $request){
-        return view('dosen/page/jadwal');
+        $jadwalHariIni = $this->jadwalHariIniDosen();
+        return view('dosen/page/jadwal', compact('jadwalHariIni'));
     }
+
     public function tampilPresensi(Request $request){
         return view('dosen/page/presensi');
     }
@@ -197,6 +200,35 @@ class DosenController extends Controller
                 'message' => 'Tidak ada jadwal kuliah saat ini'
             ], 404);
         }
+    }
+
+    public function jadwalHariIniDosen () {
+        $day = \Carbon\Carbon::now()->locale('id')->dayOfWeek;
+        $kodeDosen = session()->get('kode_dosen');
+
+        // Mencari kode enrollment dari dosen
+        $kodeEnrollments = DB::table('enrollment')->where('kode_dosen', $kodeDosen)->get();
+
+        $jadwalHariIni = collect();
+
+        foreach ($kodeEnrollments as $kodeEnrollment) {
+            // Mencari jadwal hari ini berdasarkan setiap kode enrollment
+            $jadwal = DB::table('jadwal_kuliah')
+                ->where('kode_enrollment', $kodeEnrollment->kode_enrollment)
+                ->where('kode_hari', $day)
+                ->get();
+
+            // Menambahkan jadwal ke koleksi jadwalHariIni
+            $jadwalHariIni = $jadwalHariIni->concat($jadwal);
+        }
+
+        // Jika ada jadwal hari ini
+        if (!$jadwalHariIni->isEmpty()) {
+            return $jadwalHariIni;
+        } else {
+            return "Tidak ada jadwal hari ini.";
+        }
+
     }
 
 }
