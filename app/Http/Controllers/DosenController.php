@@ -66,8 +66,20 @@ class DosenController extends Controller
 
     // hapus data dosen
     public function hapusDataDosen($kode_dosen){
-        DB::table('dosen')->where('kode_dosen', $kode_dosen)->delete();
-        return redirect('admin/dosen')->with('delete', 'Dosen telah dihapus');
+
+        try{
+            DB::table('dosen')->where('kode_dosen', $kode_dosen)->delete();
+            return redirect('admin/dosen')->with('delete', 'Dosen telah dihapus');
+        }
+        catch (QueryException $e) {
+            if ($e->errorInfo[1] === 1451) {
+                // Foreign key constraint violation
+                return redirect('admin/dosen')->with('error', 'Data memiliki relasi, gagal menghapus');
+            } else {
+                // Other database error
+                return redirect('admin/dosen')->with('error', 'Ada error ketika menghapus data');
+            }
+    }
     }
 
 

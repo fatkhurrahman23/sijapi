@@ -97,8 +97,18 @@ class Jadwal extends Controller
     }
 
     public function hapusDataHari($kode_hari){
-        DB::table('hari')->where('kode_hari', $kode_hari)->delete();
-        return redirect('admin/hari')->with('delete', 'Hari telah dihapus');
+        try {
+            DB::table('hari')->where('kode_hari', $kode_hari)->delete();
+            return redirect('admin/hari')->with('delete', 'Hari telah dihapus');
+        } catch (QueryException $e) {
+            if ($e->errorInfo[1] === 1451) {
+                // Foreign key constraint violation
+                return redirect('admin/hari')->with('error', 'Data still has related data, cannot be deleted');
+            } else {
+                // Other database error
+                return redirect('admin/hari')->with('error', 'An error occurred while deleting data');
+            }
+        }
     }
 
 
@@ -136,8 +146,18 @@ class Jadwal extends Controller
 
     public function hapusDataTahunAkademik(Request $request, $id)
     {
-        DB::table('tahun_akademik')->where('id', $id)->delete();
-        return Redirect('/admin/tahun_akademik')->with('delete', 'Tahun akademik telah dihapus');
+        try {
+            DB::table('tahun_akademik')->where('id', $id)->delete();
+            return Redirect('/admin/tahun_akademik')->with('delete', 'Tahun akademik telah dihapus');
+        } catch (QueryException $e) {
+            if ($e->errorInfo[1] === 1451) {
+                // Foreign key constraint violation
+                return redirect('admin/tahun_akademik')->with('error', 'Data still has related data, cannot be deleted');
+            } else {
+                // Other database error
+                return redirect('admin/tahun_akademik')->with('error', 'An error occurred while deleting data');
+            }
+        }
     }
 
 
@@ -186,8 +206,20 @@ class Jadwal extends Controller
         $dataMatkul = Mata_kuliah::all();
         $dataTahun = Tahun_akademik::all();
         $dataDosen = Dosen::all();
-        DB::table('enrollment')->where('kode_enrollment', $kode_enrollment)->delete();
-        return redirect('admin/enrollment')->with('delete', 'Enrollment telah dihapus');;
+        try {
+            DB::table('enrollment')->where('kode_enrollment', $kode_enrollment)->delete();
+            return redirect('admin/enrollment')->with('delete', 'Enrollment telah dihapus');;
+        } catch (QueryException $e) {
+            if ($e->errorInfo[1] === 1451) {
+                // Foreign key constraint violation
+                return redirect('admin/enrollment')->with('error', 'Data still has related data, cannot be deleted');
+            } else {
+                // Other database error
+                return redirect('admin/enrollment')->with('error', 'An error occurred while deleting data');
+            }
+        }
+
+        
     }
 
 

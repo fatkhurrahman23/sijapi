@@ -4,7 +4,7 @@ import "datatables.net-responsive-dt";
 
 // DataTables initialisation
 $(document).ready(function () {
-    var table = $("#myTable{{ strtolower($hari) }}").DataTable({
+    var table = $("myTable").DataTable({
         layout: {
             topStart: {
                 buttons: ["copyHtml5", "excelHtml5", "csvHtml5", "pdfHtml5"],
