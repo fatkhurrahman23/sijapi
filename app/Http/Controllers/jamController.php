@@ -58,12 +58,23 @@ class jamController extends Controller
 
     public function update(Request $request, $id)
     {
-        $data = Jam::where('kode_jam', $id)->first();
-        $data->kode_jam = $request->kode_jam;
-        $data->jam_awal = $request->jam_awal;
-        $data->jam_akhir = $request->jam_akhir;
-        $data->save();
-        return Redirect('/admin/jam')->with('update', 'Jam telah diupdate');
+      
+        try {
+            $data = Jam::where('kode_jam', $id)->first();
+            $data->kode_jam = $request->kode_jam;
+            $data->jam_awal = $request->jam_awal;
+            $data->jam_akhir = $request->jam_akhir;
+            $data->save();
+            return Redirect('/admin/jam')->with('update', 'Jam telah diupdate');
+        } catch (QueryException $e) {
+            if ($e->errorInfo[1] === 1451) {
+                // Foreign key constraint violation
+                return redirect('admin/jam')->with('error', 'Data still has related data, cannot be update');
+            } else {
+                // Other database error
+                return redirect('admin/jam')->with('error', 'An error occurred while update data');
+            }
+        }
     }
 
     /**

@@ -46,11 +46,22 @@ class Jadwal extends Controller
     }
 
     public function updateDataRuang(Request $request,  $id){
-        $dataRuang = Ruang::where('kode_ruang', $id)->first();
-        $dataRuang->kode_ruang = $request->kode_ruang;
-        $dataRuang->nama_ruang = $request->nama_ruang;
-        $dataRuang->save();
-        return redirect('admin/ruang')->with('update', 'Ruang telah diupdate');
+
+        try {
+            $dataRuang = Ruang::where('kode_ruang', $id)->first();
+            $dataRuang->kode_ruang = $request->kode_ruang;
+            $dataRuang->nama_ruang = $request->nama_ruang;
+            $dataRuang->save();
+            return redirect('admin/ruang')->with('update', 'Ruang telah diupdate');
+        } catch (QueryException $e) {
+            if ($e->errorInfo[1] === 1451) {
+                // Foreign key constraint violation
+                return redirect('admin/ruang')->with('error', 'Data still has related data, cannot be update');
+            } else {
+                // Other database error
+                return redirect('admin/ruang')->with('error', 'An error occurred while update data');
+            }
+        }
     }
 
     public function hapusDataRuang($kode_ruang){
@@ -90,10 +101,21 @@ class Jadwal extends Controller
     }
 
     public function updateDataHari(Request $request){
-        DB::table('hari')->where('kode_hari', $request->kode_hari)->update([
-            'nama_hari' => $request->nama_hari
-        ]);
-        return redirect('admin/hari')->with('update', 'Hari telah diupdate');
+
+        try {
+            DB::table('hari')->where('kode_hari', $request->kode_hari)->update([
+                'nama_hari' => $request->nama_hari
+            ]);
+            return redirect('admin/hari')->with('update', 'Hari telah diupdate');
+        } catch (QueryException $e) {
+            if ($e->errorInfo[1] === 1451) {
+                // Foreign key constraint violation
+                return redirect('admin/hari')->with('error', 'Data still has related data, cannot be update');
+            } else {
+                // Other database error
+                return redirect('admin/hari')->with('error', 'An error occurred while update data');
+            }
+        }
     }
 
     public function hapusDataHari($kode_hari){
@@ -137,11 +159,21 @@ class Jadwal extends Controller
 
     public function updateDataTahunAkademik(Request $request, $id)
     {
-        $data = Tahun_akademik::where('id', $id)->first();
-        $data->tahun_akademik = $request->tahun_akademik;
-        $data->status = $request->status;
-        $data->save();
-        return Redirect('/admin/tahun_akademik')->with('update', 'Tahun telah diupdate');
+        try {
+            $data = Tahun_akademik::where('id', $id)->first();
+            $data->tahun_akademik = $request->tahun_akademik;
+            $data->status = $request->status;
+            $data->save();
+            return Redirect('/admin/tahun_akademik')->with('update', 'Tahun telah diupdate');
+        } catch (QueryException $e) {
+            if ($e->errorInfo[1] === 1451) {
+                // Foreign key constraint violation
+                return redirect('admin/tahun_akademik')->with('error', 'Data still has related data, cannot be update');
+            } else {
+                // Other database error
+                return redirect('admin/tahun_akademik')->with('error', 'An error occurred while update data');
+            }
+        }
     }
 
     public function hapusDataTahunAkademik(Request $request, $id)
@@ -192,14 +224,25 @@ class Jadwal extends Controller
     }
 
     public function updateDataEnrollment(Request $request){
-        $dataMatkul = Mata_kuliah::all();
-        $dataDosen = Dosen::all();
-        $dataTahun = Tahun_akademik::all();
-        DB::table('enrollment')->where('kode_enrollment', $request->kode_enrollment)->update([
-            'kode_dosen' => $request->kode_dosen,
-            'kode_mata_kuliah' => $request->kode_mata_kuliah
-        ]);
-        return redirect('admin/enrollment')->with('update', 'Enrollment telah diupdate');;
+        try {
+            $dataMatkul = Mata_kuliah::all();
+            $dataDosen = Dosen::all();
+            $dataTahun = Tahun_akademik::all();
+            DB::table('enrollment')->where('kode_enrollment', $request->kode_enrollment)->update([
+                'kode_dosen' => $request->kode_dosen,
+                'kode_mata_kuliah' => $request->kode_mata_kuliah
+            ]);
+            return redirect('admin/enrollment')->with('update', 'Enrollment telah diupdate');
+        } catch (QueryException $e) {
+            if ($e->errorInfo[1] === 1451) {
+                // Foreign key constraint violation
+                return redirect('admin/enrollment')->with('error', 'Data still has related data, cannot be update');
+            } else {
+                // Other database error
+                return redirect('admin/enrollment')->with('error', 'An error occurred while update data');
+            }
+        }
+        
     }
 
     public function hapusDataEnrollment($kode_enrollment){

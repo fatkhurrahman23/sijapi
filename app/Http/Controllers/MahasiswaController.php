@@ -54,13 +54,25 @@
 
         // update data mahasiswa
         public function updateDataMahasiswa(Request $request){
-            $dataKelasMahasiswa = Kelas_mahasiswa::all();
-            DB::table('mahasiswa')->where('nim', $request->nim)->update([
-                'nama' => $request->nama,
-                'jenis_kelamin' => $request->jenis_kelamin,
-                'kode_kelas' => $request->kode_kelas
-            ]);
-            return redirect('admin/mahasiswa')->with('update', 'Mahasiswa telah diupdate');
+        
+
+            try {
+                $dataKelasMahasiswa = Kelas_mahasiswa::all();
+                DB::table('mahasiswa')->where('nim', $request->nim)->update([
+                    'nama' => $request->nama,
+                    'jenis_kelamin' => $request->jenis_kelamin,
+                    'kode_kelas' => $request->kode_kelas
+                ]);
+                return redirect('admin/mahasiswa')->with('update', 'Mahasiswa telah diupdate');
+            } catch (QueryException $e) {
+                if ($e->errorInfo[1] === 1451) {
+                    // Foreign key constraint violation
+                    return redirect('admin/mahasiswa')->with('error', 'Data still has related data, cannot be update');
+                } else {
+                    // Other database error
+                    return redirect('admin/mahasiswa')->with('error', 'An error occurred while update data');
+                }
+            }
         }
 
         // hapus data mahasiswa
@@ -106,12 +118,23 @@
 
         // update data kelas mahasiswa
         public function updateDataKelasMahasiswa(Request $request, $id){
-            $dataProdi = Data_prodi::all();
-            $dataKelasMahasiswa = Kelas_mahasiswa::where('kode_kelas', $id)->first();
-            $dataKelasMahasiswa->kode_kelas = $request->kode_kelas;
-            $dataKelasMahasiswa->kode_prodi = $request->kode_prodi;
-            $dataKelasMahasiswa->save();
-            return redirect('admin/kelas_mahasiswa')->with('update', 'Kelas Telah diupdate');
+
+            try {
+                $dataProdi = Data_prodi::all();
+                $dataKelasMahasiswa = Kelas_mahasiswa::where('kode_kelas', $id)->first();
+                $dataKelasMahasiswa->kode_kelas = $request->kode_kelas;
+                $dataKelasMahasiswa->kode_prodi = $request->kode_prodi;
+                $dataKelasMahasiswa->save();
+                return redirect('admin/kelas_mahasiswa')->with('update', 'Kelas Telah diupdate');
+            } catch (QueryException $e) {
+                if ($e->errorInfo[1] === 1451) {
+                    // Foreign key constraint violation
+                    return redirect('admin/kelas_mahasiswa')->with('error', 'Data still has related data, cannot be update');
+                } else {
+                    // Other database error
+                    return redirect('admin/kelas_mahasiswa')->with('error', 'An error occurred while update data');
+                }
+            }
         }
 
         public function hapusDataKelasMahasiswa(Request $request, $id)

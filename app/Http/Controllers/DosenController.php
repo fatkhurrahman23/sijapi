@@ -52,15 +52,27 @@ class DosenController extends Controller
 
     // update data dosen
     public function updateDataDosen(Request $request){
-        $dataProdi = Data_prodi::all();
-        DB::table('dosen')->where('kode_dosen', $request->kode_dosen)->update([
-            'nip' => $request->nip,
-            'nama' => $request->nama,
-            'alamat' => $request->alamat,
-            'no_telp' => $request->no_telp,
-            'kode_prodi' => $request->kode_prodi
-        ]);
-        return redirect('admin/dosen')->with('update', 'Dosen telah diupdate');
+
+
+        try {
+            $dataProdi = Data_prodi::all();
+            DB::table('dosen')->where('kode_dosen', $request->kode_dosen)->update([
+                'nip' => $request->nip,
+                'nama' => $request->nama,
+                'alamat' => $request->alamat,
+                'no_telp' => $request->no_telp,
+                'kode_prodi' => $request->kode_prodi
+            ]);
+            return redirect('admin/dosen')->with('update', 'Dosen telah diupdate');
+        } catch (QueryException $e) {
+            if ($e->errorInfo[1] === 1451) {
+                // Foreign key constraint violation
+                return redirect('admin/dosen')->with('error', 'Data still has related data, cannot be update');
+            } else {
+                // Other database error
+                return redirect('admin/dosen')->with('error', 'An error occurred while update data');
+            }
+        }
     }
 
 

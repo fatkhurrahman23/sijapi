@@ -51,11 +51,22 @@ class jurusanController extends Controller
 
     public function updateDataJurusan(Request $request, $id)
     {
-        $dataJurusan = Jurusan::where('kode_jurusan', $id)->first();
-        $dataJurusan->kode_jurusan = $request->kode_jurusan;
-        $dataJurusan->nama_jurusan = $request->nama_jurusan;
-        $dataJurusan->save();
-        return Redirect('/admin/jurusan')->with('update', 'Jurusan telah diupdate');
+       
+        try {
+            $dataJurusan = Jurusan::where('kode_jurusan', $id)->first();
+            $dataJurusan->kode_jurusan = $request->kode_jurusan;
+            $dataJurusan->nama_jurusan = $request->nama_jurusan;
+            $dataJurusan->save();
+            return Redirect('/admin/jurusan')->with('update', 'Jurusan telah diupdate');
+        } catch (QueryException $e) {
+            if ($e->errorInfo[1] === 1451) {
+                // Foreign key constraint violation
+                return redirect('admin/jurusan')->with('error', 'Data still has related data, cannot be update');
+            } else {
+                // Other database error
+                return redirect('admin/jurusan')->with('error', 'An error occurred while update data');
+            }
+        }
     }
 
 

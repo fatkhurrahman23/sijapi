@@ -39,15 +39,26 @@ class MataKuliah extends Controller
 
     //update data
     public function updateDataMataKuliah(Request $request, $kode_mata_kuliah){
-        $dataKelasMahasiswa = Kelas_mahasiswa::all();
-        DB::table('mata_kuliah')->where('kode_mata_kuliah', $kode_mata_kuliah)->update([
-            // 'kode_kelas' => $request->kode_kelas,
-            'nama_mata_kuliah' => $request->nama_mata_kuliah,
-            'sks' => $request->sks,
-            'semester' => $request->semester,
-            'jenis' => $request->jenis
-        ]);
-        return redirect('admin/matkul')->with('update', 'Matkul telah diupdate');
+      
+        try {
+            $dataKelasMahasiswa = Kelas_mahasiswa::all();
+            DB::table('mata_kuliah')->where('kode_mata_kuliah', $kode_mata_kuliah)->update([
+                // 'kode_kelas' => $request->kode_kelas,
+                'nama_mata_kuliah' => $request->nama_mata_kuliah,
+                'sks' => $request->sks,
+                'semester' => $request->semester,
+                'jenis' => $request->jenis
+            ]);
+            return redirect('admin/matkul')->with('update', 'Matkul telah diupdate');
+        } catch (QueryException $e) {
+            if ($e->errorInfo[1] === 1451) {
+                // Foreign key constraint violation
+                return redirect('admin/matkul')->with('error', 'Data still has related data, cannot be update');
+            } else {
+                // Other database error
+                return redirect('admin/matkul')->with('error', 'An error occurred while update data');
+            }
+        }
     }
 
     //hapus data
