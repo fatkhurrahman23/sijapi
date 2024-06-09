@@ -16,13 +16,36 @@ class tahunAkademik extends Seeder
     {
         $data = [
             [
+                'kode_tahun_akademik' => '2021/2022-1',
                 'tahun_akademik' => '2021/2022',
-                'status' => 'tidak aktif'
+                'tgl_mulai' => '2021-09-01',
+                'tgl_selesai' => '2022-02-28',
+                'semester' => 'Gasal',
+//                'status' => 'aktif'
             ],
             [
+                'kode_tahun_akademik' => '2021/2022-2',
+                'tahun_akademik' => '2021/2022',
+                'tgl_mulai' => '2022-03-01',
+                'tgl_selesai' => '2022-08-31',
+                'semester' => 'Genap',
+            ],
+            [
+                'kode_tahun_akademik' => '2022/2023-1',
                 'tahun_akademik' => '2022/2023',
-                'status' => 'aktif'
-            ]
+                'tgl_mulai' => '2022-09-01',
+                'tgl_selesai' => '2022-02-28',
+                'semester' => 'Gasal',
+            ],
+            [
+                'kode_tahun_akademik' => '2022/2023-2',
+                'tahun_akademik' => '2022/2023',
+                'tgl_mulai' => '2023-03-01',
+                'tgl_selesai' => '2023-08-31',
+                'semester' => 'Genap',
+            ],
+
+
         ];
 
         // insert data ke dalam tabel tahun_akademik

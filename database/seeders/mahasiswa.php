@@ -19,7 +19,7 @@ class mahasiswa extends Seeder
             [
                 'nim' => '43322001',
                 'nama' => 'MAHASISWA A 1',
-                'tahun_masuk' => '2021/2022',
+                'tahun_masuk' => '2021/2022-1',
                 'kode_prodi' => 'TI',
                 'kelas' => 'A',
                 'jenis_kelamin' => 'L',
@@ -30,7 +30,7 @@ class mahasiswa extends Seeder
             [
                 'nim' => '43322002',
                 'nama' => 'MAHASISWA A 2',
-                'tahun_masuk' => '2021/2022',
+                'tahun_masuk' => '2021/2022-1',
                 'kode_prodi' => 'TI',
                 'kelas' => 'A',
                 'jenis_kelamin' => 'L',
@@ -41,7 +41,7 @@ class mahasiswa extends Seeder
             [
                 'nim' => '43322003',
                 'nama' => 'MAHASISWA A 3',
-                'tahun_masuk' => '2022/2023',
+                'tahun_masuk' => '2022/2023-1',
                 'kode_prodi' => 'TI',
                 'kelas' => 'A',
                 'jenis_kelamin' => 'L',
@@ -52,7 +52,7 @@ class mahasiswa extends Seeder
             [
                 'nim' => '43322004',
                 'nama' => 'MAHASISWA A 4',
-                'tahun_masuk' => '2022/2023',
+                'tahun_masuk' => '2022/2023-1',
                 'kode_prodi' => 'TI',
                 'kelas' => 'A',
                 'jenis_kelamin' => 'L',

@@ -17,7 +17,7 @@ class Jadwal_kuliah extends Model
 
 
     public function tahun_akademik(){
-        return $this->belongsTo(Tahun_akademik::class, 'tahun_akademik', 'tahun_akademik');
+        return $this->belongsTo(Tahun_akademik::class, 'kode_tahun_akademik', 'kode_tahun_akademik');
     }
 
     public function ruang(){

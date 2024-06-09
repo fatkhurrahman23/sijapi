@@ -29,13 +29,13 @@ class Mahasiswa extends Model
     }
 
     public function tahun_akademik(){
-        return $this->belongsTo(Tahun_akademik::class, 'tahun_masuk', 'tahun_akademik');
+        return $this->belongsTo(Tahun_akademik::class, 'tahun_masuk', 'kode_tahun_akademik');
     }
 
     public function setDefaultTahunMasuk()
     {
         // Mengatur nilai default untuk tahun_masuk berdasarkan query ke tabel tahun_akademik
-        $this->tahun_masuk = Tahun_akademik::where('status', 'aktif')->first()->tahun_akademik;
+        $this->tahun_masuk = Tahun_akademik::where('status', 'Aktif')->first()->tahun_akademik;
     }
 
 }
