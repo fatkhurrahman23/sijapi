@@ -36,20 +36,48 @@
         <h3 class="font-poppins font-medium text-2xl text-custom-dark">Tambah Tahun Akademik</h3>
         <div class="mt-7 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
             <div class="sm:col-span-2">
+                <label for="kode_tahun_akademik" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Tahun Akademik</label>
+                <div class="mt-2">
+                    <input type="text" name="kode_tahun_akademik" id="kode_tahun_akademik" autocomplete="kode_tahun_akademik" class="block pl-2 w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+            </div>
+            <div class="sm:col-span-2">
                 <label for="tahun_akademik" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Tahun Akademik</label>
                 <div class="mt-2">
                     <input type="text" name="tahun_akademik" id="tahun_akademik" autocomplete="tahun_akademik" class="block pl-2 w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                 </div>
             </div>
             <div class="sm:col-span-2">
-                <label for="status" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Status</label>
+                <label for="tgl_mulai" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Tanggal Mulai</label>
                 <div class="mt-2">
-                    <select id="status" name="status" autocomplete="status" class="block w-3/4 rounded-md border-0 pl-2 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                        <option value="gasal">Gasal</option>
-                        <option value="genap">Genap</option>
-                    </select>
+                    <input type="date" name="tgl_mulai" id="tgl_mulai" autocomplete="tgl_mulai" class="block pl-2 w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                 </div>
             </div>
+            <div class="sm:col-span-2">
+                <label for="tgl_selesai" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Tanggal Selesai</label>
+                <div class="mt-2">
+                    <input type="date" name="tgl_selesai" id="tgl_selesai" autocomplete="tgl_selesai" class="block pl-2 w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+            </div>
+            <div class="sm:col-span-2">
+                <label for="semester" class="block text-sm font-poppins font-semibold leading-6 text-gray-90">semester</label>
+                    <div class="mt-2">
+                        <select id="semester" name="semester" autocomplete="semester" class="pl-1 block w-3/4 rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <option value="gasal">Gasal</option>
+                            <option value="genap">Genap</option>
+                        </select>
+                    </div>
+                </div>
+            <div class="sm:col-span-2" hidden>
+                <label for="status" class="block text-sm font-poppins font-semibold leading-6 text-gray-90">Status</label>
+                    <div class="mt-2">
+                        <select id="status" name="status" autocomplete="status" class="pl-1 block w-3/4 rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <option value="Tidak aktif" selected>Tidak aktif</option>
+                            <option value="Aktif">Aktif</option>
+                            <option value="Lewat">Lewat</option>
+                        </select>
+                    </div>
+                </div>
             <div class="sm:col-span-2 flex justify-between items-end">
                 <button type="submit" class="flex justify-center w-3/6 rounded-md bg-custom-birumuda px-3 py-2 text-sm font-poppins font-semibold text-white shadow-sm hover:bg-custom-birutua focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                     <img class="flex justify-end align-bottom items-end" width="17" height="17" src="https://img.icons8.com/sf-black-filled/64/plus-math.png" alt="plus-math" style="filter: invert(100%);"/>
@@ -65,8 +93,8 @@
             <div class="sm:col-span-2">
                 <label for="status" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Status</label>
                 <div class="mt-2">
-                    <select id="tahun_akademik" name="tahun_akademik" autocomplete="tahun_akademik" class="block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required>
-                        <option value="" disabled selected>Pilih Tahun Akademik</option>
+                    <select id="tahun_akademik" name="tahun_akademik" autocomplete="tahun_akademik" class="block px-2 w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required>
+                        <option class="px-2" value="" disabled selected>Pilih Tahun Akademik</option>
                         @foreach($data as $tahun)
                             <option value="{{ $tahun->tahun_akademik }}">{{ $tahun->tahun_akademik }}</option>
                         @endforeach
@@ -80,7 +108,8 @@
                 </button>
             </div>
         </div>
-            <p class="mt-2">Tahun akademik aktif: {{ $tahunAktif->tahun_akademik }}</p>
+        <!-- <p class="mt-2">Tahun akademik aktif: {{ $tahunAktif->tahun_akademik }}</p> -->
+
     </form>
 
 
@@ -101,6 +130,7 @@
                         <tr>
                             <td class="border px-4 py-2">{{ $no+1 }}</td>
                             <td class="border px-4 py-2">{{ $value->tahun_akademik }}</td>
+                            <td class="border px-4 py-2">{{ $value->semester }}</td>
                             <td class="border px-4 py-2">{{ $value->status }}</td>
                             <td class="border px-4 py-2">
                             <button type="button" data-modal-target="edit_tahun_akademik_modal{{ $value->id }}" data-modal-toggle="edit_tahun_akademik_modal" class="bg-blue-500 hover:bg-blue-700 text-white font-poppins font-normal py-1 px-2 rounded">Edit</button>
@@ -134,21 +164,49 @@
             <div class="p-4 md:p-5">
                 <form class="space-y-4" action="{{ url('admin/tahun_akademik/update/'.$value->id) }}" method="POST">
                 @csrf
-                    <div class="sm:col-span-2">
-                        <label for="tahun_akademik" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Tahun Akademik</label>
-                        <div class="mt-2">
-                            <input type="text" name="tahun_akademik" id="tahun_akademik{{ $value->id }}" autocomplete="tahun_akademik" class="block pl-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->tahun_akademik }}" required>
-                        </div>
+            <div class="sm:col-span-2">
+                <label for="kode_tahun_akademik" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Tahun Akademik</label>
+                <div class="mt-2">
+                    <input type="text" name="kode_tahun_akademik" id="kode_tahun_akademik" autocomplete="kode_tahun_akademik" class="block pl-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->kode_tahun_akademik }}" required autofocus readonly>
+                </div>
+            </div>
+            <div class="sm:col-span-2">
+                <label for="tahun_akademik" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Tahun Akademik</label>
+                <div class="mt-2">
+                    <input type="text" name="tahun_akademik" id="tahun_akademik" autocomplete="tahun_akademik" class="block pl-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->tahun_akademik }}">
+                </div>
+            </div>
+            <div class="sm:col-span-2">
+                <label for="tgl_mulai" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Tanggal Mulai</label>
+                <div class="mt-2">
+                    <input type="date" name="tgl_mulai" id="tgl_mulai" autocomplete="tgl_mulai" class="block pl-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->tgl_mulai }}">
+                </div>
+            </div>
+            <div class="sm:col-span-2">
+                <label for="tgl_selesai" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Tanggal Selesai</label>
+                <div class="mt-2">
+                    <input type="date" name="tgl_selesai" id="tgl_selesai" autocomplete="tgl_selesai" class="block pl-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->tgl_selesai }}">
+                </div>
+            </div>
+            <div class="sm:col-span-2">
+                <label for="semester" class="block text-sm font-poppins font-semibold leading-6 text-gray-90">semester</label>
+                    <div class="mt-2">
+                        <select id="semester" name="semester" autocomplete="semester" class="pl-1 block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->semester }}">
+                            <option value="gasal">Gasal</option>
+                            <option value="genap">Genap</option>
+                        </select>
                     </div>
-                    <div class="sm:col-span-2">
-                        <label for="status" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Status</label>
-                        <div class="mt-2">
-                            <select id="status{{ $value->id }}" name="status" autocomplete="status" class="block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                                <option value="aktif">Aktif</option>
-                                <option value="tidak aktif">Tidak aktif</option>
-                            </select>
-                        </div>
+                </div>
+            <div class="sm:col-span-2" hidden>
+                <label for="status" class="block text-sm font-poppins font-semibold leading-6 text-gray-90">Status</label>
+                    <div class="mt-2">
+                        <select id="status" name="status" autocomplete="status" class="pl-1 block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <option value="Tidak aktif" selected>Tidak aktif</option>
+                            <option value="Aktif">Aktif</option>
+                            <option value="Lewat">Lewat</option>
+                        </select>
                     </div>
+                </div>
                     <div class="sm:col-span-2 flex justify-center items-center">
                         <button type="submit" class="flex justify-center w-3/6 rounded-md bg-custom-birumuda px-3 py-2 text-sm font-poppins font-semibold text-white shadow-sm hover:bg-custom-birutua focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                             <img class="flex justify-end align-bottom items-end" width="17" height="17" src="https://img.icons8.com/sf-black-filled/64/plus-math.png" alt="plus-math" style="filter: invert(100%);"/>

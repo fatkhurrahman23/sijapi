@@ -15,7 +15,9 @@
                                 <li>
                                     <a href="#">Admin</a>
                                 </li>
-                                <li><i class="bx bx-chevron-right"></i></li>
+                                <li>
+                                    <i class="bx bx-chevron-right"></i>
+                                </li>
                                 <li>
                                     <a class="active" href="#">Jadwal Kelas</a>
                                 </li>
@@ -150,7 +152,7 @@
     </select>
     <div id="scheduleTables">
         @foreach ($jadwalKuliah as $hari => $jadwal)
-        <table data-hari="{{ $hari }}" id="myTable" class="jadwal-table dataTables_wrapper mt-11 w-full table table-striped">
+        <table data-hari="{{ $hari }}" id="jadwal-table" class="jadwal-table dataTables_wrapper mt-11 w-full table table-striped">
             <thead>
                 <tr>
                     <th class="py-3 px-4 pl-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Jam</th>
@@ -183,7 +185,7 @@
 <!-- ========================================================MODAL======================================================== -->
 @foreach ($jadwalKuliah as $hari => $jadwal)
     @foreach ($jadwal as $value)
-    <div id="edit_jadwal_modal{{ $value->kode_jadwal_kuliah }}" tabindex="-1" aria-hidden="true" class="hidden h-100 mt-5 py-12 modal flex overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center">
+    <div id="edit_jadwal_modal{{ $value->kode_jadwal_kuliah }}" tabindex="-1" aria-hidden="true" class="hidden h-100 mt-5 py-5 modal flex overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center">
         <div class="backdrop absolute inset-0 bg-black opacity-30 h-130"></div>
             <div class="relative p-4 w-full max-w-md max-h-full">
                 <!-- Modal content -->
@@ -287,8 +289,8 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="sm:col-span-2 flex justify-between items-end">
-                                <button type="submit" class="flex justify-center w-3/6 rounded-md bg-custom-birumuda px-3 py-2 text-sm font-poppins font-semibold text-white shadow-sm hover:bg-custom-birutua focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                            <div class="sm:col-span-2 flex justify-center">
+                                <button type="submit" class="flex items-center justify-center w-3/6 rounded-md bg-custom-birumuda px-3 py-2 text-sm font-poppins font-semibold text-white shadow-sm hover:bg-custom-birutua focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                                     <img class="flex justify-end align-bottom items-end" width="17" height="17" src="https://img.icons8.com/sf-black-filled/64/plus-math.png" alt="plus-math" style="filter: invert(100%);"/>
                                     <p class="ml-2">Tambah</p>
                                 </button>

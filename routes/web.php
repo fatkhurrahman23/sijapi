@@ -60,7 +60,7 @@ Route::group(['middleware' => ['cekUserLevel:admin'], 'prefix' => 'admin'], func
     Route::get('/jenis_jurusan', [Jadwal::class, 'tampilJenisJurusan'])->name('tampilJenisJurusan');
     Route::post('/jenis_prodi', [Jadwal::class, 'tampilJenisProdi'])->name('tampilJenisProdi');
     Route::get('/jenis_kelas/{kode_prodi}', [Jadwal::class, 'tampilJenisKelas'])->name('tampilJenisKelas');
-    Route::get('/jadwal_kelas/{kodeKelas}', [Jadwal::class, 'tampilJadwalKuliahKelas'])->name('tampilJadwalKuliahKelas');
+    Route::get('/jadwal_kelas/{kode_Kelas}', [Jadwal::class, 'tampilJadwalKuliahKelas'])->name('tampilJadwalKuliahKelas');
     Route::post('/jadwal_kelas', [Jadwal::class, 'tambahJadwalKuliah']);
     // jadwal_kuliah edit
     Route::get('/jadwal_kelas/edit/{kode_jadwal_kuliah}', [Jadwal::class, 'editDataJadwalKuliah'])->name('editDataJadwalKuliah');

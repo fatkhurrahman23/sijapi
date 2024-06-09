@@ -4,7 +4,7 @@ import "datatables.net-responsive-dt";
 
 // DataTables initialisation
 $(document).ready(function () {
-    var table = $("myTable").DataTable({
+    var table = $("#myTable").DataTable({
         layout: {
             topStart: {
                 buttons: ["copyHtml5", "excelHtml5", "csvHtml5", "pdfHtml5"],
@@ -59,12 +59,40 @@ $(document).ready(function () {
     updateTotalcobajadwalTRK();
 });
 
-document.querySelector("table").addEventListener("click", (event) => {
-    if (event.target.matches('[data-modal-toggle="edit_jadwal_modal"]')) {
-        const modalId = event.target.getAttribute("data-modal-target");
-        const modal = document.getElementById(modalId);
-        modal.classList.remove("hidden");
-        document.body.classList.add("overflow-hidden");
+document.addEventListener("DOMContentLoaded", () => {
+    document
+        .querySelectorAll('[data-modal-toggle="edit_jadwal_modal"]')
+        .forEach((button) => {
+            button.addEventListener("click", (event) => {
+                const modalId = button.getAttribute("data-modal-target");
+                const modal = document.getElementById(modalId);
+                modal.classList.remove("hidden");
+                document.body.classList.add("overflow-hidden");
+
+                // Optionally, fill modal with data based on the clicked button
+                // You can add more data attributes to the button and retrieve them here
+                const jadwalId = button.getAttribute("data-jadwal-id");
+                fillModalWithData(jadwalId);
+            });
+        });
+
+    document
+        .querySelectorAll('[data-modal-hide="edit_jadwal_modal"]')
+        .forEach((button) => {
+            button.addEventListener("click", () => {
+                const modal = button.closest(".modal");
+                modal.classList.add("hidden");
+                document.body.classList.remove("overflow-hidden");
+            });
+        });
+
+    function fillModalWithData(jadwalId) {
+        // Retrieve data based on jadwalId and fill the modal content
+        // This function needs to be implemented based on your data structure
+        // Example:
+        // const data = getDataById(jadwalId);
+        // document.querySelector("#modal-body input[name='jam']").value = data.jam;
+        // document.querySelector("#modal-body input[name='mata_kuliah']").value = data.mata_kuliah;
     }
 });
 

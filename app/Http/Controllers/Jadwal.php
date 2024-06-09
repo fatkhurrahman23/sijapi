@@ -145,7 +145,11 @@ class Jadwal extends Controller
     public function tambahDataTahunAkademik(Request $request)
     {
         $data = new Tahun_akademik();
+        $data->kode_tahun_akademik = $request->kode_tahun_akademik;
         $data->tahun_akademik = $request->tahun_akademik;
+        $data->tgl_mulai = $request->tgl_mulai;
+        $data->tgl_selesai = $request->tgl_selesai;
+        $data->semester = $request->semester;
         $data->status = $request->status;
         $data->save();
         return Redirect('/admin/tahun_akademik')->with('add', 'Tahun telah ditambahkan');
@@ -161,7 +165,11 @@ class Jadwal extends Controller
     {
         try {
             $data = Tahun_akademik::where('id', $id)->first();
+            $data->kode_tahun_akademik = $request->kode_tahun_akademik;
             $data->tahun_akademik = $request->tahun_akademik;
+            $data->tgl_mulai = $request->tgl_mulai;
+            $data->tgl_selesai = $request->tgl_selesai;
+            $data->semester = $request->semester;
             $data->status = $request->status;
             $data->save();
             return Redirect('/admin/tahun_akademik')->with('update', 'Tahun telah diupdate');
@@ -346,37 +354,69 @@ class Jadwal extends Controller
         return redirect()->back()->with('add', 'Jadwal Kuliah telah ditambahkan');
     }
 
-    public function editDataJadwalKuliah(Request $request,$id){
+    public function editDataJadwalKuliah($kode_jadwal_kuliah)
+    {
         $dataKelasMahasiswa = Kelas_mahasiswa::all();
-        $dataEnrollment =  Enrollment::all();
+        $dataEnrollment = Enrollment::all();
         $dataHari = Hari::all();
         $dataRuang = Ruang::all();
         $dataJam = Jam::all();
         $dataTahunAkademik = Tahun_akademik::all();
-        $dataJadwalKuliah = Jadwal_kuliah::where('id', $id)->first();
-        return view('admin/jadwal_kelas/', compact('dataKelasMahasiswa', 'dataEnrollment','dataHari', 'dataRuang', 'dataJam', 'dataTahunAkademik', 'dataJadwalKuliah'));
+
+        $dataJadwalKuliah = DB::table('jadwal_kuliah')->where('kode_jadwal_kuliah', $kode_jadwal_kuliah)->first();
+
+        return view('admin/jadwal_kelas/', compact('dataKelasMahasiswa', 'dataEnrollment', 'dataHari', 'dataRuang', 'dataJam', 'dataTahunAkademik', 'dataJadwalKuliah'));
     }
 
-    public function updateDataJadwalKuliah(Request $request){
-        Jadwal_kuliah::where('id', $request->id)->update([
-            'tahun_akademik' => $request->tahun_akademik,
-            'kode_enrollment' => $request->kode_enrollment,
-            'kode_hari' => $request->kode_hari,
-            'kode_ruang' => $request->kode_ruang,
-            'kode_kelas' => $request->kode_kelas,
-            'semester' => $request->semester,
-            'kode_jam_awal' => $request->kode_jam_awal,
-            'kode_jam_akhir' => $request->kode_jam_akhir,
-        ]);
-        return redirect()->back()->with('update', 'Jadwal telah diupdate');;
+    public function updateDataJadwalKuliah(Request $request)
+    {
+        try {
+            $dataKelasMahasiswa = Kelas_mahasiswa::all();
+            $dataEnrollment =  Enrollment::all();
+            $dataHari = Hari::all();
+            $dataRuang = Ruang::all();
+            $dataJam = Jam::all();
+            $dataTahunAkademik = Tahun_akademik::all();
+            DB::table('jadwal_kuliah')->where('kode_jadwal_kuliah', $request->kode_jadwal_kuliah)->update([
+                'tahun_akademik' => $request->tahun_akademik,
+                'kode_enrollment' => $request->kode_enrollment,
+                'kode_hari' => $request->kode_hari,
+                'kode_ruang' => $request->kode_ruang,
+                'kode_kelas' => $request->kode_kelas,
+                'semester' => $request->semester,
+                'kode_jam_awal' => $request->kode_jam_awal,
+                'kode_jam_akhir' => $request->kode_jam_akhir,
+            ]);
+            return redirect()->back()->with('update', 'Enrollment telah diupdate');
+        } catch (QueryException $e) {
+            if ($e->errorInfo[1] === 1451) {
+                // Foreign key constraint violation
+                return redirect()->back()->with('error', 'Data still has related data, cannot be update');
+            } else {
+                // Other database error
+                return redirect()->back()->with('error', 'An error occurred while update data');
+            }
+        }
+
+        return redirect()->back()->with('update', 'Jadwal telah diupdate');
     }
 
     public function hapusDataJadwalKuliah(Request $request, $id)
     {
-        
-        $data = Jadwal_kuliah::where('kode_jadwal_kuliah',$id)->first();
-        $data->delete();
-        return redirect()->back()->with('delete', 'Jadwal kuliah telah dihapus');
+
+        try {           
+            $data = Jadwal_kuliah::where('kode_jadwal_kuliah',$id)->first();
+            $data->delete();
+            return redirect()->back()->with('delete', 'Jadwal kuliah telah dihapus');
+        } catch (QueryException $e) {
+            if ($e->errorInfo[1] === 1451) {
+                // Foreign key constraint violation
+                return redirect()->back()->with('error', 'Data still has related data, cannot be deleted');
+            } else {
+                // Other database error
+                return redirect()->back()->with('error', 'An error occurred while deleting data');
+            }
+        }
     }
 
     

@@ -150,12 +150,7 @@
           <i class="bx bx-menu"></i>
           <div class="bg-sijapi-update bg-contain ml-8 w-24 h-7  bg-no-repeat "></div>
         </div>
-        <div class="flex justify-center items-center">
-          <a href="#" class="notification pr-2">
-            <i class="bx bxs-bell"></i>
-            <span class="num mr-2">8</span>
-          </a>
-        </div>
+  
       </nav>
       <!-- NAVBAR -->
 
