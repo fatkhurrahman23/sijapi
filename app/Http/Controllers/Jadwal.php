@@ -342,7 +342,7 @@ class Jadwal extends Controller
         $dataJadwalKuliah = new Jadwal_kuliah();
         $dataJadwalKuliah->kode_jadwal_kuliah = $request->kode_jadwal_kuliah;
         $dataJadwalKuliah->kode_enrollment = $request->kode_enrollment;
-        $dataJadwalKuliah->tahun_akademik = $request->tahun_akademik;
+        $dataJadwalKuliah->kode_tahun_akademik = $request->kode_tahun_akademik;
         $dataJadwalKuliah->semester = $request->semester;
         $dataJadwalKuliah->kode_hari = $request->kode_hari;
         $dataJadwalKuliah->kode_ruang = $request->kode_ruang;
@@ -362,44 +362,33 @@ class Jadwal extends Controller
         $dataRuang = Ruang::all();
         $dataJam = Jam::all();
         $dataTahunAkademik = Tahun_akademik::all();
-
-        $dataJadwalKuliah = DB::table('jadwal_kuliah')->where('kode_jadwal_kuliah', $kode_jadwal_kuliah)->first();
-
-        return view('admin/jadwal_kelas/', compact('dataKelasMahasiswa', 'dataEnrollment', 'dataHari', 'dataRuang', 'dataJam', 'dataTahunAkademik', 'dataJadwalKuliah'));
+    
+        $dataJadwalKuliah = JadwalKuliah::where('kode_jadwal_kuliah', $kode_jadwal_kuliah)->first();
+    
+        return view('admin.jadwal_kelas.edit', compact('dataKelasMahasiswa', 'dataEnrollment', 'dataHari', 'dataRuang', 'dataJam', 'dataTahunAkademik', 'dataJadwalKuliah'));
     }
-
+    
     public function updateDataJadwalKuliah(Request $request)
     {
         try {
-            $dataKelasMahasiswa = Kelas_mahasiswa::all();
-            $dataEnrollment =  Enrollment::all();
-            $dataHari = Hari::all();
-            $dataRuang = Ruang::all();
-            $dataJam = Jam::all();
-            $dataTahunAkademik = Tahun_akademik::all();
-            DB::table('jadwal_kuliah')->where('kode_jadwal_kuliah', $request->kode_jadwal_kuliah)->update([
-                'tahun_akademik' => $request->tahun_akademik,
-                'kode_enrollment' => $request->kode_enrollment,
-                'kode_hari' => $request->kode_hari,
-                'kode_ruang' => $request->kode_ruang,
-                'kode_kelas' => $request->kode_kelas,
-                'semester' => $request->semester,
-                'kode_jam_awal' => $request->kode_jam_awal,
-                'kode_jam_akhir' => $request->kode_jam_akhir,
-            ]);
-            return redirect()->back()->with('update', 'Enrollment telah diupdate');
-        } catch (QueryException $e) {
-            if ($e->errorInfo[1] === 1451) {
-                // Foreign key constraint violation
-                return redirect()->back()->with('error', 'Data still has related data, cannot be update');
-            } else {
-                // Other database error
-                return redirect()->back()->with('error', 'An error occurred while update data');
-            }
-        }
-
-        return redirect()->back()->with('update', 'Jadwal telah diupdate');
+            $jadwalKuliah = Jadwal_Kuliah::where('kode_jadwal_kuliah', $request->kode_jadwal_kuliah)->first();
+            $jadwalKuliah->kode_tahun_akademik = $request->kode_tahun_akademik;
+            $jadwalKuliah->kode_enrollment = $request->kode_enrollment;
+            $jadwalKuliah->kode_hari = $request->kode_hari;
+            $jadwalKuliah->kode_ruang = $request->kode_ruang;
+            $jadwalKuliah->kode_kelas = $request->kode_kelas;
+            $jadwalKuliah->semester = $request->semester;
+            $jadwalKuliah->kode_jam_awal = $request->kode_jam_awal;
+            $jadwalKuliah->kode_jam_akhir = $request->kode_jam_akhir;
+            $jadwalKuliah->save();
+            
+            return redirect()->back()->with('update', 'Jadwal telah diupdate');
+        } catch (\Exception $e) {
+    dd($e->getMessage());
+    return redirect()->back()->with('error', 'An error occurred while updating data');
+}
     }
+    
 
     public function hapusDataJadwalKuliah(Request $request, $id)
     {

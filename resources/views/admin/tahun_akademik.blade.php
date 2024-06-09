@@ -108,7 +108,6 @@
                 </button>
             </div>
         </div>
-        <!-- <p class="mt-2">Tahun akademik aktif: {{ $tahunAktif->tahun_akademik }}</p> -->
 
     </form>
 
@@ -130,7 +129,6 @@
                         <tr>
                             <td class="border px-4 py-2">{{ $no+1 }}</td>
                             <td class="border px-4 py-2">{{ $value->tahun_akademik }}</td>
-                            <td class="border px-4 py-2">{{ $value->semester }}</td>
                             <td class="border px-4 py-2">{{ $value->status }}</td>
                             <td class="border px-4 py-2">
                             <button type="button" data-modal-target="edit_tahun_akademik_modal{{ $value->id }}" data-modal-toggle="edit_tahun_akademik_modal" class="bg-blue-500 hover:bg-blue-700 text-white font-poppins font-normal py-1 px-2 rounded">Edit</button>

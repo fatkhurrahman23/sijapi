@@ -60,11 +60,11 @@
                                 </div>
                             </div>
                             <div class="sm:col-span-2">
-                                <label for="tahun_akademik" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Tahun Akademik</label>
+                                <label for="kode_tahun_akademik" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Tahun Akademik</label>
                                 <div class="mt-2">
-                                    <select id="tahun_akademik" name="tahun_akademik" class="pl-1 block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required>
+                                    <select id="kode_tahun_akademik" name="kode_tahun_akademik" class="pl-1 block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required>
                                     @foreach($dataTahunAkademik as $tahun)
-                                        <option value="{{ $tahun->tahun_akademik }}">{{ $tahun->tahun_akademik }}</option>
+                                        <option value="{{ $tahun->kode_tahun_akademik }}">{{ $tahun->kode_tahun_akademik }}</option>
                                     @endforeach
                                     </select>
                                 </div>
@@ -145,9 +145,9 @@
         '5' => 'Jumat'
         ];
     @endphp
-    <select id="selectDay" onchange="showSchedule()" class="pl-1 block w-28 font-poppins rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+    <select id="selectDay" onchange="showSchedule()" class="pl-1 block w-28 transition-all duration-1000 transform font-poppins rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
         @foreach ($jadwalKuliah as $hari => $jadwal)
-            <option value="{{ $hari }}" class="font-poppins">{{ $days[$hari] }}</option>
+            <option value="{{ $hari }}" class="font-poppins ">{{ $days[$hari] }}</option>
         @endforeach
     </select>
     <div id="scheduleTables">
@@ -223,11 +223,11 @@
                                 </div>
                             </div>
                             <div class="sm:col-span-2">
-                                <label for="tahun_akademik" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Tahun Akademik</label>
+                                <label for="kode_tahun_akademik" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Tahun Akademik</label>
                                 <div class="mt-2">
-                                    <select id="tahun_akademik" name="tahun_akademik" class="pl-1 block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required>
+                                    <select id="kode_tahun_akademik" name="kode_tahun_akademik" class="pl-1 block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required>
                                     @foreach($dataTahunAkademik as $tahun)
-                                        <option value="{{ $tahun->tahun_akademik }}">{{ $tahun->tahun_akademik }}</option>
+                                        <option value="{{ $tahun->kode_tahun_akademik }}">{{ $tahun->kode_tahun_akademik }}</option>
                                     @endforeach
                                     </select>
                                 </div>
@@ -241,14 +241,12 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="sm:col-span-2">
+                            <div class="sm:col-span-2 sm:col-start-1" hidden>
                                 <label for="kode_hari" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Hari</label>
                                 <div class="mt-2">
-                                    <select id="kode_hari" name="kode_hari" class="pl-1 block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required>
-                                    @foreach($dataHari as $hari)
-                                        <option value="{{ $hari->kode_hari }}">{{ $hari->nama_hari }}</option>
-                                    @endforeach
-                                    </select>
+                                    <select id="kode_hari" name="kode_hari" class="pl-1 block bg-gray-300 w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" readonly>
+                                    <option class="" value="{{ $hari }}" selected>{{ $days[$hari] }}</option>                                    
+                                </select>
                                 </div>
                             </div>
                             <div class="sm:col-span-2 ">
@@ -261,12 +259,11 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="sm:col-span-2 sm:col-start-1" readonly hidden>
+                            <div class="sm:col-span-2 sm:col-start-1" hidden>
                                 <label for="kode_kelas" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Kelas</label>
                                 <div class="mt-2">
                                     <select id="kode_kelas" name="kode_kelas" class="pl-1 block bg-gray-300 w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" readonly>
-                                        <option class="" value="{{ request('kode_kelas') }}" selected>{{ request('kode_kelas') }}</option>
-                                    </select>
+                                    <option class="" value="{{ $kodeKelas }}" selected>{{ $kodeKelas }}</option>                                    </select>
                                 </div>
                             </div>
                             <div class="sm:col-span-2">
