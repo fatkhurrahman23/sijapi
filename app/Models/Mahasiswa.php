@@ -13,7 +13,7 @@ class Mahasiswa extends Model
 
     protected $table = 'mahasiswa';
     protected $primarykey = 'nim';
-    protected $fillable = ['nim', 'nama', 'kode_prodi', 'kelas', 'jenis_kelamin'];
+    protected $fillable = ['nim', 'nama', 'kode_prodi', 'kelas', 'jenis_kelamin', 'tahun_masuk'];
 
 
     public function kelas_mahasiswa(){
@@ -29,7 +29,7 @@ class Mahasiswa extends Model
     }
 
     public function tahun_akademik(){
-        return $this->belongsTo(Tahun_akademik::class, 'tahun_masuk', 'kode_tahun_akademik');
+    return $this->belongsTo(Tahun_akademik::class, 'tahun_masuk', 'kode_tahun_akademik');
     }
 
     public function setDefaultTahunMasuk()

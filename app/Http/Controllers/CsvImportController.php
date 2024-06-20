@@ -35,8 +35,9 @@ class CsvImportController extends Controller
 
     public function import($filePath)
 {
-    try {
+//    try {
         $csv = Reader::createFromPath(storage_path('app/public/' . $filePath), 'r');
+        $csv->setDelimiter(';');
         $csv->setHeaderOffset(0);
 
         $records = $csv->getRecords();
@@ -56,8 +57,8 @@ class CsvImportController extends Controller
                 'nama' => $record['nama'],
                 'kode_prodi' => $record['prodi'],
                 'kelas' => $record['kelas'],
-                'tahun_masuk' => $record['tahunMasuk'],
                 'jenis_kelamin' => $record['jk'],
+                'tahun_masuk' => $record['tahunMasuk'],
             ]);
         }
 
@@ -65,11 +66,11 @@ class CsvImportController extends Controller
         Storage::disk('public')->delete($filePath);
 
         return back()->with('add', "Data berhasil diimport");
-    } catch (\Exception $e) {
-        // Menghapus file jika terjadi kesalahan
-        Storage::disk('public')->delete($filePath);
-
-        return back()->with('error', "Format file tidak sesuai");
-    }
+//    } catch (\Exception $e) {
+//        // Menghapus file jika terjadi kesalahan
+//        Storage::disk('public')->delete($filePath);
+//
+//        return back()->with('error', "Format file tidak sesuai");
+//    }
 }
 }

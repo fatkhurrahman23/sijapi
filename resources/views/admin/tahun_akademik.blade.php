@@ -96,9 +96,12 @@
                     <select id="tahun_akademik" name="tahun_akademik" autocomplete="tahun_akademik" class="block px-2 w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required>
                         <option class="px-2" value="" disabled selected>Pilih Tahun Akademik</option>
                         @foreach($data as $tahun)
-                            <option value="{{ $tahun->tahun_akademik }}">{{ $tahun->tahun_akademik }}</option>
+                            <option value="{{ $tahun->tahun_akademik }}">{{ $tahun->tahun_akademik }} - {{ $tahun->semester }}</option>
                         @endforeach
                     </select>
+                <p class="mt-2">Tahun akademik aktif:
+                    {{ $tahunAktif }} - {{ $semesterAktif }}
+                </p>
                 </div>
             </div>
             <div class="sm:col-span-2 flex justify-between items-end">
@@ -118,7 +121,11 @@
                     <thead>
                         <tr>
                             <th class="px-4 pl-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">No</th>
+                            <th class="px-4 pl-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Kode Tahun Akademik</th>
                             <th class="px-4 pl-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Tahun Akademik</th>
+                            <th class="px-4 pl-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Semester</th>
+                            <th class="px-4 pl-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Tanggal Mulai</th>
+                            <th class="px-4 pl-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Tanggal Selesai</th>
                             <th class="px-4 pl-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Status</th>
                             <th class="px-4 pl-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Aksi</th>
                         </tr>
@@ -128,7 +135,11 @@
 
                         <tr>
                             <td class="border px-4 py-2">{{ $no+1 }}</td>
+                            <td class="border px-4 py-2">{{ $value->kode_tahun_akademik }}</td>
                             <td class="border px-4 py-2">{{ $value->tahun_akademik }}</td>
+                            <td class="border px-4 py-2">{{ $value->semester }}</td>
+                            <td class="border px-4 py-2">{{ $value->tgl_mulai }}</td>
+                            <td class="border px-4 py-2">{{ $value->tgl_selesai }}</td>
                             <td class="border px-4 py-2">{{ $value->status }}</td>
                             <td class="border px-4 py-2">
                             <button type="button" data-modal-target="edit_tahun_akademik_modal{{ $value->id }}" data-modal-toggle="edit_tahun_akademik_modal" class="bg-blue-500 hover:bg-blue-700 text-white font-poppins font-normal py-1 px-2 rounded">Edit</button>
@@ -162,57 +173,60 @@
             <div class="p-4 md:p-5">
                 <form class="space-y-4" action="{{ url('admin/tahun_akademik/update/'.$value->id) }}" method="POST">
                 @csrf
-            <div class="sm:col-span-2">
-                <label for="kode_tahun_akademik" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Tahun Akademik</label>
-                <div class="mt-2">
-                    <input type="text" name="kode_tahun_akademik" id="kode_tahun_akademik" autocomplete="kode_tahun_akademik" class="block pl-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->kode_tahun_akademik }}" required autofocus readonly>
+                <div class="sm:col-span-2">
+                    <label for="kode_tahun_akademik" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Tahun Akademik</label>
+                    <div class="mt-2">
+                        <input type="text" name="kode_tahun_akademik" id="kode_tahun_akademik" autocomplete="kode_tahun_akademik" class="block pl-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->kode_tahun_akademik }}" required autofocus readonly>
+                    </div>
                 </div>
-            </div>
-            <div class="sm:col-span-2">
-                <label for="tahun_akademik" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Tahun Akademik</label>
-                <div class="mt-2">
-                    <input type="text" name="tahun_akademik" id="tahun_akademik" autocomplete="tahun_akademik" class="block pl-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->tahun_akademik }}">
+                <div class="sm:col-span-2">
+                    <label for="tahun_akademik" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Tahun Akademik</label>
+                    <div class="mt-2">
+                        <input type="text" name="tahun_akademik" id="tahun_akademik" autocomplete="tahun_akademik" class="block pl-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->tahun_akademik }}">
+                    </div>
                 </div>
-            </div>
-            <div class="sm:col-span-2">
-                <label for="tgl_mulai" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Tanggal Mulai</label>
-                <div class="mt-2">
-                    <input type="date" name="tgl_mulai" id="tgl_mulai" autocomplete="tgl_mulai" class="block pl-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->tgl_mulai }}">
+                <div class="sm:col-span-2">
+                    <label for="tgl_mulai" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Tanggal Mulai</label>
+                    <div class="mt-2">
+                        <input type="date" name="tgl_mulai" id="tgl_mulai" autocomplete="tgl_mulai" class="block pl-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->tgl_mulai }}">
+                    </div>
                 </div>
-            </div>
-            <div class="sm:col-span-2">
-                <label for="tgl_selesai" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Tanggal Selesai</label>
-                <div class="mt-2">
-                    <input type="date" name="tgl_selesai" id="tgl_selesai" autocomplete="tgl_selesai" class="block pl-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->tgl_selesai }}">
+                <div class="sm:col-span-2">
+                    <label for="tgl_selesai" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Tanggal Selesai</label>
+                    <div class="mt-2">
+                        <input type="date" name="tgl_selesai" id="tgl_selesai" autocomplete="tgl_selesai" class="block pl-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->tgl_selesai }}">
+                    </div>
                 </div>
-            </div>
-            <div class="sm:col-span-2">
-                <label for="semester" class="block text-sm font-poppins font-semibold leading-6 text-gray-90">semester</label>
+                <div class="sm:col-span-2">
+                    <label for="semester" class="block text-sm font-poppins font-semibold leading-6 text-gray-90">Semester</label>
                     <div class="mt-2">
                         <select id="semester" name="semester" autocomplete="semester" class="pl-1 block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ $value->semester }}">
                             <option value="gasal">Gasal</option>
                             <option value="genap">Genap</option>
+{{--                            @foreach(($data) as $semester)--}}
+{{--                                <option value="{{ $semester->value }}" {{ $semester->value == $value->semester ? 'selected' : '' }}>{{ ($semester->semester) }}</option>--}}
+{{--                            @endforeach--}}
                         </select>
                     </div>
                 </div>
-            <div class="sm:col-span-2" hidden>
-                <label for="status" class="block text-sm font-poppins font-semibold leading-6 text-gray-90">Status</label>
-                    <div class="mt-2">
-                        <select id="status" name="status" autocomplete="status" class="pl-1 block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                            <option value="Tidak aktif" selected>Tidak aktif</option>
-                            <option value="Aktif">Aktif</option>
-                            <option value="Lewat">Lewat</option>
-                        </select>
+                <div class="sm:col-span-2" hidden>
+                    <label for="status" class="block text-sm font-poppins font-semibold leading-6 text-gray-90">Status</label>
+                        <div class="mt-2">
+                            <select id="status" name="status" autocomplete="status" class="pl-1 block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                @foreach($data as $status)
+                                    <option value="{{ $status->status }}" {{ $status->status == $value->status ? 'selected' : '' }}>{{ $status->status }}</option>
+                                @endforeach
+                            </select>
+                        </div>
                     </div>
+                        <div class="sm:col-span-2 flex justify-center items-center">
+                            <button type="submit" class="flex justify-center w-3/6 rounded-md bg-custom-birumuda px-3 py-2 text-sm font-poppins font-semibold text-white shadow-sm hover:bg-custom-birutua focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                                <img class="flex justify-end align-bottom items-end" width="17" height="17" src="https://img.icons8.com/sf-black-filled/64/plus-math.png" alt="plus-math" style="filter: invert(100%);"/>
+                                <p class="ml-2">Simpan</p>
+                            </button>
+                        </div>
                 </div>
-                    <div class="sm:col-span-2 flex justify-center items-center">
-                        <button type="submit" class="flex justify-center w-3/6 rounded-md bg-custom-birumuda px-3 py-2 text-sm font-poppins font-semibold text-white shadow-sm hover:bg-custom-birutua focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                            <img class="flex justify-end align-bottom items-end" width="17" height="17" src="https://img.icons8.com/sf-black-filled/64/plus-math.png" alt="plus-math" style="filter: invert(100%);"/>
-                            <p class="ml-2">Simpan</p>
-                        </button>
-                    </div>
-                </form>
-            </div>
+            </form>
         </div>
     </div>
 </div>

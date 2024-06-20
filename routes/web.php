@@ -68,7 +68,7 @@ Route::group(['middleware' => ['cekUserLevel:admin'], 'prefix' => 'admin'], func
     // jadwal_kuliah delete
     Route::get('/jadwal_kelas/delete/{kode_jadwal_kuliah}', [Jadwal::class, 'hapusDataJadwalKuliah']);
 
-    
+
     // ======================================== DASHBOARD ========================================
     Route::get('/dashboard', [Jadwal::class, 'tampilDataDashboard']);
 
@@ -170,7 +170,7 @@ Route::group(['middleware' => ['cekUserLevel:admin'], 'prefix' => 'admin'], func
     Route::get('/tahun_akademik/delete/{id}', [Jadwal::class, 'hapusDataTahunAkademik'])->name('tahun_akademik.delete');
 
     // ======================================== AKTIVASI TAHUN AKADEMIK ========================================
-    Route::get('/aktivasi_tahun_akademik', [Jadwal::class, 'AktivasiTahunAkademik']);
+    Route::post('/aktivasi_tahun_akademik', [Jadwal::class, 'AktivasiTahunAkademik']);
 
 
     // ======================================== ENROLLMENT ========================================

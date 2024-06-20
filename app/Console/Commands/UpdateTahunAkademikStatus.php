@@ -32,6 +32,12 @@ class UpdateTahunAkademikStatus extends Command
             ->where('status', 'Tidak aktif')
             ->update(['status' => 'Aktif']);
 
+        $tahunAkademik = DB::table('tahun_akademik')
+            ->whereDate('tgl_mulai', '>', Carbon::today())
+            ->where('status', 'Aktif');
+
+
+
         DB::table('tahun_akademik')
             ->where('status' , 'Aktif')
             ->whereDate('tgl_selesai', '<', Carbon::today())

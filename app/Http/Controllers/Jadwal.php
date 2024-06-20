@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Mahasiswa;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -138,12 +139,25 @@ class Jadwal extends Controller
     public function tampilDataTahunAkademik()
     {
         $data = Tahun_akademik::all();
-        $tahunAktif = Tahun_akademik::where('status', 'aktif')->first();
-        return view('\admin\tahun_akademik', compact('data'), compact('tahunAktif'));
+        $tahunAktif = Tahun_akademik::where('status', 'Aktif')->first();
+
+        $semesterAktif = $tahunAktif ? $tahunAktif->semester : null;
+        $tahunAktif = $tahunAktif->tahun_akademik ?? null;
+
+        if (!$tahunAktif) {
+            return view('\admin\tahun_akademik', ['data' => $data, 'tahunAktif' => '(Tidak ada tahun akademik yang aktif.)', 'semesterAktif' => 'semesterAktif']);
+        }
+
+        return view('\admin\tahun_akademik', compact('data', 'tahunAktif', 'semesterAktif'));
     }
 
     public function tambahDataTahunAkademik(Request $request)
     {
+
+        if ($request->tgl_mulai > $request->tgl_selesai) {
+            return Redirect('/admin/tahun_akademik')->with('error', 'Tanggal Mulai tidak boleh lebih besar dari Tanggal Selesai');
+        }
+
         $data = new Tahun_akademik();
         $data->kode_tahun_akademik = $request->kode_tahun_akademik;
         $data->tahun_akademik = $request->tahun_akademik;
@@ -250,7 +264,7 @@ class Jadwal extends Controller
                 return redirect('admin/enrollment')->with('error', 'An error occurred while update data');
             }
         }
-        
+
     }
 
     public function hapusDataEnrollment($kode_enrollment){
@@ -270,7 +284,7 @@ class Jadwal extends Controller
             }
         }
 
-        
+
     }
 
 
@@ -281,12 +295,12 @@ class Jadwal extends Controller
            $dataJurusan = Jurusan::all();
            return view('admin/jenis_jurusan', compact('dataJurusan'));
        }
-   
+
        public function tampilJenisProdi(Request $request)
        {
            $kode_jurusan = $request->input('kode_jurusan');
            $dataProdi = Data_prodi::where('kode_jurusan', $kode_jurusan)->get();
-   
+
            return view('admin/jenis_prodi', compact('dataProdi'));
        }
        public function tampilJenisKelas($kode_prodi)
@@ -320,6 +334,8 @@ class Jadwal extends Controller
                                                 ->orderBy('kode_jam_awal', 'asc')
                                                 ->get();
         }
+
+//        dd($jadwalKuliah->enrollment->kode_mata_kuliah);
 
         return view('admin/jadwal_kelas', [
             'jadwalKuliah' => $jadwalKuliah,
@@ -362,12 +378,12 @@ class Jadwal extends Controller
         $dataRuang = Ruang::all();
         $dataJam = Jam::all();
         $dataTahunAkademik = Tahun_akademik::all();
-    
+
         $dataJadwalKuliah = JadwalKuliah::where('kode_jadwal_kuliah', $kode_jadwal_kuliah)->first();
-    
+
         return view('admin.jadwal_kelas.edit', compact('dataKelasMahasiswa', 'dataEnrollment', 'dataHari', 'dataRuang', 'dataJam', 'dataTahunAkademik', 'dataJadwalKuliah'));
     }
-    
+
     public function updateDataJadwalKuliah(Request $request)
     {
         try {
@@ -381,19 +397,19 @@ class Jadwal extends Controller
             $jadwalKuliah->kode_jam_awal = $request->kode_jam_awal;
             $jadwalKuliah->kode_jam_akhir = $request->kode_jam_akhir;
             $jadwalKuliah->save();
-            
+
             return redirect()->back()->with('update', 'Jadwal telah diupdate');
         } catch (\Exception $e) {
-    dd($e->getMessage());
+//    dd($e->getMessage());
     return redirect()->back()->with('error', 'An error occurred while updating data');
 }
     }
-    
+
 
     public function hapusDataJadwalKuliah(Request $request, $id)
     {
 
-        try {           
+        try {
             $data = Jadwal_kuliah::where('kode_jadwal_kuliah',$id)->first();
             $data->delete();
             return redirect()->back()->with('delete', 'Jadwal kuliah telah dihapus');
@@ -408,55 +424,83 @@ class Jadwal extends Controller
         }
     }
 
-    
+
 
     public function updateTingkatMahasiswa()
     {
         // Mendapatkan tahun akademik aktif
-        $tahunAktif = Tahun_akademik::where('status', 'aktif')->first();
+        $tahunAktif = Tahun_akademik::where('status', 'Aktif')->first();
         if (!$tahunAktif) {
-            return "Tidak ada tahun akademik yang aktif.";
+            return with("error", "Tidak ada tahun akademik yang aktif.");
         }
 
         // Mendapatkan semua tahun akademik dan membuat array index
-        $semuaTahun = Tahun_akademik::orderBy('tahun_akademik', 'asc')->pluck('tahun_akademik')->toArray();
-        if (!in_array($tahunAktif->tahun_akademik, $semuaTahun)) {
-            return "Tahun akademik aktif tidak ditemukan dalam daftar semua tahun akademik.";
+        $semuaTahun = Tahun_akademik::orderBy('kode_tahun_akademik', 'asc')->pluck('kode_tahun_akademik')->toArray();
+
+        if (!in_array($tahunAktif->kode_tahun_akademik, $semuaTahun)) {
+            return with("error", "Tahun akademik aktif tidak ditemukan dalam daftar semua tahun akademik.");
         }
 
-        // Mendapatkan index tahun akademik aktif
-        $indexTahunAktif = array_search($tahunAktif->tahun_akademik, $semuaTahun);
-
         // Mengupdate tingkat mahasiswa
-        DB::table('mahasiswa')->where('status', 'aktif')->orderBy('tahun_masuk', 'asc')->chunk(200, function ($mahasiswas) use ($semuaTahun, $indexTahunAktif) {
+        DB::enableQueryLog();
+        DB::table('mahasiswa')
+            ->where('status', 'Aktif')
+            ->orderBy('tahun_masuk', 'asc')
+            ->chunk(200, function ($mahasiswas) use ($semuaTahun) {
             foreach ($mahasiswas as $mahasiswa) {
+//                    dd($semuaTahun, $mahasiswas);
                 if (in_array($mahasiswa->tahun_masuk, $semuaTahun)) {
-                    $indexTahunMasuk = array_search($mahasiswa->tahun_masuk, $semuaTahun);
-                    $tingkat = $indexTahunAktif - $indexTahunMasuk + 1;
+                    $tahun_masuk = explode('-', $mahasiswa->tahun_masuk);
+                    $tahun_masuk = $tahun_masuk[0];
+
+                    $result = array_map(function($item) {
+                        $parts = explode("-", $item);
+                        return $parts[0];
+                    }, $semuaTahun);
+
+                    $semuaTahun = array_unique($result);
+                    $semuaTahun = array_values($semuaTahun);
+
+                    // Mendapatkan index tahun_masuk dan tahun_akademik aktif dalam array semuaTahun
+                    $tahunAkademikAktif = Tahun_akademik::where('status', 'Aktif')->first();
+                    $tahunAkademikAktif = $tahunAkademikAktif->tahun_akademik;
+                    $tahunAktif = explode('-', $tahunAkademikAktif);
+                    $tahunAktif = $tahunAktif[0];
+
+                    $indexTahunMasuk = array_search($tahun_masuk, $semuaTahun);
+                    $indexTahunAktif = array_search($tahunAktif, $semuaTahun);
+
+                    $tingkat = ($indexTahunAktif - $indexTahunMasuk) + 1;
+//                    dd($tahun_masuk, $indexTahunMasuk, $tingkat);
                     DB::table('mahasiswa')
                         ->where('id', $mahasiswa->id)
                         ->update(['tingkat' => $tingkat]);
                 }
+                else {
+                    return "halo";
+                }
             }
+//            dd(DB::getQueryLog());
         });
 
-        return "Tingkat mahasiswa telah diperbarui berdasarkan tahun akademik aktif.";
+//        return "Tingkat mahasiswa telah diperbarui berdasarkan tahun akademik aktif.";
     }
 
     public function AktivasiTahunAkademik(Request $request)
     {
-        Tahun_akademik::query()->update(['status' => 'tidak aktif']);
+        Tahun_akademik::query()->update(['status' => 'Tidak Aktif']);
 
         // aktifkan tahun akademik yang dipilih
         $tahunAktif = Tahun_akademik::where('tahun_akademik', $request->tahun_akademik)->first();
+//        dd($tahunAktif);
         if ($tahunAktif) {
-            $tahunAktif->status = 'aktif';
+            $tahunAktif->status = 'Aktif';
             $tahunAktif->save();
 
             // jalankan fungsi updateTingkatMahasiswa
             $this->updateTingkatMahasiswa();
 
-            return redirect('/admin/tahun_akademik');
+            return redirect('/admin/tahun_akademik')->with('success', 'Tahun akademik ' . $request->tahun_akademik . ' telah diaktifkan.');
         } else {
             return "Tahun akademik $request->tahun_akademik tidak ditemukan.";
         }

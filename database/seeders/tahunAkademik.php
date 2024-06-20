@@ -21,7 +21,7 @@ class tahunAkademik extends Seeder
                 'tgl_mulai' => '2021-09-01',
                 'tgl_selesai' => '2022-02-28',
                 'semester' => 'Gasal',
-//                'status' => 'aktif'
+                'status' => 'Tidak aktif'
             ],
             [
                 'kode_tahun_akademik' => '2021/2022-2',
@@ -29,6 +29,7 @@ class tahunAkademik extends Seeder
                 'tgl_mulai' => '2022-03-01',
                 'tgl_selesai' => '2022-08-31',
                 'semester' => 'Genap',
+                'status' => 'Tidak aktif'
             ],
             [
                 'kode_tahun_akademik' => '2022/2023-1',
@@ -36,6 +37,7 @@ class tahunAkademik extends Seeder
                 'tgl_mulai' => '2022-09-01',
                 'tgl_selesai' => '2022-02-28',
                 'semester' => 'Gasal',
+                'status' => 'Aktif'
             ],
             [
                 'kode_tahun_akademik' => '2022/2023-2',
@@ -43,6 +45,7 @@ class tahunAkademik extends Seeder
                 'tgl_mulai' => '2023-03-01',
                 'tgl_selesai' => '2023-08-31',
                 'semester' => 'Genap',
+                'status' => 'Tidak aktif'
             ],
 
 
