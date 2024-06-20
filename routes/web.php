@@ -10,10 +10,8 @@ use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\DosenController;
 use App\Http\Controllers\MataKuliah;
 use App\Http\Controllers\jamController;
-use App\Http\Controllers\tahunakademikController;
-use App\Http\Controllers\JadwalKuliah;
-use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\jurusanController;
+use App\Http\Controllers\PDFController;
 
 
 
@@ -194,6 +192,9 @@ Route::group(['middleware' => ['cekUserLevel:admin'], 'prefix' => 'admin'], func
 
     // ======================================== upload data ========================================
     Route::post('/upload', [CsvImportController::class, 'upload']);
+
+    // ======================================== PDF ========================================
+    Route::get('/pdf', [PDFController::class, 'index']);
 
 });
 
