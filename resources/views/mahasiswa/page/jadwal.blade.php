@@ -29,12 +29,11 @@
     </div>
 
     <script>
-      
       $(document).ready(function() {
         mobiscroll.setOptions({
-          locale: mobiscroll.localeEn, // Specify language like: locale: mobiscroll.localePl or omit setting to use default
-          theme: "ios", // Specify theme like: theme: 'ios' or omit setting to use default
-          themeVariant: "light", // More info about themeVariant: https://mobiscroll.com/docs/jquery/eventcalendar/api#opt-themeVariant
+          locale: mobiscroll.localeEn,
+          theme: "ios",
+          themeVariant: "light",
         });
 
         var inst = $("#demo-responsive-month-view")
@@ -56,10 +55,23 @@
             },
           })
           .mobiscroll("getInst");
+      });
+    </script>
 
-        $.getJSON("https://trial.mobiscroll.com/events/?vers=5&callback=?", function (events) {
-          inst.setEvents(events);
-        }, "jsonp");
+    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mobiscroll/eventcalendar/dist/js/mobiscroll.jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@mobiscroll/eventcalendar/dist/css/mobiscroll.jquery.min.css" rel="stylesheet">
+
+    <script>
+      $(document).ready(function() {
+        // Mengambil data JSON dari file data.json
+        $.getJSON('data.json', function(data) {
+          // Menginisialisasi EventCalendar
+          $('#demo-responsive-month-view').eventCalendar({
+            jsonData: data,
+            jsonDateFormat: 'human',
+          });
+        });
       });
     </script>
 @endsection
