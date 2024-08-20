@@ -106,3 +106,38 @@ document
             document.body.classList.remove("overflow-hidden");
         });
     });
+
+// Parsing data tabel menjadi JSON
+var table = $("#myTable").DataTable();
+var data = table.rows().data().toArray();
+var jsonData = JSON.stringify(data);
+
+// Menyimpan JSON ke dalam file atau variabel
+
+// Contoh menyimpan JSON ke dalam file
+// Anda perlu mengirimkan data JSON ke server untuk disimpan ke dalam file
+// Misalnya, menggunakan AJAX untuk mengirim data JSON ke endpoint server
+$.ajax({
+    url: "save_json.php", // Ganti dengan URL endpoint Anda
+    method: "POST",
+    contentType: "application/json",
+    data: jsonData,
+    success: function (response) {
+        console.log("JSON data saved successfully");
+    },
+    error: function (xhr, status, error) {
+        console.error("Failed to save JSON data:", error);
+    },
+});
+
+// Menampilkan JSON di file lain dengan library EventCalendar
+$(document).ready(function () {
+    // Mengambil data JSON dari file atau server
+    $.getJSON("data.json", function (data) {
+        // Menginisialisasi EventCalendar
+        $("#calendar").eventCalendar({
+            jsonData: data,
+            jsonDateFormat: "human", // Format tanggal yang digunakan dalam data JSON
+        });
+    });
+});
