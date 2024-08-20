@@ -337,6 +337,21 @@ class Jadwal extends Controller
 
 //        dd($jadwalKuliah->enrollment->kode_mata_kuliah);
 
+        session([
+            'kodeKelas' => $kodeKelas,
+            'dataKelasMahasiswa' => $dataKelasMahasiswa,
+            'dataEnrollment' => $dataEnrollment,
+            'dataHari' => $dataHari,
+            'dataRuang' => $dataRuang,
+            'dataJam' => $dataJam,
+            'jadwalKuliah' => $jadwalKuliah,
+            'dataTahunAkademik' => $dataTahunAkademik,
+        ]);
+
+//        dd($kodeKelas);
+
+//        dd($jadwalKuliah);
+
         return view('admin/jadwal_kelas', [
             'jadwalKuliah' => $jadwalKuliah,
             'kodeKelas' => $kodeKelas,

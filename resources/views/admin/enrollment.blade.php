@@ -46,6 +46,7 @@
                                 <label for="kode_dosen" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Dosen</label>
                                 <div class="mt-2">
                                     <select id="kode_dosen" name="kode_dosen" class="block pl-1 w-3/4 rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required>
+                                        <option value="">== Pilih Dosen ==</option>
                                         @foreach($dataDosen as $dosen)
                                             <option value="{{ $dosen->kode_dosen }}">{{ $dosen->nama }}</option>
                                         @endforeach
@@ -56,6 +57,7 @@
                                 <label for="kode_mata_kuliah" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Kode Matkul</label>
                                 <div class="mt-2">
                                     <select id="kode_mata_kuliah" name="kode_mata_kuliah" class="block pl-1 w-3/4 rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required>
+                                        <option value="">== Pilih Mata Kuliah ==</option>
                                         @foreach($dataMatkul as $matkul)
                                             <option value="{{ $matkul->kode_mata_kuliah }}">{{ $matkul->nama_mata_kuliah }}</option>
                                         @endforeach
@@ -77,8 +79,8 @@
                         <tr>
                             <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">No</th>
                             <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Kode Enrollment</th>
-                            <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Kode Dosen</th>
-                            <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Kode Matkul</th>
+                            <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Dosen</th>
+                            <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Mata Kuliah</th>
                             <th class="px-4 py-2 bg-custom-birutua font-poppins font-semibold text-custom-putih">Aksi</th>
                         </tr>
                     </thead>

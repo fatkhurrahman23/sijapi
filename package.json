@@ -70,6 +70,7 @@
         "glob": "^10.3.10",
         "glob-parent": "^6.0.2",
         "hasown": "^2.0.2",
+        "html2canvas": "^1.4.1",
         "is-binary-path": "^2.1.0",
         "is-core-module": "^2.13.1",
         "is-extglob": "^2.1.1",

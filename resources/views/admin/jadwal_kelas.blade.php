@@ -67,12 +67,12 @@
                             <div class="sm:col-span-2">
                                 <label for="kode_tahun_akademik" class="block text-sm font-poppins font-semibold leading-6 text-gray-900">Tahun Akademik</label>
                                 <div class="mt-2">
-                                    <select id="tahun_akademik" name="tahun_akademik" class="pl-1 block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required>
+                                    <select id="tahun_akademik" name="kode_tahun_akademik" class="pl-1 block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required>
                                     <option value=""> -- Pilih Tahun Akademik --</option>
-                                    @foreach($dataTahunAkademik as $tahun)
-                                        <option value="{{ $tahun->tahun_akademik }}">
-                                            {{ $tahun->tahun_akademik }}
-                                        </option>
+                                        @foreach($dataTahunAkademik as $tahun)
+                                            <option value="{{ $tahun->kode_tahun_akademik }}">
+                                                {{ $tahun->kode_tahun_akademik }}
+                                            </option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -147,6 +147,7 @@
                             </div>
                         </div>
                     </form>
+    <a href="/admin/pdf/{{ $kodeKelas }}" class="btn btn-primary flex place-self-center justify-center w-3/6 rounded-md bg-custom-birumuda px-3 py-2 text-sm font-poppins font-semibold text-white shadow-sm hover:bg-custom-birutua focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" ">Generate Jadwal PDF</a>
                     <div class="overflow-x-auto pb-12 px-8  my-7 py-7 bg-custom-abu rounded-2xl">
     <label for="selectDay">Pilih Hari:</label>
     @php

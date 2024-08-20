@@ -49,6 +49,55 @@ class dosen extends Seeder
                 'no_telp' => '08987654321',
                 'kode_prodi' => 'IK',
             ],
+            [
+                'kode_dosen' => 'D005',
+                'nip' => '197904262003122002',
+                'nama' => 'Ir. Kurnianingsih, S.T., M.T.',
+                'alamat' => 'Jl. Merdeka 123',
+                'no_telp' => '08123456789',
+                'kode_prodi' => 'TI',
+            ],
+            [
+                'kode_dosen' => 'D006',
+                'nip' => '199107302019031010',
+                'nama' => '	NURSENO BAYU AJI , S.Kom., M.Kom.',
+                'alamat' => 'Jl. Sudirman 456',
+                'no_telp' => '08987654321',
+                'kode_prodi' => 'TI',
+            ],
+            [
+                'kode_dosen' => 'D007',
+                'nip' => '198703272019032012',
+                'nama' => 'WIKTASARI , S.T., M.Kom.',
+                'alamat' => 'Jl. Merdeka 123',
+                'no_telp' => '08123456789',
+                'kode_prodi' => 'TI',
+            ],
+            [
+                'kode_dosen' => 'D008',
+                'nip' => '198407192019031008',
+                'nama' => 'KUWAT SANTOSO , S.T., M.Kom.',
+                'alamat' => 'Jl. Sudirman 456',
+                'no_telp' => '08987654321',
+                'kode_prodi' => 'IK',
+            ],
+            [
+                'kode_dosen' => 'D009',
+                'nip' => '197112042000032001',
+                'nama' => 'NUR HIDAYATI , S.H., M.H.',
+                'alamat' => 'Jl. Merdeka 123',
+                'no_telp' => '08123456789',
+                'kode_prodi' => 'TI',
+            ],
+            [
+                'kode_dosen' => 'D010',
+                'nip' => '199209092020121007',
+                'nama' => 'MUTTABIK FATHUL LATHIEF S.Kom., M.Eng.',
+                'alamat' => 'Jl. Sudirman 456',
+                'no_telp' => '08987654321',
+                'kode_prodi' => 'IK',
+            ],
+
         ];
 
         // insert data ke dalam tabel dosen

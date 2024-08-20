@@ -15,4 +15,9 @@ class User extends Authenticatable
     protected $primarykey = 'uuid';
     protected $fillable = ['uuid' ,'username', 'password', 'level'];
 
+
+    public static function insertData(array $data)
+    {
+        return self::create($data);
+    }
 }

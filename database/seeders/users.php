@@ -17,24 +17,31 @@ class users extends Seeder
     {
         //tabel uuid, username, password, level
         DB::table('users')->insert([
+//            [
+//                'uuid' => (string) Str::uuid(),
+//                'username' => 'admin',
+//                'password' => Hash::make('admin'), // Hash the password
+//                'level' => 'admin'
+//            ],
+//            [
+//                'uuid' => (string) Str::uuid(),
+//                'username' => 'dosen',
+//                'password' => Hash::make('dosen'), // Hash the password
+//                'level' => 'dosen'
+//            ],
+//            [
+//                'uuid' => (string) Str::uuid(),
+//                'username' => 'mahasiswa',
+//                'password' => Hash::make('mahasiswa'), // Hash the password
+//                'level' => 'mahasiswa'
+//            ],
+
             [
                 'uuid' => (string) Str::uuid(),
-                'username' => 'admin',
-                'password' => Hash::make('admin'), // Hash the password
-                'level' => 'admin'
-            ],
-            [
-                'uuid' => (string) Str::uuid(),
-                'username' => 'dosen',
-                'password' => Hash::make('dosen'), // Hash the password
+                'username' => '198703272019032012',
+                'password' => Hash::make('198703272019032012'), // Hash the password
                 'level' => 'dosen'
-            ],
-            [
-                'uuid' => (string) Str::uuid(),
-                'username' => 'mahasiswa',
-                'password' => Hash::make('mahasiswa'), // Hash the password
-                'level' => 'mahasiswa'
-            ],
+            ]
         ]
 
         );

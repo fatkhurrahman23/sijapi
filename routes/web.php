@@ -194,7 +194,8 @@ Route::group(['middleware' => ['cekUserLevel:admin'], 'prefix' => 'admin'], func
     Route::post('/upload', [CsvImportController::class, 'upload']);
 
     // ======================================== PDF ========================================
-    Route::get('/pdf', [PDFController::class, 'index']);
+    Route::get('/pdf/{kode_kelas}', [PDFController::class, 'index']);
+    Route::get('/generate-pdf', [PDFController::class, 'generatePDF']);
 
 });
 

@@ -46,7 +46,7 @@ class CsvImportController extends Controller
 
             $uuid = (string) \Illuminate\Support\Str::uuid();
 
-            User::create([
+            User::insertData([
                 'uuid' => $uuid,
                 'username' => $record['nim'],
                 'password' => Hash::make($record['nim'])

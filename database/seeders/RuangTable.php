@@ -22,7 +22,32 @@ class RuangTable extends Seeder
             [
                 'kode_ruang' => 'MST-03-04',
                 'nama_ruang' => 'Gedung Magister lantai 03 ruang 04'
-            ]
+            ],
+            [
+                'kode_ruang' => 'MST-03-05',
+                'nama_ruang' => 'Gedung Magister lantai 03 ruang 05'
+            ],
+            [
+                'kode_ruang' => 'MST-03-06',
+                'nama_ruang' => 'Gedung Magister lantai 03 ruang 06'
+            ],
+            [
+                'kode_ruang' => 'MST-02-01B',
+                'nama_ruang' => 'Gedung Magister lantai 02 ruang 01B'
+            ],
+            [
+                'kode_ruang' => 'GKT-08-06',
+                'nama_ruang' => 'Gedung Kuliah Terpadu lantai 08 ruang 06'
+            ],
+            [
+                'kode_ruang' => 'GKT-08-07',
+                'nama_ruang' => 'Gedung Kuliah Terpadu lantai 08 ruang 07'
+            ],
+            [
+                'kode_ruang' => 'LAB MULTIMEDIA',
+                'nama_ruang' => 'Laboratorium Multimedia Gedung SB lantai 02'
+            ],
+
         ];
 
         // insert data ke dalam tabel ruang

@@ -21,7 +21,6 @@ class mataKuliah extends Seeder
         $data = [
             [
                 'kode_mata_kuliah' => 'MK001',
-                // 'kode_kelas' => 'TI-2A',
                 'nama_mata_kuliah' => 'Pemrograman Web',
                 'sks' => 3,
                 'semester' => 4,
@@ -29,16 +28,72 @@ class mataKuliah extends Seeder
             ],
             [
                 'kode_mata_kuliah' => 'MK002',
-                // 'kode_kelas' => 'TI-2A',
                 'nama_mata_kuliah' => 'Pemrograman Mobile',
                 'sks' => 3,
                 'semester' => 4,
                 'jenis' => 'genap',
             ],
+            [
+                'kode_mata_kuliah' => 'MK003',
+                'nama_mata_kuliah' => 'Pemrograman Desktop',
+                'sks' => 3,
+                'semester' => 4,
+                'jenis' => 'gasal',
+            ],
+            [
+                'kode_mata_kuliah' => 'MK004',
+                'nama_mata_kuliah' => 'Pemrograman Game',
+                'sks' => 3,
+                'semester' => 4,
+                'jenis' => 'genap',
+            ],
+            [
+                'kode_mata_kuliah' => 'MK005',
+                'nama_mata_kuliah' => 'Pengolahan Citra',
+                'sks' => 3,
+                'semester' => 4,
+                'jenis' => 'gasal',
+            ],
+            [
+                'kode_mata_kuliah' => 'MK006',
+                'nama_mata_kuliah' => 'Keamanan Jaringan',
+                'sks' => 3,
+                'semester' => 4,
+                'jenis' => 'genap',
+            ],
+            [
+                'kode_mata_kuliah' => 'MK007',
+                'nama_mata_kuliah' => 'Pembelajaran Mesin',
+                'sks' => 3,
+                'semester' => 4,
+                'jenis' => 'gasal',
+            ],
+            [
+                'kode_mata_kuliah' => 'MK008',
+                'nama_mata_kuliah' => 'Interoperabilitas',
+                'sks' => 3,
+                'semester' => 4,
+                'jenis' => 'genap',
+            ],
+            [
+                'kode_mata_kuliah' => 'MK009',
+                'nama_mata_kuliah' => 'Pemrograman Web Berbasis Framework',
+                'sks' => 3,
+                'semester' => 4,
+                'jenis' => 'gasal',
+            ],
+            [
+                'kode_mata_kuliah' => 'MK010',
+                'nama_mata_kuliah' => 'Pancasila',
+                'sks' => 3,
+                'semester' => 4,
+                'jenis' => 'genap',
+            ],
+
         ];
 
         // insert data ke dalam tabel mata_kuliah
         DB::table('mata_kuliah')->insert($data);
-        
+
     }
 }
